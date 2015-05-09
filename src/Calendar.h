@@ -68,7 +68,7 @@ public:
     QDate getDateDisponibilite() const {  return disponibilite; }
     QDate getDateEcheance() const {  return echeance; }
     void setDatesDisponibiliteEcheance(const QDate& disp, const QDate& e) {
-        if (e<disp) throw CalendarException("erreur Tâche : date echéance < date disponibilité");
+        if (e<disp) throw CalendarException("erreur Tâche : date echeance < date disponibilite");
         disponibilite=disp; echeance=e;
     }
     bool isPreemptive() const { return preemptive; }
@@ -93,7 +93,7 @@ private:
 	struct Handler{
 		TacheManager* instance;
 		Handler():instance(0){}
-		// destructeur appelé à la fin du programme
+        // destructeur appele à la fin du programme
 		~Handler(){ if (instance) delete instance; }
 	};
 	static Handler handler;
@@ -162,6 +162,7 @@ public:
 		friend class TacheManager;
 	public:
         iterator():current(0){}
+
 		Tache& operator*() const { return **current; }
 		bool operator!=(iterator it) const { return current!=it.current; }
 		iterator& operator++(){ ++current; return *this; }

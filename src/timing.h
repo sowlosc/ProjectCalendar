@@ -6,40 +6,40 @@
 
 namespace TIME {
 	/*! \class TimeException
-			\brief Classe permettant de gérer les exceptions des classes du namespace TIME 		
+            \brief Classe permettant de gerer les exceptions des classes du namespace TIME
 	*/
 	class TimeException{
 	public:
 		//! Constructeur à partir d'une string
 		TimeException(const std::string& m):info(m){}
-		const std::string& GetInfo() const { return info; } //<! Retourne l'information stockée dans la classe
+        const std::string& GetInfo() const { return info; } //<! Retourne l'information stockee dans la classe
 	private:
 		std::string info;
 	};
 
 	/*! \class Date
 			\brief Classe permettant de manipuler des dates standards 		
-			L'utilisation de cette classe nécessite des dates valides au sens commun du terme. 
-			Déclenchement d'exception dans le cas contraire
+            L'utilisation de cette classe necessite des dates valides au sens commun du terme.
+            Declenchement d'exception dans le cas contraire
 	*/	
 	class Date {
 	public:
-		//! Constructeur à partir d'un jour, mois, année
+        //! Constructeur à partir d'un jour, mois, annee
 		/*! \param j jour avec 1<=j<=31
 			\param m mois avec 1<=m<=12
-			\param a année avec a>=0
+            \param a annee avec a>=0
 			*/
 		Date(unsigned int short j=1, unsigned int short m=1, unsigned int a=0):jour(1),mois(1),annee(0){ setDate(j,m,a); }
-		// méthodes
+        // methodes
 		unsigned short int  getJour() const { return jour; } //<! Retourne le jour de la date
 		unsigned short int  getMois() const { return mois; } //<! Retourne le mois de la date
-		unsigned int getAnnee() const { return annee; } //<! Retourne l'année de la date
+        unsigned int getAnnee() const { return annee; } //<! Retourne l'annee de la date
 		void setDate(unsigned short int j, unsigned short int m, unsigned int a); //!< initialisation de la date
 		void setDateAujourdhui(); //!< initialisation de la date avec la date d'aujourd'hui
 		void afficher(std::ostream& f=std::cout) const; //!< affiche le date sous le format JJ/MM/AAAA
-		bool operator==(const Date& d) const; //<! d1==d2 retourne vrai si les deux dates sont égales
+        bool operator==(const Date& d) const; //<! d1==d2 retourne vrai si les deux dates sont egales
 		bool operator<(const Date& d) const; //<! Compare deux dates dans le temps : d1<d2 retourne true si d1 est avant d2
-		int operator-(const Date& d) const; //<! Retourne le nombre de jours séparant les deux dates
+        int operator-(const Date& d) const; //<! Retourne le nombre de jours separant les deux dates
 		Date demain() const; //<! Retourne la date du lendemain
 		Date operator+(unsigned int nb) const; //<!Retourne la date de dans nb jours
 	private:
@@ -51,8 +51,8 @@ namespace TIME {
 
 	/*! \class Duree
 			\brief Classe permettant de manipuler des durees	
-			L'utilisation de cette classe nécessite des dates valides au sens commun du terme. 
-			Déclenchement d'exception dans le cas contraire
+            L'utilisation de cette classe necessite des dates valides au sens commun du terme.
+            Declenchement d'exception dans le cas contraire
 	*/	
 	class Duree{
 	public:
@@ -75,8 +75,8 @@ namespace TIME {
 
 	/*! \class Horaire
 			\brief Classe permettant de manipuler des horaires	
-			L'utilisation de cette classe nécessite des dates valides au sens commun du terme. 
-			Déclenchement d'exception dans le cas contraire
+            L'utilisation de cette classe necessite des dates valides au sens commun du terme.
+            Declenchement d'exception dans le cas contraire
 	*/	
 	class Horaire{
 	public:
@@ -96,16 +96,16 @@ namespace TIME {
 	};
 
 	/*! \class Periode
-			\brief Classe permettant de manipuler des periodes exprimées en jours/mois/années	
-			L'utilisation de cette classe nécessite des dates valides au sens commun du terme. 
-			Déclenchement d'exception dans le cas contraire
+            \brief Classe permettant de manipuler des periodes exprimees en jours/mois/annees
+            L'utilisation de cette classe necessite des dates valides au sens commun du terme.
+            Declenchement d'exception dans le cas contraire
 	*/	
 	class Periode{
 	public :
-		//! Constructeur à partir de jour/mois/année
+        //! Constructeur à partir de jour/mois/annee
 		/*! \param j nombre de jours avec 0<=j<=364
 			\param m nombre de mois avec 0<=m<=11
-			\param a nombre d'années 
+            \param a nombre d'annees
 			*/
 		Periode(unsigned int j, unsigned int m, unsigned int a);
 		void afficher(std::ostream& f=std::cout) const { f<<"{"<<nb_jours<<" jours, "<<nb_mois<<" mois, "<<nb_annees<<" ans}"; }
@@ -117,20 +117,20 @@ namespace TIME {
 
 	/*! \class Intervalle
 			\brief Classe permettant de manipuler des intervalles de dates
-			L'utilisation de cette classe nécessite des dates valides au sens commun du terme. 
-			Déclenchement d'exception dans le cas contraire
+            L'utilisation de cette classe necessite des dates valides au sens commun du terme.
+            Declenchement d'exception dans le cas contraire
 	*/	
 	class Intervalle{
 	public:
 		//! Constructeur à partir de deux dates
-		/*! \param d date de début de l'intervalle
+        /*! \param d date de debut de l'intervalle
 			\param f date de fin de l'intervalle. On doit avoir d<=f
 			*/
 		Intervalle(const Date & d, const Date & f);
 		void afficher(std::ostream& f=std::cout) const; //<! Affiche l'intervalle de dates
-		Date getDebut() const { return debut; } //<! Retourne la date de début de l'intervalle
+        Date getDebut() const { return debut; } //<! Retourne la date de debut de l'intervalle
 		Date getFin() const { return fin; } //<! Retourne la date de fin de l'intervalle
-		int getDuree() const { return fin-debut; } //<! Retourne le nombre de jours s'écoulant entre le début et la fin de l'intervalle
+        int getDuree() const { return fin-debut; } //<! Retourne le nombre de jours s'ecoulant entre le debut et la fin de l'intervalle
 		bool operator&&(const Intervalle & v) const; //<! I1&&I2 Retourne vrai si il y a intersection entre I1 et I2
 		Intervalle operator + (const Intervalle & i) const; //<! I1+I2 Retourne un intervalle union des 2 intervalles I1 et I2 qui se touchent, ie I2.debut est le jour du lendemain de I1.fin
 	private:
