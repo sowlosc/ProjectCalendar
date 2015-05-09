@@ -11,7 +11,8 @@ QT += xml
 SOURCES += \
     src/main.cpp \
     src/Calendar.cpp \
-    src/timing.cpp
+    src/timing.cpp \
+    src/projet.cpp
 
 #QT       += core
 
@@ -29,4 +30,5 @@ SOURCES += \
 
 HEADERS += \
     src/Calendar.h \
-    src/timing.h
+    src/timing.h \
+    src/projet.h
