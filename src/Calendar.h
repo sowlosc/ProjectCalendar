@@ -3,49 +3,14 @@
 #include <QString>
 #include <QDate>
 #include <QTextStream>
+#include "exception.h"
+#include "projet.h"
 using namespace std;
 
-class CalendarException{
-public:
-    CalendarException(const QString& message):info(message){}
-    QString getInfo() const { return info; }
-private:
-    QString info;
-};
-
-
-/*! \class Duree
-        \brief Classe permettant de manipuler des durees
-        L'utilisation de cette classe necessite des dates valides au sens commun du terme.
-        Declenchement d'exception dans le cas contraire
-*/
-class Duree{
-public:
-    //! Constructeur ? partir de heure et minute
-    /*! \param h heure avec h>=0
-        \param m minute avec 0<=m<=59
-        */
-    Duree(unsigned int h, unsigned int m):nb_minutes(h*60+m) {if (m>59) throw CalendarException("erreur: initialisation duree invalide");}
-    //! Constructeur ? partir de minute
-    /*! \param m minute avec m>=0
-        */
-    Duree(unsigned int m=0):nb_minutes(m) {}
-    void setDuree(unsigned int minutes) { nb_minutes=minutes; }
-    void setDuree(unsigned int heures, unsigned int minutes) { if (heures==0 && minutes>59) throw CalendarException("erreur: initialisation duree invalide"); nb_minutes=heures*60+minutes; }
-    unsigned int getDureeEnMinutes() const { return nb_minutes; } //<!Retourne la duree en minutes
-    double getDureeEnHeures() const { return double(nb_minutes)/60; } //<!Retourne la duree en heures
-    unsigned int getMinute() const { return nb_minutes%60; }
-    unsigned int getHeure() const { return nb_minutes/60; }
-    void afficher(QTextStream& f) const; //<!Affiche la duree sous le format hhHmm
-private:
-    unsigned int nb_minutes;
-};
-
-QTextStream& operator<<(QTextStream& f, const Duree & d);
-QTextStream& operator>>(QTextStream&, Duree&); //lecture format hhHmm
 
 
 
+/*
 class Tache {
     QString identificateur;
     QString titre;
@@ -76,8 +41,8 @@ public:
     void setNonPreemptive() { preemptive=false; }
 };
 
-QTextStream& operator<<(QTextStream& f, const Tache& t);
-
+QTextStream& operator<<(QTextStream& f, const Tache& t);*/
+/*
 class TacheManager {
 private:
 	Tache** taches;
@@ -212,32 +177,7 @@ public:
     DisponibiliteFilterIterator getDisponibiliteFilterIterator(const QDate& d) {
 		return DisponibiliteFilterIterator(taches,nb,d); 
 	}
-};
+};*/
 
-class Programmation {
-	const Tache* tache;
-    QDate date;
-    QTime horaire;
-public:
-    Programmation(const Tache& t, const QDate& d, const QTime& h):tache(&t), date(d), horaire(h){}
-	const Tache& getTache() const { return *tache; }
-    QDate getDate() const { return date; }
-    QTime getHoraire() const { return horaire; }
-};
-
-class ProgrammationManager {
-private:
-	Programmation** programmations;
-	unsigned int nb;
-	unsigned int nbMax;
-	void addItem(Programmation* t);
-	Programmation* trouverProgrammation(const Tache& t) const;
-public:
-	ProgrammationManager();
-	~ProgrammationManager();
-	ProgrammationManager(const ProgrammationManager& um);
-	ProgrammationManager& operator=(const ProgrammationManager& um);
-    void ajouterProgrammation(const Tache& t, const QDate& d, const QTime& h);
-};
 
 #endif

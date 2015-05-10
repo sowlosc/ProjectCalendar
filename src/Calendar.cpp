@@ -4,55 +4,12 @@
 #include <QtXml>
 #include <QMessageBox>
 
-QTextStream& operator<<(QTextStream& f, const Duree & d){ d.afficher(f); return f; }
-
-QTextStream& operator>>(QTextStream& flot, Duree& duree){
-    unsigned int h,m;
-    bool ok=true;
-    flot>>h;
-    if (flot.status()!=QTextStream::Ok) ok=false;
-
-    if(flot.read(1)=="H") {
-        flot>>m;
-        if (flot.status()!=QTextStream::Ok) ok=false;
-    }
-    else {
-        ok=false;
-    }
-    if (ok) duree=Duree(h,m);
-    return flot;
-}
 
 
- void Duree::afficher(QTextStream& f) const {
-     f.setPadChar('0');
-     f.setFieldWidth(2);
-     f<<nb_minutes/60;
-     f.setFieldWidth(0);
-     f<<"H";
-     f.setFieldWidth(2);
-     f<<nb_minutes%60;
-     f.setFieldWidth(0);
-     f.setPadChar(' ');
- }
 
 
-QTextStream& operator<<(QTextStream& fout, const Tache& t){
-	fout<<t.getId()<<"\n";
-	fout<<t.getTitre()<<"\n";
-	fout<<t.getDuree()<<"\n";
-    fout<<t.getDateDisponibilite().toString()<<"\n";
-    fout<<t.getDateEcheance().toString()<<"\n";
-	return fout;
-}
 
-QTextStream& operator<<(QDataStream& f, const Programmation& p);
-
-void Tache::setId(const QString& str){
-  if (TacheManager::getInstance().isTacheExistante((str))) throw CalendarException("erreur TacheManager : tache id deja existante");
-  identificateur=str;
-}
-
+/*
 
 TacheManager::TacheManager():taches(0),nb(0),nbMax(0){}
 void TacheManager::addItem(Tache* t){
@@ -131,7 +88,7 @@ void TacheManager::load(const QString& f){
                 bool preemptive;
 
                 QXmlStreamAttributes attributes = xml.attributes();
-                /* Let's check that Task has attribute. */
+                // Let's check that Task has attribute.
                 if(attributes.hasAttribute("preemptive")) {
                     QString val =attributes.value("preemptive").toString();
                     preemptive=(val == "true" ? true : false);
@@ -230,51 +187,8 @@ TacheManager& TacheManager::getInstance(){
 void TacheManager::libererInstance(){
 	if (handler.instance!=0) delete handler.instance;
 	handler.instance=0;
-}
+}*/
 //******************************************************************************************
-
-ProgrammationManager::ProgrammationManager():programmations(0),nb(0),nbMax(0){}
-void ProgrammationManager::addItem(Programmation* t){
-	if (nb==nbMax){
-		Programmation** newtab=new Programmation*[nbMax+10];
-		for(unsigned int i=0; i<nb; i++) newtab[i]=programmations[i];
-		// ou memcpy(newtab,Programmations,nb*sizeof(Programmation*));
-		nbMax+=10;
-		Programmation** old=programmations;
-		programmations=newtab;
-		delete[] old;
-	}
-	programmations[nb++]=t;
-}
-
-Programmation* ProgrammationManager::trouverProgrammation(const Tache& t)const{
-	for(unsigned int i=0; i<nb; i++)
-		if (&t==&programmations[i]->getTache()) return programmations[i];
-	return 0;
-}
-
-void ProgrammationManager::ajouterProgrammation(const Tache& t, const QDate& d, const QTime& h){
-	if (trouverProgrammation(t)) throw CalendarException("erreur, ProgrammationManager, Programmation deja existante");	
-	Programmation* newt=new Programmation(t,d,h);
-	addItem(newt);
-}
-
-
-ProgrammationManager::~ProgrammationManager(){
-	for(unsigned int i=0; i<nb; i++) delete programmations[i];
-	delete[] programmations;
-}
-
-ProgrammationManager::ProgrammationManager(const ProgrammationManager& um):nb(um.nb),nbMax(um.nbMax), programmations(new Programmation*[um.nb]){
-	for(unsigned int i=0; i<nb; i++) programmations[i]=new Programmation(*um.programmations[i]);
-}
-
-ProgrammationManager& ProgrammationManager::operator=(const ProgrammationManager& um){
-	if (this==&um) return *this;
-	this->~ProgrammationManager();
-	for(unsigned int i=0; i<um.nb; i++) addItem(new Programmation(*um.programmations[i]));
-	return *this;
-}
 
 /*
 	const Tache* tache;

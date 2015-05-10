@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>ProjectCalendar: CalendarException Class Reference</title>
+<title>ProjectCalendar: /home/matthieu/ProjectCalendar/ProjectCalendar/src/exception.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -39,8 +39,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
-      <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
-      <li><a href="files.html"><span>Files</span></a></li>
+      <li><a href="annotated.html"><span>Classes</span></a></li>
+      <li class="current"><a href="files.html"><span>Files</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -61,9 +61,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   </div>
   <div id="navrow2" class="tabs2">
     <ul class="tablist">
-      <li><a href="annotated.html"><span>Class&#160;List</span></a></li>
-      <li><a href="classes.html"><span>Class&#160;Index</span></a></li>
-      <li><a href="functions.html"><span>Class&#160;Members</span></a></li>
+      <li><a href="files.html"><span>File&#160;List</span></a></li>
     </ul>
   </div>
 <!-- window showing the filter options -->
@@ -80,29 +78,35 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_924c2ab542b3d61f68d3d6d4ad63dd6f.html">ProjectCalendar</a></li><li class="navelem"><a class="el" href="dir_65462f93e2e595e8fb1a6684554df15a.html">src</a></li>  </ul>
+</div>
 </div><!-- top -->
 <div class="header">
-  <div class="summary">
-<a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="class_calendar_exception-members.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">CalendarException Class Reference</div>  </div>
+<div class="title">exception.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
-Public Member Functions</h2></td></tr>
-<tr class="memitem:afd73d3ab38bc56bb09dfd7674f71d0c3"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="afd73d3ab38bc56bb09dfd7674f71d0c3"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>CalendarException</b> (const QString &amp;message)</td></tr>
-<tr class="separator:afd73d3ab38bc56bb09dfd7674f71d0c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5a7ad3b9a770fbc361c809dde840d44c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5a7ad3b9a770fbc361c809dde840d44c"></a>
-QString&#160;</td><td class="memItemRight" valign="bottom"><b>getInfo</b> () const </td></tr>
-<tr class="separator:a5a7ad3b9a770fbc361c809dde840d44c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table>
-<hr/>The documentation for this class was generated from the following file:<ul>
-<li>/home/matthieu/ProjectCalendar/ProjectCalendar/src/<a class="el" href="exception_8h_source.html">exception.h</a></li>
-</ul>
-</div><!-- contents -->
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef EXCEPTION_H</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define EXCEPTION_H</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#include &lt;QString&gt;</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;</div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;</div>
+<div class="line"><a name="l00006"></a><span class="lineno"><a class="line" href="class_calendar_exception.html">    6</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_calendar_exception.html">CalendarException</a>{</div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;    <a class="code" href="class_calendar_exception.html">CalendarException</a>(<span class="keyword">const</span> QString&amp; message):info(message){}</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;    QString getInfo()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> info; }</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    QString info;</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;};</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#endif // EXCEPTION_H</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor"></span></div>
+<div class="ttc" id="class_calendar_exception_html"><div class="ttname"><a href="class_calendar_exception.html">CalendarException</a></div><div class="ttdef"><b>Definition:</b> exception.h:6</div></div>
+</div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated on Sun May 10 2015 16:28:08 for ProjectCalendar by &#160;<a href="http://www.doxygen.org/index.html">

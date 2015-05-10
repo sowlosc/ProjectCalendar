@@ -4,9 +4,59 @@
 #include <QString>
 #include <QDebug>
 #include <vector>
+#include <QDate>
 #include <map>
-#include "Calendar.h"
-#include <iostream>
+#include "duree.h"
+
+
+
+
+
+class Tache {
+    QString identificateur;
+    QString titre;
+    Duree duree;
+    QDate disponibilite;
+    QDate echeance;
+    bool preemptive;
+    Tache(const QString& id, const QString& t, const Duree& dur, const QDate& dispo, const QDate& deadline, bool preempt=false):
+            identificateur(id),titre(t),duree(dur),disponibilite(dispo),echeance(deadline),preemptive(preempt){}
+    Tache(const Tache& t);
+    Tache& operator=(const Tache&);
+    friend class Projet;
+    friend class TacheManager; //a supprimer
+public:
+    QString getId() const { return identificateur; }
+    void setId(const QString& str);
+    QString getTitre() const { return titre; }
+    void setTitre(const QString& str) { titre=str; }
+    Duree getDuree() const { return duree; }
+    void setDuree(const Duree& d) { duree=d; }
+    QDate getDateDisponibilite() const {  return disponibilite; }
+    QDate getDateEcheance() const {  return echeance; }
+    void setDatesDisponibiliteEcheance(const QDate& disp, const QDate& e) {
+        if (e<disp) throw CalendarException("erreur Tache : date echeance < date disponibilite");
+        disponibilite=disp; echeance=e;
+    }
+    bool isPreemptive() const { return preemptive; }
+    void setPreemptive() { preemptive=true; }
+    void setNonPreemptive() { preemptive=false; }
+
+    void afficher() const{
+        qDebug() << "//// tache ////////";
+        qDebug() << identificateur;
+        qDebug() << titre;
+    }
+};
+
+QTextStream& operator<<(QTextStream& f, const Tache& t);
+
+
+
+
+
+
+
 
 
 
@@ -21,10 +71,8 @@ class Projet
     Duree duree;            //sera recalcule quand on ajoute des taches
     QDate disponibilite;
     QDate echeance;
-    Tache** taches;
+    std::map<QString, Tache*> taches;
 
-
-public:
     //! Constructeur à partir d'un titre, d'une description, d'une date de disponibilite et d'une date d'echeance
     /*! \param t titre
         \param desc description du projet
@@ -32,11 +80,14 @@ public:
         \param ech date à laquelle le projet devra etre termine
         */
     Projet(const QString& t, const QString& desc, const QDate& dispo, const QDate& ech)
-        : titre(t), description(desc), disponibilite(dispo), echeance(ech) {}
-    ~Projet() {}; // Il faudra supprimer toutes les taches du projet
-
+        : titre(t), description(desc), disponibilite(dispo), echeance(ech) {
+        if(disponibilite>echeance)
+            throw CalendarException("erreur, Projet, date disponibilite > date echeance");
+    }
+    ~Projet();
+    friend class ProjetManager;
+public:
     void afficher() const{ //temporaire
-        std::cout<<"losc"<<std::endl;
         qDebug()<<"------------- Projet ----------- \n ";
         qDebug()<<"titre : "<<titre;
         //std::cout<<"duree : "<<duree<<std::endl;
@@ -44,6 +95,24 @@ public:
         qDebug()<<"dispo : "<<disponibilite;
         qDebug()<<"echeacne : "<<echeance;
     }
+    Tache& ajouterTache(const QString& id, const QString& t, const Duree& dur, const QDate& dispo, const QDate& ech, bool preempt=false);
+    Tache& getTache(const QString& id);
+    const Tache& getTache(const QString &id) const;
+
+    class iterator
+    {
+        friend class Projet;
+        std::map<QString, Tache*>::iterator it;
+        iterator(const std::map<QString, Tache*>::iterator &i) : it(i) {}
+    public:
+        iterator() {}
+        Tache& getCurrent() { return *(it->second); }
+        iterator& operator++() { ++it; return *this; }
+        bool operator!=(const iterator& at) const { return it != at.it; }
+    };
+
+    iterator begin() { return iterator(taches.begin()); }
+    iterator end() { return iterator(taches.end()); }
 };
 
 
@@ -62,18 +131,14 @@ class ProjetManager
     ~ProjetManager();
     ProjetManager(const ProjetManager&);
     ProjetManager& operator=(const ProjetManager&);
-
-    struct Handler{
-        ProjetManager* instance;
-        Handler() : instance(0) {}
-        ~Handler() { if(instance) delete instance; }
-    };
-    static Handler handler;
+    static ProjetManager* instance;
 
 public:
     static ProjetManager& getInstance();
     static void libererInstance();
     Projet& ajouterProjet(const QString& t, const QString& desc, const QDate& dispo, const QDate& ech);
+    Projet& getProjet(const QString& t);
+    const Projet& getProjet(const QString &t) const;
 
     class iterator
     {
@@ -82,14 +147,9 @@ public:
         iterator(const std::map<QString, Projet*>::iterator& i) : it(i) {}
     public:
         iterator() {}
-        Projet& getCurrent() {
-            return *(it->second);
-        }
+        Projet& getCurrent() { return *(it->second); }
 
-        iterator& operator++() {
-            ++it;
-            return *this;
-        }
+        iterator& operator++() { ++it; return *this;}
         bool operator!=(const iterator& at) const {
             return it != at.it;
         }

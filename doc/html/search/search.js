@@ -9,7 +9,7 @@ var indexSectionsWithContent =
 {
   0: "cdipt",
   1: "cdipt",
-  2: "dp"
+  2: "d"
 };
 
 var indexSectionNames =
