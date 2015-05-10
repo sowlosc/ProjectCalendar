@@ -23,6 +23,7 @@ QTextStream& operator>>(QTextStream& flot, Duree& duree){
     return flot;
 }
 
+
  void Duree::afficher(QTextStream& f) const {
      f.setPadChar('0');
      f.setFieldWidth(2);
@@ -34,6 +35,7 @@ QTextStream& operator>>(QTextStream& flot, Duree& duree){
      f.setFieldWidth(0);
      f.setPadChar(' ');
  }
+
 
 QTextStream& operator<<(QTextStream& fout, const Tache& t){
 	fout<<t.getId()<<"\n";

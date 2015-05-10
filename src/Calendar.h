@@ -16,8 +16,8 @@ private:
 
 /*! \class Duree
         \brief Classe permettant de manipuler des durees
-        L'utilisation de cette classe n?cessite des dates valides au sens commun du terme.
-        D?clenchement d'exception dans le cas contraire
+        L'utilisation de cette classe necessite des dates valides au sens commun du terme.
+        Declenchement d'exception dans le cas contraire
 */
 class Duree{
 public:
@@ -111,7 +111,7 @@ public:
 		friend class TacheManager;
 		Tache** currentTache;
 		unsigned int nbRemain;
-		Iterator(Tache** u, unsigned nb):currentTache(u),nbRemain(nb){}
+        Iterator(Tache** u, unsigned int nb):currentTache(u),nbRemain(nb){}
 	public:
 		Iterator():nbRemain(0),currentTache(0){}
 		bool isDone() const { return nbRemain==0; }
