@@ -14,7 +14,10 @@ SOURCES += \
     src/exception.cpp \
     src/projetmanager.cpp \
     src/tache.cpp \
-    src/duree.cpp
+    src/duree.cpp \
+    src/tacheunitaire.cpp \
+    src/tachecomposite.cpp \
+    src/precedencemanager.cpp
 
 #QT       += core
 
@@ -35,4 +38,7 @@ HEADERS += \
     src/exception.h \
     src/projetmanager.h \
     src/tache.h \
-    src/duree.h
+    src/duree.h \
+    src/tacheunitaire.h \
+    src/tachecomposite.h \
+    src/precedencemanager.h

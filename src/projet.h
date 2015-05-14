@@ -21,7 +21,10 @@ class Projet
         :titre(t), description(desc), disponibilite(dispo), echeance(ech) {}
     ~Projet() {}
 public:
+    //peut-etre a enlever
     Tache& ajouterTache(const QString& id, const QString& t, const Duree& dur, const QDate& dispo, const QDate& ech, bool preempt = false);
+    Projet& ajouterTache(Tache* t);
+    void retirerTache(Tache* t);
     Tache& getTache(const QString& id);
     const Tache& getTache(const QString& id) const;
 
