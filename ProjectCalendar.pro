@@ -10,11 +10,11 @@ QT += xml
 
 SOURCES += \
     src/main.cpp \
-    src/Calendar.cpp \
     src/projet.cpp \
-    src/duree.cpp \
     src/exception.cpp \
-    src/programmation.cpp
+    src/projetmanager.cpp \
+    src/tache.cpp \
+    src/duree.cpp
 
 #QT       += core
 
@@ -31,8 +31,8 @@ SOURCES += \
 #    src/main.cpp
 
 HEADERS += \
-    src/Calendar.h \
     src/projet.h \
-    src/duree.h \
     src/exception.h \
-    src/programmation.h
+    src/projetmanager.h \
+    src/tache.h \
+    src/duree.h
