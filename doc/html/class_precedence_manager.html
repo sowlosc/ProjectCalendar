@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>ProjectCalendar: ProgrammationManager Class Reference</title>
+<title>ProjectCalendar: PrecedenceManager Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -84,32 +84,51 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- top -->
 <div class="header">
   <div class="summary">
+<a href="#nested-classes">Classes</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-static-methods">Static Public Member Functions</a> &#124;
-<a href="class_programmation_manager-members.html">List of all members</a>  </div>
+<a href="class_precedence_manager-members.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">ProgrammationManager Class Reference</div>  </div>
+<div class="title">PrecedenceManager Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_precedence_manager_1_1iterator.html">iterator</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a9c3a6d96724e5b156f47b1e47cba77ee"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9c3a6d96724e5b156f47b1e47cba77ee"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>ajouterProgrammation</b> (const <a class="el" href="class_tache.html">Tache</a> &amp;t, const QDate &amp;d, const QTime &amp;h)</td></tr>
-<tr class="separator:a9c3a6d96724e5b156f47b1e47cba77ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:accbd28e8ba44df1a12512e65220def00"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="accbd28e8ba44df1a12512e65220def00"></a>
+std::vector&lt; <a class="el" href="class_precedence.html">Precedence</a> * &gt;<br class="typebreak"/>
+::<a class="el" href="class_precedence_manager_1_1iterator.html">iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><b>findPrecedence</b> (const <a class="el" href="class_tache.html">Tache</a> &amp;t1, const <a class="el" href="class_tache.html">Tache</a> &amp;t2)</td></tr>
+<tr class="separator:accbd28e8ba44df1a12512e65220def00"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aed6bdc377b5bbe0d5f51fd5ba9d06cce"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aed6bdc377b5bbe0d5f51fd5ba9d06cce"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>ajouterPrecedence</b> (<a class="el" href="class_tache.html">Tache</a> &amp;t1, <a class="el" href="class_tache.html">Tache</a> &amp;t2)</td></tr>
+<tr class="separator:aed6bdc377b5bbe0d5f51fd5ba9d06cce"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abbf3d400a9f6d7be97d1c40561129253"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="abbf3d400a9f6d7be97d1c40561129253"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>retirerPrecedence</b> (const <a class="el" href="class_tache.html">Tache</a> &amp;t1, const <a class="el" href="class_tache.html">Tache</a> &amp;t2)</td></tr>
+<tr class="separator:abbf3d400a9f6d7be97d1c40561129253"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adb5baf22278740912ed62e468a9d523f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="adb5baf22278740912ed62e468a9d523f"></a>
+<a class="el" href="class_precedence_manager_1_1iterator.html">iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><b>begin</b> ()</td></tr>
+<tr class="separator:adb5baf22278740912ed62e468a9d523f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa2b7e75bcad3eb09975db7794afeb453"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa2b7e75bcad3eb09975db7794afeb453"></a>
+<a class="el" href="class_precedence_manager_1_1iterator.html">iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><b>end</b> ()</td></tr>
+<tr class="separator:aa2b7e75bcad3eb09975db7794afeb453"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:ab399734eff7f5fd25937ea1d67e6f49e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab399734eff7f5fd25937ea1d67e6f49e"></a>
-static <a class="el" href="class_programmation_manager.html">ProgrammationManager</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getInstance</b> ()</td></tr>
-<tr class="separator:ab399734eff7f5fd25937ea1d67e6f49e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a052014f24ac5dc4846be1b79e73bfece"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a052014f24ac5dc4846be1b79e73bfece"></a>
-static void&#160;</td><td class="memItemRight" valign="bottom"><b>libererInstance</b> ()</td></tr>
-<tr class="separator:a052014f24ac5dc4846be1b79e73bfece"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3e67fc484a4194b767ea8e3102527920"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3e67fc484a4194b767ea8e3102527920"></a>
+static <a class="el" href="class_precedence_manager.html">PrecedenceManager</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getInstance</b> ()</td></tr>
+<tr class="separator:a3e67fc484a4194b767ea8e3102527920"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad4dcde60fdcc164b07b220b05732b6f9"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad4dcde60fdcc164b07b220b05732b6f9"></a>
+static void&#160;</td><td class="memItemRight" valign="bottom"><b>libereInstace</b> ()</td></tr>
+<tr class="separator:ad4dcde60fdcc164b07b220b05732b6f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>/home/matthieu/ProjectCalendar/ProjectCalendar/src/old/<a class="el" href="programmation_8h_source.html">programmation.h</a></li>
-<li>/home/matthieu/ProjectCalendar/ProjectCalendar/src/old/programmation.cpp</li>
+<li>/home/matthieu/ProjectCalendar/ProjectCalendar/src/<a class="el" href="precedencemanager_8h_source.html">precedencemanager.h</a></li>
+<li>/home/matthieu/ProjectCalendar/ProjectCalendar/src/precedencemanager.cpp</li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

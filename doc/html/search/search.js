@@ -7,8 +7,8 @@
 
 var indexSectionsWithContent =
 {
-  0: "cdipt",
-  1: "cdipt",
+  0: "cdipst",
+  1: "cdipst",
   2: "d"
 };
 

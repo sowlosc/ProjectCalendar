@@ -38,6 +38,25 @@ public:
 
 
 
+
+    class succIterator
+    {
+        /* A continuer
+         * */
+        /*friend class PrecedenceManager;
+        std::vector<const Precedence*>::iterator it;
+        succIterator(std::vector<const Precedence*>::iterator i) : it(i) {}
+    public:
+        Precedence& operator*() { return *it; }
+        succIterator operator++();
+        bool operator!=(std::vector<const Precedence*>::iterator at) { return it != at.it; }*/
+    };
+
+    //succIterator getFirstSucc();
+    //succIterator getLastSucc() { return succIterator(precedences.end()); }
+
+
+
 };
 
 #endif // TACHE_H

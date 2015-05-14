@@ -17,7 +17,8 @@ SOURCES += \
     src/duree.cpp \
     src/tacheunitaire.cpp \
     src/tachecomposite.cpp \
-    src/precedencemanager.cpp
+    src/precedencemanager.cpp \
+    src/precedence.cpp
 
 #QT       += core
 
@@ -41,4 +42,5 @@ HEADERS += \
     src/duree.h \
     src/tacheunitaire.h \
     src/tachecomposite.h \
-    src/precedencemanager.h
+    src/precedencemanager.h \
+    src/precedence.h

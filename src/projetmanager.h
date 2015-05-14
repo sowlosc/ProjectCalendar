@@ -4,6 +4,7 @@
 #include "projet.h"
 
 
+
 class ProjetManager
 {
     std::map<QString,Projet*> projets;
