@@ -3,6 +3,8 @@
 
 #include <QTextStream>
 #include "exception.h"
+#include<iostream>
+#include<iomanip>
 
 /*! \class Duree
         \brief Classe permettant de manipuler des durees
@@ -27,11 +29,13 @@ public:
     unsigned int getMinute() const { return nb_minutes%60; }
     unsigned int getHeure() const { return nb_minutes/60; }
     void afficher(QTextStream& f) const; //<!Affiche la duree sous le format hhHmm
+    void afficher(std::ostream& f = std::cout) const; //<!Affiche la duree sous le format hhHmm
 private:
     unsigned int nb_minutes;
 };
 
 QTextStream& operator<<(QTextStream& f, const Duree & d);
+std::ostream& operator<<(std::ostream& f, const Duree & d);
 QTextStream& operator>>(QTextStream&, Duree&); //lecture format hhHmm
 
 #endif // DUREE_H

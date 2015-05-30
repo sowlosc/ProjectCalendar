@@ -3,6 +3,8 @@
 
 #include <QDate>
 #include <QTime>
+#include <sstream>
+
 class Evenement
 {
     QDate date;
@@ -13,7 +15,11 @@ public:
     Evenement(const QDate& d, const QTime& t)
         : date(d), horaire(t) {}
 
-    ~Evenement(){}
+    virtual ~Evenement(){}
+
+
+    virtual Evenement* clone() const = 0;
+    virtual QString toString() const = 0;
 
     const QDate& getDate() const { return date; }
     const QTime& getHoraire() const { return horaire; }

@@ -1,4 +1,6 @@
 var searchData=
 [
-  ['succiterator',['succIterator',['../class_tache_1_1succ_iterator.html',1,'Tache']]]
+  ['tache',['Tache',['../class_tache.html',1,'']]],
+  ['tachecomposite',['TacheComposite',['../class_tache_composite.html',1,'']]],
+  ['tacheunitaire',['TacheUnitaire',['../class_tache_unitaire.html',1,'']]]
 ];

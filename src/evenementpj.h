@@ -11,7 +11,15 @@ class EvenementPj : public EvenementTrad
 public:
     EvenementPj(const QDate& ddeb, const QTime& tdeb,const QDate& dfin, const QTime& tfin,const QString& suj)
         :EvenementTrad(ddeb,tdeb,suj),dateFin(dfin), horaireFin(tfin) {}
-    ~EvenementPj(){}
+    virtual ~EvenementPj(){}
+
+    const QTime& getHoraireFin() const { return horaireFin; }
+    const QDate& getDateFin() const { return dateFin; }
+    void setHoraireFin(const QTime& t) { horaireFin = t; }
+    void setDateFin(const QDate& d) { dateFin = d; }
+
+    virtual EvenementPj* clone() const;
+    virtual QString toString() const;
 };
 
 #endif // EVENEMENTPJ_H

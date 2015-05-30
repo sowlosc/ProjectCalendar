@@ -29,6 +29,18 @@ public:
     const Tache& getTache(const QString& id) const;
 
 
+    const QString& getTitre() const { return titre; }
+    const QString& getDescription() const { return description; }
+    const QDate& getDisponibilite() const { return disponibilite; }
+    const QDate& getEcheance() const { return echeance; }
+
+    void setTitre(const QString& t) { titre = t; }
+    void setDescription(const QString& d) { description = d; }
+    void setDisponibilite(const QDate& d) { disponibilite = d; }
+    void setEcheance(const QDate& d) { echeance = d; }
+
+
+
     class iterator
     {
         friend class Projet;
@@ -36,7 +48,6 @@ public:
         iterator(const std::map<QString,Tache*>::iterator& i) : it(i) {}
 
     public:
-        iterator() {}
         Tache& operator*() { return *(it->second); }
         iterator& operator++() { ++it; return *this; }
         bool operator!=(const iterator& at) const { return it != at.it; }
@@ -44,6 +55,22 @@ public:
 
     iterator begin() { return iterator(taches.begin()); }
     iterator end() { return iterator(taches.end()); }
+
+
+    class const_iterator
+    {
+        friend class Projet;
+        std::map<QString, Tache*>::const_iterator it;
+        const_iterator(const std::map<QString,Tache*>::const_iterator& i) : it(i) {}
+
+    public:
+        const Tache& operator*() { return *(it->second); }
+        const_iterator& operator++() { ++it; return *this; }
+        bool operator!=(const iterator& at) const { return it != at.it; }
+    };
+
+    const_iterator begin() const { return const_iterator(taches.begin()); }
+    const_iterator end() const { return const_iterator(taches.end()); }
 
 };
 

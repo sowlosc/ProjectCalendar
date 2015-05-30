@@ -33,3 +33,10 @@ const Projet& ProjetManager::getProjet(const QString &t) const
 {
     return *projets.at(t); //renvoie une exception si le projet n'existe pas
 }
+
+
+void ProjetManager::retirerProjet(const QString &titre)
+{
+    try{ projets.at(titre); } catch(...) { throw CalendarException("Erreur, ProjetManager, impossible retirer un projet qui n'existe pas"); }
+    projets.erase(titre);
+}

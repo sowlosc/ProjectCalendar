@@ -10,7 +10,14 @@ class Evenement1j : public EvenementTrad
 public:
     Evenement1j(const QDate& ddeb, const QTime& tdeb,const Duree& dur, const QString& suj)
         : EvenementTrad(ddeb,tdeb,suj), duree(dur) {}
-    ~Evenement1j(){}
+    virtual ~Evenement1j(){}
+
+    const Duree& getDuree() const { return duree; }
+    void setDuree(const Duree& dur) { duree = dur; }
+
+    virtual Evenement1j* clone() const;
+    virtual QString toString() const;
+
 };
 
 #endif // EVENEMENT1J_H

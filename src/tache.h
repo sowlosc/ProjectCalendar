@@ -39,24 +39,32 @@ public:
 
 
 
-    class succIterator
+    /*class succIterator
     {
         /* A continuer
          * */
-        /*friend class PrecedenceManager;
-        std::vector<const Precedence*>::iterator it;
-        succIterator(std::vector<const Precedence*>::iterator i) : it(i) {}
+        /*
+         *
+        friend class PrecedenceManager;
+        PrecedenceManager::iterato
+        succIterator(std::vector<Precedence*>::iterator iter) : it(iter) {}
     public:
-        Precedence& operator*() { return *it; }
+        Tache& operator*() { return (*it)->getSuccesseur(); }
         succIterator operator++();
-        bool operator!=(std::vector<const Precedence*>::iterator at) { return it != at.it; }*/
+        bool operator!=(std::vector<Precedence*>::iterator at) { return it != at.it; }
     };
 
-    //succIterator getFirstSucc();
-    //succIterator getLastSucc() { return succIterator(precedences.end()); }
+    succIterator getFirstSucc() {
+        PrecedenceManager& pm = PrecedenceManager::getInstance();
+        std::vector<Precedence*>::iterator it = precedence.begin();
+        while(*it->getSuccesseur().getId() != this->identificateur)
+            it++;
+        return succIterator(it);
+    }
+    succIterator getLastSucc() { return succIterator(precedences.end()); }
 
-
+*/
 
 };
 
-#endif // TACHE_H
+#endif TACHE_H

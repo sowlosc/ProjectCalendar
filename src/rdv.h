@@ -16,13 +16,28 @@ public:
          const QString& suj,
          const QString& l)
             : Evenement1j(ddeb,tdeb,dur,suj), lieu(l) {}
-    ~Rdv(){}
+    virtual ~Rdv(){}
 
     const QString& getLieu() const { return lieu; }
     void setLieu(const QString& l) { lieu = l; }
     const std::vector<QString>& getPersonnes() const { return personnes; }
-    void addPersonne(const QString& nom);
-    void removePersonne(const QString& nom);
+    void ajouterPersonne(const QString& nom);
+    void retirerPersonne(const QString& nom);
+
+    class personnes_iterator{
+        std::vector<QString>::iterator it;
+        friend class Rdv;
+        personnes_iterator(const std::vector<QString>::iterator iter) : it(iter) {}
+    public:
+        QString& operator*() { return *it; }
+        personnes_iterator& operator++() { ++it; return *this; }
+        bool operator!=(const personnes_iterator& at) { return it != at.it; }
+    };
+
+    personnes_iterator begin_personnes() { return personnes_iterator(personnes.begin()); }
+    personnes_iterator end_personnes() { return personnes_iterator(personnes.end()); }
+
+
 };
 
 #endif // RDV_H

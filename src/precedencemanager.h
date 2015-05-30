@@ -20,8 +20,9 @@ public:
     static PrecedenceManager& getInstance();
     static void libereInstace();
     std::vector<Precedence*>::iterator findPrecedence(const Tache& t1, const Tache& t2);
-    void ajouterPrecedence(Tache &t1, Tache &t2);
+    void ajouterPrecedence(const Tache &t1, const Tache &t2);
     void retirerPrecedence(const Tache &t1, const Tache &t2);
+
 
     class iterator
     {
@@ -31,7 +32,7 @@ public:
     public:
         const Precedence& operator*() { return *(*it); }
         iterator& operator++() { ++it; return *this; }
-        bool operator!=(const iterator& at) { return it != at.it; }
+        bool operator!=(const iterator& at) const { return it != at.it; }
     };
 
     iterator begin() { return iterator(precedences.begin()); }

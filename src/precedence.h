@@ -6,9 +6,9 @@
 class Precedence
 {
     friend class PrecedenceManager;
-    Tache* pred;
-    Tache* succ;
-    Precedence(Tache* t1, Tache* t2)
+    const Tache* pred;
+    const Tache* succ;
+    Precedence(const Tache* t1, const Tache* t2)
         : pred(t1) , succ(t2) {}
     ~Precedence() {}
 public:

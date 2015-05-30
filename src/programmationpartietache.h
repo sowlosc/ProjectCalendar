@@ -3,16 +3,17 @@
 
 #include "programmationtache.h"
 #include "duree.h"
-#include "tacheunitaire.h"
 
 class ProgrammationPartieTache : public ProgrammationTache
 {
     Duree dureePartie;
-    TacheUnitaire* tache;
 public:
-    ProgrammationPartieTache(const QDate& ddeb, const QTime& tdeb, const Duree& dp)
-        : ProgrammationTache(ddeb,tdeb), dureePartie(dp) {}
-    ~ProgrammationPartieTache(){}
+    ProgrammationPartieTache(const QDate& ddeb, const QTime& tdeb, const Duree& dp, const TacheUnitaire *t)
+        : ProgrammationTache(ddeb,tdeb,t), dureePartie(dp) {}
+    virtual ~ProgrammationPartieTache(){}
+
+    virtual ProgrammationPartieTache* clone() const;
+    virtual QString toString() const;
 };
 
 #endif // PROGRAMMATIONPARTIETACHE_H

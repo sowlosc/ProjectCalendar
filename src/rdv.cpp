@@ -2,7 +2,7 @@
 
 
 
-void Rdv::addPersonne(const QString &nom)
+void Rdv::ajouterPersonne(const QString &nom)
 {
     for(std::vector<QString>::iterator it = personnes.begin() ; it != personnes.end() ; it++)
         if(*it == nom)
@@ -11,7 +11,7 @@ void Rdv::addPersonne(const QString &nom)
 }
 
 
-void Rdv::removePersonne(const QString &nom)
+void Rdv::retirerPersonne(const QString &nom)
 {
     std::vector<QString>::iterator it;
     for(it = personnes.begin() ; it != personnes.end() ; it++)

@@ -2,6 +2,8 @@
 
 QTextStream& operator<<(QTextStream& f, const Duree & d){ d.afficher(f); return f; }
 
+std::ostream& operator<<(std::ostream& f, const Duree & d){ d.afficher(f); return f; }
+
 QTextStream& operator>>(QTextStream& flot, Duree& duree){
     unsigned int h,m;
     bool ok=true;
@@ -29,5 +31,9 @@ QTextStream& operator>>(QTextStream& flot, Duree& duree){
      f<<nb_minutes%60;
      f.setFieldWidth(0);
      f.setPadChar(' ');
+ }
+ void Duree::afficher(std::ostream& f) const {
+     f << std::setfill('0') << std::setw(2) << nb_minutes/60<<"H";
+     f << std::setw(2) << nb_minutes%60 << std::setfill(' ');
  }
 

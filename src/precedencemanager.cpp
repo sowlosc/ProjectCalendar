@@ -23,11 +23,15 @@ std::vector<Precedence*>::iterator PrecedenceManager::findPrecedence(const Tache
 }
 
 
-void PrecedenceManager::ajouterPrecedence(Tache &t1, Tache &t2)
+void PrecedenceManager::ajouterPrecedence(const Tache &t1, const Tache &t2)
 {
     /* il faut verifier que la precedence n'existe pas deja
      * et qu'elle ne provoque pas d'incoherence
      * */
+
+    if(findPrecedence(t1,t2) != precedences.end())
+            throw CalendarException("Erreur, PercedenceManager, cette precedence existe deja");
+
     Precedence *p = new Precedence(&t1,&t2);
     precedences.push_back(p);
 }
@@ -36,10 +40,16 @@ void PrecedenceManager::retirerPrecedence(const Tache &t1, const Tache &t2)
 {
     /* il faut verif qu'elle existe
      * */
+
+
+
     std::vector<Precedence*>::iterator position = findPrecedence(t1,t2);
     if(position != precedences.end())
+    {
         delete (*position);
-    precedences.erase(position);
+        precedences.erase(position);
+    }else
+        throw CalendarException("Erreur, PrecedenceManager, la precedence a retirer n'existe pas");
 }
 
 

@@ -119,37 +119,66 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="keyword">const</span> <a class="code" href="class_tache.html">Tache</a>&amp; getTache(<span class="keyword">const</span> QString&amp; <span class="keywordtype">id</span>) <span class="keyword">const</span>;</div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;</div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keyword">class </span>iterator</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    {</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="class_projet.html">Projet</a>;</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        std::map&lt;QString, Tache*&gt;::iterator it;</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        iterator(<span class="keyword">const</span> std::map&lt;QString,Tache*&gt;::iterator&amp; i) : it(i) {}</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        iterator() {}</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        <a class="code" href="class_tache.html">Tache</a>&amp; operator*() { <span class="keywordflow">return</span> *(it-&gt;second); }</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        iterator&amp; operator++() { ++it; <span class="keywordflow">return</span> *<span class="keyword">this</span>; }</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        <span class="keywordtype">bool</span> operator!=(<span class="keyword">const</span> iterator&amp; at)<span class="keyword"> const </span>{ <span class="keywordflow">return</span> it != at.it; }</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    };</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    iterator begin() { <span class="keywordflow">return</span> iterator(taches.begin()); }</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    iterator end() { <span class="keywordflow">return</span> iterator(taches.end()); }</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;};</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keyword">const</span> QString&amp; getTitre()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> titre; }</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="keyword">const</span> QString&amp; getDescription()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> description; }</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keyword">const</span> QDate&amp; getDisponibilite()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> disponibilite; }</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keyword">const</span> QDate&amp; getEcheance()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> echeance; }</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="keywordtype">void</span> setTitre(<span class="keyword">const</span> QString&amp; t) { titre = t; }</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keywordtype">void</span> setDescription(<span class="keyword">const</span> QString&amp; d) { description = d; }</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keywordtype">void</span> setDisponibilite(<span class="keyword">const</span> QDate&amp; d) { disponibilite = d; }</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="keywordtype">void</span> setEcheance(<span class="keyword">const</span> QDate&amp; d) { echeance = d; }</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keyword">class </span>iterator</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    {</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="class_projet.html">Projet</a>;</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        std::map&lt;QString, Tache*&gt;::iterator it;</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        iterator(<span class="keyword">const</span> std::map&lt;QString,Tache*&gt;::iterator&amp; i) : it(i) {}</div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="preprocessor">#endif // PROJET_H</span></div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        <a class="code" href="class_tache.html">Tache</a>&amp; operator*() { <span class="keywordflow">return</span> *(it-&gt;second); }</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        iterator&amp; operator++() { ++it; <span class="keywordflow">return</span> *<span class="keyword">this</span>; }</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        <span class="keywordtype">bool</span> operator!=(<span class="keyword">const</span> iterator&amp; at)<span class="keyword"> const </span>{ <span class="keywordflow">return</span> it != at.it; }</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    };</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    iterator begin() { <span class="keywordflow">return</span> iterator(taches.begin()); }</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    iterator end() { <span class="keywordflow">return</span> iterator(taches.end()); }</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;</div>
+<div class="line"><a name="l00060"></a><span class="lineno"><a class="line" href="class_projet_1_1const__iterator.html">   60</a></span>&#160;    <span class="keyword">class </span><a class="code" href="class_projet_1_1const__iterator.html">const_iterator</a></div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    {</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="class_projet.html">Projet</a>;</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        std::map&lt;QString, Tache*&gt;::const_iterator it;</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        <a class="code" href="class_projet_1_1const__iterator.html">const_iterator</a>(<span class="keyword">const</span> std::map&lt;QString,Tache*&gt;::const_iterator&amp; i) : it(i) {}</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        <span class="keyword">const</span> <a class="code" href="class_tache.html">Tache</a>&amp; operator*() { <span class="keywordflow">return</span> *(it-&gt;second); }</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        <a class="code" href="class_projet_1_1const__iterator.html">const_iterator</a>&amp; operator++() { ++it; <span class="keywordflow">return</span> *<span class="keyword">this</span>; }</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        <span class="keywordtype">bool</span> operator!=(<span class="keyword">const</span> <a class="code" href="class_projet_1_1iterator.html">iterator</a>&amp; at)<span class="keyword"> const </span>{ <span class="keywordflow">return</span> it != at.it; }</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    };</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    <a class="code" href="class_projet_1_1const__iterator.html">const_iterator</a> begin()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code" href="class_projet_1_1const__iterator.html">const_iterator</a>(taches.begin()); }</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    const_iterator end()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> const_iterator(taches.end()); }</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;};</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;<span class="preprocessor">#endif // PROJET_H</span></div>
 <div class="ttc" id="class_projet_manager_html"><div class="ttname"><a href="class_projet_manager.html">ProjetManager</a></div><div class="ttdoc">Classe permettant de gerer des projets Cet unique objet (singleton) permet de creer de nouveau projet...</div><div class="ttdef"><b>Definition:</b> projet.h:127</div></div>
+<div class="ttc" id="class_projet_1_1iterator_html"><div class="ttname"><a href="class_projet_1_1iterator.html">Projet::iterator</a></div><div class="ttdef"><b>Definition:</b> projet.h:102</div></div>
+<div class="ttc" id="class_projet_1_1const__iterator_html"><div class="ttname"><a href="class_projet_1_1const__iterator.html">Projet::const_iterator</a></div><div class="ttdef"><b>Definition:</b> projet.h:60</div></div>
 <div class="ttc" id="class_tache_html"><div class="ttname"><a href="class_tache.html">Tache</a></div><div class="ttdef"><b>Definition:</b> projet.h:15</div></div>
 <div class="ttc" id="class_projet_html"><div class="ttname"><a href="class_projet.html">Projet</a></div><div class="ttdoc">Classe permettant de manipuler des projets Les projets de cette classe contiendront des taches...</div><div class="ttdef"><b>Definition:</b> projet.h:67</div></div>
-<div class="ttc" id="class_duree_html"><div class="ttname"><a href="class_duree.html">Duree</a></div><div class="ttdoc">Classe permettant de manipuler des durees L&#39;utilisation de cette classe n?cessite des dates valides a...</div><div class="ttdef"><b>Definition:</b> duree.h:12</div></div>
+<div class="ttc" id="class_duree_html"><div class="ttname"><a href="class_duree.html">Duree</a></div><div class="ttdoc">Classe permettant de manipuler des durees L&#39;utilisation de cette classe n?cessite des dates valides a...</div><div class="ttdef"><b>Definition:</b> duree.h:14</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat May 30 2015 15:19:07 for ProjectCalendar by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat May 30 2015 21:49:54 for ProjectCalendar by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

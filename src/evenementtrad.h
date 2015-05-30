@@ -9,7 +9,13 @@ class EvenementTrad : public Evenement
 public:
     EvenementTrad(const QDate& ddeb, const QTime& tdeb, const QString& suj)
         :Evenement(ddeb,tdeb), sujet(suj) {}
-    ~EvenementTrad(){}
+    virtual ~EvenementTrad(){}
+
+    const QString getSujet() const { return sujet; }
+    void setSujet(const QString& suj) { sujet = suj; }
+
+    virtual EvenementTrad* clone() const;
+    virtual QString toString() const;
 };
 
 #endif // EVENEMENTTRAD_H
