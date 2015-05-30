@@ -17,9 +17,9 @@ class Agenda
 
 public:
     static Agenda& getInstance() { if(!instance) instance = new Agenda; return *instance; }
-    static void libererInstance() { std::cout<<"libererInstance"; if(instance) delete instance; instance = 0; }
+    static void libererInstance() { if(instance) delete instance; instance = 0; }
     Agenda& operator<<(Evenement& evt);
-    Agenda& operator>>(Evenement& evt);
+    Agenda& operator>>(Evenement* evt);
 
 
     class iterator{

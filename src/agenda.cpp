@@ -12,11 +12,11 @@ Agenda& Agenda::operator<<(Evenement& evt)
 }
 
 
-Agenda& Agenda::operator>>(Evenement &evt)
+Agenda& Agenda::operator>>(Evenement *evt)
 {
     for(std::vector<Evenement*>::iterator it = events.begin() ; it != events.end() ; ++it)
-        if( *it == &evt){
-            delete &evt;
+        if( *it == evt){
+            delete evt;
             events.erase(it);
             return *this;
         }

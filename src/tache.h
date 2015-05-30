@@ -4,6 +4,7 @@
 #include <QDate>
 #include "exception.h"
 
+
 class Tache
 {
     QString identificateur;
@@ -39,14 +40,14 @@ public:
 
 
 
-    /*class succIterator
+   /* class succIterator
     {
         /* A continuer
-         * */
-        /*
          *
+
+
         friend class PrecedenceManager;
-        PrecedenceManager::iterato
+        std::vector<Precedence*>::iterator it;
         succIterator(std::vector<Precedence*>::iterator iter) : it(iter) {}
     public:
         Tache& operator*() { return (*it)->getSuccesseur(); }

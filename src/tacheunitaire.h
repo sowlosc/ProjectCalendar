@@ -3,6 +3,7 @@
 
 #include "duree.h"
 #include "tache.h"
+#include "agenda.h"
 
 class TacheUnitaire : public Tache
 {

@@ -10,8 +10,9 @@ QString EvenementPj::toString() const
 {
     std::stringstream ss;
     ss << "EvenemenetPj\ndate = " << getDate().toString().toStdString();
-    ss << "\nhoraire = " << getHoraire().toString().toStdString() << "\sujet = " << getSujet().toStdString();
+    ss << "\nhoraire = " << getHoraire().toString().toStdString();
     ss << "\ndateFin = " << dateFin.toString().toStdString();
-    ss << "\nhoraireFin = " << horaireFin.toString().toStdString() << "\n";
+    ss << "\nhoraireFin = " << horaireFin.toString().toStdString();
+    ss  << "\nsujet = " << getSujet().toStdString() << "\n";
     return ss.str().c_str();
 }

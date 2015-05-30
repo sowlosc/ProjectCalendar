@@ -72,6 +72,22 @@ public:
     const_iterator begin() const { return const_iterator(taches.begin()); }
     const_iterator end() const { return const_iterator(taches.end()); }
 
+
+    /*class programmation_iterator{
+        friend class Agenda;
+        std::vector<Evenement*>::iterator it;
+        programmation_iterator(const std::vector<Evenement*>::iterator iter) : it(iter) {}
+    public:
+        Evenement& operator&() { return *it; }
+        programmation_iterator& operator++() {
+            while(it !=  !dynamic_cast<ProgrammationUnitaire*>(&(*it)) && dynamic_cast<ProgrammationUnitaire*>(&(*it))->tache != t)
+                ++it;
+            ++it ; return *this; }
+        bool operator!=(const programmation_iterator& at) const { return it != at.it; }
+
+    };*/
+
+
 };
 
 

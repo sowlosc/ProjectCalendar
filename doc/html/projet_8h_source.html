@@ -162,13 +162,29 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    <a class="code" href="class_projet_1_1const__iterator.html">const_iterator</a> begin()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code" href="class_projet_1_1const__iterator.html">const_iterator</a>(taches.begin()); }</div>
 <div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    const_iterator end()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> const_iterator(taches.end()); }</div>
 <div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;};</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;<span class="preprocessor">#endif // PROJET_H</span></div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    <span class="comment">/*class programmation_iterator{</span></div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;<span class="comment">        friend class Agenda;</span></div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;<span class="comment">        std::vector&lt;Evenement*&gt;::iterator it;</span></div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;<span class="comment">        programmation_iterator(const std::vector&lt;Evenement*&gt;::iterator iter) : it(iter) {}</span></div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;<span class="comment">    public:</span></div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;<span class="comment">        Evenement&amp; operator&amp;() { return *it; }</span></div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;<span class="comment">        programmation_iterator&amp; operator++() {</span></div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;<span class="comment">            while(it !=  !dynamic_cast&lt;ProgrammationUnitaire*&gt;(&amp;(*it)) &amp;&amp; dynamic_cast&lt;ProgrammationUnitaire*&gt;(&amp;(*it))-&gt;tache != t)</span></div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;<span class="comment">                ++it;</span></div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;<span class="comment">            ++it ; return *this; }</span></div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;<span class="comment">        bool operator!=(const programmation_iterator&amp; at) const { return it != at.it; }</span></div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;<span class="comment">    };*/</span></div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;};</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;<span class="preprocessor">#endif // PROJET_H</span></div>
 <div class="ttc" id="class_projet_manager_html"><div class="ttname"><a href="class_projet_manager.html">ProjetManager</a></div><div class="ttdoc">Classe permettant de gerer des projets Cet unique objet (singleton) permet de creer de nouveau projet...</div><div class="ttdef"><b>Definition:</b> projet.h:127</div></div>
 <div class="ttc" id="class_projet_1_1iterator_html"><div class="ttname"><a href="class_projet_1_1iterator.html">Projet::iterator</a></div><div class="ttdef"><b>Definition:</b> projet.h:102</div></div>
 <div class="ttc" id="class_projet_1_1const__iterator_html"><div class="ttname"><a href="class_projet_1_1const__iterator.html">Projet::const_iterator</a></div><div class="ttdef"><b>Definition:</b> projet.h:60</div></div>
@@ -178,7 +194,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat May 30 2015 21:49:54 for ProjectCalendar by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun May 31 2015 01:31:57 for ProjectCalendar by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>
