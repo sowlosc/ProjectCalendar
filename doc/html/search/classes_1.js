@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['duree',['Duree',['../class_duree.html',1,'']]]
+  ['calendarexception',['CalendarException',['../class_calendar_exception.html',1,'']]]
 ];
