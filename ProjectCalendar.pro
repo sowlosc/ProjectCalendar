@@ -28,7 +28,8 @@ SOURCES += \
     src/rdv.cpp \
     src/programmationpartietache.cpp \
     src/projectcalendar.cpp \
-    src/mainwindow.cpp
+    src/mainwindow.cpp \
+    src/ajouttachedialog.cpp
 
 #QT       += core
 
@@ -63,7 +64,9 @@ HEADERS += \
     src/rdv.h \
     src/programmationpartietache.h \
     src/projectcalendar.h \
-    src/mainwindow.h
+    src/mainwindow.h \
+    src/ajouttachedialog.h
 
 FORMS += \
-    src/mainwindow.ui
+    src/mainwindow.ui \
+    src/ajouttachedialog.ui

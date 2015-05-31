@@ -4,8 +4,8 @@
 QString TacheUnitaire::toString() const
 {
     std::stringstream ss;
-    ss << "<html><body><h2>     " << getTitre().toStdString() << " ("<< getId().toStdString() << ")</h2>";
-    ss << "<table cellpadding=\"4\" >";
+    ss << "<html><body><h2 align=\"center\" >" << getTitre().toStdString() << " ("<< getId().toStdString() << ")</h2>";
+    ss << "<table align=\"center\" cellpadding=\"4\" >";
     ss << "<tr><td>type</td><td>tache unitaire</td></tr>";
     ss << "<tr><td>duree</b></td><td> " << getDuree() << "</td></tr>";
     ss << "<tr><td>date disponibilité </td><td> " << getDisponibilite().toString().toStdString()<< "</td></tr>";

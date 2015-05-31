@@ -40,8 +40,8 @@ void TacheComposite::retirerSousTache(Tache *t)
 QString TacheComposite::toString() const
 {
     std::stringstream ss;
-    ss << "<html><body><h2>     " << getTitre().toStdString() << " ("<< getId().toStdString() << ")</h2>";
-    ss << "<table cellpadding=\"4\" >";
+    ss << "<html><body><h2 align=\"center\">" << getTitre().toStdString() << " ("<< getId().toStdString() << ")</h2>";
+    ss << "<table align=\"center\" cellpadding=\"4\" >";
     ss << "<tr><td>type</td><td>tache composite</td></tr>";
     ss << "<tr><td>date disponibilité </td><td> " << getDisponibilite().toString().toStdString()<< "</td></tr>";
     ss << "<tr><td>date échéance </td><td> " << getEcheance().toString().toStdString()<< "</td></tr>";
