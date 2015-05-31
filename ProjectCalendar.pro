@@ -26,7 +26,9 @@ SOURCES += \
     src/evenement1j.cpp \
     src/evenementpj.cpp \
     src/rdv.cpp \
-    src/programmationpartietache.cpp
+    src/programmationpartietache.cpp \
+    src/projectcalendar.cpp \
+    src/mainwindow.cpp
 
 #QT       += core
 
@@ -59,4 +61,9 @@ HEADERS += \
     src/evenement1j.h \
     src/evenementpj.h \
     src/rdv.h \
-    src/programmationpartietache.h
+    src/programmationpartietache.h \
+    src/projectcalendar.h \
+    src/mainwindow.h
+
+FORMS += \
+    src/mainwindow.ui

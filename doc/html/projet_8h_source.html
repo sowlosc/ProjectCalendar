@@ -138,7 +138,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        iterator(<span class="keyword">const</span> std::map&lt;QString,Tache*&gt;::iterator&amp; i) : it(i) {}</div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;</div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        <a class="code" href="class_tache.html">Tache</a>&amp; operator*() { <span class="keywordflow">return</span> *(it-&gt;second); }</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        <a class="code" href="class_tache.html">Tache</a>&amp; operator*() { <span class="keywordflow">return</span> *(it)-&gt;second; }</div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        iterator&amp; operator++() { ++it; <span class="keywordflow">return</span> *<span class="keyword">this</span>; }</div>
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        <span class="keywordtype">bool</span> operator!=(<span class="keyword">const</span> iterator&amp; at)<span class="keyword"> const </span>{ <span class="keywordflow">return</span> it != at.it; }</div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    };</div>
@@ -194,7 +194,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun May 31 2015 01:31:57 for ProjectCalendar by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun May 31 2015 19:34:37 for ProjectCalendar by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

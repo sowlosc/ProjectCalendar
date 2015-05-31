@@ -9,6 +9,10 @@
 #include "evenementpj.h"
 #include "tacheunitaire.h"
 #include "programmationpartietache.h"
+#include "tachecomposite.h"
+
+#include "mainwindow.h"
+
 
 int main(int argc, char *argv[])
 {
@@ -56,8 +60,8 @@ int main(int argc, char *argv[])
 
     Projet& pj = pm.getProjet("projet1");
 
-    pj.ajouterTache(new Tache("t1","tache 1",QDate(2015,6,1),QDate(2015,6,7),"descritption le la tache 1"));
-    pj.ajouterTache(new Tache("t2","tache 2",QDate(2015,6,7),QDate(2015,6,12),"descritption le la tache 2"));
+    pj.ajouterTache(new TacheUnitaire("t1","tache 1",QDate(2015,6,1),QDate(2015,6,7),"descritption le la tache 1",Duree(1,1)));
+    pj.ajouterTache(new TacheUnitaire("t2","tache 2",QDate(2015,6,7),QDate(2015,6,12),"descritption le la tache 2",Duree(2,20)));
 
     for(Projet::iterator it = pj.begin() ; it != pj.end() ; ++it)
         std::cout<<(*it).getTitre().toStdString()<<std::endl;
@@ -86,11 +90,21 @@ int main(int argc, char *argv[])
     Agenda::libererInstance();
     std::cout<<"---------------------------------\n";
 
-    TacheUnitaire *t1 = new TacheUnitaire("t3","tache1",QDate(2015,6,1),QDate(2015,7,7),"Initialisation",Duree(1,0),false);
-    TacheUnitaire *t2 = new TacheUnitaire("t4","tache1",QDate(2015,6,1),QDate(2015,7,7),"Developpement",Duree(3,0),true);
+    TacheUnitaire *t1 = new TacheUnitaire("t1","tache1",QDate(2015,6,1),QDate(2015,7,7),"Initialisation",Duree(1,0),false);
+    TacheUnitaire *t2 = new TacheUnitaire("t2","tache1",QDate(2015,6,1),QDate(2015,7,7),"Developpement",Duree(3,0),true);
+    TacheComposite *t3 = new TacheComposite("t3","taches3",QDate(2015,6,1),QDate(2015,7,7),"Tahce complexe");
 
-    pj.ajouterTache(t1);
-    pj.ajouterTache(t2);
+    TacheUnitaire *t4 = new TacheUnitaire("t3.1","sousTache1",QDate(2015,8,1),QDate(2015,9,7),"Initialisation",Duree(1,40),false);
+    TacheUnitaire *t5 = new TacheUnitaire("t3.2","sousTache2",QDate(2015,8,1),QDate(2015,9,7),"Developpement",Duree(2,35),true);
+
+
+
+    pm.getProjet("projet2").ajouterTache(t1);
+    pm.getProjet("projet2").ajouterTache(t2);
+    pm.getProjet("projet2").ajouterTache(t3);
+
+    t3->ajouterSousTache(t4);
+    t3->ajouterSousTache(t5);
 
     for(Projet::iterator it = pj.begin() ; it != pj.end() ; ++it)
         std::cout<<(*it).getDescription().toStdString()<<std::endl;
@@ -99,7 +113,8 @@ int main(int argc, char *argv[])
     ProgrammationPartieTache evt5(QDate(2015,6,2),QTime(14,0,0),Duree(1,0),t2);
 
 
-
+    MainWindow w;
+    w.show();
 
 
      return a.exec();

@@ -17,6 +17,8 @@ public:
                   const QString& txt,
                   const Duree& d,
                   bool preempt = false) : Tache(id,t,dispo,ech,txt), duree(d), preemptive(preempt) {}
+    virtual QString toString() const { return "TacheUnitaire"; }
+    virtual bool isComposite() const { return false; }
 
 };
 

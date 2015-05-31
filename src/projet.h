@@ -48,7 +48,7 @@ public:
         iterator(const std::map<QString,Tache*>::iterator& i) : it(i) {}
 
     public:
-        Tache& operator*() { return *(it->second); }
+        Tache& operator*() { return *(it)->second; }
         iterator& operator++() { ++it; return *this; }
         bool operator!=(const iterator& at) const { return it != at.it; }
     };
