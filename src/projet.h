@@ -3,6 +3,7 @@
 
 #include <map>
 #include <QString>
+#include <sstream>
 #include "duree.h"
 #include "tache.h"
 
@@ -38,6 +39,8 @@ public:
     void setDescription(const QString& d) { description = d; }
     void setDisponibilite(const QDate& d) { disponibilite = d; }
     void setEcheance(const QDate& d) { echeance = d; }
+
+    QString toString() const;
 
 
 

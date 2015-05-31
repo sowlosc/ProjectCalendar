@@ -3,7 +3,7 @@
 
 #include "tache.h"
 #include <map>
-
+#include <sstream>
 class TacheComposite : public Tache
 {
     std::map<QString, Tache*> sousTaches;
@@ -16,7 +16,7 @@ public:
                    const QString& txt) : Tache(id,t,dispo,ech,txt) {}
     ~TacheComposite();
 
-    virtual QString toString() const { return "TacheComposite"; }
+    virtual QString toString() const;
     virtual bool isComposite() const { return true; }
 
     void ajouterSousTache(Tache* t);
