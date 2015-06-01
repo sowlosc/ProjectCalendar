@@ -20,9 +20,10 @@ public:
     virtual bool isComposite() const { return true; }
 
     void ajouterSousTache(Tache* t);
-
-
     void retirerSousTache(Tache* t);
+
+
+    Tache* getSousTache(const QString& id); // methode specifique aux taches composite return 0 si la tache n'existe pas
 
 
     class iterator

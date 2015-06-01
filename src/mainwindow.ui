@@ -853,8 +853,29 @@
       </disabled>
      </palette>
     </property>
+    <property name="tabPosition">
+     <enum>QTabWidget::North</enum>
+    </property>
+    <property name="tabShape">
+     <enum>QTabWidget::Triangular</enum>
+    </property>
     <property name="currentIndex">
      <number>1</number>
+    </property>
+    <property name="usesScrollButtons">
+     <bool>false</bool>
+    </property>
+    <property name="documentMode">
+     <bool>false</bool>
+    </property>
+    <property name="tabsClosable">
+     <bool>false</bool>
+    </property>
+    <property name="movable">
+     <bool>false</bool>
+    </property>
+    <property name="tabBarAutoHide">
+     <bool>false</bool>
     </property>
     <widget class="QWidget" name="tab_agenda">
      <attribute name="title">
@@ -914,6 +935,15 @@
            </disabled>
           </palette>
          </property>
+         <property name="autoExpandDelay">
+          <number>-1</number>
+         </property>
+         <property name="animated">
+          <bool>true</bool>
+         </property>
+         <property name="wordWrap">
+          <bool>true</bool>
+         </property>
          <column>
           <property name="text">
            <string notr="true">1</string>
@@ -929,12 +959,12 @@
          <item>
           <widget class="QPushButton" name="Bouton_ajouter_tache">
            <property name="text">
-            <string>Ajouter</string>
+            <string>PushButton</string>
            </property>
           </widget>
          </item>
          <item>
-          <widget class="QPushButton" name="pushButton_5">
+          <widget class="QPushButton" name="pushButton">
            <property name="text">
             <string>PushButton</string>
            </property>
@@ -1000,8 +1030,20 @@
            </disabled>
           </palette>
          </property>
+         <property name="font">
+          <font>
+           <family>Comic Sans MS</family>
+          </font>
+         </property>
          <property name="autoFillBackground">
           <bool>false</bool>
+         </property>
+         <property name="html">
+          <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Comic Sans MS'; font-size:11pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
          </property>
         </widget>
        </item>

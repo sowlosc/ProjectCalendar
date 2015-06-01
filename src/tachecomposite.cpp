@@ -50,3 +50,22 @@ QString TacheComposite::toString() const
     return ss.str().c_str();
 }
 
+
+Tache* TacheComposite::getSousTache(const QString &id)
+{
+    if(sousTaches[id])
+        return sousTaches[id];
+    else
+    {
+        for(std::map<QString, Tache*>::iterator it = sousTaches.begin() ; it != sousTaches.end() ; ++it)
+        {
+            if(it->second->isComposite())
+            {
+                Tache* t = dynamic_cast<TacheComposite*>(it->second)->getSousTache(id);
+                if(t)
+                    return t;
+            }
+        }
+        return 0;
+    }
+}

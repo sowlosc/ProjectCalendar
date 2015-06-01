@@ -117,6 +117,9 @@ int main(int argc, char *argv[])
     w.show();
 
 
+    std::cout << "resulte getSousTache = " << pm.getProjet("projet2").getTache("t3.2")->getDescription().toStdString() << "\n";
+
+
      return a.exec();
 }
 

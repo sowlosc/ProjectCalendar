@@ -6,6 +6,7 @@
 #include <sstream>
 #include "duree.h"
 #include "tache.h"
+#include "tachecomposite.h"
 
 
 class Projet
@@ -26,8 +27,8 @@ public:
     Tache& ajouterTache(const QString& id, const QString& t, const Duree& dur, const QDate& dispo, const QDate& ech, bool preempt = false);
     Projet& ajouterTache(Tache* t);
     void retirerTache(Tache* t);
-    Tache& getTache(const QString& id);
-    const Tache& getTache(const QString& id) const;
+    Tache *getTache(const QString& id);
+
 
 
     const QString& getTitre() const { return titre; }

@@ -18,15 +18,30 @@ void Projet::retirerTache(Tache *t)
     }
 }
 
-Tache& Projet::getTache(const QString &id)
+Tache* Projet::getTache(const QString &id)
 {
-   return *taches.at(id); //renvoie une exception si la tache n'existe pas
+   if(taches[id])
+       return taches[id];
+   else
+   {
+       for(Projet::iterator it = this->begin() ; it != this->end() ; ++it)
+       {
+           if((*it).isComposite())
+           {
+               Tache* result = dynamic_cast<TacheComposite&>(*it).getSousTache(id);
+               if(result)
+                       return result;
+           }
+       }
+       return 0;
+   }
+   //return *taches.at(id); //renvoie une exception si la tache n'existe pas
 }
 
-const Tache& Projet::getTache(const QString &id) const
-{
-   return *taches.at(id); //renvoie une exception si la tache n'existe pas
-}
+
+
+
+
 
 QString Projet::toString() const
 {
