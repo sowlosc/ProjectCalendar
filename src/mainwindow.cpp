@@ -18,7 +18,7 @@ MainWindow::MainWindow(QWidget *parent) :
 void MainWindow::construct_recurs_tree(Tache* t, QTreeWidgetItem *root)
 {
     TreeTacheItem *nouv = new TreeTacheItem(root,t);
-    nouv->setText(0,t->getDescription());
+    nouv->setText(0,t->getTitre());
     if(t->isComposite())
     {
         TacheComposite* tc = dynamic_cast<TacheComposite*>(t);
@@ -83,10 +83,9 @@ void MainWindow::ajouterTache()
             retour = dial->exec();
         }
 
-        Projet& p  = ProjetManager::getInstance().getProjet("projet2");
         if(retour == QDialog::Accepted)
-        {std::cout<<"\nRGREGBRTBRTB-------- exception levee -------\n";
-            try{maj_treeWidget();}catch(...){std::cout<<"\nRGREGBRTBRTB-------- exception levee -------\n";}
+        {
+            maj_treeWidget();
          }
     }
 }

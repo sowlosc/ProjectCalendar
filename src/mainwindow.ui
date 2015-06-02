@@ -959,7 +959,7 @@
          <item>
           <widget class="QPushButton" name="Bouton_ajouter_tache">
            <property name="text">
-            <string>PushButton</string>
+            <string>Ajouter une tâche</string>
            </property>
           </widget>
          </item>

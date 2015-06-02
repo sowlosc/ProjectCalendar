@@ -35,9 +35,11 @@ Tache* Projet::getTache(const QString &id)
        }
        return 0;
    }
-   //return *taches.at(id); //renvoie une exception si la tache n'existe pas
 }
 
+
+
+// ---------------------------------- fonction d'affichage des projet en console -------------------
 void Projet::affTache(Tache* t)
 {
     if(t){
@@ -63,6 +65,7 @@ void Projet::describe()
     std::cout<<"\n\n";
 }
 
+//------------------------------------------------------------------------------------------
 
 
 QString Projet::toString() const
