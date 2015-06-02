@@ -4,7 +4,7 @@
 
 Projet& Projet::ajouterTache(Tache *t)
 {
-    if(taches[t->getId()])
+    if(taches.find(t->getId()) != taches.end())
         throw CalendarException("erreur, Projet, id deja existant");
     taches[t->getId()] = t;
     return *this;
@@ -12,7 +12,7 @@ Projet& Projet::ajouterTache(Tache *t)
 
 void Projet::retirerTache(Tache *t)
 {
-    if(taches[t->getId()]){
+    if(taches.find(t->getId()) != taches.end()){
         delete taches[t->getId()];
         taches.erase(t->getId());
     }
@@ -20,7 +20,7 @@ void Projet::retirerTache(Tache *t)
 
 Tache* Projet::getTache(const QString &id)
 {
-   if(taches[id])
+   if(taches.find(id) != taches.end())
        return taches[id];
    else
    {
@@ -38,8 +38,30 @@ Tache* Projet::getTache(const QString &id)
    //return *taches.at(id); //renvoie une exception si la tache n'existe pas
 }
 
+void Projet::affTache(Tache* t)
+{
+    if(t){
+    if(t->isComposite())
+    {
+        std::cout << "tache composite : " << t->getDescription().toStdString() <<"\n";
+        TacheComposite *tc = dynamic_cast<TacheComposite*>(t);
+        for(TacheComposite::iterator it = tc->begin()  ;it != tc->end() ; ++it)
+            affTache(&(*it));
+    }else
+        std::cout<<"tache : "<<t->getDescription().toStdString()<<"\n";
+}
+}
 
-
+void Projet::describe()
+{
+    std::cout << "\n\n======= Description projet "<<getTitre().toStdString()<<" =======\n";
+    for(Projet::iterator it = this->begin() ; it != this->end() ; ++it)
+    {
+        std::cout<<"----->\n";
+        affTache(&(*it));
+    }
+    std::cout<<"\n\n";
+}
 
 
 

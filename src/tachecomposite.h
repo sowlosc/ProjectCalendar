@@ -23,19 +23,36 @@ public:
     void retirerSousTache(Tache* t);
 
 
-    Tache* getSousTache(const QString& id); // methode specifique aux taches composite return 0 si la tache n'existe pas
+    Tache *getSousTache(const QString& id); // methode specifique aux taches composite return 0 si la tache n'existe pas
 
 
     class iterator
     {
         friend class TacheComposite;
         std::map<QString, Tache*>::iterator it;
-        iterator(std::map<QString, Tache*>::iterator iter) : it(iter) {}
+        iterator(const std::map<QString, Tache*>::iterator& iter) : it(iter) {}
     public:
         Tache& operator*() { return *(it->second); }
         iterator& operator++ (){ ++it; return *this; }
         bool operator!=(const iterator& at) const { return it != at.it; }
     };
+
+  /*  class iterator
+    {
+        friend class Projet;
+        std::map<QString, Tache*>::iterator it;
+        iterator(const std::map<QString,Tache*>::iterator& i) : it(i) {}
+
+    public:
+        Tache& operator*() { return *(it)->second; }
+        iterator& operator++() { ++it; return *this; }
+        bool operator!=(const iterator& at) const { return it != at.it; }
+    };
+
+    iterator begin() { return iterator(taches.begin()); }
+    iterator end() { return iterator(taches.end()); }*/
+
+
 
     iterator begin() { return iterator(sousTaches.begin()); }
     iterator end() { return iterator(sousTaches.end()); }

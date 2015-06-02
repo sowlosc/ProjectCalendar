@@ -9,11 +9,31 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
     maj_treeWidget();
+    QObject::connect(ui->treeWidget,SIGNAL(clicked(QModelIndex)),this,SLOT(maj_descripteurs()));
+    QObject::connect(ui->Bouton_ajouter_tache,SIGNAL(clicked()),this,SLOT(ajouterTache()));
 
+}
+
+
+void MainWindow::construct_recurs_tree(Tache* t, QTreeWidgetItem *root)
+{
+    TreeTacheItem *nouv = new TreeTacheItem(root,t);
+    nouv->setText(0,t->getDescription());
+    if(t->isComposite())
+    {
+        TacheComposite* tc = dynamic_cast<TacheComposite*>(t);
+
+        for(TacheComposite::iterator cit = tc->begin() ; cit != tc->end() ; ++cit)
+        {
+            construct_recurs_tree(&(*cit),nouv);
+        }
+    }
 }
 
 void MainWindow::maj_treeWidget()
 {
+    ui->treeWidget->clear(); //detruit et libere memoire
+
     ui->treeWidget->setColumnCount(1);
     ui->treeWidget->setHeaderLabels(QStringList() << "Projets");
 
@@ -22,31 +42,12 @@ void MainWindow::maj_treeWidget()
     {
         TreeProjetItem *nouv = new TreeProjetItem(ui->treeWidget,&(*it));
         nouv->setText(0,(*it).getTitre());
-        //nouv->setText(1,(*it).getDescription());
 
         for(Projet::iterator pit = (*it).begin() ; pit != (*it).end(); ++pit)
         {
-            Tache& tc = *pit;
-            TreeTacheItem *tache = new TreeTacheItem(nouv,&(*pit));
-            tache->setText(0,tc.getTitre());
-            //tache->setText(1,tc.getDescription());
-
-            if(tc.isComposite())
-            {
-                TacheComposite& t = dynamic_cast<TacheComposite&>(tc);
-
-                for(TacheComposite::iterator cit = t.begin() ; cit != t.end() ; ++cit)
-                {
-                    TreeTacheItem *sstache = new TreeTacheItem(tache,&(*cit));
-                    sstache->setText(0,(*cit).getTitre());
-                    //sstache->setText(0,(*cit).getDescription());
-                }
-            }
+            construct_recurs_tree(&(*pit),nouv);
         }
     }
-    QObject::connect(ui->treeWidget,SIGNAL(clicked(QModelIndex)),this,SLOT(maj_descripteurs()));
-    QObject::connect(ui->Bouton_ajouter_tache,SIGNAL(clicked()),this,SLOT(ajouterTache()));
-
 }
 
 MainWindow::~MainWindow()
@@ -64,24 +65,29 @@ void MainWindow::maj_descripteurs()
 
 void MainWindow::ajouterTache()
 {
-
     TreeItem* current = dynamic_cast<TreeItem*>(ui->treeWidget->currentItem());
+    TreeProjetItem* projet = dynamic_cast<TreeProjetItem*>(current->getParentProject());
 
     if(current && !current->isUnitaire())
     {   //projet ou tache composite qui ont une methode ajouter tache
-        if(current->isProjetItem()){
-            TreeProjetItem *curProjetItem = dynamic_cast<TreeProjetItem*>(current);
-            AjoutTacheDialog *dial = new AjoutTacheDialog(this,curProjetItem->getProjet());
-            dial->open();
+
+        int retour = 0;
+        if(current->isProjetItem())
+        {
+            AjoutTacheDialog *dial = new AjoutTacheDialog(this,projet->getProjet()->getTitre(),"");
+            retour = dial->exec();
         }else
         {
             TreeTacheItem *curTacheItem = dynamic_cast<TreeTacheItem*>(current);
-            AjoutTacheDialog *dial = new AjoutTacheDialog(this,dynamic_cast<TacheComposite*>(curTacheItem->getTache()));
-            dial->open();
+            AjoutTacheDialog *dial = new AjoutTacheDialog(this,projet->getProjet()->getTitre(),curTacheItem->getTache()->getId());
+            retour = dial->exec();
         }
 
-        maj_treeWidget();
-
+        Projet& p  = ProjetManager::getInstance().getProjet("projet2");
+        if(retour == QDialog::Accepted)
+        {std::cout<<"\nRGREGBRTBRTB-------- exception levee -------\n";
+            try{maj_treeWidget();}catch(...){std::cout<<"\nRGREGBRTBRTB-------- exception levee -------\n";}
+         }
     }
 }
 
@@ -110,7 +116,16 @@ void MainWindow::ajouterTache()
 
 
 
-
+TreeItem* TreeItem::getParentProject()
+{
+    QTreeWidgetItem *cur = this, *pred = this->parent();
+    while(pred)
+    {
+        cur = pred;
+        pred = pred->parent();
+    }
+    return dynamic_cast<TreeItem*>(cur);
+}
 
 
 

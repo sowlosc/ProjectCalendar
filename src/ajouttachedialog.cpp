@@ -1,21 +1,21 @@
 #include "ajouttachedialog.h"
 #include "ui_ajouttachedialog.h"
 
-AjoutTacheDialog::AjoutTacheDialog(QWidget *parent,TacheComposite *tc) :
-    QDialog(parent), tCompo(tc),projet(0),
+AjoutTacheDialog::AjoutTacheDialog(QWidget *parent , const QString& proj, const QString& tCompo) :
+    QDialog(parent), nomProjet(proj), nomTacheComposite(tCompo),
     ui(new Ui::AjoutTacheDialog)
 {
     ui->setupUi(this);
     QObject::connect(ui->checkBox_composite,SIGNAL(stateChanged(int)),this,SLOT(activerDuree(int)));
 }
-
+/*
 AjoutTacheDialog::AjoutTacheDialog(QWidget *parent,Projet *p) :
     QDialog(parent), projet(p),tCompo(0),
     ui(new Ui::AjoutTacheDialog)
 {
     ui->setupUi(this);
     QObject:connect(ui->checkBox_composite,SIGNAL(stateChanged(int)),this,SLOT(activerDuree(int)));
-}
+}*/
 
 AjoutTacheDialog::~AjoutTacheDialog()
 {
@@ -45,8 +45,8 @@ void AjoutTacheDialog::accept()
 
 
 
-    if(id == "" || titre == "" || desc == "")
-        throw CalendarException("Erreur, AjoutTacheDialog, une tache doit avoir des champs valides");
+   // if(id == "" || titre == "" || desc == "")
+    //    throw CalendarException("Erreur, AjoutTacheDialog, une tache doit avoir des champs valides");
     /*
      * faire les verification
      * ou faire un try
@@ -67,11 +67,38 @@ void AjoutTacheDialog::accept()
         Duree duree(time.hour(),time.minute());
         t = new TacheUnitaire(id,titre,dispo,ech,desc,duree,true);
     }
-    if(!projet && tCompo)
-        tCompo->ajouterSousTache(t);
-    else if(projet)
-        projet->ajouterTache(t);
+
+    std::cout<<"=========== fin creation nouvelle tache ===========\n";
+    std::cout<<t->toString().toStdString()<<"\n";
+    if(!t)
+        std::cout<<"\n !!!!!!!!!!!!!!!PROBLEM !!!!!!!!!!!!!!!!!";
+
+
+    if(nomTacheComposite == "")
+    {
+        //on ajoute dans un projet
+
+        ProjetManager& pm = ProjetManager::getInstance();
+        Projet& proj = pm.getProjet(nomProjet);
+        std::cout<<"=========== ajout dans un projet  "<< proj.getTitre().toStdString() << "===========\n";
+        proj.ajouterTache(t);
+    }else
+    {
+        //on ajoute dans une tache composite
+
+        ProjetManager& pm = ProjetManager::getInstance();
+        Projet& proj = pm.getProjet(nomProjet);
+        TacheComposite* tc = dynamic_cast<TacheComposite*>(proj.getTache(nomTacheComposite));
+        if(!tc)
+            throw CalendarException("Erreur, AjoutTacheDialog, ajout dans une tache inexistante");
+        std::cout<<"=========== ajout dans une tache dans "<< tc->toString().toStdString() <<"===========\n";
+
+        tc->ajouterSousTache(t);
+
+    }
+
 
     std::cout<<"---------------------------------------------------------- FIN AJOUT\n\n\n";
-    return;
+    this->done(1);
+
 }

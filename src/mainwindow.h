@@ -22,6 +22,7 @@ public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
     void maj_treeWidget();
+    void construct_recurs_tree(Tache* t,QTreeWidgetItem* root);
 
 
 
@@ -52,12 +53,16 @@ private slots:
  * des taches et des projets
  * */
 
+
 class TreeItem : public QTreeWidgetItem
 {
 
 public:
     TreeItem(QTreeWidgetItem * parent) : QTreeWidgetItem(parent) {}
     TreeItem(QTreeWidget * parent) : QTreeWidgetItem(parent) {}
+    //~TreeItem() { std::cout << "---------------****> destruction TreeItem" << "\n";}
+
+    TreeItem* getParentProject();
 
     virtual QString getDescriptionHtml() const = 0;
     virtual bool isUnitaire() const = 0;

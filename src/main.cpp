@@ -97,7 +97,10 @@ int main(int argc, char *argv[])
     TacheUnitaire *t4 = new TacheUnitaire("t3.1","sousTache1",QDate(2015,8,1),QDate(2015,9,7),"Initialisation",Duree(1,40),false);
     TacheUnitaire *t5 = new TacheUnitaire("t3.2","sousTache2",QDate(2015,8,1),QDate(2015,9,7),"Developpement",Duree(2,35),true);
 
+    TacheComposite *t6 = new TacheComposite("t3.3","sousTache3",QDate(2015,6,1),QDate(2015,7,7),"sous Tahce complexe");
 
+    TacheUnitaire *t7 = new TacheUnitaire("t3.3.1","sssousTache1",QDate(2015,8,1),QDate(2015,9,7),"sssoust1",Duree(1,40),false);
+    TacheUnitaire *t8 = new TacheUnitaire("t3.3.2","sssousTache2",QDate(2015,8,1),QDate(2015,9,7),"sssout2",Duree(2,35),true);
 
     pm.getProjet("projet2").ajouterTache(t1);
     pm.getProjet("projet2").ajouterTache(t2);
@@ -105,6 +108,19 @@ int main(int argc, char *argv[])
 
     t3->ajouterSousTache(t4);
     t3->ajouterSousTache(t5);
+    t3->ajouterSousTache(t6);
+
+    t6->ajouterSousTache(t7);
+    t6->ajouterSousTache(t8);
+
+    TacheComposite *c1 = new TacheComposite("c1","c1",QDate(2015,6,1),QDate(2015,7,7),"Tahce complexe1");
+    TacheComposite *c2 = new TacheComposite("c2","c2",QDate(2015,6,1),QDate(2015,7,7),"Tahce complexe2");
+    TacheComposite *c3 = new TacheComposite("c3","c3",QDate(2015,6,1),QDate(2015,7,7),"Tahce complexe3");
+
+    pm.getProjet("projet2").ajouterTache(c1);
+    c1->ajouterSousTache(c2);
+    c2->ajouterSousTache(c3);
+
 
     for(Projet::iterator it = pj.begin() ; it != pj.end() ; ++it)
         std::cout<<(*it).getDescription().toStdString()<<std::endl;
@@ -117,7 +133,7 @@ int main(int argc, char *argv[])
     w.show();
 
 
-    std::cout << "resulte getSousTache = " << pm.getProjet("projet2").getTache("t3.2")->getDescription().toStdString() << "\n";
+    //std::cout << "resulte getSousTache = " << pm.getProjet("projet2").getTache("t3.2")->getDescription().toStdString() << "\n";
 
 
      return a.exec();

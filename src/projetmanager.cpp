@@ -18,7 +18,7 @@ void ProjetManager::libererInstance()
 
 Projet& ProjetManager::ajouterProjet(const QString &t, const QString &desc, const QDate &dispo, const QDate &ech)
 {
-    if(projets[t])
+    if(projets.find(t) != projets.end())
         throw CalendarException("erreur, ProjetManager, projet deja existant");
     projets[t] = new Projet(t,desc,dispo,ech);
     return *projets[t];

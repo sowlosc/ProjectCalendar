@@ -21,7 +21,7 @@ TacheComposite& TacheComposite::operator<<(Tache* t)
 
 void TacheComposite::ajouterSousTache(Tache *t)
 {
-    if(sousTaches[t->getId()])
+    if(sousTaches.find(t->getId()) != sousTaches.end())
         throw CalendarException("Erreur, TacheCompisite, cette sous tache existe deja");
     else
         sousTaches[t->getId()] = t;
@@ -30,7 +30,7 @@ void TacheComposite::ajouterSousTache(Tache *t)
 
 void TacheComposite::retirerSousTache(Tache *t)
 {
-    if(sousTaches[t->getId()]){
+    if(sousTaches.find(t->getId()) != sousTaches.end()){
         delete sousTaches[t->getId()];
         sousTaches.erase(t->getId());
     }
@@ -53,7 +53,7 @@ QString TacheComposite::toString() const
 
 Tache* TacheComposite::getSousTache(const QString &id)
 {
-    if(sousTaches[id])
+    if(sousTaches.find(id) != sousTaches.end())
         return sousTaches[id];
     else
     {

@@ -29,6 +29,8 @@ public:
     void retirerTache(Tache* t);
     Tache *getTache(const QString& id);
 
+    void describe(); // A SUPPRIMER
+    void affTache(Tache* t); // A SUPPRIMER
 
 
     const QString& getTitre() const { return titre; }
@@ -52,7 +54,7 @@ public:
         iterator(const std::map<QString,Tache*>::iterator& i) : it(i) {}
 
     public:
-        Tache& operator*() { return *(it)->second; }
+        Tache& operator*() { return *(it->second); }
         iterator& operator++() { ++it; return *this; }
         bool operator!=(const iterator& at) const { return it != at.it; }
     };
