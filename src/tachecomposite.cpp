@@ -23,8 +23,11 @@ void TacheComposite::ajouterSousTache(Tache *t)
 {
     if(sousTaches.find(t->getId()) != sousTaches.end())
         throw CalendarException("Erreur, TacheCompisite, cette sous tache existe deja");
-    else
+    else{
         sousTaches[t->getId()] = t;
+        notifier();
+    }
+
 }
 
 
@@ -33,6 +36,7 @@ void TacheComposite::retirerSousTache(Tache *t)
     if(sousTaches.find(t->getId()) != sousTaches.end()){
         delete sousTaches[t->getId()];
         sousTaches.erase(t->getId());
+        notifier();
     }
 }
 

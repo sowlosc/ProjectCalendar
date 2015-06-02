@@ -39,12 +39,6 @@ void AjoutTacheDialog::accept()
     QDate dispo = ui->dateEdit_dispo->date();
     QDate ech = ui->dateEdit_ech->date();
 
-    std::cout << "id = "<<id.toStdString()<<"\n";
-    std::cout << "titre = "<<titre.toStdString()<<"\n";
-    std::cout << "desc = "<<desc.toStdString()<<"\n";
-
-
-
    // if(id == "" || titre == "" || desc == "")
     //    throw CalendarException("Erreur, AjoutTacheDialog, une tache doit avoir des champs valides");
     /*
@@ -68,19 +62,12 @@ void AjoutTacheDialog::accept()
         t = new TacheUnitaire(id,titre,dispo,ech,desc,duree,true);
     }
 
-    std::cout<<"=========== fin creation nouvelle tache ===========\n";
-    std::cout<<t->toString().toStdString()<<"\n";
-    if(!t)
-        std::cout<<"\n !!!!!!!!!!!!!!!PROBLEM !!!!!!!!!!!!!!!!!";
-
-
     if(nomTacheComposite == "")
     {
         //on ajoute dans un projet
 
         ProjetManager& pm = ProjetManager::getInstance();
         Projet& proj = pm.getProjet(nomProjet);
-        std::cout<<"=========== ajout dans un projet  "<< proj.getTitre().toStdString() << "===========\n";
         proj.ajouterTache(t);
     }else
     {
@@ -89,16 +76,10 @@ void AjoutTacheDialog::accept()
         ProjetManager& pm = ProjetManager::getInstance();
         Projet& proj = pm.getProjet(nomProjet);
         TacheComposite* tc = dynamic_cast<TacheComposite*>(proj.getTache(nomTacheComposite));
-        if(!tc)
-            throw CalendarException("Erreur, AjoutTacheDialog, ajout dans une tache inexistante");
-        std::cout<<"=========== ajout dans une tache dans "<< tc->toString().toStdString() <<"===========\n";
-
         tc->ajouterSousTache(t);
-
     }
 
-
-    std::cout<<"---------------------------------------------------------- FIN AJOUT\n\n\n";
+    ProjetManager::getInstance().notifier(); //on notifie l'ajout a l'observateur pour qu'il se mette a jour
     this->done(1);
 
 }

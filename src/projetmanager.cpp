@@ -21,6 +21,7 @@ Projet& ProjetManager::ajouterProjet(const QString &t, const QString &desc, cons
     if(projets.find(t) != projets.end())
         throw CalendarException("erreur, ProjetManager, projet deja existant");
     projets[t] = new Projet(t,desc,dispo,ech);
+    notifier();
     return *projets[t];
 }
 
@@ -38,5 +39,6 @@ const Projet& ProjetManager::getProjet(const QString &t) const
 void ProjetManager::retirerProjet(const QString &titre)
 {
     try{ projets.at(titre); } catch(...) { throw CalendarException("Erreur, ProjetManager, impossible retirer un projet qui n'existe pas"); }
+    notifier();
     projets.erase(titre);
 }

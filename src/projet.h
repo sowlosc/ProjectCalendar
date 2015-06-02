@@ -2,16 +2,21 @@
 #define PROJET_H
 
 #include <map>
+#include <set>
 #include <QString>
 #include <sstream>
 #include "duree.h"
 #include "tache.h"
 #include "tachecomposite.h"
+#include "observateur.h"
 
 
-class Projet
+class Projet : public Observable
 {
     friend class ProjetManager;
+
+    std::set<Observateur*> obs;
+
     QString titre;
     QString description;
     //Duree duree;
@@ -44,6 +49,24 @@ public:
     void setEcheance(const QDate& d) { echeance = d; }
 
     QString toString() const;
+
+
+
+    void ajouterObservateur(Observateur *o) { obs.insert(o); }
+    void supprimerObservateur(Observateur *o) { obs.erase(o); }
+    void notifier() {
+        for(std::set<Observateur*>::iterator it = obs.begin() ; it != obs.end() ; ++it)
+            (*it)->mise_a_jour();
+    }
+
+
+
+
+
+
+
+
+
 
 
 

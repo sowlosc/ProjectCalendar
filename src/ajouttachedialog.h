@@ -6,7 +6,7 @@
 #include "tacheunitaire.h"
 #include "tachecomposite.h"
 #include "projetmanager.h"
-#include "mainwindow.h"
+//#include "mainwindow.h"
 //class TreeItem;
 
 namespace Ui {

@@ -7,6 +7,7 @@ Projet& Projet::ajouterTache(Tache *t)
     if(taches.find(t->getId()) != taches.end())
         throw CalendarException("erreur, Projet, id deja existant");
     taches[t->getId()] = t;
+    notifier();
     return *this;
 }
 
@@ -14,6 +15,7 @@ void Projet::retirerTache(Tache *t)
 {
     if(taches.find(t->getId()) != taches.end()){
         delete taches[t->getId()];
+        notifier();
         taches.erase(t->getId());
     }
 }

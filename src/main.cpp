@@ -17,8 +17,14 @@
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
+    MainWindow& w = MainWindow::getInstance();
+    ProjetManager& pm = ProjetManager::getInstance();
+    pm.ajouterObservateur(&w);
+    for(ProjetManager::iterator it = ProjetManager::getInstance().begin(); it != ProjetManager::getInstance().end() ; ++it)
+        (*it).ajouterObservateur(&w);
 
-     Rdv r(QDate(),QTime(),Duree(1,1),"losc","lille");
+
+      Rdv r(QDate(),QTime(),Duree(1,1),"losc","lille");
 
      r.ajouterPersonne("Mavuba");
      r.ajouterPersonne("Renard");
@@ -42,7 +48,7 @@ int main(int argc, char *argv[])
          std::cout<<"Personne : "<<(*it).toStdString()<<std::endl;
      }
 
-     ProjetManager& pm = ProjetManager::getInstance();
+
     pm.ajouterProjet("projet1","mon premier projet",QDate(2015,5,30),QDate(2015,6,14));
     pm.ajouterProjet("projet2","Mon deuxieme projet",QDate(2015,7,1),QDate(2015,8,30));
 
@@ -115,6 +121,7 @@ int main(int argc, char *argv[])
 
     TacheComposite *c1 = new TacheComposite("c1","c1",QDate(2015,6,1),QDate(2015,7,7),"Tahce complexe1");
     TacheComposite *c2 = new TacheComposite("c2","c2",QDate(2015,6,1),QDate(2015,7,7),"Tahce complexe2");
+    c2->ajouterObservateur(&w);
     TacheComposite *c3 = new TacheComposite("c3","c3",QDate(2015,6,1),QDate(2015,7,7),"Tahce complexe3");
 
     pm.getProjet("projet2").ajouterTache(c1);
@@ -129,7 +136,6 @@ int main(int argc, char *argv[])
     ProgrammationPartieTache evt5(QDate(2015,6,2),QTime(14,0,0),Duree(1,0),t2);
 
 
-    MainWindow w;
     w.show();
 
 

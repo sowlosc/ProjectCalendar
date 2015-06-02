@@ -29,7 +29,8 @@ SOURCES += \
     src/programmationpartietache.cpp \
     src/projectcalendar.cpp \
     src/mainwindow.cpp \
-    src/ajouttachedialog.cpp
+    src/ajouttachedialog.cpp \
+    src/observateur.cpp
 
 #QT       += core
 
@@ -65,7 +66,8 @@ HEADERS += \
     src/programmationpartietache.h \
     src/projectcalendar.h \
     src/mainwindow.h \
-    src/ajouttachedialog.h
+    src/ajouttachedialog.h \
+    src/observateur.h
 
 FORMS += \
     src/mainwindow.ui \

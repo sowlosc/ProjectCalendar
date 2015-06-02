@@ -2,11 +2,15 @@
 #define TACHE_H
 
 #include <QDate>
+#include <set>
 #include "exception.h"
+#include "observateur.h"
 
-
-class Tache
+class Tache : public Observable
 {
+    std::set<Observateur*> obs;
+
+
     QString identificateur;
     QString titre;
     QDate disponibilite;
@@ -39,6 +43,13 @@ public:
 
     virtual QString toString() const = 0 ;
     virtual bool isComposite() const = 0;
+
+    void ajouterObservateur(Observateur *o) { obs.insert(o); }
+    void supprimerObservateur(Observateur *o) { obs.erase(o); }
+    void notifier() {
+        for(std::set<Observateur*>::iterator it = obs.begin() ; it != obs.end() ; ++it)
+            (*it)->mise_a_jour();
+    }
 
 
    /* class succIterator

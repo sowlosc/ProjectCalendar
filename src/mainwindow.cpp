@@ -2,6 +2,8 @@
 #include "ui_mainwindow.h"
 
 
+MainWindow* MainWindow::instance = 0;
+
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow), ag(Agenda::getInstance()),
@@ -11,7 +13,7 @@ MainWindow::MainWindow(QWidget *parent) :
     maj_treeWidget();
     QObject::connect(ui->treeWidget,SIGNAL(clicked(QModelIndex)),this,SLOT(maj_descripteurs()));
     QObject::connect(ui->Bouton_ajouter_tache,SIGNAL(clicked()),this,SLOT(ajouterTache()));
-
+    maj_treeWidget();
 }
 
 
@@ -50,6 +52,12 @@ void MainWindow::maj_treeWidget()
     }
 }
 
+
+void MainWindow::mise_a_jour()
+{
+    maj_treeWidget();
+}
+
 MainWindow::~MainWindow()
 {
     delete ui;
@@ -82,11 +90,6 @@ void MainWindow::ajouterTache()
             AjoutTacheDialog *dial = new AjoutTacheDialog(this,projet->getProjet()->getTitre(),curTacheItem->getTache()->getId());
             retour = dial->exec();
         }
-
-        if(retour == QDialog::Accepted)
-        {
-            maj_treeWidget();
-         }
     }
 }
 

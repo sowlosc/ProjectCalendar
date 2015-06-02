@@ -4,43 +4,48 @@
 #include <QMainWindow>
 #include "projetmanager.h"
 #include "precedencemanager.h"
-#include "agenda.h"
+//#include "agenda.h"
 #include "tachecomposite.h"
 #include "ui_mainwindow.h"
 #include "ajouttachedialog.h"
 #include <iostream>
+#include "observateur.h"
+
 
 namespace Ui {
 class MainWindow;
 }
 
-class MainWindow : public QMainWindow
+class MainWindow : public QMainWindow, public Observateur
 {
     Q_OBJECT
 
 public:
-    explicit MainWindow(QWidget *parent = 0);
-    ~MainWindow();
+
+    static MainWindow& getInstance() { if(!instance) instance = new MainWindow; return *instance; }
+    static void libererInstance() { if(instance) delete instance; instance = 0; }
+
     void maj_treeWidget();
     void construct_recurs_tree(Tache* t,QTreeWidgetItem* root);
-
+    void mise_a_jour();
 
 
 
 private:
+    explicit MainWindow(QWidget *parent = 0);
+    ~MainWindow();
+    static MainWindow *instance;
     Ui::MainWindow *ui;
-
     Agenda& ag;
     ProjetManager& pm;
     PrecedenceManager& predm;
+
 
 public slots:
     void maj_descripteurs();
     void ajouterTache();
 
 
-private slots:
-    void on_Bouton_ajouter_tache_clicked();
 };
 
 

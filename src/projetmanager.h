@@ -2,11 +2,17 @@
 #define PROJETMANAGER_H
 
 #include "projet.h"
+//#include "mainwindow.h"
+#include "observateur.h"
+#include <set>
+#include <map>
+#include <QString>
+#include <QDate>
+#include "exception.h"
 
-
-
-class ProjetManager
+class ProjetManager : public Observable
 {
+    std::set<Observateur*> obs;
     std::map<QString,Projet*> projets;
     static ProjetManager* instance;
 
@@ -14,6 +20,8 @@ class ProjetManager
     ProjetManager(const ProjetManager&);
     ~ProjetManager() {};
     ProjetManager& operator=(const ProjetManager&);
+
+
 
 public:
     static ProjetManager& getInstance();
@@ -24,6 +32,13 @@ public:
     const Projet& getProjet(const QString &t) const;
 
     void retirerProjet(const QString& t);
+
+    void ajouterObservateur(Observateur *o) { obs.insert(o); }
+    void supprimerObservateur(Observateur *o) { obs.erase(o); }
+    void notifier() {
+        for(std::set<Observateur*>::iterator it = obs.begin() ; it != obs.end() ; ++it)
+            (*it)->mise_a_jour();
+    }
 
 
 
