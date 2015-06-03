@@ -31,7 +31,7 @@ public:
     Projet& getProjet(const QString& t);
     const Projet& getProjet(const QString &t) const;
 
-    void retirerProjet(const QString& t);
+    void supprimerProjet(const QString& t);
 
     void ajouterObservateur(Observateur *o) { obs.insert(o); }
     void supprimerObservateur(Observateur *o) { obs.erase(o); }

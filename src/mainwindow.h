@@ -44,8 +44,8 @@ private:
 public slots:
     void maj_descripteurs();
     void ajouterTache();
-
-
+    void supprimerTache();
+    void supprimerProjet();
 };
 
 

@@ -5,6 +5,7 @@
 #include <set>
 #include "exception.h"
 #include "observateur.h"
+#include <iostream>
 
 class Tache : public Observable
 {
@@ -26,6 +27,7 @@ public:
           const QDate& dispo,
           const QDate& ech,
           const QString& txt) : identificateur(id), titre(t), disponibilite(dispo),echeance(ech),description(txt) {}
+    virtual ~Tache() {}
 
     const QString& getId() const { return identificateur; }
     void setId(const QString& id) { identificateur = id; }

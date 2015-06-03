@@ -891,7 +891,7 @@
        <rect>
         <x>10</x>
         <y>10</y>
-        <width>401</width>
+        <width>415</width>
         <height>401</height>
        </rect>
       </property>
@@ -964,9 +964,30 @@
           </widget>
          </item>
          <item>
-          <widget class="QPushButton" name="pushButton">
+          <widget class="QPushButton" name="Bouton_supprimer_tache">
            <property name="text">
-            <string>PushButton</string>
+            <string>Supprimer une tâche</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout_2">
+         <property name="sizeConstraint">
+          <enum>QLayout::SetDefaultConstraint</enum>
+         </property>
+         <item>
+          <widget class="QPushButton" name="Bouton_ajouter_projet">
+           <property name="text">
+            <string>Ajouter un projet</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="Bouton_supprimer_projet">
+           <property name="text">
+            <string>Supprimer un projet</string>
            </property>
           </widget>
          </item>

@@ -13,6 +13,9 @@ MainWindow::MainWindow(QWidget *parent) :
     maj_treeWidget();
     QObject::connect(ui->treeWidget,SIGNAL(clicked(QModelIndex)),this,SLOT(maj_descripteurs()));
     QObject::connect(ui->Bouton_ajouter_tache,SIGNAL(clicked()),this,SLOT(ajouterTache()));
+    QObject::connect(ui->Bouton_supprimer_tache,SIGNAL(clicked()),this,SLOT(supprimerTache()));
+    QObject::connect(ui->Bouton_supprimer_projet,SIGNAL(clicked()),this,SLOT(supprimerProjet()));
+
     maj_treeWidget();
 }
 
@@ -93,7 +96,28 @@ void MainWindow::ajouterTache()
     }
 }
 
+void MainWindow::supprimerTache()
+{
+    TreeItem* current = dynamic_cast<TreeItem*>(ui->treeWidget->currentItem());
+    TreeProjetItem* projet = dynamic_cast<TreeProjetItem*>(current->getParentProject());
 
+    if(current && !current->isProjetItem())
+    {
+        TreeTacheItem* ta = dynamic_cast<TreeTacheItem*>(current);
+        projet->getProjet()->retirerTache(ta->getTache()->getId());
+    }
+}
+
+void MainWindow::supprimerProjet()
+{
+    TreeItem* current = dynamic_cast<TreeItem*>(ui->treeWidget->currentItem());
+    if(current && current->isProjetItem())
+    {
+        TreeProjetItem* p = dynamic_cast<TreeProjetItem*>(current);
+        ProjetManager& pm = ProjetManager::getInstance();
+        pm.supprimerProjet(p->getProjet()->getTitre());
+    }
+}
 
 
 
@@ -109,6 +133,11 @@ void MainWindow::ajouterTache()
  * mais ici pour creer non
  *
  * 1) recherche tache dans projet rech(id)
+ *
+ *
+ *
+ * --> adaptateur entre projet et tache composite
+ * --> observateur , les precedence observent le projetmanager, les projets et les taches
  *
 */
 

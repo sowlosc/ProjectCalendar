@@ -36,9 +36,13 @@ const Projet& ProjetManager::getProjet(const QString &t) const
 }
 
 
-void ProjetManager::retirerProjet(const QString &titre)
+void ProjetManager::supprimerProjet(const QString &titre)
 {
-    try{ projets.at(titre); } catch(...) { throw CalendarException("Erreur, ProjetManager, impossible retirer un projet qui n'existe pas"); }
-    notifier();
-    projets.erase(titre);
+    if(projets.find(titre) == projets.end())
+        throw CalendarException("Erreur, ProjetManager, impossible retirer un projet qui n'existe pas");
+    else{
+        delete projets[titre];
+        projets.erase(titre);
+        notifier();
+    }
 }

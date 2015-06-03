@@ -14,7 +14,7 @@ public:
                    const QDate& dispo,
                    const QDate& ech,
                    const QString& txt) : Tache(id,t,dispo,ech,txt) {}
-    ~TacheComposite();
+    virtual ~TacheComposite();
 
     virtual QString toString() const;
     virtual bool isComposite() const { return true; }
@@ -24,6 +24,7 @@ public:
 
 
     Tache *getSousTache(const QString& id); // methode specifique aux taches composite return 0 si la tache n'existe pas
+    std::map<QString, Tache*>* getTacheMap(const QString &id);
 
 
     class iterator

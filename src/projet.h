@@ -26,13 +26,16 @@ class Projet : public Observable
 
     Projet(const QString& t, const QString& desc, const QDate& dispo, const QDate& ech)
         :titre(t), description(desc), disponibilite(dispo), echeance(ech) {}
-    ~Projet() {}
+    ~Projet();
 public:
     //peut-etre a enlever
     Tache& ajouterTache(const QString& id, const QString& t, const Duree& dur, const QDate& dispo, const QDate& ech, bool preempt = false);
     Projet& ajouterTache(Tache* t);
     void retirerTache(Tache* t);
+    void retirerTache(const QString id);
+
     Tache *getTache(const QString& id);
+    std::map<QString, Tache *> *getTacheMap(const QString &id); //renvoie la tache composite parente ou null si c'es dans le projet
 
     void describe(); // A SUPPRIMER
     void affTache(Tache* t); // A SUPPRIMER

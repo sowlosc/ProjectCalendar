@@ -1,6 +1,12 @@
 #include "projet.h"
 
-
+Projet::~Projet()
+{
+    for(iterator it=begin(); it != end(); ++it)
+    {
+        delete &(*it);
+    }
+}
 
 Projet& Projet::ajouterTache(Tache *t)
 {
@@ -15,10 +21,23 @@ void Projet::retirerTache(Tache *t)
 {
     if(taches.find(t->getId()) != taches.end()){
         delete taches[t->getId()];
-        notifier();
         taches.erase(t->getId());
+        notifier();
+
     }
 }
+void Projet::retirerTache(const QString id)
+{
+    std::map<QString, Tache*>* parent = getTacheMap(id);
+    if(parent)
+    {
+        delete parent->at(id);
+        parent->erase(id);
+        notifier();
+    }
+}
+
+
 
 Tache* Projet::getTache(const QString &id)
 {
@@ -39,12 +58,31 @@ Tache* Projet::getTache(const QString &id)
    }
 }
 
+std::map<QString, Tache*>* Projet::getTacheMap(const QString &id)
+{
+    if(taches.find(id) != taches.end())
+        return &taches;
+    else
+    {
+        for(Projet::iterator it = begin() ; it != end() ; ++it)
+        {
+            if((*it).isComposite())
+            {
+                TacheComposite* tc = dynamic_cast<TacheComposite*>(&(*it));
+                std::map<QString, Tache*>* result = tc->getTacheMap(id);
+                if(result)
+                    return result;
+            }
+        }
+        return 0;
+    }
+}
+
 
 
 // ---------------------------------- fonction d'affichage des projet en console -------------------
 void Projet::affTache(Tache* t)
 {
-    if(t){
     if(t->isComposite())
     {
         std::cout << "tache composite : " << t->getDescription().toStdString() <<"\n";
@@ -54,7 +92,7 @@ void Projet::affTache(Tache* t)
     }else
         std::cout<<"tache : "<<t->getDescription().toStdString()<<"\n";
 }
-}
+
 
 void Projet::describe()
 {

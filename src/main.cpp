@@ -52,13 +52,17 @@ int main(int argc, char *argv[])
     pm.ajouterProjet("projet1","mon premier projet",QDate(2015,5,30),QDate(2015,6,14));
     pm.ajouterProjet("projet2","Mon deuxieme projet",QDate(2015,7,1),QDate(2015,8,30));
 
+    pm.getProjet("projet1").ajouterObservateur(&w);
+    pm.getProjet("projet2").ajouterObservateur(&w);
+
+
        std::cout<<":::::::::::::::::::::: Mes Projets :::::::::::::::::::::::: \n";
     for(ProjetManager::iterator it = pm.begin() ; it != pm.end() ; ++it)
         std::cout<<"titre : "<<(*it).getTitre().toStdString()<<"\ndesc : "<<(*it).getDescription().toStdString()<<"\n\n";
 
     std::cout<<"description du projet1 = "<<pm.getProjet("projet1").getDescription().toStdString()<<std::endl;
 
-    try{ pm.retirerProjet("projdezet1"); } catch(CalendarException e) { std::cerr<<e.getInfo().toStdString()<<std::endl; }
+    try{ pm.supprimerProjet("projdezet1"); } catch(CalendarException e) { std::cerr<<e.getInfo().toStdString()<<std::endl; }
 
     std::cout<<":::::::::::::::::::::: Mes Projets :::::::::::::::::::::::: \n";
     for(ProjetManager::iterator it = pm.begin() ; it != pm.end() ; ++it)
@@ -108,6 +112,16 @@ int main(int argc, char *argv[])
     TacheUnitaire *t7 = new TacheUnitaire("t3.3.1","sssousTache1",QDate(2015,8,1),QDate(2015,9,7),"sssoust1",Duree(1,40),false);
     TacheUnitaire *t8 = new TacheUnitaire("t3.3.2","sssousTache2",QDate(2015,8,1),QDate(2015,9,7),"sssout2",Duree(2,35),true);
 
+    t1->ajouterObservateur(&w);
+    t2->ajouterObservateur(&w);
+    t3->ajouterObservateur(&w);
+    t4->ajouterObservateur(&w);
+    t5->ajouterObservateur(&w);
+    t6->ajouterObservateur(&w);
+    t7->ajouterObservateur(&w);
+    t8->ajouterObservateur(&w);
+
+
     pm.getProjet("projet2").ajouterTache(t1);
     pm.getProjet("projet2").ajouterTache(t2);
     pm.getProjet("projet2").ajouterTache(t3);
@@ -121,12 +135,18 @@ int main(int argc, char *argv[])
 
     TacheComposite *c1 = new TacheComposite("c1","c1",QDate(2015,6,1),QDate(2015,7,7),"Tahce complexe1");
     TacheComposite *c2 = new TacheComposite("c2","c2",QDate(2015,6,1),QDate(2015,7,7),"Tahce complexe2");
-    c2->ajouterObservateur(&w);
     TacheComposite *c3 = new TacheComposite("c3","c3",QDate(2015,6,1),QDate(2015,7,7),"Tahce complexe3");
+
+    c2->ajouterObservateur(&w);
+    c1->ajouterObservateur(&w);
+    c3->ajouterObservateur(&w);
 
     pm.getProjet("projet2").ajouterTache(c1);
     c1->ajouterSousTache(c2);
     c2->ajouterSousTache(c3);
+
+
+
 
 
     for(Projet::iterator it = pj.begin() ; it != pj.end() ; ++it)
