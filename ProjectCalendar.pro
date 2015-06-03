@@ -30,7 +30,8 @@ SOURCES += \
     src/projectcalendar.cpp \
     src/mainwindow.cpp \
     src/ajouttachedialog.cpp \
-    src/observateur.cpp
+    src/observateur.cpp \
+    src/ajoutprojetdialog.cpp
 
 #QT       += core
 
@@ -67,8 +68,10 @@ HEADERS += \
     src/projectcalendar.h \
     src/mainwindow.h \
     src/ajouttachedialog.h \
-    src/observateur.h
+    src/observateur.h \
+    src/ajoutprojetdialog.h
 
 FORMS += \
     src/mainwindow.ui \
-    src/ajouttachedialog.ui
+    src/ajouttachedialog.ui \
+    src/ajoutprojetdialog.ui

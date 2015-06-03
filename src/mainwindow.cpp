@@ -15,6 +15,7 @@ MainWindow::MainWindow(QWidget *parent) :
     QObject::connect(ui->Bouton_ajouter_tache,SIGNAL(clicked()),this,SLOT(ajouterTache()));
     QObject::connect(ui->Bouton_supprimer_tache,SIGNAL(clicked()),this,SLOT(supprimerTache()));
     QObject::connect(ui->Bouton_supprimer_projet,SIGNAL(clicked()),this,SLOT(supprimerProjet()));
+    QObject::connect(ui->Bouton_ajouter_projet,SIGNAL(clicked()),this,SLOT(ajouterProjet()));
 
     maj_treeWidget();
 }
@@ -119,7 +120,11 @@ void MainWindow::supprimerProjet()
     }
 }
 
-
+void MainWindow::ajouterProjet()
+{
+    AjoutProjetDialog *dial = new AjoutProjetDialog;
+    dial->exec();
+}
 
 
 /*

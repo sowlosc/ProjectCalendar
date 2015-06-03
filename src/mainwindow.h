@@ -8,6 +8,7 @@
 #include "tachecomposite.h"
 #include "ui_mainwindow.h"
 #include "ajouttachedialog.h"
+#include "ajoutprojetdialog.h"
 #include <iostream>
 #include "observateur.h"
 
@@ -46,6 +47,7 @@ public slots:
     void ajouterTache();
     void supprimerTache();
     void supprimerProjet();
+    void ajouterProjet();
 };
 
 
