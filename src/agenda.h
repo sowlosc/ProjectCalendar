@@ -25,7 +25,7 @@ public:
     class iterator{
         friend class Agenda;
         std::vector<Evenement*>::iterator it;
-        iterator(std::vector<Evenement*>::iterator iter) : it(iter) {}
+        iterator(const std::vector<Evenement*>::iterator& iter) : it(iter) {}
     public:
         Evenement& operator*() { return *(*it); }
         iterator& operator++() { ++it; return *this; }

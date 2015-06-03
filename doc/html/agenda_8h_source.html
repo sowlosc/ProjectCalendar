@@ -115,7 +115,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="class_agenda_1_1iterator.html">   25</a></span>&#160;    <span class="keyword">class </span><a class="code" href="class_agenda_1_1iterator.html">iterator</a>{</div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="class_agenda.html">Agenda</a>;</div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        std::vector&lt;Evenement*&gt;::iterator it;</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        <a class="code" href="class_agenda_1_1iterator.html">iterator</a>(std::vector&lt;Evenement*&gt;::iterator iter) : it(iter) {}</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        <a class="code" href="class_agenda_1_1iterator.html">iterator</a>(<span class="keyword">const</span> std::vector&lt;Evenement*&gt;::iterator&amp; iter) : it(iter) {}</div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="keyword">public</span>:</div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        <a class="code" href="class_evenement.html">Evenement</a>&amp; operator*() { <span class="keywordflow">return</span> *(*it); }</div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        <a class="code" href="class_agenda_1_1iterator.html">iterator</a>&amp; operator++() { ++it; <span class="keywordflow">return</span> *<span class="keyword">this</span>; }</div>
@@ -134,7 +134,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Jun 3 2015 19:03:05 for ProjectCalendar by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Jun 4 2015 00:52:52 for ProjectCalendar by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

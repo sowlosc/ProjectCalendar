@@ -12,7 +12,13 @@
 #include <iostream>
 #include "observateur.h"
 
-
+#include <QGraphicsView>
+#include <QGraphicsScene>
+#include <QGraphicsRectItem>
+#include <QBrush>
+#include <QPen>
+#include <QGraphicsTextItem>
+#include "jourgraphicscene.h"
 namespace Ui {
 class MainWindow;
 }
@@ -21,6 +27,8 @@ class MainWindow : public QMainWindow, public Observateur
 {
     Q_OBJECT
 
+private:
+    JourGraphicScene *scene;
 public:
 
     static MainWindow& getInstance() { if(!instance) instance = new MainWindow; return *instance; }
@@ -42,12 +50,14 @@ private:
     PrecedenceManager& predm;
 
 
+
 public slots:
     void maj_descripteurs();
     void ajouterTache();
     void supprimerTache();
     void supprimerProjet();
     void ajouterProjet();
+    void test();
 };
 
 

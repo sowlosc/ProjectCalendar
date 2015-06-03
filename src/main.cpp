@@ -80,8 +80,8 @@ int main(int argc, char *argv[])
     Agenda& ag = Agenda::getInstance();
 
 
-    EvenementTrad evt1(QDate(2015,6,30),QTime(20,50,0),"Finale CdF");
-    Rdv evt2(QDate(2015,7,2),QTime(13,0,0),Duree(1,0),"Exemanen IC06","PG");
+    EvenementTrad evt1(QDate(1994,3,20),QTime(20,50,0),"Finale CdF");
+    Rdv evt2(QDate(1994,3,20),QTime(13,0,0),Duree(1,0),"Exemanen IC06","PG");
     evt2.ajouterPersonne("Brice Roy");
     EvenementPj evt3(QDate(2015,6,20),QTime(0,0,0),QDate(2015,7,1),QTime(0,0,0),"Examens finaux");
 
@@ -97,7 +97,6 @@ int main(int argc, char *argv[])
     for(Agenda::iterator it = ag.begin() ; it != ag.end() ; ++it)
         std::cout<<(*it).toString().toStdString()<<std::endl;
 
-    Agenda::libererInstance();
     std::cout<<"---------------------------------\n";
 
     TacheUnitaire *t1 = new TacheUnitaire("t1","tache1",QDate(2015,6,1),QDate(2015,7,7),"Initialisation",Duree(1,0),false);

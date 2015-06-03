@@ -1,7 +1,6 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 
-
 MainWindow* MainWindow::instance = 0;
 
 MainWindow::MainWindow(QWidget *parent) :
@@ -17,9 +16,46 @@ MainWindow::MainWindow(QWidget *parent) :
     QObject::connect(ui->Bouton_supprimer_projet,SIGNAL(clicked()),this,SLOT(supprimerProjet()));
     QObject::connect(ui->Bouton_ajouter_projet,SIGNAL(clicked()),this,SLOT(ajouterProjet()));
 
+
+
+    scene = new JourGraphicScene("lundi",QDate(1994,3,20),0,0,100,480,960,ui->graphicsView);
+
+
+    QGraphicsRectItem *rect1 = scene->ajouterEvenement("tache1",QTime(12,0),Duree(2,30));
+
+    QGraphicsRectItem *rect2 = scene->ajouterEvenement("tache2",QTime(16,15),Duree(0,30));
+
+    QGraphicsRectItem *rect3 = scene->ajouterEvenement("tache3",QTime(20,20),Duree(0,15));
+
+
+  //  QObject::connect(rect1,SIGNAL(clicked()),this,SLOT(test()));
+    //QObject::connect(rect2,SIGNAL(clicked()),this,SLOT(test()));
+   // QObject::connect(rect3,SIGNAL(clicked()),this,SLOT(test()));
+    //scene->addRect(0,0,50,50,QPen(Qt::red));
+    ui->graphicsView->setScene(scene);
+
+   /* QGraphicsScene *scene = new QGraphicsScene(this);
+    ui->graphicsView->setScene(scene);
+    QBrush redBrush(Qt::red);
+    QPen pen(Qt::black);
+*/
+   /*QGraphicsRectItem *rect = scene->addRect(0,0,100,100,pen,redBrush);
+    rect->setFlag(QGraphicsItem::ItemIsFocusable);
+
+    QGraphicsTextItem *txt = scene->addText("losc");*/
+
+
+    QObject::connect(ui->graphicsView->scene(),SIGNAL(selectionChanged()),this,SLOT(test()));
+
+    scene->mise_a_jour();
     maj_treeWidget();
 }
 
+void MainWindow::test()
+ { std::cout << "______________ LOSC ___________\n";
+    for(QList<QGraphicsItem *>::iterator it = ui->graphicsView->scene()->selectedItems().begin() ; it != ui->graphicsView->scene()->selectedItems().end() ; ++it)
+       {}//std::cout << "- " <<  dynamic_cast<TacheGraphicItem*>(*it)->getEvenement().getDate().toString().toStdString() << "\n";//mise a jour du descripteur
+ }
 
 void MainWindow::construct_recurs_tree(Tache* t, QTreeWidgetItem *root)
 {
@@ -60,6 +96,7 @@ void MainWindow::maj_treeWidget()
 void MainWindow::mise_a_jour()
 {
     maj_treeWidget();
+    scene->mise_a_jour();
 }
 
 MainWindow::~MainWindow()
