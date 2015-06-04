@@ -11,6 +11,7 @@
 #include "ajoutprojetdialog.h"
 #include <iostream>
 #include "observateur.h"
+#include "evenementtrad.h"
 
 #include <QGraphicsView>
 #include <QGraphicsScene>

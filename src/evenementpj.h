@@ -20,6 +20,9 @@ public:
 
     virtual EvenementPj* clone() const;
     virtual QString toString() const;
+
+    virtual bool isEvenement1j() const { return false; }
+
 };
 
 #endif // EVENEMENTPJ_H

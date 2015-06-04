@@ -10,14 +10,15 @@
 #include <QGraphicsRectItem>
 #include <QGraphicsTextItem>
 #include <QRect>
-#include "evenement.h"
+//#include "evenement.h"
+#include "evenement1j.h"
 #include "agenda.h"
 class TacheGraphicItem : public QGraphicsRectItem
 {
     Evenement* evt;
 public:
     TacheGraphicItem(int x,int y,int width,int height,Evenement* e) : QGraphicsRectItem(x,y,width,height,0),evt(e) {}
-    Evenement* getEvenement() const { evt; }
+    Evenement* getEvenement() const { return evt; }
 };
 
 class JourGraphicScene : public QGraphicsScene
@@ -38,7 +39,10 @@ public:
     QGraphicsRectItem *ajouterEvenement(const QString titre, const QTime& deb, const Duree& dur,Evenement* e=0, const QColor &coul_contour = QColor("lightGray"), const QColor &coul_fond = QColor("blue"));
     void dessinerFond();
     ~JourGraphicScene() {}
-    TacheGraphicItem* addRect(const TacheGraphicItem& t,const QPen & pen , const QBrush & brush) { QGraphicsScene::addRect(t.rect(),pen,brush); }
+    /*TacheGraphicItem* addRect(TacheGraphicItem* t,const QPen & pen , const QBrush & brush) {
+        //QGraphicsScene::addRect(t.rect(),pen,brush);
+        QGraphicsScene::addItem(t);
+    }*/
     void mise_a_jour();
 };
 

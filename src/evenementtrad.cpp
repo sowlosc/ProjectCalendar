@@ -1,9 +1,9 @@
 #include "evenementtrad.h"
 
-EvenementTrad* EvenementTrad::clone() const
+/*EvenementTrad* EvenementTrad::clone() const
 {
     return new EvenementTrad(*this);
-}
+}*/
 
 QString EvenementTrad::toString() const
 {

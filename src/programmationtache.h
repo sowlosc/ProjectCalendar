@@ -17,6 +17,11 @@ public:
 
     virtual ProgrammationTache* clone() const;
     virtual QString toString() const;
+
+    virtual bool isProgrammationTache() const { return true; }
+    virtual bool isEvenementTrad() const { return false; }
+    virtual bool isEvenement1j() const { return false; }
+
 };
 
 #endif // PROGRAMMATIONTACHE_H

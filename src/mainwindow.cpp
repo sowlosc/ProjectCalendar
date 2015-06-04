@@ -21,11 +21,11 @@ MainWindow::MainWindow(QWidget *parent) :
     scene = new JourGraphicScene("lundi",QDate(1994,3,20),0,0,100,480,960,ui->graphicsView);
 
 
-    QGraphicsRectItem *rect1 = scene->ajouterEvenement("tache1",QTime(12,0),Duree(2,30));
+    //QGraphicsRectItem *rect1 = scene->ajouterEvenement("tache1",QTime(12,0),Duree(2,30));
 
-    QGraphicsRectItem *rect2 = scene->ajouterEvenement("tache2",QTime(16,15),Duree(0,30));
+    //QGraphicsRectItem *rect2 = scene->ajouterEvenement("tache2",QTime(16,15),Duree(0,30));
 
-    QGraphicsRectItem *rect3 = scene->ajouterEvenement("tache3",QTime(20,20),Duree(0,15));
+    //QGraphicsRectItem *rect3 = scene->ajouterEvenement("tache3",QTime(20,20),Duree(0,15));
 
 
   //  QObject::connect(rect1,SIGNAL(clicked()),this,SLOT(test()));
@@ -54,7 +54,14 @@ MainWindow::MainWindow(QWidget *parent) :
 void MainWindow::test()
  { std::cout << "______________ LOSC ___________\n";
     for(QList<QGraphicsItem *>::iterator it = ui->graphicsView->scene()->selectedItems().begin() ; it != ui->graphicsView->scene()->selectedItems().end() ; ++it)
-       {}//std::cout << "- " <<  dynamic_cast<TacheGraphicItem*>(*it)->getEvenement().getDate().toString().toStdString() << "\n";//mise a jour du descripteur
+       {
+        Evenement* evt = dynamic_cast<TacheGraphicItem*>(*it)->getEvenement();
+        if(evt->isEvenement1j()){
+            std::cout << "888888888888888 evenement trad \n";
+            Evenement1j *e = dynamic_cast<Evenement1j*>(dynamic_cast<TacheGraphicItem*>(*it)->getEvenement());
+            std::cout << " -------------- " << e->toString().toStdString() << "\n";
+        }
+    }//std::cout << "- " <<  dynamic_cast<TacheGraphicItem*>(*it)->getEvenement().getDate().toString().toStdString() << "\n";//mise a jour du descripteur
  }
 
 void MainWindow::construct_recurs_tree(Tache* t, QTreeWidgetItem *root)

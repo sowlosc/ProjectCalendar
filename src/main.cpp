@@ -80,8 +80,8 @@ int main(int argc, char *argv[])
     Agenda& ag = Agenda::getInstance();
 
 
-    EvenementTrad evt1(QDate(1994,3,20),QTime(20,50,0),"Finale CdF");
-    Rdv evt2(QDate(1994,3,20),QTime(13,0,0),Duree(1,0),"Exemanen IC06","PG");
+    Evenement1j evt1(QDate(1994,3,20),QTime(19,50,0),Duree(3,0),"Finale CdF");
+    Rdv evt2(QDate(1994,3,20),QTime(13,0,0),Duree(3,0),"Exemanen IC06","PG");
     evt2.ajouterPersonne("Brice Roy");
     EvenementPj evt3(QDate(2015,6,20),QTime(0,0,0),QDate(2015,7,1),QTime(0,0,0),"Examens finaux");
 

@@ -25,6 +25,11 @@ public:
     const QTime& getHoraire() const { return horaire; }
     void setDate(const QDate& d) { date = d; }
     void setHoraire(const QTime& t) { horaire = t; }
+
+    virtual bool isProgrammationTache() const = 0;
+    virtual bool isEvenementTrad() const = 0;
+    virtual bool isEvenement1j() const = 0;
+
 };
 
 #endif // EVENEMENT_H
