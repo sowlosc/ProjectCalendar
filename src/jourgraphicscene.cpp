@@ -51,10 +51,16 @@ void JourGraphicScene::dessinerFond()
 {
     qreal r = (hauteur / nb_minutes) * 30;
     qreal x = r;
+    int i=1;
     while( x < 960)
     {
-        QGraphicsScene::addLine(-5,x,105,x,QPen(QColor("lightGray"),1,Qt::PenStyle(Qt::DashDotLine)))->setZValue(0);
+        if(i%2==0)
+            QGraphicsScene::addLine(-5,x,105,x,QPen(QColor("gray"),1,Qt::PenStyle(Qt::DashLine)))->setZValue(0);
+        else
+            QGraphicsScene::addLine(-5,x,105,x,QPen(QColor("lightGray"),1,Qt::PenStyle(Qt::DashDotLine)))->setZValue(0);
+
         x += r;
+        i++;
     }
 }
 

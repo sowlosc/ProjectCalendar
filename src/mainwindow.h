@@ -30,7 +30,7 @@ class MainWindow : public QMainWindow, public Observateur
     Q_OBJECT
 
 private:
-    JourGraphicScene *scene;
+    JourGraphicScene *scenes[7];
 public:
 
     static MainWindow& getInstance() { if(!instance) instance = new MainWindow; return *instance; }
@@ -59,7 +59,13 @@ public slots:
     void supprimerTache();
     void supprimerProjet();
     void ajouterProjet();
-    void detaillerEvenement();
+    void detaillerEvenement_lundi();
+    void detaillerEvenement_mardi();
+    void detaillerEvenement_mercredi();
+    void detaillerEvenement_jeudi();
+    void detaillerEvenement_vendredi();
+    void detaillerEvenement_samedi();
+    void detaillerEvenement_dimanche();
 };
 
 

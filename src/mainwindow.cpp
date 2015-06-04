@@ -19,7 +19,14 @@ MainWindow::MainWindow(QWidget *parent) :
 
 
 
-    scene = new JourGraphicScene("lundi",QDate(1994,3,20),0,0,100,480,960,ui->graphicsView);
+
+    scenes[0] = new JourGraphicScene("Lundi",QDate(1994,3,20),0,0,100,480,960,ui->graphicsView_lundi);
+    scenes[1] = new JourGraphicScene("Mardi",QDate(1994,3,21),0,0,100,480,960,ui->graphicsView_mardi);
+    scenes[2] = new JourGraphicScene("Mercredi",QDate(1994,3,22),0,0,100,480,960,ui->graphicsView_mercredi);
+    scenes[3] = new JourGraphicScene("Jeudi",QDate(1994,3,23),0,0,100,480,960,ui->graphicsView_jeudi);
+    scenes[4] = new JourGraphicScene("Vendredi",QDate(1994,3,24),0,0,100,480,960,ui->graphicsView_vendredi);
+    scenes[5] = new JourGraphicScene("Samedi",QDate(1994,3,25),0,0,100,480,960,ui->graphicsView_samedi);
+    scenes[6] = new JourGraphicScene("Dimanche",QDate(1994,3,26),0,0,100,480,960,ui->graphicsView_dimanche);
 
 
     //QGraphicsRectItem *rect1 = scene->ajouterEvenement("tache1",QTime(12,0),Duree(2,30));
@@ -33,7 +40,13 @@ MainWindow::MainWindow(QWidget *parent) :
     //QObject::connect(rect2,SIGNAL(clicked()),this,SLOT(test()));
    // QObject::connect(rect3,SIGNAL(clicked()),this,SLOT(test()));
     //scene->addRect(0,0,50,50,QPen(Qt::red));
-    ui->graphicsView->setScene(scene);
+    ui->graphicsView_lundi->setScene(scenes[0]);
+    ui->graphicsView_mardi->setScene(scenes[1]);
+    ui->graphicsView_mercredi->setScene(scenes[2]);
+    ui->graphicsView_jeudi->setScene(scenes[3]);
+    ui->graphicsView_vendredi->setScene(scenes[4]);
+    ui->graphicsView_samedi->setScene(scenes[5]);
+    ui->graphicsView_dimanche->setScene(scenes[6]);
 
    /* QGraphicsScene *scene = new QGraphicsScene(this);
     ui->graphicsView->setScene(scene);
@@ -46,23 +59,101 @@ MainWindow::MainWindow(QWidget *parent) :
     QGraphicsTextItem *txt = scene->addText("losc");*/
 
 
-    QObject::connect(ui->graphicsView->scene(),SIGNAL(selectionChanged()),this,SLOT(detaillerEvenement()));
+    QObject::connect(ui->graphicsView_lundi->scene(),SIGNAL(selectionChanged()),this,SLOT(detaillerEvenement_lundi()));
+    QObject::connect(ui->graphicsView_mardi->scene(),SIGNAL(selectionChanged()),this,SLOT(detaillerEvenement_mardi()));
+    QObject::connect(ui->graphicsView_mercredi->scene(),SIGNAL(selectionChanged()),this,SLOT(detaillerEvenement_mercredi()));
+    QObject::connect(ui->graphicsView_jeudi->scene(),SIGNAL(selectionChanged()),this,SLOT(detaillerEvenement_jeudi()));
+    QObject::connect(ui->graphicsView_vendredi->scene(),SIGNAL(selectionChanged()),this,SLOT(detaillerEvenement_vendredi()));
+    QObject::connect(ui->graphicsView_samedi->scene(),SIGNAL(selectionChanged()),this,SLOT(detaillerEvenement_samedi()));
+    QObject::connect(ui->graphicsView_dimanche->scene(),SIGNAL(selectionChanged()),this,SLOT(detaillerEvenement_dimanche()));
 
-    scene->mise_a_jour();
+    for(int i=0;i<7;i++)
+        scenes[i]->mise_a_jour();
     maj_treeWidget();
 }
 
-void MainWindow::detaillerEvenement()
+void MainWindow::detaillerEvenement_lundi()
  {
-    for(QList<QGraphicsItem *>::iterator it = ui->graphicsView->scene()->selectedItems().begin() ; it != ui->graphicsView->scene()->selectedItems().end() ; ++it)
+    for(QList<QGraphicsItem *>::iterator it = ui->graphicsView_lundi->scene()->selectedItems().begin() ; it != ui->graphicsView_lundi->scene()->selectedItems().end() ; ++it)
     {
         Evenement* evt = dynamic_cast<EvenementGraphicItem*>(*it)->getEvenement();
         EvenementInfoDialog *dial = new EvenementInfoDialog(evt);
         dial->exec();
         delete dial;
     }
-    ui->graphicsView->scene()->clearSelection();
+    ui->graphicsView_lundi->scene()->clearSelection();
  }
+void MainWindow::detaillerEvenement_mardi()
+ {
+    for(QList<QGraphicsItem *>::iterator it = ui->graphicsView_mardi->scene()->selectedItems().begin() ; it != ui->graphicsView_mardi->scene()->selectedItems().end() ; ++it)
+    {
+        Evenement* evt = dynamic_cast<EvenementGraphicItem*>(*it)->getEvenement();
+        EvenementInfoDialog *dial = new EvenementInfoDialog(evt);
+        dial->exec();
+        delete dial;
+    }
+    ui->graphicsView_mardi->scene()->clearSelection();
+ }
+void MainWindow::detaillerEvenement_mercredi()
+ {
+    for(QList<QGraphicsItem *>::iterator it = ui->graphicsView_mercredi->scene()->selectedItems().begin() ; it != ui->graphicsView_mercredi->scene()->selectedItems().end() ; ++it)
+    {
+        Evenement* evt = dynamic_cast<EvenementGraphicItem*>(*it)->getEvenement();
+        EvenementInfoDialog *dial = new EvenementInfoDialog(evt);
+        dial->exec();
+        delete dial;
+    }
+    ui->graphicsView_mercredi->scene()->clearSelection();
+ }
+void MainWindow::detaillerEvenement_jeudi()
+ {
+    for(QList<QGraphicsItem *>::iterator it = ui->graphicsView_jeudi->scene()->selectedItems().begin() ; it != ui->graphicsView_jeudi->scene()->selectedItems().end() ; ++it)
+    {
+        Evenement* evt = dynamic_cast<EvenementGraphicItem*>(*it)->getEvenement();
+        EvenementInfoDialog *dial = new EvenementInfoDialog(evt);
+        dial->exec();
+        delete dial;
+    }
+    ui->graphicsView_jeudi->scene()->clearSelection();
+ }
+void MainWindow::detaillerEvenement_vendredi()
+ {
+    for(QList<QGraphicsItem *>::iterator it = ui->graphicsView_vendredi->scene()->selectedItems().begin() ; it != ui->graphicsView_vendredi->scene()->selectedItems().end() ; ++it)
+    {
+        Evenement* evt = dynamic_cast<EvenementGraphicItem*>(*it)->getEvenement();
+        EvenementInfoDialog *dial = new EvenementInfoDialog(evt);
+        dial->exec();
+        delete dial;
+    }
+    ui->graphicsView_vendredi->scene()->clearSelection();
+ }
+void MainWindow::detaillerEvenement_samedi()
+ {
+    for(QList<QGraphicsItem *>::iterator it = ui->graphicsView_samedi->scene()->selectedItems().begin() ; it != ui->graphicsView_samedi->scene()->selectedItems().end() ; ++it)
+    {
+        Evenement* evt = dynamic_cast<EvenementGraphicItem*>(*it)->getEvenement();
+        EvenementInfoDialog *dial = new EvenementInfoDialog(evt);
+        dial->exec();
+        delete dial;
+    }
+    ui->graphicsView_samedi->scene()->clearSelection();
+ }
+void MainWindow::detaillerEvenement_dimanche()
+ {
+    for(QList<QGraphicsItem *>::iterator it = ui->graphicsView_dimanche->scene()->selectedItems().begin() ; it != ui->graphicsView_dimanche->scene()->selectedItems().end() ; ++it)
+    {
+        Evenement* evt = dynamic_cast<EvenementGraphicItem*>(*it)->getEvenement();
+        EvenementInfoDialog *dial = new EvenementInfoDialog(evt);
+        dial->exec();
+        delete dial;
+    }
+    ui->graphicsView_dimanche->scene()->clearSelection();
+ }
+
+
+
+
+
 
 void MainWindow::construct_recurs_tree(Tache* t, QTreeWidgetItem *root)
 {
@@ -103,7 +194,8 @@ void MainWindow::maj_treeWidget()
 void MainWindow::mise_a_jour()
 {
     maj_treeWidget();
-    scene->mise_a_jour();
+    for(int i=0;i<7;i++)
+        scenes[i]->mise_a_jour();
 }
 
 MainWindow::~MainWindow()

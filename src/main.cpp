@@ -82,10 +82,12 @@ int main(int argc, char *argv[])
 
     Evenement1j evt1(QDate(1994,3,20),QTime(19,50,0),Duree(3,0),"Finale CdF");
     Rdv evt2(QDate(1994,3,20),QTime(13,0,0),Duree(3,0),"Exemanen IC06","PG");
+    Rdv evt99(QDate(1994,3,21),QTime(6,0,0),Duree(1,0),"Evenement test","PG");
+
     evt2.ajouterPersonne("Brice Roy");
     EvenementPj evt3(QDate(2015,6,20),QTime(0,0,0),QDate(2015,7,1),QTime(0,0,0),"Examens finaux");
 
-    ag << evt1 << evt2 << evt3;
+    ag << evt1 << evt2 << evt3 << evt99;
 
     for(Agenda::iterator it = ag.begin() ; it != ag.end() ; ++it)
         std::cout<<(*it).toString().toStdString()<<std::endl;
