@@ -12,7 +12,7 @@ QGraphicsRectItem* JourGraphicScene::ajouterEvenement(const QString titre, const
 
     //QGraphicsRectItem *rect = new QGraphicsRectItem(0,y,largeur,h,0);
     //QGraphicsRectItem *rect =  QGraphicsScene::addRect(0-3,y,largeur+6,h,QPen(coul_contour),QBrush(coul_fond));
-    TacheGraphicItem *tache = new TacheGraphicItem(-3,y,largeur+6,h,e);
+    EvenementGraphicItem *tache = new EvenementGraphicItem(-3,y,largeur+6,h,e);
     tache->setPen(QPen(coul_contour));
     tache->setBrush(QBrush(coul_fond));
     //TacheGraphicItem *rect =  JourGraphicScene::addRect(tache,QPen(coul_contour),QBrush(coul_fond));

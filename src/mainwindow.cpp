@@ -46,25 +46,22 @@ MainWindow::MainWindow(QWidget *parent) :
     QGraphicsTextItem *txt = scene->addText("losc");*/
 
 
-    QObject::connect(ui->graphicsView->scene(),SIGNAL(selectionChanged()),this,SLOT(test()));
+    QObject::connect(ui->graphicsView->scene(),SIGNAL(selectionChanged()),this,SLOT(detaillerEvenement()));
 
     scene->mise_a_jour();
     maj_treeWidget();
 }
 
-void MainWindow::test()
- { std::cout << "______________ LOSC ___________\n";
+void MainWindow::detaillerEvenement()
+ {
     for(QList<QGraphicsItem *>::iterator it = ui->graphicsView->scene()->selectedItems().begin() ; it != ui->graphicsView->scene()->selectedItems().end() ; ++it)
-       {
-        Evenement* evt = dynamic_cast<TacheGraphicItem*>(*it)->getEvenement();
+    {
+        Evenement* evt = dynamic_cast<EvenementGraphicItem*>(*it)->getEvenement();
         EvenementInfoDialog *dial = new EvenementInfoDialog(evt);
         dial->exec();
-        if(evt->isEvenement1j()){
-            std::cout << "888888888888888 evenement trad \n";
-            Evenement1j *e = dynamic_cast<Evenement1j*>(dynamic_cast<TacheGraphicItem*>(*it)->getEvenement());
-            std::cout << " -------------- " << e->toString().toStdString() << "\n";
-        }
-    }//std::cout << "- " <<  dynamic_cast<TacheGraphicItem*>(*it)->getEvenement().getDate().toString().toStdString() << "\n";//mise a jour du descripteur
+        delete dial;
+    }
+    ui->graphicsView->scene()->clearSelection();
  }
 
 void MainWindow::construct_recurs_tree(Tache* t, QTreeWidgetItem *root)

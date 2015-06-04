@@ -59,7 +59,7 @@ public slots:
     void supprimerTache();
     void supprimerProjet();
     void ajouterProjet();
-    void test();
+    void detaillerEvenement();
 };
 
 

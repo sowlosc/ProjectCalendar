@@ -13,11 +13,11 @@
 //#include "evenement.h"
 #include "evenement1j.h"
 #include "agenda.h"
-class TacheGraphicItem : public QGraphicsRectItem
+class EvenementGraphicItem : public QGraphicsRectItem
 {
     Evenement* evt;
 public:
-    TacheGraphicItem(int x,int y,int width,int height,Evenement* e) : QGraphicsRectItem(x,y,width,height,0),evt(e) {}
+    EvenementGraphicItem(int x,int y,int width,int height,Evenement* e) : QGraphicsRectItem(x,y,width,height,0),evt(e) {}
     Evenement* getEvenement() const { return evt; }
 };
 
