@@ -32,7 +32,8 @@ SOURCES += \
     src/ajouttachedialog.cpp \
     src/observateur.cpp \
     src/ajoutprojetdialog.cpp \
-    src/jourgraphicscene.cpp
+    src/jourgraphicscene.cpp \
+    src/evenementinfodialog.cpp
 
 #QT       += core
 
@@ -71,9 +72,11 @@ HEADERS += \
     src/ajouttachedialog.h \
     src/observateur.h \
     src/ajoutprojetdialog.h \
-    src/jourgraphicscene.h
+    src/jourgraphicscene.h \
+    src/evenementinfodialog.h
 
 FORMS += \
     src/mainwindow.ui \
     src/ajouttachedialog.ui \
-    src/ajoutprojetdialog.ui
+    src/ajoutprojetdialog.ui \
+    src/evenementinfodialog.ui

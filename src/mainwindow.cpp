@@ -1,6 +1,7 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 
+
 MainWindow* MainWindow::instance = 0;
 
 MainWindow::MainWindow(QWidget *parent) :
@@ -56,6 +57,8 @@ void MainWindow::test()
     for(QList<QGraphicsItem *>::iterator it = ui->graphicsView->scene()->selectedItems().begin() ; it != ui->graphicsView->scene()->selectedItems().end() ; ++it)
        {
         Evenement* evt = dynamic_cast<TacheGraphicItem*>(*it)->getEvenement();
+        EvenementInfoDialog *dial = new EvenementInfoDialog(evt);
+        dial->exec();
         if(evt->isEvenement1j()){
             std::cout << "888888888888888 evenement trad \n";
             Evenement1j *e = dynamic_cast<Evenement1j*>(dynamic_cast<TacheGraphicItem*>(*it)->getEvenement());

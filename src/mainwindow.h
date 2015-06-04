@@ -20,6 +20,7 @@
 #include <QPen>
 #include <QGraphicsTextItem>
 #include "jourgraphicscene.h"
+#include "evenementinfodialog.h"
 namespace Ui {
 class MainWindow;
 }
