@@ -10,7 +10,8 @@ EvenementInfoDialog::EvenementInfoDialog(Evenement* e,QWidget *parent) :
     //recuperation des donnees de l'evenemnet et affichage
     ui->textBrowser->setPlainText(evt->toString());
 
-
+    QObject::connect(ui->pushButton_ok,SIGNAL(clicked()),this,SLOT(accept()));
+    QObject::connect(ui->pushButton_supprimer,SIGNAL(clicked()),this,SLOT(supprimer_evt()));
 
 }
 
@@ -20,7 +21,7 @@ EvenementInfoDialog::~EvenementInfoDialog()
 }
 
 
-void EvenementInfoDialog::reject()
+void EvenementInfoDialog::supprimer_evt()
 {
     Agenda::getInstance() >> evt;
     QDialog::done(0);

@@ -74,6 +74,7 @@ MainWindow::MainWindow(QWidget *parent) :
 
 void MainWindow::detaillerEvenement_lundi()
  {
+    std::cout << "nb selected = " << ui->graphicsView_lundi->scene()->selectedItems().size() << "\n";
     bool mise_a_jour_necessaire = false;
     for(QList<QGraphicsItem *>::iterator it = ui->graphicsView_lundi->scene()->selectedItems().begin() ; it != ui->graphicsView_lundi->scene()->selectedItems().end() ; ++it)
     {
@@ -83,14 +84,16 @@ void MainWindow::detaillerEvenement_lundi()
         dial->exec();
         delete dial;
     }
-    if(mise_a_jour_necessaire)
+    if(mise_a_jour_necessaire){
         dynamic_cast<JourGraphicScene*>(ui->graphicsView_lundi->scene())->mise_a_jour();
+    }
  }
 void MainWindow::detaillerEvenement_mardi()
  {
     bool mise_a_jour_necessaire = false;
     for(QList<QGraphicsItem *>::iterator it = ui->graphicsView_mardi->scene()->selectedItems().begin() ; it != ui->graphicsView_mardi->scene()->selectedItems().end() ; ++it)
     {
+        mise_a_jour_necessaire = true;
         Evenement* evt = dynamic_cast<EvenementGraphicItem*>(*it)->getEvenement();
         EvenementInfoDialog *dial = new EvenementInfoDialog(evt);
         dial->exec();
@@ -105,6 +108,7 @@ void MainWindow::detaillerEvenement_mercredi()
     bool mise_a_jour_necessaire = false;
     for(QList<QGraphicsItem *>::iterator it = ui->graphicsView_mercredi->scene()->selectedItems().begin() ; it != ui->graphicsView_mercredi->scene()->selectedItems().end() ; ++it)
     {
+        mise_a_jour_necessaire = true;
         Evenement* evt = dynamic_cast<EvenementGraphicItem*>(*it)->getEvenement();
         EvenementInfoDialog *dial = new EvenementInfoDialog(evt);
         dial->exec();
@@ -118,6 +122,7 @@ void MainWindow::detaillerEvenement_jeudi()
     bool mise_a_jour_necessaire = false;
     for(QList<QGraphicsItem *>::iterator it = ui->graphicsView_jeudi->scene()->selectedItems().begin() ; it != ui->graphicsView_jeudi->scene()->selectedItems().end() ; ++it)
     {
+        mise_a_jour_necessaire = true;
         Evenement* evt = dynamic_cast<EvenementGraphicItem*>(*it)->getEvenement();
         EvenementInfoDialog *dial = new EvenementInfoDialog(evt);
         dial->exec();
@@ -131,6 +136,7 @@ void MainWindow::detaillerEvenement_vendredi()
     bool mise_a_jour_necessaire = false;
     for(QList<QGraphicsItem *>::iterator it = ui->graphicsView_vendredi->scene()->selectedItems().begin() ; it != ui->graphicsView_vendredi->scene()->selectedItems().end() ; ++it)
     {
+        mise_a_jour_necessaire = true;
         Evenement* evt = dynamic_cast<EvenementGraphicItem*>(*it)->getEvenement();
         EvenementInfoDialog *dial = new EvenementInfoDialog(evt);
         dial->exec();
@@ -144,6 +150,7 @@ void MainWindow::detaillerEvenement_samedi()
     bool mise_a_jour_necessaire = false;
     for(QList<QGraphicsItem *>::iterator it = ui->graphicsView_samedi->scene()->selectedItems().begin() ; it != ui->graphicsView_samedi->scene()->selectedItems().end() ; ++it)
     {
+        mise_a_jour_necessaire = true;
         Evenement* evt = dynamic_cast<EvenementGraphicItem*>(*it)->getEvenement();
         EvenementInfoDialog *dial = new EvenementInfoDialog(evt);
         dial->exec();
@@ -157,6 +164,7 @@ void MainWindow::detaillerEvenement_dimanche()
     bool mise_a_jour_necessaire = false;
     for(QList<QGraphicsItem *>::iterator it = ui->graphicsView_dimanche->scene()->selectedItems().begin() ; it != ui->graphicsView_dimanche->scene()->selectedItems().end() ; ++it)
     {
+        mise_a_jour_necessaire = true;
         Evenement* evt = dynamic_cast<EvenementGraphicItem*>(*it)->getEvenement();
         EvenementInfoDialog *dial = new EvenementInfoDialog(evt);
         dial->exec();

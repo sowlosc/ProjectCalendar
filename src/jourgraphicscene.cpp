@@ -19,7 +19,7 @@ QGraphicsRectItem* JourGraphicScene::ajouterEvenement(const QString titre, const
     QGraphicsScene::addItem(tache);
 
     tache->setFlag(QGraphicsItem::ItemIsSelectable);
-    tache->setFlag(QGraphicsItem::ItemIsFocusable);
+   // tache->setFlag(QGraphicsItem::ItemIsFocusable);
 
     //rect->setFlag(QGraphicsItem::ItemIsFocusable);
 
@@ -70,9 +70,20 @@ void JourGraphicScene::dessinerFond()
 }
 
 
+void JourGraphicScene::removeAllItems(){ //fonction a utiliser a la place de clear
+    QList<QGraphicsItem*> itemsList = this->items();
+    QList<QGraphicsItem*>::iterator iter = itemsList.begin();
+    QList<QGraphicsItem*>::iterator end = itemsList.end();
+    while(iter != end){
+        QGraphicsItem* item = (*iter);
+        this->removeItem(item); iter++;
+    }
+}
+
+
 void JourGraphicScene::mise_a_jour()
 {
-    clear();
+    removeAllItems();
     dessinerFond();
     Agenda& ag = Agenda::getInstance();
     for(Agenda::iterator it = ag.begin() ; it != ag.end() ; ++it)

@@ -20,7 +20,7 @@ private:
     Ui::EvenementInfoDialog *ui;
 
 public slots:
-    void reject();
+    void supprimer_evt();
 };
 
 #endif // EVENEMENTINFODIALOG_H

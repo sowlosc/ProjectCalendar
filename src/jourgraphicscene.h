@@ -44,6 +44,7 @@ public:
         QGraphicsScene::addItem(t);
     }*/
     void mise_a_jour();
+    void removeAllItems();
 
 
 };
