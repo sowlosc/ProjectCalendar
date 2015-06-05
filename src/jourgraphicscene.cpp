@@ -2,7 +2,7 @@
 
 QGraphicsRectItem* JourGraphicScene::ajouterEvenement(const QString titre, const QTime &deb, const Duree &dur,Evenement*e, const QColor& coul_contour, const QColor& coul_fond)
 {
-    std::cout << "-------------********** EVT = "<<e->getDate().toString().toStdString()<<"\n";
+    std::cout << "-------------********** ajout dans la scene de EVT = "<<e->getDate().toString().toStdString()<<"\n";
     int mins_ecoulees = -deb.secsTo(QTime(6,0)) / 60;
     QTime fin = deb;
     fin = fin.addSecs(dur.getDureeEnMinutes() * 60);
@@ -83,6 +83,7 @@ void JourGraphicScene::removeAllItems(){ //fonction a utiliser a la place de cle
 
 void JourGraphicScene::mise_a_jour()
 {
+    std::cout << "MISE A JOUR "<<jour.toStdString()<<" \n";
     removeAllItems();
     dessinerFond();
     Agenda& ag = Agenda::getInstance();
@@ -90,10 +91,9 @@ void JourGraphicScene::mise_a_jour()
     {
         if((*it).getDate() == date)
         {
-            if((*it).isEvenement1j())
-            {
-                Evenement1j *evt = dynamic_cast<Evenement1j*>(&(*it));
-                ajouterEvenement(evt->getSujet(),(*it).getHoraire(),evt->getDuree(),evt);
+            if(!(*it).isEvenementPj()){
+            //Evenement1j *evt = dynamic_cast<Evenement1j*>(&(*it));
+            ajouterEvenement((*it).getSujet(),(*it).getHoraire(),(*it).getDuree(),&(*it));
             }
         }
     }

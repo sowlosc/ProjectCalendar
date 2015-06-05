@@ -11,7 +11,7 @@ public:
         :Evenement(ddeb,tdeb), sujet(suj) {}
     virtual ~EvenementTrad(){}
 
-    const QString getSujet() const { return sujet; }
+    const QString& getSujet() const { return sujet; }
     void setSujet(const QString& suj) { sujet = suj; }
 
     //virtual EvenementTrad* clone() const = 0;

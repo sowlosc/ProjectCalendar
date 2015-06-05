@@ -5,8 +5,9 @@
 #include <vector>
 #include "exception.h"
 #include <iostream>
+#include "observateur.h"
 
-class Agenda
+class Agenda : public Observable
 {
     std::vector<Evenement*> events;
     static Agenda* instance;

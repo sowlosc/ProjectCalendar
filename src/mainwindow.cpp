@@ -28,7 +28,8 @@ MainWindow::MainWindow(QWidget *parent) :
     scenes[5] = new JourGraphicScene("Samedi",QDate(1994,3,25),0,0,100,480,960,ui->graphicsView_samedi);
     scenes[6] = new JourGraphicScene("Dimanche",QDate(1994,3,26),0,0,100,480,960,ui->graphicsView_dimanche);
 
-
+    for(int i=0;i<7;i++)
+        Agenda::getInstance().ajouterObservateur(scenes[i]);
     //QGraphicsRectItem *rect1 = scene->ajouterEvenement("tache1",QTime(12,0),Duree(2,30));
 
     //QGraphicsRectItem *rect2 = scene->ajouterEvenement("tache2",QTime(16,15),Duree(0,30));
@@ -40,6 +41,8 @@ MainWindow::MainWindow(QWidget *parent) :
     //QObject::connect(rect2,SIGNAL(clicked()),this,SLOT(test()));
    // QObject::connect(rect3,SIGNAL(clicked()),this,SLOT(test()));
     //scene->addRect(0,0,50,50,QPen(Qt::red));
+
+
     ui->graphicsView_lundi->setScene(scenes[0]);
     ui->graphicsView_mardi->setScene(scenes[1]);
     ui->graphicsView_mercredi->setScene(scenes[2]);
@@ -74,105 +77,145 @@ MainWindow::MainWindow(QWidget *parent) :
 
 void MainWindow::detaillerEvenement_lundi()
  {
-    std::cout << "nb selected = " << ui->graphicsView_lundi->scene()->selectedItems().size() << "\n";
     bool mise_a_jour_necessaire = false;
-    for(QList<QGraphicsItem *>::iterator it = ui->graphicsView_lundi->scene()->selectedItems().begin() ; it != ui->graphicsView_lundi->scene()->selectedItems().end() ; ++it)
+    QList<QGraphicsItem*> itemsList = ui->graphicsView_lundi->scene()->selectedItems();
+    QList<QGraphicsItem*>::iterator iter = itemsList.begin();
+    QList<QGraphicsItem*>::iterator end = itemsList.end();
+
+    while(iter!=end)
     {
         mise_a_jour_necessaire = true;
-        Evenement* evt = dynamic_cast<EvenementGraphicItem*>(*it)->getEvenement();
+        Evenement* evt = dynamic_cast<EvenementGraphicItem*>(*iter)->getEvenement();
         EvenementInfoDialog *dial = new EvenementInfoDialog(evt);
         dial->exec();
         delete dial;
+        iter++;
     }
     if(mise_a_jour_necessaire){
         dynamic_cast<JourGraphicScene*>(ui->graphicsView_lundi->scene())->mise_a_jour();
     }
  }
-void MainWindow::detaillerEvenement_mardi()
- {
-    bool mise_a_jour_necessaire = false;
-    for(QList<QGraphicsItem *>::iterator it = ui->graphicsView_mardi->scene()->selectedItems().begin() ; it != ui->graphicsView_mardi->scene()->selectedItems().end() ; ++it)
-    {
-        mise_a_jour_necessaire = true;
-        Evenement* evt = dynamic_cast<EvenementGraphicItem*>(*it)->getEvenement();
-        EvenementInfoDialog *dial = new EvenementInfoDialog(evt);
-        dial->exec();
-        delete dial;
-    }
-    if(mise_a_jour_necessaire)
-        dynamic_cast<JourGraphicScene*>(ui->graphicsView_mardi->scene())->mise_a_jour();
 
- }
+void MainWindow::detaillerEvenement_mardi()
+{
+   bool mise_a_jour_necessaire = false;
+   QList<QGraphicsItem*> itemsList = ui->graphicsView_mardi->scene()->selectedItems();
+   QList<QGraphicsItem*>::iterator iter = itemsList.begin();
+   QList<QGraphicsItem*>::iterator end = itemsList.end();
+
+   while(iter!=end)
+   {
+       mise_a_jour_necessaire = true;
+       Evenement* evt = dynamic_cast<EvenementGraphicItem*>(*iter)->getEvenement();
+       EvenementInfoDialog *dial = new EvenementInfoDialog(evt);
+       dial->exec();
+       delete dial;
+       iter++;
+   }
+   if(mise_a_jour_necessaire){
+       dynamic_cast<JourGraphicScene*>(ui->graphicsView_mardi->scene())->mise_a_jour();
+   }
+}
 void MainWindow::detaillerEvenement_mercredi()
- {
-    bool mise_a_jour_necessaire = false;
-    for(QList<QGraphicsItem *>::iterator it = ui->graphicsView_mercredi->scene()->selectedItems().begin() ; it != ui->graphicsView_mercredi->scene()->selectedItems().end() ; ++it)
-    {
-        mise_a_jour_necessaire = true;
-        Evenement* evt = dynamic_cast<EvenementGraphicItem*>(*it)->getEvenement();
-        EvenementInfoDialog *dial = new EvenementInfoDialog(evt);
-        dial->exec();
-        delete dial;
-    }
-    if(mise_a_jour_necessaire)
-        dynamic_cast<JourGraphicScene*>(ui->graphicsView_mercredi->scene())->mise_a_jour();
- }
+{
+   bool mise_a_jour_necessaire = false;
+   QList<QGraphicsItem*> itemsList = ui->graphicsView_mercredi->scene()->selectedItems();
+   QList<QGraphicsItem*>::iterator iter = itemsList.begin();
+   QList<QGraphicsItem*>::iterator end = itemsList.end();
+
+   while(iter!=end)
+   {
+       mise_a_jour_necessaire = true;
+       Evenement* evt = dynamic_cast<EvenementGraphicItem*>(*iter)->getEvenement();
+       EvenementInfoDialog *dial = new EvenementInfoDialog(evt);
+       dial->exec();
+       delete dial;
+       iter++;
+   }
+   if(mise_a_jour_necessaire){
+       dynamic_cast<JourGraphicScene*>(ui->graphicsView_mercredi->scene())->mise_a_jour();
+   }
+}
 void MainWindow::detaillerEvenement_jeudi()
- {
-    bool mise_a_jour_necessaire = false;
-    for(QList<QGraphicsItem *>::iterator it = ui->graphicsView_jeudi->scene()->selectedItems().begin() ; it != ui->graphicsView_jeudi->scene()->selectedItems().end() ; ++it)
-    {
-        mise_a_jour_necessaire = true;
-        Evenement* evt = dynamic_cast<EvenementGraphicItem*>(*it)->getEvenement();
-        EvenementInfoDialog *dial = new EvenementInfoDialog(evt);
-        dial->exec();
-        delete dial;
-    }
-    if(mise_a_jour_necessaire)
-        dynamic_cast<JourGraphicScene*>(ui->graphicsView_jeudi->scene())->mise_a_jour();
- }
+{
+   bool mise_a_jour_necessaire = false;
+   QList<QGraphicsItem*> itemsList = ui->graphicsView_jeudi->scene()->selectedItems();
+   QList<QGraphicsItem*>::iterator iter = itemsList.begin();
+   QList<QGraphicsItem*>::iterator end = itemsList.end();
+
+   while(iter!=end)
+   {
+       mise_a_jour_necessaire = true;
+       Evenement* evt = dynamic_cast<EvenementGraphicItem*>(*iter)->getEvenement();
+       EvenementInfoDialog *dial = new EvenementInfoDialog(evt);
+       dial->exec();
+       delete dial;
+       iter++;
+   }
+   if(mise_a_jour_necessaire){
+       dynamic_cast<JourGraphicScene*>(ui->graphicsView_jeudi->scene())->mise_a_jour();
+   }
+}
 void MainWindow::detaillerEvenement_vendredi()
- {
-    bool mise_a_jour_necessaire = false;
-    for(QList<QGraphicsItem *>::iterator it = ui->graphicsView_vendredi->scene()->selectedItems().begin() ; it != ui->graphicsView_vendredi->scene()->selectedItems().end() ; ++it)
-    {
-        mise_a_jour_necessaire = true;
-        Evenement* evt = dynamic_cast<EvenementGraphicItem*>(*it)->getEvenement();
-        EvenementInfoDialog *dial = new EvenementInfoDialog(evt);
-        dial->exec();
-        delete dial;
-    }
-    if(mise_a_jour_necessaire)
-        dynamic_cast<JourGraphicScene*>(ui->graphicsView_vendredi->scene())->mise_a_jour();
- }
+{
+   bool mise_a_jour_necessaire = false;
+   QList<QGraphicsItem*> itemsList = ui->graphicsView_vendredi->scene()->selectedItems();
+   QList<QGraphicsItem*>::iterator iter = itemsList.begin();
+   QList<QGraphicsItem*>::iterator end = itemsList.end();
+
+   while(iter!=end)
+   {
+       mise_a_jour_necessaire = true;
+       Evenement* evt = dynamic_cast<EvenementGraphicItem*>(*iter)->getEvenement();
+       EvenementInfoDialog *dial = new EvenementInfoDialog(evt);
+       dial->exec();
+       delete dial;
+       iter++;
+   }
+   if(mise_a_jour_necessaire){
+       dynamic_cast<JourGraphicScene*>(ui->graphicsView_vendredi->scene())->mise_a_jour();
+   }
+}
 void MainWindow::detaillerEvenement_samedi()
- {
-    bool mise_a_jour_necessaire = false;
-    for(QList<QGraphicsItem *>::iterator it = ui->graphicsView_samedi->scene()->selectedItems().begin() ; it != ui->graphicsView_samedi->scene()->selectedItems().end() ; ++it)
-    {
-        mise_a_jour_necessaire = true;
-        Evenement* evt = dynamic_cast<EvenementGraphicItem*>(*it)->getEvenement();
-        EvenementInfoDialog *dial = new EvenementInfoDialog(evt);
-        dial->exec();
-        delete dial;
-    }
-    if(mise_a_jour_necessaire)
-        dynamic_cast<JourGraphicScene*>(ui->graphicsView_samedi->scene())->mise_a_jour();
- }
+{
+   bool mise_a_jour_necessaire = false;
+   QList<QGraphicsItem*> itemsList = ui->graphicsView_samedi->scene()->selectedItems();
+   QList<QGraphicsItem*>::iterator iter = itemsList.begin();
+   QList<QGraphicsItem*>::iterator end = itemsList.end();
+
+   while(iter!=end)
+   {
+       mise_a_jour_necessaire = true;
+       Evenement* evt = dynamic_cast<EvenementGraphicItem*>(*iter)->getEvenement();
+       EvenementInfoDialog *dial = new EvenementInfoDialog(evt);
+       dial->exec();
+       delete dial;
+       iter++;
+   }
+   if(mise_a_jour_necessaire){
+       dynamic_cast<JourGraphicScene*>(ui->graphicsView_samedi->scene())->mise_a_jour();
+   }
+}
 void MainWindow::detaillerEvenement_dimanche()
- {
-    bool mise_a_jour_necessaire = false;
-    for(QList<QGraphicsItem *>::iterator it = ui->graphicsView_dimanche->scene()->selectedItems().begin() ; it != ui->graphicsView_dimanche->scene()->selectedItems().end() ; ++it)
-    {
-        mise_a_jour_necessaire = true;
-        Evenement* evt = dynamic_cast<EvenementGraphicItem*>(*it)->getEvenement();
-        EvenementInfoDialog *dial = new EvenementInfoDialog(evt);
-        dial->exec();
-        delete dial;
-    }
-    if(mise_a_jour_necessaire)
-        dynamic_cast<JourGraphicScene*>(ui->graphicsView_dimanche->scene())->mise_a_jour();
- }
+{
+   bool mise_a_jour_necessaire = false;
+   QList<QGraphicsItem*> itemsList = ui->graphicsView_dimanche->scene()->selectedItems();
+   QList<QGraphicsItem*>::iterator iter = itemsList.begin();
+   QList<QGraphicsItem*>::iterator end = itemsList.end();
+
+   while(iter!=end)
+   {
+       mise_a_jour_necessaire = true;
+       Evenement* evt = dynamic_cast<EvenementGraphicItem*>(*iter)->getEvenement();
+       EvenementInfoDialog *dial = new EvenementInfoDialog(evt);
+       dial->exec();
+       delete dial;
+       iter++;
+   }
+   if(mise_a_jour_necessaire){
+       dynamic_cast<JourGraphicScene*>(ui->graphicsView_dimanche->scene())->mise_a_jour();
+   }
+}
 
 
 
@@ -218,8 +261,8 @@ void MainWindow::maj_treeWidget()
 void MainWindow::mise_a_jour()
 {
     maj_treeWidget();
-    for(int i=0;i<7;i++)
-        scenes[i]->mise_a_jour();
+    /*for(int i=0;i<7;i++)
+        scenes[i]->mise_a_jour();*/
 }
 
 MainWindow::~MainWindow()

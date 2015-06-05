@@ -2,6 +2,7 @@
 #define EVENEMENTPJ_H
 
 #include "evenementtrad.h"
+#include <QDateTime>
 
 class EvenementPj : public EvenementTrad
 {
@@ -18,10 +19,14 @@ public:
     void setHoraireFin(const QTime& t) { horaireFin = t; }
     void setDateFin(const QDate& d) { dateFin = d; }
 
+    const Duree& getDuree() const;
+
     virtual EvenementPj* clone() const;
     virtual QString toString() const;
 
     virtual bool isEvenement1j() const { return false; }
+    virtual bool isEvenementPj() const { return true; }
+
 
 };
 

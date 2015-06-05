@@ -12,7 +12,7 @@
 
 class ProjetManager : public Observable
 {
-    std::set<Observateur*> obs;
+
     std::map<QString,Projet*> projets;
     static ProjetManager* instance;
 
@@ -33,12 +33,7 @@ public:
 
     void supprimerProjet(const QString& t);
 
-    void ajouterObservateur(Observateur *o) { obs.insert(o); }
-    void supprimerObservateur(Observateur *o) { obs.erase(o); }
-    void notifier() {
-        for(std::set<Observateur*>::iterator it = obs.begin() ; it != obs.end() ; ++it)
-            (*it)->mise_a_jour();
-    }
+
 
 
 

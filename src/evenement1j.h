@@ -19,6 +19,7 @@ public:
     virtual QString toString() const;
 
     virtual bool isEvenement1j() const { return true; }
+    virtual bool isEvenementPj() const { return false; }
 
 };
 

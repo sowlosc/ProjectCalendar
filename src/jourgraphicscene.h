@@ -21,7 +21,7 @@ public:
     Evenement* getEvenement() const { return evt; }
 };
 
-class JourGraphicScene : public QGraphicsScene
+class JourGraphicScene : public QGraphicsScene, public Observateur
 {
     QString jour;
     QDate date;

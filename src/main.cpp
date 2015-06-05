@@ -102,7 +102,7 @@ int main(int argc, char *argv[])
     std::cout<<"---------------------------------\n";
 
     TacheUnitaire *t1 = new TacheUnitaire("t1","tache1",QDate(2015,6,1),QDate(2015,7,7),"Initialisation",Duree(1,0),false);
-    TacheUnitaire *t2 = new TacheUnitaire("t2","tache1",QDate(2015,6,1),QDate(2015,7,7),"Developpement",Duree(3,0),true);
+    TacheUnitaire *t2 = new TacheUnitaire("t2","tache2",QDate(2015,6,1),QDate(2015,7,7),"Developpement",Duree(3,0),true);
     TacheComposite *t3 = new TacheComposite("t3","taches3",QDate(2015,6,1),QDate(2015,7,7),"Tahce complexe");
 
     TacheUnitaire *t4 = new TacheUnitaire("t3.1","sousTache1",QDate(2015,8,1),QDate(2015,9,7),"Initialisation",Duree(1,40),false);
@@ -153,9 +153,10 @@ int main(int argc, char *argv[])
     for(Projet::iterator it = pj.begin() ; it != pj.end() ; ++it)
         std::cout<<(*it).getDescription().toStdString()<<std::endl;
 
-    ProgrammationTache evt4(QDate(2015,6,2),QTime(12,0,0),t1);
-    ProgrammationPartieTache evt5(QDate(2015,6,2),QTime(14,0,0),Duree(1,0),t2);
+    ProgrammationTache evt4(QDate(1994,3,23),QTime(12,0,0),t2);
+    ProgrammationPartieTache evt5(QDate(1994,3,26),QTime(14,5,0),Duree(1,30),t5);
 
+    ag << evt5 << evt4;
 
     w.show();
 

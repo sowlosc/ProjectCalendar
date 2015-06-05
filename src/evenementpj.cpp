@@ -16,3 +16,11 @@ QString EvenementPj::toString() const
     ss  << "\nsujet = " << getSujet().toStdString() << "\n";
     return ss.str().c_str();
 }
+
+
+const Duree& EvenementPj::getDuree() const
+{
+    QDateTime fin(dateFin,horaireFin);
+    QDateTime debut(Evenement::getDate(),Evenement::getHoraire());
+    return debut.secsTo(fin) / 60;
+}
