@@ -74,17 +74,21 @@ MainWindow::MainWindow(QWidget *parent) :
 
 void MainWindow::detaillerEvenement_lundi()
  {
+    bool mise_a_jour_necessaire = false;
     for(QList<QGraphicsItem *>::iterator it = ui->graphicsView_lundi->scene()->selectedItems().begin() ; it != ui->graphicsView_lundi->scene()->selectedItems().end() ; ++it)
     {
+        mise_a_jour_necessaire = true;
         Evenement* evt = dynamic_cast<EvenementGraphicItem*>(*it)->getEvenement();
         EvenementInfoDialog *dial = new EvenementInfoDialog(evt);
         dial->exec();
         delete dial;
     }
-    ui->graphicsView_lundi->scene()->clearSelection();
+    if(mise_a_jour_necessaire)
+        dynamic_cast<JourGraphicScene*>(ui->graphicsView_lundi->scene())->mise_a_jour();
  }
 void MainWindow::detaillerEvenement_mardi()
  {
+    bool mise_a_jour_necessaire = false;
     for(QList<QGraphicsItem *>::iterator it = ui->graphicsView_mardi->scene()->selectedItems().begin() ; it != ui->graphicsView_mardi->scene()->selectedItems().end() ; ++it)
     {
         Evenement* evt = dynamic_cast<EvenementGraphicItem*>(*it)->getEvenement();
@@ -92,10 +96,13 @@ void MainWindow::detaillerEvenement_mardi()
         dial->exec();
         delete dial;
     }
-    ui->graphicsView_mardi->scene()->clearSelection();
+    if(mise_a_jour_necessaire)
+        dynamic_cast<JourGraphicScene*>(ui->graphicsView_mardi->scene())->mise_a_jour();
+
  }
 void MainWindow::detaillerEvenement_mercredi()
  {
+    bool mise_a_jour_necessaire = false;
     for(QList<QGraphicsItem *>::iterator it = ui->graphicsView_mercredi->scene()->selectedItems().begin() ; it != ui->graphicsView_mercredi->scene()->selectedItems().end() ; ++it)
     {
         Evenement* evt = dynamic_cast<EvenementGraphicItem*>(*it)->getEvenement();
@@ -103,10 +110,12 @@ void MainWindow::detaillerEvenement_mercredi()
         dial->exec();
         delete dial;
     }
-    ui->graphicsView_mercredi->scene()->clearSelection();
+    if(mise_a_jour_necessaire)
+        dynamic_cast<JourGraphicScene*>(ui->graphicsView_mercredi->scene())->mise_a_jour();
  }
 void MainWindow::detaillerEvenement_jeudi()
  {
+    bool mise_a_jour_necessaire = false;
     for(QList<QGraphicsItem *>::iterator it = ui->graphicsView_jeudi->scene()->selectedItems().begin() ; it != ui->graphicsView_jeudi->scene()->selectedItems().end() ; ++it)
     {
         Evenement* evt = dynamic_cast<EvenementGraphicItem*>(*it)->getEvenement();
@@ -114,10 +123,12 @@ void MainWindow::detaillerEvenement_jeudi()
         dial->exec();
         delete dial;
     }
-    ui->graphicsView_jeudi->scene()->clearSelection();
+    if(mise_a_jour_necessaire)
+        dynamic_cast<JourGraphicScene*>(ui->graphicsView_jeudi->scene())->mise_a_jour();
  }
 void MainWindow::detaillerEvenement_vendredi()
  {
+    bool mise_a_jour_necessaire = false;
     for(QList<QGraphicsItem *>::iterator it = ui->graphicsView_vendredi->scene()->selectedItems().begin() ; it != ui->graphicsView_vendredi->scene()->selectedItems().end() ; ++it)
     {
         Evenement* evt = dynamic_cast<EvenementGraphicItem*>(*it)->getEvenement();
@@ -125,10 +136,12 @@ void MainWindow::detaillerEvenement_vendredi()
         dial->exec();
         delete dial;
     }
-    ui->graphicsView_vendredi->scene()->clearSelection();
+    if(mise_a_jour_necessaire)
+        dynamic_cast<JourGraphicScene*>(ui->graphicsView_vendredi->scene())->mise_a_jour();
  }
 void MainWindow::detaillerEvenement_samedi()
  {
+    bool mise_a_jour_necessaire = false;
     for(QList<QGraphicsItem *>::iterator it = ui->graphicsView_samedi->scene()->selectedItems().begin() ; it != ui->graphicsView_samedi->scene()->selectedItems().end() ; ++it)
     {
         Evenement* evt = dynamic_cast<EvenementGraphicItem*>(*it)->getEvenement();
@@ -136,10 +149,12 @@ void MainWindow::detaillerEvenement_samedi()
         dial->exec();
         delete dial;
     }
-    ui->graphicsView_samedi->scene()->clearSelection();
+    if(mise_a_jour_necessaire)
+        dynamic_cast<JourGraphicScene*>(ui->graphicsView_samedi->scene())->mise_a_jour();
  }
 void MainWindow::detaillerEvenement_dimanche()
  {
+    bool mise_a_jour_necessaire = false;
     for(QList<QGraphicsItem *>::iterator it = ui->graphicsView_dimanche->scene()->selectedItems().begin() ; it != ui->graphicsView_dimanche->scene()->selectedItems().end() ; ++it)
     {
         Evenement* evt = dynamic_cast<EvenementGraphicItem*>(*it)->getEvenement();
@@ -147,7 +162,8 @@ void MainWindow::detaillerEvenement_dimanche()
         dial->exec();
         delete dial;
     }
-    ui->graphicsView_dimanche->scene()->clearSelection();
+    if(mise_a_jour_necessaire)
+        dynamic_cast<JourGraphicScene*>(ui->graphicsView_dimanche->scene())->mise_a_jour();
  }
 
 

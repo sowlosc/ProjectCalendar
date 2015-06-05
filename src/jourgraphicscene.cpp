@@ -19,6 +19,8 @@ QGraphicsRectItem* JourGraphicScene::ajouterEvenement(const QString titre, const
     QGraphicsScene::addItem(tache);
 
     tache->setFlag(QGraphicsItem::ItemIsSelectable);
+    tache->setFlag(QGraphicsItem::ItemIsFocusable);
+
     //rect->setFlag(QGraphicsItem::ItemIsFocusable);
 
     tache->setZValue(1);
@@ -44,6 +46,9 @@ QGraphicsRectItem* JourGraphicScene::ajouterEvenement(const QString titre, const
     txt->setX(Xtxt);
     txt->setY(Ytxt);
     txt->setZValue(2);
+    //QObject::connect(this,SIGNAL(selectionChanged()),this,SLOT(JourGraphicScene::test()));
+    //QObject::connect(ui->graphicsView_mardi->scene(),SIGNAL(selectionChanged()),this,SLOT(detaillerEvenement_mardi()));
+
     return tache;
 }
 

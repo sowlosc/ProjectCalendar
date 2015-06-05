@@ -9,9 +9,19 @@ EvenementInfoDialog::EvenementInfoDialog(Evenement* e,QWidget *parent) :
 
     //recuperation des donnees de l'evenemnet et affichage
     ui->textBrowser->setPlainText(evt->toString());
+
+
+
 }
 
 EvenementInfoDialog::~EvenementInfoDialog()
 {
     delete ui;
+}
+
+
+void EvenementInfoDialog::reject()
+{
+    Agenda::getInstance() >> evt;
+    QDialog::done(0);
 }

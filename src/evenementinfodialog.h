@@ -3,6 +3,7 @@
 
 #include <QDialog>
 #include "evenement1j.h"
+#include "agenda.h"
 namespace Ui {
 class EvenementInfoDialog;
 }
@@ -17,6 +18,9 @@ public:
 
 private:
     Ui::EvenementInfoDialog *ui;
+
+public slots:
+    void reject();
 };
 
 #endif // EVENEMENTINFODIALOG_H
