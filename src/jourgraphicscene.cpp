@@ -89,12 +89,28 @@ void JourGraphicScene::mise_a_jour()
     Agenda& ag = Agenda::getInstance();
     for(Agenda::iterator it = ag.begin() ; it != ag.end() ; ++it)
     {
-        if((*it).getDate() == date)
+        if(!(*it).isEvenementPj() && (*it).getDate() == date)
         {
-            if(!(*it).isEvenementPj()){
             //Evenement1j *evt = dynamic_cast<Evenement1j*>(&(*it));
             ajouterEvenement((*it).getSujet(),(*it).getHoraire(),(*it).getDuree(),&(*it));
+
+        }else if((*it).isEvenementPj())
+        {
+            EvenementPj *evt = dynamic_cast<EvenementPj*>(&(*it));
+            QDate deb = evt->getDate(), fin = evt->getDateFin();
+            if(date == deb)
+            {
+                int nb_mins = evt->getHoraire().secsTo(QTime(22,0)) / 60;
+                ajouterEvenement(evt->getSujet(),evt->getHoraire(),Duree(nb_mins),evt);
+            }else if(date<fin && date>deb)
+            {
+                ajouterEvenement(evt->getSujet(),QTime(6,0),Duree(960),evt);
+            }else if(date == fin)
+            {
+                int nb_mins = QTime(6,0).secsTo(evt->getHoraireFin()) / 60;
+                ajouterEvenement(evt->getSujet(),QTime(6,0),Duree(nb_mins),evt);
             }
+
         }
     }
 }

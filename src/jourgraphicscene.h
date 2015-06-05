@@ -12,6 +12,7 @@
 #include <QRect>
 //#include "evenement.h"
 #include "evenement1j.h"
+#include "evenementpj.h"
 #include "agenda.h"
 class EvenementGraphicItem : public QGraphicsRectItem
 {
