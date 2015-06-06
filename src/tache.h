@@ -83,7 +83,33 @@ public:
 
     succ_iterator endSucc() { return succ_iterator(PrecedenceManager::getInstance().end(),this); }
 
+    class const_pred_iterator //const
+    {
+        friend class Tache;
+        PrecedenceManager::iterator it;
+        const Tache* tachePred;
+        const_pred_iterator(const PrecedenceManager::iterator& iter,const Tache* t) : it(iter),tachePred(t) {}
+    public:
+        const Tache* operator*() { return (*it).getPredecesseur(); }
+        const_pred_iterator& operator++() {
+            PrecedenceManager::iterator end = PrecedenceManager::getInstance().end();
+            ++it;
+            while(it!= end && (*it).getSuccesseur() != tachePred)
+                ++it;
+            return *this;
+        }
+        bool operator!=(const const_pred_iterator& at) const { return it != at.it; }
+    };
 
+    const_pred_iterator beginPred() const {
+        PrecedenceManager::iterator iter = PrecedenceManager::getInstance().begin();
+        PrecedenceManager::iterator end = PrecedenceManager::getInstance().end();
+
+        while( iter != end && (*iter).getSuccesseur() != this)
+            ++iter;
+        return const_pred_iterator(iter,this);}
+
+    const_pred_iterator endPred() const { return const_pred_iterator(PrecedenceManager::getInstance().end(),this); }
 
 };
 

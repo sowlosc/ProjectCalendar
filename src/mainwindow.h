@@ -41,7 +41,7 @@ public:
     void maj_treeWidget();
     void construct_recurs_tree(Tache* t,QTreeWidgetItem* root);
     void mise_a_jour();
-
+    void maj_listePrecedences();
 
 
 private:
@@ -71,6 +71,7 @@ public slots:
     void maj_dates();
     void ajouterEvenementTrad();
     void ajouterPrecedence();
+    void supprimerPrecedence();
 
 };
 
@@ -124,6 +125,15 @@ public:
     virtual bool isUnitaire() const { return false; }
     virtual bool isProjetItem() const { return true; }
 
+};
+
+class ListPrecedenceItem : public QListWidgetItem
+{
+    const Precedence* precedence;
+public:
+    ListPrecedenceItem(const QString& txt, const Precedence* pr, QListWidget* parent) : QListWidgetItem(txt,parent), precedence(pr) {}
+
+    const Precedence* getPrecedence() const { return precedence; }
 };
 
 #endif // MAINWINDOW_H

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['mainwindow',['MainWindow',['../class_main_window.html',1,'']]]
+  ['listprecedenceitem',['ListPrecedenceItem',['../class_list_precedence_item.html',1,'']]]
 ];

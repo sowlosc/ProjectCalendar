@@ -50,6 +50,10 @@ QString TacheComposite::toString() const
     ss << "<tr><td>date disponibilité </td><td> " << getDisponibilite().toString().toStdString()<< "</td></tr>";
     ss << "<tr><td>date échéance </td><td> " << getEcheance().toString().toStdString()<< "</td></tr>";
     ss << "<tr><td>description</b></td><td> " << getDescription().toStdString()<< "</td></tr>";
+    ss << "<tr><td>taches précédentes </td><td>";
+    for(const_pred_iterator it = beginPred(); it != endPred() ; ++it)
+        ss << (*it)->getTitre().toStdString() << "<br>";
+    ss << "</td></tr>";
     ss << "</table></body></html>";
     return ss.str().c_str();
 }

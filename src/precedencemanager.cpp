@@ -34,6 +34,7 @@ void PrecedenceManager::ajouterPrecedence(const Tache &t1, const Tache &t2)
 
     Precedence *p = new Precedence(&t1,&t2);
     precedences.push_back(p);
+    notifier();
 }
 
 void PrecedenceManager::retirerPrecedence(const Tache &t1, const Tache &t2)
@@ -48,6 +49,7 @@ void PrecedenceManager::retirerPrecedence(const Tache &t1, const Tache &t2)
     {
         delete (*position);
         precedences.erase(position);
+        notifier();
     }else
         throw CalendarException("Erreur, PrecedenceManager, la precedence a retirer n'existe pas");
 }

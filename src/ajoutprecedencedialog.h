@@ -6,6 +6,7 @@
 #include "projetmanager.h"
 #include "precedencemanager.h"
 
+
 namespace Ui {
 class AjoutPrecedenceDialog;
 }

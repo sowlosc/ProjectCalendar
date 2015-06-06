@@ -12,7 +12,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->setupUi(this);
 
     maj_treeWidget();
-
+    maj_listePrecedences();
 
 
 
@@ -35,6 +35,7 @@ MainWindow::MainWindow(QWidget *parent) :
     QObject::connect(ui->Bouton_ajouter_evenement,SIGNAL(clicked()),this,SLOT(ajouterEvenementTrad()));
 
     QObject::connect(ui->Bounton_ajout_precedence,SIGNAL(clicked()),this,SLOT(ajouterPrecedence()));
+    QObject::connect(ui->Bouton_supprimer_precedence,SIGNAL(clicked()),this,SLOT(supprimerPrecedence()));
 
 
 
@@ -48,21 +49,7 @@ MainWindow::MainWindow(QWidget *parent) :
 
     for(int i=0;i<7;i++)
         Agenda::getInstance().ajouterObservateur(scenes[i]);
-    //QGraphicsRectItem *rect1 = scene->ajouterEvenement("tache1",QTime(12,0),Duree(2,30));
 
-    //QGraphicsRectItem *rect2 = scene->ajouterEvenement("tache2",QTime(16,15),Duree(0,30));
-
-    //QGraphicsRectItem *rect3 = scene->ajouterEvenement("tache3",QTime(20,20),Duree(0,15));
-
-
-
-
-
-
-  //  QObject::connect(rect1,SIGNAL(clicked()),this,SLOT(test()));
-    //QObject::connect(rect2,SIGNAL(clicked()),this,SLOT(test()));
-   // QObject::connect(rect3,SIGNAL(clicked()),this,SLOT(test()));
-    //scene->addRect(0,0,50,50,QPen(Qt::red));
 
 
     ui->graphicsView_lundi->setScene(scenes[0]);
@@ -312,7 +299,9 @@ void MainWindow::maj_treeWidget()
 
 void MainWindow::mise_a_jour()
 {
+    std::cout << "mise a jour mainwindow\n";
     maj_treeWidget();
+    maj_listePrecedences();
     /*for(int i=0;i<7;i++)
         scenes[i]->mise_a_jour();*/
 }
@@ -407,7 +396,25 @@ void MainWindow::ajouterPrecedence()
     }
 }
 
+void MainWindow::supprimerPrecedence()
+{
+    const Precedence *prec = dynamic_cast<ListPrecedenceItem*>(ui->listWidget_precedence->currentItem())->getPrecedence();
+    PrecedenceManager::getInstance().retirerPrecedence(*prec->getPredecesseur(),*prec->getSuccesseur());
+}
 
+void MainWindow::maj_listePrecedences()
+{
+    ui->listWidget_precedence->clear();
+    PrecedenceManager& prm = PrecedenceManager::getInstance();
+    for(PrecedenceManager::iterator it = prm.begin() ; it != prm.end() ; ++it)
+    {
+        std::cout <<"------------ ajout item \n";
+        QString txt = (*it).getPredecesseur()->getId() + " -> " + (*it).getSuccesseur()->getId();
+        ListPrecedenceItem* item = new ListPrecedenceItem(txt,&(*it),ui->listWidget_precedence);
+        ui->listWidget_precedence->addItem(item);
+    }
+
+}
 
 /*
  * idee a continuer

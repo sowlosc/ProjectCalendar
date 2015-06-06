@@ -4,12 +4,13 @@
 #include <vector>
 #include "precedence.h"
 #include "exception.h"
+#include "observateur.h"
 
 /* on suppose que les precedences ne peuvent jamais être modif
  * elles seront soit suppr soit creeer
  * */
 
-class PrecedenceManager
+class PrecedenceManager : public Observable
 {
     std::vector<Precedence*> precedences;
     static PrecedenceManager* instance;

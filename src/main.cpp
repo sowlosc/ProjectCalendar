@@ -19,7 +19,10 @@ int main(int argc, char *argv[])
     QApplication a(argc, argv);
     MainWindow& w = MainWindow::getInstance();
     ProjetManager& pm = ProjetManager::getInstance();
+    PrecedenceManager& prm = PrecedenceManager::getInstance();
+
     pm.ajouterObservateur(&w);
+    prm.ajouterObservateur(&w);
     for(ProjetManager::iterator it = ProjetManager::getInstance().begin(); it != ProjetManager::getInstance().end() ; ++it)
         (*it).ajouterObservateur(&w);
 
@@ -165,13 +168,12 @@ int main(int argc, char *argv[])
 
 
 
-
-    PrecedenceManager& prm = PrecedenceManager::getInstance();
+    std::cout<<"____________________________________\n";
     prm.ajouterPrecedence(*t1,*t2);
     prm.ajouterPrecedence(*t1,*t3);
 
 
-    prm.ajouterPrecedence(*t4,*t3);
+    prm.ajouterPrecedence(*t3,*t4);
     prm.ajouterPrecedence(*t1,*t4);
     prm.ajouterPrecedence(*t5,*t6);
     prm.ajouterPrecedence(*t1,*t7);
@@ -180,6 +182,9 @@ int main(int argc, char *argv[])
     for(Tache::succ_iterator it = t1->beginSucc(); it != t1->endSucc(); ++it)
         std::cout << "Tache succ  -> " << (*it)->getTitre().toStdString() << "\n";
 
+
+    for(Tache::const_pred_iterator it = t3->beginPred() ; it!= t3->endPred() ; ++it)
+        std::cout << "Tache pred -> " << (*it)->getTitre().toStdString() << "\n";
 
 
     w.show();
