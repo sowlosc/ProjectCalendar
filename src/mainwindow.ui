@@ -953,7 +953,7 @@
           </widget>
          </item>
          <item>
-          <widget class="QPushButton" name="pushButton_ajouter_evenement">
+          <widget class="QPushButton" name="Bouton_ajouter_evenement">
            <property name="sizePolicy">
             <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
              <horstretch>0</horstretch>
@@ -1470,8 +1470,6 @@
            </item>
           </layout>
          </widget>
-         <zorder>horizontalLayoutWidget_2</zorder>
-         <zorder></zorder>
         </widget>
        </item>
       </layout>
@@ -1665,17 +1663,17 @@ p, li { white-space: pre-wrap; }
        </item>
       </layout>
      </widget>
-     <widget class="QPushButton" name="pushButton">
+     <widget class="QPushButton" name="Bounton_ajout_precedence">
       <property name="geometry">
        <rect>
         <x>480</x>
         <y>400</y>
-        <width>99</width>
+        <width>191</width>
         <height>27</height>
        </rect>
       </property>
       <property name="text">
-       <string>PushButton</string>
+       <string>Ajouter contrainte</string>
       </property>
      </widget>
     </widget>

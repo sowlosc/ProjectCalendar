@@ -161,6 +161,27 @@ int main(int argc, char *argv[])
 
     ag << evt5 << evt4 << evtP;
 
+
+
+
+
+
+    PrecedenceManager& prm = PrecedenceManager::getInstance();
+    prm.ajouterPrecedence(*t1,*t2);
+    prm.ajouterPrecedence(*t1,*t3);
+
+
+    prm.ajouterPrecedence(*t4,*t3);
+    prm.ajouterPrecedence(*t1,*t4);
+    prm.ajouterPrecedence(*t5,*t6);
+    prm.ajouterPrecedence(*t1,*t7);
+
+
+    for(Tache::succ_iterator it = t1->beginSucc(); it != t1->endSucc(); ++it)
+        std::cout << "Tache succ  -> " << (*it)->getTitre().toStdString() << "\n";
+
+
+
     w.show();
 
 

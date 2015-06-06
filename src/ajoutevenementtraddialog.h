@@ -6,6 +6,7 @@
 #include "evenementpj.h"
 #include "rdv.h"
 #include "agenda.h"
+
 namespace Ui {
 class AjoutEvenementTradDialog;
 }
@@ -13,7 +14,6 @@ class AjoutEvenementTradDialog;
 class AjoutEvenementTradDialog : public QDialog
 {
     Q_OBJECT
-
 public:
     explicit AjoutEvenementTradDialog(QWidget *parent = 0);
     ~AjoutEvenementTradDialog();

@@ -3,6 +3,7 @@
 
 #include <vector>
 #include "precedence.h"
+#include "exception.h"
 
 /* on suppose que les precedences ne peuvent jamais être modif
  * elles seront soit suppr soit creeer

@@ -22,6 +22,7 @@
 #include "jourgraphicscene.h"
 #include "evenementinfodialog.h"
 #include "ajoutevenementtraddialog.h"
+#include "ajoutprecedencedialog.h"
 namespace Ui {
 class MainWindow;
 }
@@ -69,6 +70,7 @@ public slots:
     void detaillerEvenement_dimanche();
     void maj_dates();
     void ajouterEvenementTrad();
+    void ajouterPrecedence();
 
 };
 

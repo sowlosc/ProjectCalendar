@@ -35,7 +35,7 @@ public:
     void retirerTache(const QString id);
 
     Tache *getTache(const QString& id);
-    std::map<QString, Tache *> *getTacheMap(const QString &id); //renvoie la tache composite parente ou null si c'es dans le projet
+    std::map<QString, Tache *> *getTacheMap(const QString &id); //renvoie le map de tache parent
 
     void describe(); // A SUPPRIMER
     void affTache(Tache* t); // A SUPPRIMER

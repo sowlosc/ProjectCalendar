@@ -32,9 +32,9 @@ MainWindow::MainWindow(QWidget *parent) :
     QObject::connect(ui->Bouton_supprimer_tache,SIGNAL(clicked()),this,SLOT(supprimerTache()));
     QObject::connect(ui->Bouton_supprimer_projet,SIGNAL(clicked()),this,SLOT(supprimerProjet()));
     QObject::connect(ui->Bouton_ajouter_projet,SIGNAL(clicked()),this,SLOT(ajouterProjet()));
-    QObject::connect(ui->pushButton_ajouter_evenement,SIGNAL(clicked()),this,SLOT(ajouterEvenementTrad()));
+    QObject::connect(ui->Bouton_ajouter_evenement,SIGNAL(clicked()),this,SLOT(ajouterEvenementTrad()));
 
-
+    QObject::connect(ui->Bounton_ajout_precedence,SIGNAL(clicked()),this,SLOT(ajouterPrecedence()));
 
 
 
@@ -286,6 +286,9 @@ void MainWindow::construct_recurs_tree(Tache* t, QTreeWidgetItem *root)
     }
 }
 
+
+
+
 void MainWindow::maj_treeWidget()
 {
     ui->treeWidget->clear(); //detruit et libere memoire
@@ -354,6 +357,7 @@ void MainWindow::supprimerTache()
     TreeItem* current = dynamic_cast<TreeItem*>(ui->treeWidget->currentItem());
     TreeProjetItem* projet = dynamic_cast<TreeProjetItem*>(current->getParentProject());
 
+
     if(current && !current->isProjetItem())
     {
         TreeTacheItem* ta = dynamic_cast<TreeTacheItem*>(current);
@@ -386,6 +390,24 @@ void MainWindow::ajouterEvenementTrad()
     dial -> exec();
     delete dial;
 }
+
+
+
+
+void MainWindow::ajouterPrecedence()
+{
+    TreeItem* current = dynamic_cast<TreeItem*>(ui->treeWidget->currentItem());
+    if(current && !current->isProjetItem())
+    {
+        TreeTacheItem* tacheItem = dynamic_cast<TreeTacheItem*>(current);
+        TreeProjetItem *projetItem = dynamic_cast<TreeProjetItem*>(current->getParentProject());
+        AjoutPrecedenceDialog *dial = new AjoutPrecedenceDialog(tacheItem->getTache()->getId(),projetItem->getProjet()->getTitre());
+        dial->exec();
+        delete dial;
+    }
+}
+
+
 
 /*
  * idee a continuer

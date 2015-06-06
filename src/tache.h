@@ -6,6 +6,7 @@
 #include "exception.h"
 #include "observateur.h"
 #include <iostream>
+#include "precedencemanager.h"
 
 class Tache : public Observable
 {
@@ -54,31 +55,35 @@ public:
     }
 
 
-   /* class succIterator
+    class succ_iterator
     {
-        /* A continuer
-         *
-
-
-        friend class PrecedenceManager;
-        std::vector<Precedence*>::iterator it;
-        succIterator(std::vector<Precedence*>::iterator iter) : it(iter) {}
+        friend class Tache;
+        PrecedenceManager::iterator it;
+        Tache* tachePred;
+        succ_iterator(const PrecedenceManager::iterator& iter,Tache* t) : it(iter),tachePred(t) {}
     public:
-        Tache& operator*() { return (*it)->getSuccesseur(); }
-        succIterator operator++();
-        bool operator!=(std::vector<Precedence*>::iterator at) { return it != at.it; }
+        const Tache* operator*() { return (*it).getSuccesseur(); }
+        succ_iterator& operator++() {
+            PrecedenceManager::iterator end = PrecedenceManager::getInstance().end();
+            ++it;
+            while(it!= end && (*it).getPredecesseur() != tachePred)
+                ++it;
+            return *this;
+        }
+        bool operator!=(const succ_iterator& at) const { return it != at.it; }
     };
 
-    succIterator getFirstSucc() {
-        PrecedenceManager& pm = PrecedenceManager::getInstance();
-        std::vector<Precedence*>::iterator it = precedence.begin();
-        while(*it->getSuccesseur().getId() != this->identificateur)
-            it++;
-        return succIterator(it);
-    }
-    succIterator getLastSucc() { return succIterator(precedences.end()); }
+    succ_iterator beginSucc() {
+        PrecedenceManager::iterator iter = PrecedenceManager::getInstance().begin();
+        PrecedenceManager::iterator end = PrecedenceManager::getInstance().end();
 
-*/
+        while( iter != end && (*iter).getPredecesseur() != this)
+            ++iter;
+        return succ_iterator(iter,this);}
+
+    succ_iterator endSucc() { return succ_iterator(PrecedenceManager::getInstance().end(),this); }
+
+
 
 };
 

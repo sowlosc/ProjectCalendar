@@ -7,8 +7,8 @@
 
 var indexSectionsWithContent =
 {
-  0: "acdeijmoprt",
-  1: "acdeijmoprt",
+  0: "acdeijmoprst",
+  1: "acdeijmoprst",
   2: "d"
 };
 
