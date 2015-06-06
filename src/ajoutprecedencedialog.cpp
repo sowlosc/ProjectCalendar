@@ -22,7 +22,7 @@ AjoutPrecedenceDialog::AjoutPrecedenceDialog(const QString t, const QString p, Q
                     ok = false;
             if(ok){
                 std::cout<<"affichage de "<<it->second->getTitre().toStdString()<<"\n";
-                ui->selecteur_tache_pred->addItem(it->second->getTitre());
+                ui->selecteur_tache_pred->addItem(it->second->getId());
             }
         }
     }
@@ -39,5 +39,19 @@ void AjoutPrecedenceDialog::accept()
 {
     Tache* pred = ProjetManager::getInstance().getProjet(projet).getTache(ui->selecteur_tache_pred->currentText());
     Tache* succ = ProjetManager::getInstance().getProjet(projet).getTache(tacheId);
-    PrecedenceManager::getInstance().ajouterPrecedence(*pred,*succ);
+
+    ajouterPrecedenceRecurs(succ,pred);
+    done(1);
+}
+
+
+
+void AjoutPrecedenceDialog::ajouterPrecedenceRecurs(Tache* t,Tache* pred)
+{
+    PrecedenceManager::getInstance().ajouterPrecedence(*pred,*t);
+    if(t->isComposite()){
+        TacheComposite *tc = dynamic_cast<TacheComposite*>(t);
+        for(TacheComposite::iterator it = tc->begin(); it != tc->end() ; ++it)
+            ajouterPrecedenceRecurs(&(*it),pred);
+    }
 }

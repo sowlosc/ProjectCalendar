@@ -85,4 +85,5 @@ FORMS += \
     src/ajoutprojetdialog.ui \
     src/evenementinfodialog.ui \
     src/ajoutevenementtraddialog.ui \
-    src/ajoutprecedencedialog.ui
+    src/ajoutprecedencedialog.ui \
+    src/programmationtachedialog.ui

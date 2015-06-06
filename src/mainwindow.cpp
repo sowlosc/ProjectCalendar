@@ -409,7 +409,9 @@ void MainWindow::maj_listePrecedences()
     for(PrecedenceManager::iterator it = prm.begin() ; it != prm.end() ; ++it)
     {
         std::cout <<"------------ ajout item \n";
-        QString txt = (*it).getPredecesseur()->getId() + " -> " + (*it).getSuccesseur()->getId();
+        QString pred = (*it).getPredecesseur()->getId();
+        QString succ =  (*it).getSuccesseur()->getId();
+        QString txt = pred + " -> " +succ;
         ListPrecedenceItem* item = new ListPrecedenceItem(txt,&(*it),ui->listWidget_precedence);
         ui->listWidget_precedence->addItem(item);
     }

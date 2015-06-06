@@ -23,6 +23,7 @@ public:
 
 private:
     Ui::AjoutPrecedenceDialog *ui;
+    void ajouterPrecedenceRecurs(Tache *t,Tache* pred);
 
 public slots:
     void accept();
