@@ -32,7 +32,7 @@ MainWindow::MainWindow(QWidget *parent) :
     QObject::connect(ui->Bouton_supprimer_tache,SIGNAL(clicked()),this,SLOT(supprimerTache()));
     QObject::connect(ui->Bouton_supprimer_projet,SIGNAL(clicked()),this,SLOT(supprimerProjet()));
     QObject::connect(ui->Bouton_ajouter_projet,SIGNAL(clicked()),this,SLOT(ajouterProjet()));
-
+    QObject::connect(ui->pushButton_ajouter_evenement,SIGNAL(clicked()),this,SLOT(ajouterEvenementTrad()));
 
 
 
@@ -376,8 +376,16 @@ void MainWindow::ajouterProjet()
 {
     AjoutProjetDialog *dial = new AjoutProjetDialog;
     dial->exec();
+    delete dial;
 }
 
+
+void MainWindow::ajouterEvenementTrad()
+{
+    AjoutEvenementTradDialog *dial = new AjoutEvenementTradDialog;
+    dial -> exec();
+    delete dial;
+}
 
 /*
  * idee a continuer

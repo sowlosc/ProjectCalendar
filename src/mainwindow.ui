@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1231</width>
+    <width>1281</width>
     <height>700</height>
    </rect>
   </property>
@@ -898,67 +898,120 @@
        <rect>
         <x>10</x>
         <y>10</y>
-        <width>1181</width>
+        <width>1191</width>
         <height>581</height>
        </rect>
       </property>
       <layout class="QHBoxLayout" name="horizontalLayout_semaine">
        <property name="sizeConstraint">
-        <enum>QLayout::SetDefaultConstraint</enum>
+        <enum>QLayout::SetNoConstraint</enum>
+       </property>
+       <property name="leftMargin">
+        <number>0</number>
        </property>
        <item>
-        <widget class="QCalendarWidget" name="calendarWidget">
-         <property name="enabled">
-          <bool>true</bool>
+        <layout class="QVBoxLayout" name="verticalLayout_11">
+         <property name="sizeConstraint">
+          <enum>QLayout::SetMinimumSize</enum>
          </property>
-         <property name="sizePolicy">
-          <sizepolicy hsizetype="MinimumExpanding" vsizetype="MinimumExpanding">
-           <horstretch>50</horstretch>
-           <verstretch>0</verstretch>
-          </sizepolicy>
-         </property>
-         <property name="maximumSize">
-          <size>
-           <width>250</width>
-           <height>16777215</height>
-          </size>
-         </property>
-         <property name="sizeIncrement">
-          <size>
-           <width>100</width>
-           <height>0</height>
-          </size>
-         </property>
-         <property name="baseSize">
-          <size>
-           <width>200</width>
-           <height>0</height>
-          </size>
-         </property>
-         <property name="font">
-          <font>
-           <family>Droid Sans</family>
-           <pointsize>8</pointsize>
-           <kerning>true</kerning>
-          </font>
-         </property>
-        </widget>
+         <item>
+          <widget class="QCalendarWidget" name="calendarWidget">
+           <property name="enabled">
+            <bool>true</bool>
+           </property>
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="MinimumExpanding" vsizetype="MinimumExpanding">
+             <horstretch>50</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>250</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <property name="sizeIncrement">
+            <size>
+             <width>100</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="baseSize">
+            <size>
+             <width>200</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <family>Droid Sans</family>
+             <pointsize>8</pointsize>
+             <kerning>true</kerning>
+            </font>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="pushButton_ajouter_evenement">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>240</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>200</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <property name="text">
+            <string>Ajouter un évènement</string>
+           </property>
+           <property name="autoDefault">
+            <bool>false</bool>
+           </property>
+           <property name="default">
+            <bool>false</bool>
+           </property>
+           <property name="flat">
+            <bool>false</bool>
+           </property>
+          </widget>
+         </item>
+        </layout>
        </item>
        <item>
         <widget class="QFrame" name="frame">
+         <property name="minimumSize">
+          <size>
+           <width>800</width>
+           <height>0</height>
+          </size>
+         </property>
          <property name="frameShape">
           <enum>QFrame::StyledPanel</enum>
          </property>
          <property name="frameShadow">
           <enum>QFrame::Raised</enum>
          </property>
+         <property name="lineWidth">
+          <number>1</number>
+         </property>
          <widget class="QWidget" name="horizontalLayoutWidget_2">
           <property name="geometry">
            <rect>
             <x>20</x>
-            <y>10</y>
-            <width>893</width>
-            <height>536</height>
+            <y>30</y>
+            <width>901</width>
+            <height>544</height>
            </rect>
           </property>
           <layout class="QHBoxLayout" name="horizontalLayout_3">
@@ -984,8 +1037,10 @@
               <widget class="QLabel" name="label_2">
                <property name="font">
                 <font>
-                 <family>Ubuntu</family>
+                 <family>Saab</family>
+                 <weight>75</weight>
                  <italic>false</italic>
+                 <bold>true</bold>
                 </font>
                </property>
                <property name="text">
@@ -1065,6 +1120,13 @@
              </item>
              <item>
               <widget class="QLabel" name="label_3">
+               <property name="font">
+                <font>
+                 <family>Saab</family>
+                 <weight>75</weight>
+                 <bold>true</bold>
+                </font>
+               </property>
                <property name="text">
                 <string>Mardi</string>
                </property>
@@ -1121,6 +1183,13 @@
              </item>
              <item>
               <widget class="QLabel" name="label_4">
+               <property name="font">
+                <font>
+                 <family>Saab</family>
+                 <weight>75</weight>
+                 <bold>true</bold>
+                </font>
+               </property>
                <property name="text">
                 <string>Mercredi</string>
                </property>
@@ -1177,6 +1246,13 @@
              </item>
              <item>
               <widget class="QLabel" name="label_5">
+               <property name="font">
+                <font>
+                 <family>Saab</family>
+                 <weight>75</weight>
+                 <bold>true</bold>
+                </font>
+               </property>
                <property name="text">
                 <string>Jeudi</string>
                </property>
@@ -1233,6 +1309,13 @@
              </item>
              <item>
               <widget class="QLabel" name="label_6">
+               <property name="font">
+                <font>
+                 <family>Saab</family>
+                 <weight>75</weight>
+                 <bold>true</bold>
+                </font>
+               </property>
                <property name="text">
                 <string>Vendredi</string>
                </property>
@@ -1289,6 +1372,13 @@
              </item>
              <item>
               <widget class="QLabel" name="label_7">
+               <property name="font">
+                <font>
+                 <family>Saab</family>
+                 <weight>75</weight>
+                 <bold>true</bold>
+                </font>
+               </property>
                <property name="text">
                 <string>Samedi</string>
                </property>
@@ -1345,6 +1435,13 @@
              </item>
              <item>
               <widget class="QLabel" name="label_8">
+               <property name="font">
+                <font>
+                 <family>Saab</family>
+                 <weight>75</weight>
+                 <bold>true</bold>
+                </font>
+               </property>
                <property name="text">
                 <string>Dimanche</string>
                </property>
@@ -1373,10 +1470,8 @@
            </item>
           </layout>
          </widget>
-         <zorder>graphicsView_lundi</zorder>
-         <zorder>graphicsView_lundi</zorder>
          <zorder>horizontalLayoutWidget_2</zorder>
-         <zorder>horizontalLayoutWidget_2</zorder>
+         <zorder></zorder>
         </widget>
        </item>
       </layout>
@@ -1585,15 +1680,13 @@ p, li { white-space: pre-wrap; }
      </widget>
     </widget>
    </widget>
-   <zorder>tabWidget</zorder>
-   <zorder>graphicsView_dimanche</zorder>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1231</width>
+     <width>1281</width>
      <height>25</height>
     </rect>
    </property>

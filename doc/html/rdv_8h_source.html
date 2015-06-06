@@ -114,31 +114,35 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="keywordtype">void</span> ajouterPersonne(<span class="keyword">const</span> QString&amp; nom);</div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="keywordtype">void</span> retirerPersonne(<span class="keyword">const</span> QString&amp; nom);</div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;</div>
-<div class="line"><a name="l00027"></a><span class="lineno"><a class="line" href="class_rdv_1_1personnes__iterator.html">   27</a></span>&#160;    <span class="keyword">class </span><a class="code" href="class_rdv_1_1personnes__iterator.html">personnes_iterator</a>{</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        std::vector&lt;QString&gt;::iterator it;</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="class_rdv.html">Rdv</a>;</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        <a class="code" href="class_rdv_1_1personnes__iterator.html">personnes_iterator</a>(<span class="keyword">const</span> std::vector&lt;QString&gt;::iterator iter) : it(iter) {}</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        QString&amp; operator*() { <span class="keywordflow">return</span> *it; }</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        <a class="code" href="class_rdv_1_1personnes__iterator.html">personnes_iterator</a>&amp; operator++() { ++it; <span class="keywordflow">return</span> *<span class="keyword">this</span>; }</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        <span class="keywordtype">bool</span> operator!=(<span class="keyword">const</span> <a class="code" href="class_rdv_1_1personnes__iterator.html">personnes_iterator</a>&amp; at) { <span class="keywordflow">return</span> it != at.it; }</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    };</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <a class="code" href="class_rdv_1_1personnes__iterator.html">personnes_iterator</a> begin_personnes() { <span class="keywordflow">return</span> <a class="code" href="class_rdv_1_1personnes__iterator.html">personnes_iterator</a>(personnes.begin()); }</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    personnes_iterator end_personnes() { <span class="keywordflow">return</span> personnes_iterator(personnes.end()); }</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="keyword">virtual</span> QString toString() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="keyword">virtual</span> <a class="code" href="class_rdv.html">Rdv</a>* clone() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;</div>
+<div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="class_rdv_1_1personnes__iterator.html">   31</a></span>&#160;    <span class="keyword">class </span><a class="code" href="class_rdv_1_1personnes__iterator.html">personnes_iterator</a>{</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        std::vector&lt;QString&gt;::iterator it;</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="class_rdv.html">Rdv</a>;</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        <a class="code" href="class_rdv_1_1personnes__iterator.html">personnes_iterator</a>(<span class="keyword">const</span> std::vector&lt;QString&gt;::iterator iter) : it(iter) {}</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        QString&amp; operator*() { <span class="keywordflow">return</span> *it; }</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        <a class="code" href="class_rdv_1_1personnes__iterator.html">personnes_iterator</a>&amp; operator++() { ++it; <span class="keywordflow">return</span> *<span class="keyword">this</span>; }</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        <span class="keywordtype">bool</span> operator!=(<span class="keyword">const</span> <a class="code" href="class_rdv_1_1personnes__iterator.html">personnes_iterator</a>&amp; at) { <span class="keywordflow">return</span> it != at.it; }</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    };</div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;};</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="preprocessor">#endif // RDV_H</span></div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <a class="code" href="class_rdv_1_1personnes__iterator.html">personnes_iterator</a> begin_personnes() { <span class="keywordflow">return</span> <a class="code" href="class_rdv_1_1personnes__iterator.html">personnes_iterator</a>(personnes.begin()); }</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    personnes_iterator end_personnes() { <span class="keywordflow">return</span> personnes_iterator(personnes.end()); }</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;};</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="preprocessor">#endif // RDV_H</span></div>
 <div class="ttc" id="class_rdv_html"><div class="ttname"><a href="class_rdv.html">Rdv</a></div><div class="ttdef"><b>Definition:</b> rdv.h:6</div></div>
 <div class="ttc" id="class_evenement1j_html"><div class="ttname"><a href="class_evenement1j.html">Evenement1j</a></div><div class="ttdef"><b>Definition:</b> evenement1j.h:7</div></div>
-<div class="ttc" id="class_rdv_1_1personnes__iterator_html"><div class="ttname"><a href="class_rdv_1_1personnes__iterator.html">Rdv::personnes_iterator</a></div><div class="ttdef"><b>Definition:</b> rdv.h:27</div></div>
+<div class="ttc" id="class_rdv_1_1personnes__iterator_html"><div class="ttname"><a href="class_rdv_1_1personnes__iterator.html">Rdv::personnes_iterator</a></div><div class="ttdef"><b>Definition:</b> rdv.h:31</div></div>
 <div class="ttc" id="class_duree_html"><div class="ttname"><a href="class_duree.html">Duree</a></div><div class="ttdoc">Classe permettant de manipuler des durees L&#39;utilisation de cette classe n?cessite des dates valides a...</div><div class="ttdef"><b>Definition:</b> duree.h:14</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Jun 6 2015 03:59:05 for ProjectCalendar by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Jun 6 2015 15:44:25 for ProjectCalendar by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

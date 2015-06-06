@@ -24,6 +24,10 @@ public:
     void ajouterPersonne(const QString& nom);
     void retirerPersonne(const QString& nom);
 
+    virtual QString toString() const;
+    virtual Rdv* clone() const;
+
+
     class personnes_iterator{
         std::vector<QString>::iterator it;
         friend class Rdv;

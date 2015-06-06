@@ -8,8 +8,10 @@ ProgrammationTache* ProgrammationTache::clone() const
 QString ProgrammationTache::toString() const
 {
     std::stringstream ss;
-    ss << "ProgrammationTache\ndate = " << getDate().toString().toStdString();
-    ss <<"\nhoraire = " << getHoraire().toString().toStdString();
-    ss << "\ntache = " << tache->getTitre().toStdString() << "\n";
+    ss << "<html><body><h2 align=\"center\" >" << tache->getTitre().toStdString() << "</h2>";
+    ss << "<table align=\"center\" cellpadding=\"8\" >";
+    ss << "<tr><td>Date :</td><td> " << getDate().toString().toStdString()<< "</td></tr>";
+    ss << "<tr><td>Durée :</td><td> " << tache->getDuree() << "</td></tr>";
+    ss << "</table></body></html>";
     return ss.str().c_str();
 }
