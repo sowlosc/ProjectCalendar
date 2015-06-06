@@ -66,6 +66,8 @@ public slots:
     void detaillerEvenement_vendredi();
     void detaillerEvenement_samedi();
     void detaillerEvenement_dimanche();
+    void maj_dates();
+
 };
 
 

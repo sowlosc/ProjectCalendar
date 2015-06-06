@@ -10,12 +10,30 @@ MainWindow::MainWindow(QWidget *parent) :
     pm(ProjetManager::getInstance()), predm(PrecedenceManager::getInstance())
 {
     ui->setupUi(this);
+
     maj_treeWidget();
+
+
+
+
+    ui->calendarWidget->setSelectedDate(QDate::currentDate());
+
+
+
+
+
+
+
+
+
+
     QObject::connect(ui->treeWidget,SIGNAL(clicked(QModelIndex)),this,SLOT(maj_descripteurs()));
     QObject::connect(ui->Bouton_ajouter_tache,SIGNAL(clicked()),this,SLOT(ajouterTache()));
     QObject::connect(ui->Bouton_supprimer_tache,SIGNAL(clicked()),this,SLOT(supprimerTache()));
     QObject::connect(ui->Bouton_supprimer_projet,SIGNAL(clicked()),this,SLOT(supprimerProjet()));
     QObject::connect(ui->Bouton_ajouter_projet,SIGNAL(clicked()),this,SLOT(ajouterProjet()));
+
+
 
 
 
@@ -35,6 +53,10 @@ MainWindow::MainWindow(QWidget *parent) :
     //QGraphicsRectItem *rect2 = scene->ajouterEvenement("tache2",QTime(16,15),Duree(0,30));
 
     //QGraphicsRectItem *rect3 = scene->ajouterEvenement("tache3",QTime(20,20),Duree(0,15));
+
+
+
+
 
 
   //  QObject::connect(rect1,SIGNAL(clicked()),this,SLOT(test()));
@@ -70,9 +92,13 @@ MainWindow::MainWindow(QWidget *parent) :
     QObject::connect(ui->graphicsView_samedi->scene(),SIGNAL(selectionChanged()),this,SLOT(detaillerEvenement_samedi()));
     QObject::connect(ui->graphicsView_dimanche->scene(),SIGNAL(selectionChanged()),this,SLOT(detaillerEvenement_dimanche()));
 
+    QObject::connect(ui->calendarWidget,SIGNAL(selectionChanged()),this,SLOT(maj_dates()));
+
+
     for(int i=0;i<7;i++)
         scenes[i]->mise_a_jour();
     maj_treeWidget();
+    maj_dates();
 }
 
 void MainWindow::detaillerEvenement_lundi()
@@ -95,7 +121,6 @@ void MainWindow::detaillerEvenement_lundi()
         dynamic_cast<JourGraphicScene*>(ui->graphicsView_lundi->scene())->mise_a_jour();
     }
  }
-
 void MainWindow::detaillerEvenement_mardi()
 {
    bool mise_a_jour_necessaire = false;
@@ -220,7 +245,31 @@ void MainWindow::detaillerEvenement_dimanche()
 
 
 
+void MainWindow::maj_dates()
+{
+    QDate selected = ui->calendarWidget->selectedDate();
+    int num_j = selected.dayOfWeek()-1;
 
+    scenes[num_j]->setDate(selected);
+
+    for(int i=1 ; i<=num_j ; i++)
+        scenes[num_j-i]->setDate(selected.addDays(-i));
+
+    for(int i=1 ; i + num_j < 7; i++)
+        scenes[num_j+i]->setDate(selected.addDays(i));
+
+    ui->date_lundi->setText(scenes[0]->getDate().toString("dd/MM/yyyy"));
+    ui->date_mardi->setText(scenes[1]->getDate().toString("dd/MM/yyyy"));
+    ui->date_mercredi->setText(scenes[2]->getDate().toString("dd/MM/yyyy"));
+    ui->date_jeudi->setText(scenes[3]->getDate().toString("dd/MM/yyyy"));
+    ui->date_vendredi->setText(scenes[4]->getDate().toString("dd/MM/yyyy"));
+    ui->date_samedi->setText(scenes[5]->getDate().toString("dd/MM/yyyy"));
+    ui->date_dimanche->setText(scenes[6]->getDate().toString("dd/MM/yyyy"));
+
+    for(int i=0;i<7;i++)
+        scenes[i]->mise_a_jour();
+
+}
 
 void MainWindow::construct_recurs_tree(Tache* t, QTreeWidgetItem *root)
 {

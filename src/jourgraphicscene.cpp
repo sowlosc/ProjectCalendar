@@ -12,7 +12,7 @@ QGraphicsRectItem* JourGraphicScene::ajouterEvenement(const QString titre, const
 
     //QGraphicsRectItem *rect = new QGraphicsRectItem(0,y,largeur,h,0);
     //QGraphicsRectItem *rect =  QGraphicsScene::addRect(0-3,y,largeur+6,h,QPen(coul_contour),QBrush(coul_fond));
-    EvenementGraphicItem *tache = new EvenementGraphicItem(-3,y,largeur+6,h,e);
+    EvenementGraphicItem *tache = new EvenementGraphicItem(-3,y-1,largeur+6,h+1,e);
     tache->setPen(QPen(coul_contour));
     tache->setBrush(QBrush(coul_fond));
     //TacheGraphicItem *rect =  JourGraphicScene::addRect(tache,QPen(coul_contour),QBrush(coul_fond));
@@ -57,7 +57,7 @@ void JourGraphicScene::dessinerFond()
     qreal r = (hauteur / nb_minutes) * 30;
     qreal x = r;
     int i=1;
-    while( x < 960)
+    while( x < 480)
     {
         if(i%2==0)
             QGraphicsScene::addLine(-5,x,105,x,QPen(QColor("gray"),1,Qt::PenStyle(Qt::DashLine)))->setZValue(0);
@@ -91,7 +91,6 @@ void JourGraphicScene::mise_a_jour()
     {
         if(!(*it).isEvenementPj() && (*it).getDate() == date)
         {
-            //Evenement1j *evt = dynamic_cast<Evenement1j*>(&(*it));
             ajouterEvenement((*it).getSujet(),(*it).getHoraire(),(*it).getDuree(),&(*it));
 
         }else if((*it).isEvenementPj())
@@ -110,7 +109,6 @@ void JourGraphicScene::mise_a_jour()
                 int nb_mins = QTime(6,0).secsTo(evt->getHoraireFin()) / 60;
                 ajouterEvenement(evt->getSujet(),QTime(6,0),Duree(nb_mins),evt);
             }
-
         }
     }
 }
