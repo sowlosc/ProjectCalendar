@@ -46,12 +46,22 @@ void AjoutPrecedenceDialog::accept()
 
 
 
-void AjoutPrecedenceDialog::ajouterPrecedenceRecurs(Tache* t,Tache* pred)
+void AjoutPrecedenceDialog::ajouterPrecedenceRecurs(Tache* t,Tache* pred) //double recurs pour ajouter tous les preds a tous les succs
 {
-    PrecedenceManager::getInstance().ajouterPrecedence(*pred,*t);
+    ajouterPredRecurs(t,pred);
     if(t->isComposite()){
         TacheComposite *tc = dynamic_cast<TacheComposite*>(t);
         for(TacheComposite::iterator it = tc->begin(); it != tc->end() ; ++it)
             ajouterPrecedenceRecurs(&(*it),pred);
+    }
+}
+
+void AjoutPrecedenceDialog::ajouterPredRecurs(Tache*t, Tache*pred)
+{
+    PrecedenceManager::getInstance().ajouterPrecedence(*pred,*t);
+    if(pred->isComposite()){
+        TacheComposite *tc = dynamic_cast<TacheComposite*>(pred);
+        for(TacheComposite::iterator it = tc->begin() ; it!= tc->end() ; ++it)
+            ajouterPredRecurs(t,&(*it));
     }
 }
