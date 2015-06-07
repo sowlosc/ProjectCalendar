@@ -5,7 +5,6 @@
 #include "tache.h"
 #include <sstream>
 //#include "agenda.h"
-
 class TacheUnitaire : public Tache
 {
     Duree duree;
@@ -20,6 +19,7 @@ public:
                   const QString& txt,
                   const Duree& d,
                   bool preempt = false) : Tache(id,t,dispo,ech,txt), duree(d), preemptive(preempt),estProgramme(false) {}
+    ~TacheUnitaire();
     const Duree& getDuree() const { return duree; }
     bool isPreemptive() const { return preemptive; }
     void setDuree(const Duree& d) { duree = d; }

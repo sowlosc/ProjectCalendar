@@ -4,6 +4,7 @@
 #include "evenement.h"
 #include "tacheunitaire.h"
 //#include "duree.h"
+//class TacheUnitaire{ public: const Duree& getDuree();}; // const; const QString& getTitre() const; };
 class ProgrammationTache : public Evenement
 {
 

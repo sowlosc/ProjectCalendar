@@ -1,5 +1,12 @@
 #include "tacheunitaire.h"
-
+#include "agenda.h"
+TacheUnitaire::~TacheUnitaire()
+{
+    //Agenda::getin
+    std::vector<ProgrammationTache*> progs = Agenda::getInstance().getProgrammationTache(this);
+    for(std::vector<ProgrammationTache*>::iterator it = progs.begin() ; it != progs.end() ; ++it)
+        Agenda::getInstance() >> *it;
+}
 
 QString TacheUnitaire::toString() const
 {

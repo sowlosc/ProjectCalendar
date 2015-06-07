@@ -7,7 +7,7 @@
 #include "observateur.h"
 #include <iostream>
 #include "precedencemanager.h"
-
+//#include "agenda.h"
 
 class Tache : public Observable
 {
