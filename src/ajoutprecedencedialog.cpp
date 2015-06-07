@@ -39,10 +39,12 @@ AjoutPrecedenceDialog::~AjoutPrecedenceDialog()
 
 void AjoutPrecedenceDialog::accept()
 {
-    Tache* pred = ProjetManager::getInstance().getProjet(projet).getTache(ui->selecteur_tache_pred->currentText());
-    Tache* succ = ProjetManager::getInstance().getProjet(projet).getTache(tacheId);
-
-    ajouterPrecedenceRecurs(succ,pred);
+    if(ui->selecteur_tache_pred->currentText()!="")
+    {
+        Tache* pred = ProjetManager::getInstance().getProjet(projet).getTache(ui->selecteur_tache_pred->currentText());
+        Tache* succ = ProjetManager::getInstance().getProjet(projet).getTache(tacheId);
+        ajouterPrecedenceRecurs(succ,pred);
+    }
     done(1);
 }
 

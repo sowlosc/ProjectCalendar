@@ -426,6 +426,7 @@ void MainWindow::supprimerPrecedence()
 {
     const Precedence *prec = dynamic_cast<ListPrecedenceItem*>(ui->listWidget_precedence->currentItem())->getPrecedence();
     PrecedenceManager::getInstance().retirerPrecedence(*prec->getPredecesseur(),*prec->getSuccesseur());
+    mise_a_jour();
 }
 
 void MainWindow::maj_listePrecedences()

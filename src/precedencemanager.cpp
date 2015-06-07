@@ -1,4 +1,5 @@
 #include "precedencemanager.h"
+#include <iostream>
 
 PrecedenceManager* PrecedenceManager::instance = 0;
 
@@ -42,16 +43,17 @@ void PrecedenceManager::retirerPrecedence(const Tache &t1, const Tache &t2)
     /* il faut verif qu'elle existe
      * */
 
-
-
     std::vector<Precedence*>::iterator position = findPrecedence(t1,t2);
     if(position != precedences.end())
     {
+        std::cout << "------------------------suppresion precedence : \n";
         delete (*position);
         precedences.erase(position);
-        notifier();
     }else
+    {
+        std::cout <<"-------------- mauvaise precedence a suppr\n";
         throw CalendarException("Erreur, PrecedenceManager, la precedence a retirer n'existe pas");
+    }
 }
 
 

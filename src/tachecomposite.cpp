@@ -36,7 +36,7 @@ void TacheComposite::retirerSousTache(Tache *t)
     if(sousTaches.find(t->getId()) != sousTaches.end()){
         delete sousTaches[t->getId()];
         sousTaches.erase(t->getId());
-        notifier();
+        //notifier();
     }
 }
 

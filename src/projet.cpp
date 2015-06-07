@@ -23,7 +23,6 @@ void Projet::retirerTache(Tache *t)
         delete taches[t->getId()];
         taches.erase(t->getId());
         notifier();
-
     }
 }
 void Projet::retirerTache(const QString id)

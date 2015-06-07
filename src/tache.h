@@ -29,7 +29,7 @@ public:
           const QDate& dispo,
           const QDate& ech,
           const QString& txt) : identificateur(id), titre(t), disponibilite(dispo),echeance(ech),description(txt) {}
-    virtual ~Tache() {}
+    virtual ~Tache();
 
     const QString& getId() const { return identificateur; }
     void setId(const QString& id) { identificateur = id; }
