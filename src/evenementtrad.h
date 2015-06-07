@@ -20,6 +20,7 @@ public:
     virtual bool isProgrammationTache() const { return false; }
     virtual bool isEvenementTrad() const { return true; }
     virtual bool isEvenement1j() const = 0;
+    virtual bool isProgrammationPartieTache() const { return false; }
 
 };
 

@@ -23,6 +23,7 @@
 #include "evenementinfodialog.h"
 #include "ajoutevenementtraddialog.h"
 #include "ajoutprecedencedialog.h"
+#include "programmationtachedialog.h"
 namespace Ui {
 class MainWindow;
 }
@@ -72,7 +73,7 @@ public slots:
     void ajouterEvenementTrad();
     void ajouterPrecedence();
     void supprimerPrecedence();
-
+    void programmerTache();
 };
 
 

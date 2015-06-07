@@ -7,7 +7,6 @@
 #include "observateur.h"
 #include <iostream>
 #include "precedencemanager.h"
-
 class Tache : public Observable
 {
     std::set<Observateur*> obs;
@@ -44,6 +43,7 @@ public:
         echeance = ech;
     }
 
+
     virtual QString toString() const = 0 ;
     virtual bool isComposite() const = 0;
 
@@ -55,33 +55,33 @@ public:
     }
 
 
-    class succ_iterator
+    class const_succ_iterator
     {
         friend class Tache;
         PrecedenceManager::iterator it;
-        Tache* tachePred;
-        succ_iterator(const PrecedenceManager::iterator& iter,Tache* t) : it(iter),tachePred(t) {}
+        const Tache* tachePred;
+        const_succ_iterator(const PrecedenceManager::iterator& iter,const Tache* t) : it(iter),tachePred(t) {}
     public:
         const Tache* operator*() { return (*it).getSuccesseur(); }
-        succ_iterator& operator++() {
+        const_succ_iterator& operator++() {
             PrecedenceManager::iterator end = PrecedenceManager::getInstance().end();
             ++it;
             while(it!= end && (*it).getPredecesseur() != tachePred)
                 ++it;
             return *this;
         }
-        bool operator!=(const succ_iterator& at) const { return it != at.it; }
+        bool operator!=(const const_succ_iterator& at) const { return it != at.it; }
     };
 
-    succ_iterator beginSucc() {
+    const_succ_iterator beginSucc() const {
         PrecedenceManager::iterator iter = PrecedenceManager::getInstance().begin();
         PrecedenceManager::iterator end = PrecedenceManager::getInstance().end();
 
         while( iter != end && (*iter).getPredecesseur() != this)
             ++iter;
-        return succ_iterator(iter,this);}
+        return const_succ_iterator(iter,this);}
 
-    succ_iterator endSucc() { return succ_iterator(PrecedenceManager::getInstance().end(),this); }
+    const_succ_iterator endSucc() const { return const_succ_iterator(PrecedenceManager::getInstance().end(),this); }
 
     class const_pred_iterator //const
     {
@@ -110,6 +110,11 @@ public:
         return const_pred_iterator(iter,this);}
 
     const_pred_iterator endPred() const { return const_pred_iterator(PrecedenceManager::getInstance().end(),this); }
+
+
+
+
+
 
 };
 

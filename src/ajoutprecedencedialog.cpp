@@ -17,7 +17,7 @@ AjoutPrecedenceDialog::AjoutPrecedenceDialog(const QString t, const QString p, Q
     {
         if(it->second->getId() != tacheId ){
             bool ok = true;
-            for(Tache::succ_iterator succIter = it->second->beginSucc() ; succIter != it->second->endSucc() ; ++succIter)
+            for(Tache::const_succ_iterator succIter = it->second->beginSucc() ; succIter != it->second->endSucc() ; ++succIter)
                 if((*succIter)->getId() == tacheId)
                     ok = false;
             if(ok){

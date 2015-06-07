@@ -36,6 +36,8 @@ MainWindow::MainWindow(QWidget *parent) :
 
     QObject::connect(ui->Bounton_ajout_precedence,SIGNAL(clicked()),this,SLOT(ajouterPrecedence()));
     QObject::connect(ui->Bouton_supprimer_precedence,SIGNAL(clicked()),this,SLOT(supprimerPrecedence()));
+    QObject::connect(ui->Bouton_programmer_tache,SIGNAL(clicked()),this,SLOT(programmerTache()));
+
 
 
 
@@ -327,16 +329,15 @@ void MainWindow::ajouterTache()
     if(current && !current->isUnitaire())
     {   //projet ou tache composite qui ont une methode ajouter tache
 
-        int retour = 0;
         if(current->isProjetItem())
         {
             AjoutTacheDialog *dial = new AjoutTacheDialog(this,projet->getProjet()->getTitre(),"");
-            retour = dial->exec();
+            dial->exec();
         }else
         {
             TreeTacheItem *curTacheItem = dynamic_cast<TreeTacheItem*>(current);
             AjoutTacheDialog *dial = new AjoutTacheDialog(this,projet->getProjet()->getTitre(),curTacheItem->getTache()->getId());
-            retour = dial->exec();
+            dial->exec();
         }
     }
 }
@@ -411,11 +412,34 @@ void MainWindow::maj_listePrecedences()
         std::cout <<"------------ ajout item \n";
         QString pred = (*it).getPredecesseur()->getId();
         QString succ =  (*it).getSuccesseur()->getId();
-        QString txt = pred + " -> " +succ;
+        QString projet;
+        ProjetManager& pm = ProjetManager::getInstance();
+        for(ProjetManager::iterator at = pm.begin(); at != pm.end() ; ++at)
+            if((*at).contientTache((*it).getPredecesseur()))
+                projet = (*at).getTitre();
+        QString txt = projet + " : " +pred + " -> " +succ;
         ListPrecedenceItem* item = new ListPrecedenceItem(txt,&(*it),ui->listWidget_precedence);
         ui->listWidget_precedence->addItem(item);
     }
 
+}
+
+void MainWindow::programmerTache()
+{
+
+    TreeItem* current = dynamic_cast<TreeItem*>(ui->treeWidget->currentItem());
+    if(current && !current->isProjetItem())
+    {
+        TreeTacheItem *ta = dynamic_cast<TreeTacheItem*>(current);
+        Tache *tache = ta->getTache();
+        if(!tache->isComposite())
+        {
+            TacheUnitaire *tu = dynamic_cast<TacheUnitaire*>(tache);
+            ProgrammationTacheDialog *dial = new ProgrammationTacheDialog(tu);
+            dial->exec();
+            delete dial;
+        }
+    }
 }
 
 /*

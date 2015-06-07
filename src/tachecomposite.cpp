@@ -78,6 +78,26 @@ Tache* TacheComposite::getSousTache(const QString &id)
     }
 }
 
+bool TacheComposite::contientSousTache(const Tache *t)
+{
+    if(sousTaches.find(t->getId()) != sousTaches.end() && sousTaches[t->getId()] == t)
+        return true;
+    else
+    {
+        for(std::map<QString, Tache*>::iterator it = sousTaches.begin() ; it != sousTaches.end() ; ++it)
+        {
+            if(it->second->isComposite())
+            {
+                bool result = dynamic_cast<TacheComposite*>(it->second)->contientSousTache(t);
+                if(result)
+                    return result;
+            }
+        }
+        return false;
+    }
+}
+
+
 std::map<QString, Tache *> *TacheComposite::getTacheMap(const QString &id)
 {
     if(sousTaches.find(id) != sousTaches.end())

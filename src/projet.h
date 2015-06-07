@@ -35,7 +35,11 @@ public:
     void retirerTache(const QString id);
 
     Tache *getTache(const QString& id);
+    bool contientTache(const Tache *t);
+
     std::map<QString, Tache *> *getTacheMap(const QString &id); //renvoie le map de tache parent
+
+
 
     void describe(); // A SUPPRIMER
     void affTache(Tache* t); // A SUPPRIMER

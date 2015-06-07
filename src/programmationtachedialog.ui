@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>Dialog</class>
- <widget class="QDialog" name="Dialog">
+ <class>ProgrammationTacheDialog</class>
+ <widget class="QDialog" name="ProgrammationTacheDialog">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>400</width>
-    <height>300</height>
+    <width>495</width>
+    <height>398</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -16,8 +16,8 @@
   <widget class="QDialogButtonBox" name="buttonBox">
    <property name="geometry">
     <rect>
-     <x>30</x>
-     <y>240</y>
+     <x>100</x>
+     <y>340</y>
      <width>341</width>
      <height>32</height>
     </rect>
@@ -32,10 +32,10 @@
   <widget class="QGroupBox" name="groupBox">
    <property name="geometry">
     <rect>
-     <x>50</x>
+     <x>80</x>
      <y>10</y>
-     <width>271</width>
-     <height>91</height>
+     <width>321</width>
+     <height>151</height>
     </rect>
    </property>
    <property name="title">
@@ -44,27 +44,36 @@
    <widget class="QCheckBox" name="checkBox_tache">
     <property name="geometry">
      <rect>
-      <x>10</x>
-      <y>30</y>
-      <width>271</width>
+      <x>30</x>
+      <y>40</y>
+      <width>221</width>
       <height>22</height>
      </rect>
     </property>
     <property name="text">
      <string>Programmer la tâche</string>
     </property>
+    <property name="checked">
+     <bool>true</bool>
+    </property>
+    <property name="autoExclusive">
+     <bool>true</bool>
+    </property>
    </widget>
    <widget class="QCheckBox" name="checkBox_partie_tache">
     <property name="geometry">
      <rect>
-      <x>10</x>
-      <y>60</y>
-      <width>261</width>
+      <x>30</x>
+      <y>80</y>
+      <width>281</width>
       <height>22</height>
      </rect>
     </property>
     <property name="text">
      <string>Programmer une partie de la tâche</string>
+    </property>
+    <property name="autoExclusive">
+     <bool>true</bool>
     </property>
    </widget>
   </widget>
@@ -72,9 +81,9 @@
    <property name="geometry">
     <rect>
      <x>60</x>
-     <y>120</y>
-     <width>281</width>
-     <height>101</height>
+     <y>190</y>
+     <width>361</width>
+     <height>121</height>
     </rect>
    </property>
    <layout class="QFormLayout" name="formLayout">
@@ -101,7 +110,7 @@
     <item row="2" column="0">
      <widget class="QLabel" name="label_duree">
       <property name="text">
-       <string>Durée</string>
+       <string>Duree</string>
       </property>
      </widget>
     </item>
@@ -116,7 +125,7 @@
   <connection>
    <sender>buttonBox</sender>
    <signal>accepted()</signal>
-   <receiver>Dialog</receiver>
+   <receiver>ProgrammationTacheDialog</receiver>
    <slot>accept()</slot>
    <hints>
     <hint type="sourcelabel">
@@ -132,7 +141,7 @@
   <connection>
    <sender>buttonBox</sender>
    <signal>rejected()</signal>
-   <receiver>Dialog</receiver>
+   <receiver>ProgrammationTacheDialog</receiver>
    <slot>reject()</slot>
    <hints>
     <hint type="sourcelabel">

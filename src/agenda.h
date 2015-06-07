@@ -6,6 +6,8 @@
 #include "exception.h"
 #include <iostream>
 #include "observateur.h"
+#include "programmationpartietache.h"
+
 
 class Agenda : public Observable
 {
@@ -22,6 +24,7 @@ public:
     Agenda& operator<<(Evenement& evt);
     Agenda& operator>>(Evenement* evt);
 
+    std::vector<ProgrammationTache*> getProgrammationTache(const Tache* t);
 
     class iterator{
         friend class Agenda;

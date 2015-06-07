@@ -3,8 +3,8 @@
 
 #include "duree.h"
 #include "tache.h"
-#include "agenda.h"
-
+#include <sstream>
+//#include "agenda.h"
 class TacheUnitaire : public Tache
 {
     Duree duree;
@@ -25,6 +25,21 @@ public:
     virtual QString toString() const;
     virtual bool isComposite() const { return false; }
 
+
+
+    /*class prog_iterator
+    {
+        friend class TacheUnitaire;
+        Agenda::iterator it;
+        prog_iterator(const Agenda::iterator& iter) : it(iter) {}
+    public:
+        Evenement& operator*() { return *it; }
+        prog_iterator& operator++() {
+            ++it;
+            Agenda::iterator iter_end = Agenda::getInstance().end();
+            while(it != iter_end && (*it).isProgrammationTache()
+    };
+*/
 };
 
 #endif // TACHEUNITAIRE_H

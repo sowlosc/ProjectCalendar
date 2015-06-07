@@ -13,9 +13,12 @@ public:
     virtual ~ProgrammationPartieTache(){}
 
     const Duree& getDuree() const { return dureePartie; }
-    const QString& getSujet() const { return this->getTache().getTitre(); }
+    const QString& getSujet() const { return this->getTache()->getTitre(); }
     virtual ProgrammationPartieTache* clone() const;
     virtual QString toString() const;
+
+    bool isProgrammationPartieTache() const { return true; }
+
 };
 
 #endif // PROGRAMMATIONPARTIETACHE_H

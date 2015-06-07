@@ -34,7 +34,7 @@ public:
     virtual bool isEvenementTrad() const = 0;
     virtual bool isEvenement1j() const = 0;
     virtual bool isEvenementPj() const = 0;
-
+    virtual bool isProgrammationPartieTache() const = 0;
 
 };
 

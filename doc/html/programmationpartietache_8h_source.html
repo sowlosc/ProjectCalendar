@@ -103,20 +103,23 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    <span class="keyword">virtual</span> ~<a class="code" href="class_programmation_partie_tache.html">ProgrammationPartieTache</a>(){}</div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;</div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <span class="keyword">const</span> <a class="code" href="class_duree.html">Duree</a>&amp; getDuree()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> dureePartie; }</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <span class="keyword">const</span> QString&amp; getSujet()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> this-&gt;getTache().getTitre(); }</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <span class="keyword">const</span> QString&amp; getSujet()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> this-&gt;getTache()-&gt;getTitre(); }</div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <span class="keyword">virtual</span> <a class="code" href="class_programmation_partie_tache.html">ProgrammationPartieTache</a>* clone() <span class="keyword">const</span>;</div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <span class="keyword">virtual</span> QString toString() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;};</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#endif // PROGRAMMATIONPARTIETACHE_H</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <span class="keywordtype">bool</span> isProgrammationPartieTache()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <span class="keyword">true</span>; }</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;};</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#endif // PROGRAMMATIONPARTIETACHE_H</span></div>
 <div class="ttc" id="class_tache_unitaire_html"><div class="ttname"><a href="class_tache_unitaire.html">TacheUnitaire</a></div><div class="ttdef"><b>Definition:</b> tacheunitaire.h:8</div></div>
-<div class="ttc" id="class_programmation_tache_html"><div class="ttname"><a href="class_programmation_tache.html">ProgrammationTache</a></div><div class="ttdef"><b>Definition:</b> programmationtache.h:8</div></div>
+<div class="ttc" id="class_programmation_tache_html"><div class="ttname"><a href="class_programmation_tache.html">ProgrammationTache</a></div><div class="ttdef"><b>Definition:</b> programmationtache.h:7</div></div>
 <div class="ttc" id="class_programmation_partie_tache_html"><div class="ttname"><a href="class_programmation_partie_tache.html">ProgrammationPartieTache</a></div><div class="ttdef"><b>Definition:</b> programmationpartietache.h:7</div></div>
 <div class="ttc" id="class_duree_html"><div class="ttname"><a href="class_duree.html">Duree</a></div><div class="ttdoc">Classe permettant de manipuler des durees L&#39;utilisation de cette classe n?cessite des dates valides a...</div><div class="ttdef"><b>Definition:</b> duree.h:14</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Jun 7 2015 01:47:26 for ProjectCalendar by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Jun 7 2015 03:41:08 for ProjectCalendar by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

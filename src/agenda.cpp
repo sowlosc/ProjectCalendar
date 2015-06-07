@@ -32,3 +32,19 @@ Agenda::~Agenda()
     for(std::vector<Evenement*>::iterator it = events.begin() ; it != events.end() ; ++it)
         delete *it;
 }
+
+std::vector<ProgrammationTache*> Agenda::getProgrammationTache(const Tache* t)
+{
+    std::vector<ProgrammationTache*> tab;
+    for(iterator it = begin() ; it != end() ; ++it)
+    {
+        if((*it).isProgrammationTache())
+        {
+            ProgrammationTache* prog = dynamic_cast<ProgrammationTache*>(&(*it));
+            if( prog->getTache() == t)
+                tab.push_back(prog);
+
+        }
+    }
+    return tab;
+}

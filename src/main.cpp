@@ -179,7 +179,7 @@ int main(int argc, char *argv[])
     prm.ajouterPrecedence(*t1,*t7);
 
 
-    for(Tache::succ_iterator it = t1->beginSucc(); it != t1->endSucc(); ++it)
+    for(Tache::const_succ_iterator it = t1->beginSucc(); it != t1->endSucc(); ++it)
         std::cout << "Tache succ  -> " << (*it)->getTitre().toStdString() << "\n";
 
 

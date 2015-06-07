@@ -35,7 +35,8 @@ SOURCES += \
     src/jourgraphicscene.cpp \
     src/evenementinfodialog.cpp \
     src/ajoutevenementtraddialog.cpp \
-    src/ajoutprecedencedialog.cpp
+    src/ajoutprecedencedialog.cpp \
+    src/programmationtachedialog.cpp
 
 #QT       += core
 
@@ -77,7 +78,8 @@ HEADERS += \
     src/jourgraphicscene.h \
     src/evenementinfodialog.h \
     src/ajoutevenementtraddialog.h \
-    src/ajoutprecedencedialog.h
+    src/ajoutprecedencedialog.h \
+    src/programmationtachedialog.h
 
 FORMS += \
     src/mainwindow.ui \

@@ -57,6 +57,25 @@ Tache* Projet::getTache(const QString &id)
        return 0;
    }
 }
+bool Projet::contientTache(const Tache *t)
+{
+    if(taches.find(t->getId()) != taches.end() && taches[t->getId()] == t)
+        return true;
+    else
+    {
+        for(Projet::iterator it = this->begin() ; it != this->end() ; ++it)
+        {
+            if((*it).isComposite())
+            {
+                bool result = dynamic_cast<TacheComposite&>(*it).contientSousTache(t);
+                if(result)
+                        return result;
+            }
+        }
+        return false;
+    }
+}
+
 
 std::map<QString, Tache*>* Projet::getTacheMap(const QString &id)
 {
