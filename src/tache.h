@@ -7,6 +7,8 @@
 #include "observateur.h"
 #include <iostream>
 #include "precedencemanager.h"
+
+
 class Tache : public Observable
 {
     std::set<Observateur*> obs;
@@ -43,7 +45,7 @@ public:
         echeance = ech;
     }
 
-
+    virtual bool isProgrammed() const = 0;
 
     virtual QString toString() const = 0 ;
     virtual bool isComposite() const = 0;

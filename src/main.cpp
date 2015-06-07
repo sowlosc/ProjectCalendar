@@ -156,7 +156,7 @@ int main(int argc, char *argv[])
     for(Projet::iterator it = pj.begin() ; it != pj.end() ; ++it)
         std::cout<<(*it).getDescription().toStdString()<<std::endl;
 
-    ProgrammationTache evt4(QDate(1994,3,22),QTime(12,0,0),t2);
+    ProgrammationTache evt4(QDate(2015,6,10),QTime(12,0,0),t2);
     ProgrammationPartieTache evt5(QDate(1994,3,22),QTime(18,30,0),Duree(1,30),t5);
     EvenementPj evtP(QDate(1994,3,24),QTime(10,0),QDate(1994,3,26),QTime(17,30),"Projet LO21");
 

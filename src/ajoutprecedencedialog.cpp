@@ -11,6 +11,8 @@ AjoutPrecedenceDialog::AjoutPrecedenceDialog(const QString t, const QString p, Q
 
     Projet& proj = ProjetManager::getInstance().getProjet(projet);
 
+    Tache* tache = proj.getTache(tacheId);
+
     std::map<QString, Tache*> *map = proj.getTacheMap(tacheId);
 
     for(std::map<QString,Tache*>::iterator it = map->begin(); it != map->end() ; ++it )
@@ -20,7 +22,7 @@ AjoutPrecedenceDialog::AjoutPrecedenceDialog(const QString t, const QString p, Q
             for(Tache::const_succ_iterator succIter = it->second->beginSucc() ; succIter != it->second->endSucc() ; ++succIter)
                 if((*succIter)->getId() == tacheId)
                     ok = false;
-            if(ok){
+            if(ok){                
                 std::cout<<"affichage de "<<it->second->getTitre().toStdString()<<"\n";
                 ui->selecteur_tache_pred->addItem(it->second->getId());
             }

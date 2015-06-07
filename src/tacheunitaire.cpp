@@ -16,6 +16,7 @@ QString TacheUnitaire::toString() const
     for(const_pred_iterator it = beginPred(); it != endPred() ; ++it)
         ss << (*it)->getTitre().toStdString() << "<br>";
     ss << "</td></tr>";
+
     ss << "</table></body></html>";
     return ss.str().c_str();
 }

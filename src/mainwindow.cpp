@@ -318,6 +318,21 @@ void MainWindow::maj_descripteurs()
     TreeItem *curr = dynamic_cast<TreeItem*>(ui->treeWidget->currentItem());
     std::stringstream ss;
     ss << curr->getDescriptionHtml().toStdString();
+
+    if(curr->isUnitaire())
+    {
+        Tache* tache = dynamic_cast<TreeTacheItem*>(curr)->getTache();
+        if(!tache->isComposite()){
+           std::vector<ProgrammationTache*> prog =  Agenda::getInstance().getProgrammationTache(dynamic_cast<TacheUnitaire*>(tache));
+           for(std::vector<ProgrammationTache*>::iterator it = prog.begin() ; it!=prog.end() ; ++it)
+           {
+                QDate date = (*it)->getDate();
+                QTime heure = (*it)->getHoraire();
+                ss << "<p align=\"center\" >Programmée le : "<<date.toString().toStdString()<<" <br>à "<<heure.toString().toStdString()<<"\n";
+                ss << "</p>";
+           }
+        }
+    }
     ui->descripteur->setHtml(ss.str().c_str());
 }
 
@@ -391,11 +406,16 @@ void MainWindow::ajouterPrecedence()
     {
         TreeTacheItem* tacheItem = dynamic_cast<TreeTacheItem*>(current);
         TreeProjetItem *projetItem = dynamic_cast<TreeProjetItem*>(current->getParentProject());
-        AjoutPrecedenceDialog *dial = new AjoutPrecedenceDialog(tacheItem->getTache()->getId(),projetItem->getProjet()->getTitre());
-        dial->exec();
-        delete dial;
+        if(!tacheItem->getTache()->isProgrammed())
+        {
+            AjoutPrecedenceDialog *dial = new AjoutPrecedenceDialog(tacheItem->getTache()->getId(),projetItem->getProjet()->getTitre());
+            dial->exec();
+            delete dial;
+        }
     }
 }
+
+
 
 void MainWindow::supprimerPrecedence()
 {

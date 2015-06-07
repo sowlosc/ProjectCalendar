@@ -9,7 +9,7 @@ ProgrammationTacheDialog::ProgrammationTacheDialog(TacheUnitaire *t, QWidget *pa
     ui->label_duree->setVisible(0);
     ui->timeEdit_duree->setVisible(0);
     ui->dateEdit_date->setDate(QDate::currentDate());
-    ui->timeEdit_horaire->setTime(QTime(12,0));
+    ui->timeEdit_horaire->setTime(QTime::currentTime());
     QObject::connect(ui->checkBox_partie_tache,SIGNAL(stateChanged(int)),this,SLOT(activerDuree(int)));
 }
 
@@ -30,6 +30,9 @@ void ProgrammationTacheDialog::accept()
 {
     QDate date = ui->dateEdit_date->date();
     QTime horaire = ui->timeEdit_horaire->time();
+    int nbsecs = QDateTime(date,horaire).secsTo(QDateTime::currentDateTime());
+    if(nbsecs > 30)
+        throw CalendarException("erreur ProgrammationTacheDialog, impossible de programmer une tache dans le passe");
 
     bool ok = true;
 

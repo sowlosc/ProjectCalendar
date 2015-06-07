@@ -14,8 +14,8 @@ AjoutEvenementTradDialog::AjoutEvenementTradDialog(QWidget *parent) :
     ui->dateEdit_date->setDate(QDate::currentDate());
     ui->dateEdit_datefin->setDate(QDate::currentDate());
     ui->timeEdit_duree->setTime(QTime(1,0));
-    ui->timeEdit_horaire->setTime(QTime(12,0));
-    ui->timeEdit_horairefin->setTime(QTime(12,0));
+    ui->timeEdit_horaire->setTime(QTime::currentTime());
+    ui->timeEdit_horairefin->setTime(QTime::currentTime());
     int x=0;
 
     ui->label_lieu->setVisible(x);
@@ -38,6 +38,10 @@ void AjoutEvenementTradDialog::accept()
     QString sujet = ui->lineEdit_sujet->text();
     QDate date = ui->dateEdit_date->date();
     QTime horaire = ui->timeEdit_horaire->time();
+
+    int nbsecs = QDateTime(date,horaire).secsTo(QDateTime::currentDateTime());
+    if(nbsecs > 30)
+        throw CalendarException("erreur ProgrammationTacheDialog, impossible de programmer une tache dans le passe");
 
     if(ui->checkBox_rdv->isChecked())
     {

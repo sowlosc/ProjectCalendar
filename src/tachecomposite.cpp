@@ -97,6 +97,16 @@ bool TacheComposite::contientSousTache(const Tache *t)
     }
 }
 
+bool TacheComposite::isProgrammed() const
+{
+    for(const_iterator it = begin() ; it!=end() ;++it)
+    {
+        if((*it).isProgrammed())
+            return true;
+    }
+    return false;
+}
+
 
 std::map<QString, Tache *> *TacheComposite::getTacheMap(const QString &id)
 {
