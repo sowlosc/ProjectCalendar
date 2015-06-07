@@ -176,7 +176,7 @@ int main(int argc, char *argv[])
     prm.ajouterPrecedence(*t3,*t4);
     prm.ajouterPrecedence(*t1,*t4);
     prm.ajouterPrecedence(*t5,*t6);
-    prm.ajouterPrecedence(*t1,*t7);
+    prm.ajouterPrecedence(*t7,*t1);
 
 
     for(Tache::const_succ_iterator it = t1->beginSucc(); it != t1->endSucc(); ++it)
@@ -196,3 +196,10 @@ int main(int argc, char *argv[])
      return a.exec();
 }
 
+/*
+ * A faire
+ *
+ * tous les messages d'erreurs
+ * quand on programme eviter tout chevauchement
+ * ==> il faut getEvenement par date heure duree
+*/

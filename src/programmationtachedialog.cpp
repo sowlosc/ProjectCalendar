@@ -36,19 +36,24 @@ void ProgrammationTacheDialog::accept()
     for(Tache::const_succ_iterator it = tache->beginSucc() ; it != tache->endSucc() ; ++it)
     {
         std::vector<ProgrammationTache*> progs = Agenda::getInstance().getProgrammationTache(*it);
-
-        for(std::vector<ProgrammationTache*>::const_iterator at = progs.begin() ; at != progs.end() ; ++at)
+        std::cout <<"VERIFICATION SUCC : "<<(*it)->getId().toStdString()<<"\n";
+        for(std::vector<ProgrammationTache*>::const_iterator at = progs.begin() ; at != progs.end() ; ++at){
+            std::cout << "-----------> "<<(*at)->getDate().toString().toStdString()<<"\n";
             if(QDateTime((*at)->getDate(),(*at)->getHoraire()) <= QDateTime(date,horaire))
                 ok = false;
+        }
     }
 
     for(Tache::const_pred_iterator it = tache->beginPred() ; it != tache->endPred() ; ++it)
     {
         std::vector<ProgrammationTache*> progs = Agenda::getInstance().getProgrammationTache(*it);
+        std::cout <<"VERIFICATION PRED : "<<(*it)->getId().toStdString()<<"\n";
 
-        for(std::vector<ProgrammationTache*>::iterator at = progs.begin() ; at != progs.end() ; ++at)
+        for(std::vector<ProgrammationTache*>::iterator at = progs.begin() ; at != progs.end() ; ++at){
+            std::cout << "-----------> "<<(*at)->getDate().toString().toStdString()<<"\n";
             if(QDateTime((*at)->getDate(),(*at)->getHoraire()) >= QDateTime(date,horaire))
                 ok = false;
+        }
     }
 
     if(ok){
