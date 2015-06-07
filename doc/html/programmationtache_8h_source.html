@@ -97,13 +97,13 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00007"></a><span class="lineno"><a class="line" href="class_programmation_tache.html">    7</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_programmation_tache.html">ProgrammationTache</a> : <span class="keyword">public</span> <a class="code" href="class_evenement.html">Evenement</a></div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;{</div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    <span class="keyword">const</span> <a class="code" href="class_tache_unitaire.html">TacheUnitaire</a>* tache;</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    <a class="code" href="class_tache_unitaire.html">TacheUnitaire</a>* tache;</div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    <a class="code" href="class_programmation_tache.html">ProgrammationTache</a>(<span class="keyword">const</span> QDate&amp; ddeb, <span class="keyword">const</span> QTime&amp; tdeb, <span class="keyword">const</span> <a class="code" href="class_tache_unitaire.html">TacheUnitaire</a> *t)</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    <a class="code" href="class_programmation_tache.html">ProgrammationTache</a>(<span class="keyword">const</span> QDate&amp; ddeb, <span class="keyword">const</span> QTime&amp; tdeb, <a class="code" href="class_tache_unitaire.html">TacheUnitaire</a> *t)</div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;        :<a class="code" href="class_evenement.html">Evenement</a>(ddeb,tdeb), tache(t) {}</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    ~<a class="code" href="class_programmation_tache.html">ProgrammationTache</a>(){}</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    ~<a class="code" href="class_programmation_tache.html">ProgrammationTache</a>(){ }</div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <span class="keyword">const</span> <a class="code" href="class_tache.html">Tache</a>* getTache()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> tache; }</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <a class="code" href="class_tache_unitaire.html">TacheUnitaire</a>* getTache()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> tache; }</div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;</div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <span class="keyword">virtual</span> <span class="keyword">const</span> <a class="code" href="class_duree.html">Duree</a>&amp; getDuree()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> tache-&gt;getDuree(); }</div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <span class="keyword">virtual</span> <span class="keyword">const</span> QString&amp; getSujet()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> tache-&gt;getTitre(); }</div>
@@ -124,12 +124,11 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="ttc" id="class_tache_unitaire_html"><div class="ttname"><a href="class_tache_unitaire.html">TacheUnitaire</a></div><div class="ttdef"><b>Definition:</b> tacheunitaire.h:8</div></div>
 <div class="ttc" id="class_evenement_html"><div class="ttname"><a href="class_evenement.html">Evenement</a></div><div class="ttdef"><b>Definition:</b> evenement.h:9</div></div>
 <div class="ttc" id="class_programmation_tache_html"><div class="ttname"><a href="class_programmation_tache.html">ProgrammationTache</a></div><div class="ttdef"><b>Definition:</b> programmationtache.h:7</div></div>
-<div class="ttc" id="class_tache_html"><div class="ttname"><a href="class_tache.html">Tache</a></div><div class="ttdef"><b>Definition:</b> projet.h:15</div></div>
 <div class="ttc" id="class_duree_html"><div class="ttname"><a href="class_duree.html">Duree</a></div><div class="ttdoc">Classe permettant de manipuler des durees L&#39;utilisation de cette classe n?cessite des dates valides a...</div><div class="ttdef"><b>Definition:</b> duree.h:14</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Jun 7 2015 04:20:20 for ProjectCalendar by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Jun 7 2015 04:32:55 for ProjectCalendar by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

@@ -435,9 +435,12 @@ void MainWindow::programmerTache()
         if(!tache->isComposite())
         {
             TacheUnitaire *tu = dynamic_cast<TacheUnitaire*>(tache);
-            ProgrammationTacheDialog *dial = new ProgrammationTacheDialog(tu);
-            dial->exec();
-            delete dial;
+            if(!tu->isProgrammed())
+            {
+                ProgrammationTacheDialog *dial = new ProgrammationTacheDialog(tu);
+                dial->exec();
+                delete dial;
+            }
         }
     }
 }

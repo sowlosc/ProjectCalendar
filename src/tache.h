@@ -44,6 +44,7 @@ public:
     }
 
 
+
     virtual QString toString() const = 0 ;
     virtual bool isComposite() const = 0;
 

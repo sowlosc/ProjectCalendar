@@ -9,6 +9,8 @@ class TacheUnitaire : public Tache
 {
     Duree duree;
     bool preemptive;
+    bool estProgramme;
+
 public:
     TacheUnitaire(const QString& id,
                   const QString& t,
@@ -16,7 +18,7 @@ public:
                   const QDate& ech,
                   const QString& txt,
                   const Duree& d,
-                  bool preempt = false) : Tache(id,t,dispo,ech,txt), duree(d), preemptive(preempt) {}
+                  bool preempt = false) : Tache(id,t,dispo,ech,txt), duree(d), preemptive(preempt),estProgramme(false) {}
     const Duree& getDuree() const { return duree; }
     bool isPreemptive() const { return preemptive; }
     void setDuree(const Duree& d) { duree = d; }
@@ -25,7 +27,8 @@ public:
     virtual QString toString() const;
     virtual bool isComposite() const { return false; }
 
-
+    bool isProgrammed() const { return estProgramme;}
+    void setProgrammed(bool b) { estProgramme = b; }
 
     /*class prog_iterator
     {

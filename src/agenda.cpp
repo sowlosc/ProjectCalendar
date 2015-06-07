@@ -12,7 +12,8 @@ Agenda& Agenda::operator<<(Evenement& evt)
     if(!isLibre(QDateTime(evt.getDate(),evt.getHoraire()),QDateTime(evt.getDate(),evt.getHoraire()).addSecs(evt.getDuree().getDureeEnMinutes()*60)))
         throw CalendarException("Erreur, Agenda, un evenement est deja programme a ce moment");
 
-
+    if(evt.isProgrammationTache())
+        dynamic_cast<ProgrammationTache*>(&evt)->getTache()->setProgrammed(true);
 
 
     events.push_back(evt.clone());
@@ -26,6 +27,10 @@ Agenda& Agenda::operator>>(Evenement *evt)
     for(std::vector<Evenement*>::iterator it = events.begin() ; it != events.end() ; ++it)
         if( *it == evt){
             std::cout << "Agende :::: suppression evt "<<evt->getDate().toString().toStdString()<<" - "<<evt->getHoraire().toString().toStdString() <<"\n";
+
+            if(evt->isProgrammationTache())
+                dynamic_cast<ProgrammationTache*>(evt)->getTache()->setProgrammed(false);
+
             delete evt;
             events.erase(it);
             Observable::notifier();
