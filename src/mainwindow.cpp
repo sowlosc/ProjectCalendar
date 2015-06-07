@@ -304,6 +304,7 @@ void MainWindow::mise_a_jour()
     std::cout << "mise a jour mainwindow\n";
     maj_treeWidget();
     maj_listePrecedences();
+    maj_descripteurs();
     /*for(int i=0;i<7;i++)
         scenes[i]->mise_a_jour();*/
 }
@@ -316,24 +317,28 @@ MainWindow::~MainWindow()
 void MainWindow::maj_descripteurs()
 {
     TreeItem *curr = dynamic_cast<TreeItem*>(ui->treeWidget->currentItem());
-    std::stringstream ss;
-    ss << curr->getDescriptionHtml().toStdString();
-
-    if(curr->isUnitaire())
+    if(curr)
     {
-        Tache* tache = dynamic_cast<TreeTacheItem*>(curr)->getTache();
-        if(!tache->isComposite()){
-           std::vector<ProgrammationTache*> prog =  Agenda::getInstance().getProgrammationTache(dynamic_cast<TacheUnitaire*>(tache));
-           for(std::vector<ProgrammationTache*>::iterator it = prog.begin() ; it!=prog.end() ; ++it)
-           {
-                QDate date = (*it)->getDate();
-                QTime heure = (*it)->getHoraire();
-                ss << "<p align=\"center\" >Programmée le : "<<date.toString().toStdString()<<" <br>à "<<heure.toString().toStdString()<<"\n";
-                ss << "</p>";
-           }
+        std::stringstream ss;
+        ss << curr->getDescriptionHtml().toStdString();
+
+        if(curr->isUnitaire())
+        {
+            Tache* tache = dynamic_cast<TreeTacheItem*>(curr)->getTache();
+            if(!tache->isComposite()){
+               std::vector<ProgrammationTache*> prog =  Agenda::getInstance().getProgrammationTache(dynamic_cast<TacheUnitaire*>(tache));
+               for(std::vector<ProgrammationTache*>::iterator it = prog.begin() ; it!=prog.end() ; ++it)
+               {
+                    QDate date = (*it)->getDate();
+                    QTime heure = (*it)->getHoraire();
+                    ss << "<p align=\"center\" >Programmée le : "<<date.toString().toStdString()<<" <br>à "<<heure.toString().toStdString()<<"\n";
+                    ss << "</p>";
+               }
+            }
         }
-    }
-    ui->descripteur->setHtml(ss.str().c_str());
+        ui->descripteur->setHtml(ss.str().c_str());
+    }else
+        ui->descripteur->clear();
 }
 
 void MainWindow::ajouterTache()
@@ -455,8 +460,19 @@ void MainWindow::programmerTache()
         if(!tache->isComposite())
         {
             TacheUnitaire *tu = dynamic_cast<TacheUnitaire*>(tache);
-            if(!tu->isProgrammed())
+
+            bool tache_non_complete = false;
+            QTime sum(0,0);
+            std::vector<ProgrammationTache*> progs = Agenda::getInstance().getProgrammationTache(tache);
+            for(std::vector<ProgrammationTache*>::iterator it = progs.begin() ; it != progs.end() ; ++it)
+                sum = sum.addSecs((*it)->getDuree().getDureeEnMinutes() * 60);
+            Duree duree_totale = tu->getDuree();
+            QTime duree_t(duree_totale.getHeure(),duree_totale.getMinute());
+            if(duree_t>sum)
+                tache_non_complete = true;
+            if(!tu->isProgrammed() || (tu->isPreemptive() && tache_non_complete) )
             {
+
                 ProgrammationTacheDialog *dial = new ProgrammationTacheDialog(tu);
                 dial->exec();
                 delete dial;

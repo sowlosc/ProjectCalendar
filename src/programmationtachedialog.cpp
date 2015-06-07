@@ -5,12 +5,43 @@ ProgrammationTacheDialog::ProgrammationTacheDialog(TacheUnitaire *t, QWidget *pa
     QDialog(parent),tache(t),
     ui(new Ui::ProgrammationTacheDialog)
 {
+
+
     ui->setupUi(this);
+    QObject::connect(ui->checkBox_partie_tache,SIGNAL(stateChanged(int)),this,SLOT(activerDuree(int)));
+
+
+    if(!t->isPreemptive())
+        ui->checkBox_partie_tache->setVisible(0);
+
+
+
     ui->label_duree->setVisible(0);
     ui->timeEdit_duree->setVisible(0);
     ui->dateEdit_date->setDate(QDate::currentDate());
     ui->timeEdit_horaire->setTime(QTime::currentTime());
-    QObject::connect(ui->checkBox_partie_tache,SIGNAL(stateChanged(int)),this,SLOT(activerDuree(int)));
+
+    QTime sum(0,0);
+    std::vector<ProgrammationTache*> progs = Agenda::getInstance().getProgrammationTache(tache);
+    for(std::vector<ProgrammationTache*>::iterator it = progs.begin() ; it != progs.end() ; ++it){
+        if((*it)->isProgrammationPartieTache()){
+            ui->checkBox_tache->setVisible(0);
+            ui->checkBox_partie_tache->setChecked(true);
+        }
+        sum = sum.addSecs((*it)->getDuree().getDureeEnMinutes() * 60);
+    }
+    Duree duree_totale = tache->getDuree();
+    QTime duree_t(duree_totale.getHeure(),duree_totale.getMinute());
+    std::cout << "duree de la tahce = "<<duree_t.toString().toStdString()<<"\n";
+    int nb_secs = sum.secsTo(duree_t);
+    std::cout << "secs to e = "<<nb_secs<<"\n";
+
+    QTime max_time(0,0);
+    max_time = max_time.addSecs(nb_secs);
+    std::cout << "MMMMAAAAXXXX TIME === " << max_time.toString().toStdString() << "\n";
+
+    ui->timeEdit_duree->setMaximumTime(max_time);
+
 }
 
 ProgrammationTacheDialog::~ProgrammationTacheDialog()
@@ -63,6 +94,9 @@ void ProgrammationTacheDialog::accept()
         if(ui->checkBox_partie_tache->isChecked())
         {
             QTime duree = ui->timeEdit_duree->time();
+
+
+
             ProgrammationPartieTache prog(date,horaire,Duree(duree.hour(),duree.minute()),tache);
             Agenda::getInstance() << prog;
         }else

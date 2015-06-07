@@ -81,6 +81,7 @@ int main(int argc, char *argv[])
 
     std::cout<<"--------------------------\n";
     Agenda& ag = Agenda::getInstance();
+    ag.ajouterObservateur(&w);
 
 
     Evenement1j evt1(QDate(1994,3,20),QTime(19,50,0),Duree(3,0),"Finale CdF");
@@ -115,6 +116,7 @@ int main(int argc, char *argv[])
 
     TacheUnitaire *t7 = new TacheUnitaire("t3.3.1","sssousTache1",QDate(2015,8,1),QDate(2015,9,7),"sssoust1",Duree(1,40),false);
     TacheUnitaire *t8 = new TacheUnitaire("t3.3.2","sssousTache2",QDate(2015,8,1),QDate(2015,9,7),"sssout2",Duree(2,35),true);
+
 
     t1->ajouterObservateur(&w);
     t2->ajouterObservateur(&w);
