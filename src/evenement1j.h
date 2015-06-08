@@ -18,8 +18,13 @@ public:
     virtual Evenement1j* clone() const;
     virtual QString toString() const;
 
+
     virtual bool isEvenement1j() const { return true; }
     virtual bool isEvenementPj() const { return false; }
+
+    virtual void toXml(QXmlStreamWriter&s) const;
+    static Evenement1j* getFromXml(QXmlStreamReader& xml);
+
 
 };
 

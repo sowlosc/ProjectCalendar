@@ -62,7 +62,7 @@ void AjoutPrecedenceDialog::ajouterPrecedenceRecurs(Tache* t,Tache* pred) //doub
 
 void AjoutPrecedenceDialog::ajouterPredRecurs(Tache*t, Tache*pred)
 {
-    PrecedenceManager::getInstance().ajouterPrecedence(*pred,*t);
+    PrecedenceManager::getInstance().ajouterPrecedence(*pred,*t,projet);
     if(pred->isComposite()){
         TacheComposite *tc = dynamic_cast<TacheComposite*>(pred);
         for(TacheComposite::iterator it = tc->begin() ; it!= tc->end() ; ++it)

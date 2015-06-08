@@ -18,13 +18,16 @@ class PrecedenceManager : public Observable
     PrecedenceManager(const PrecedenceManager&);
     PrecedenceManager& operator=(const PrecedenceManager&);
     ~PrecedenceManager() {}
+    QString file;
 public:
     static PrecedenceManager& getInstance();
     static void libereInstace();
     std::vector<Precedence*>::iterator findPrecedence(const Tache& t1, const Tache& t2);
-    void ajouterPrecedence(const Tache &t1, const Tache &t2);
+    void ajouterPrecedence(const Tache &t1, const Tache &t2,const QString& nomProj);
     void retirerPrecedence(const Tache &t1, const Tache &t2);
 
+    void save(const QString& f);
+    void load(const QString& f);
 
     class iterator
     {

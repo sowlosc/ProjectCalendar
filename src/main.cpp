@@ -23,7 +23,7 @@ int main(int argc, char *argv[])
 
     pm.ajouterObservateur(&w);
     prm.ajouterObservateur(&w);
-    /*for(ProjetManager::iterator it = ProjetManager::getInstance().begin(); it != ProjetManager::getInstance().end() ; ++it)
+   /* for(ProjetManager::iterator it = ProjetManager::getInstance().begin(); it != ProjetManager::getInstance().end() ; ++it)
         (*it).ajouterObservateur(&w);
 
 
@@ -158,8 +158,8 @@ int main(int argc, char *argv[])
     for(Projet::iterator it = pj.begin() ; it != pj.end() ; ++it)
         std::cout<<(*it).getDescription().toStdString()<<std::endl;
 
-    ProgrammationTache evt4(QDate(2015,6,10),QTime(12,0,0),t2);
-    ProgrammationPartieTache evt5(QDate(1994,3,22),QTime(18,30,0),Duree(1,30),t5);
+    ProgrammationTache evt4(QDate(2015,6,10),QTime(12,0,0),t2,"projet2");
+    ProgrammationPartieTache evt5(QDate(1994,3,22),QTime(18,30,0),Duree(1,30),t5,"projet2");
     EvenementPj evtP(QDate(1994,3,24),QTime(10,0),QDate(1994,3,26),QTime(17,30),"Projet LO21");
 
 
@@ -171,14 +171,14 @@ int main(int argc, char *argv[])
 
 
     std::cout<<"____________________________________\n";
-    prm.ajouterPrecedence(*t1,*t2);
-    prm.ajouterPrecedence(*t1,*t3);
+    prm.ajouterPrecedence(*t1,*t2,"projet2");
+    prm.ajouterPrecedence(*t1,*t3,"projet2");
 
 
-    prm.ajouterPrecedence(*t3,*t4);
-    prm.ajouterPrecedence(*t1,*t4);
-    prm.ajouterPrecedence(*t5,*t6);
-    prm.ajouterPrecedence(*t7,*t1);
+    prm.ajouterPrecedence(*t3,*t4,"projet2");
+    prm.ajouterPrecedence(*t1,*t4,"projet2");
+    prm.ajouterPrecedence(*t5,*t6,"projet2");
+    prm.ajouterPrecedence(*t7,*t1,"projet2");
 
 
     for(Tache::const_succ_iterator it = t1->beginSucc(); it != t1->endSucc(); ++it)
@@ -188,7 +188,9 @@ int main(int argc, char *argv[])
     for(Tache::const_pred_iterator it = t3->beginPred() ; it!= t3->endPred() ; ++it)
         std::cout << "Tache pred -> " << (*it)->getTitre().toStdString() << "\n";
 
-    pm.save("losc.xml");*/
+    pm.save("losc.xml");
+    prm.save("precedences.xml");
+    ag.save("agenda.xml");*/
     //for(ProjetManager::iterator it = pm.begin() ; it != pm.end(); ++it)
       //  (*it).save((*it).getTitre()+".xml");
 

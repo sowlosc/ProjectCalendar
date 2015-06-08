@@ -19,8 +19,7 @@ public:
     virtual QString toString() const;
     virtual bool isComposite() const { return true; }
     virtual void toXml(QXmlStreamWriter&) const;
-
-    static TacheComposite* getFromXml(QXmlStreamReader& xml);
+    static TacheComposite* getFromXml(QXmlStreamReader&);
 
     void ajouterSousTache(Tache* t);
     void retirerSousTache(Tache* t);

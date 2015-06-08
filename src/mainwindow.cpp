@@ -487,6 +487,8 @@ void MainWindow::programmerTache()
 void MainWindow::loadProjets()
 {
     ProjetManager::getInstance().load("losc.xml");
+    PrecedenceManager::getInstance().load("precedences.xml");
+    Agenda::getInstance().load("agenda.xml");
     mise_a_jour();
 }
 

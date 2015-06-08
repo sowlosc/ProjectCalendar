@@ -3,6 +3,7 @@
 
 #include "evenementtrad.h"
 #include <QDateTime>
+#include <QtXml>
 
 class EvenementPj : public EvenementTrad
 {
@@ -27,7 +28,8 @@ public:
     virtual bool isEvenement1j() const { return false; }
     virtual bool isEvenementPj() const { return true; }
 
-
+    void toXml(QXmlStreamWriter &) const;
+    static EvenementPj* getFromXml(QXmlStreamReader &);
 };
 
 #endif // EVENEMENTPJ_H

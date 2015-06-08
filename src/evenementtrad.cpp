@@ -12,3 +12,4 @@ QString EvenementTrad::toString() const
     ss << "\nhoraire = " << getHoraire().toString().toStdString() << "\nsujet = " << sujet.toStdString() << "\n";
     return ss.str().c_str();
 }
+

@@ -45,3 +45,78 @@ Rdv* Rdv::clone() const
 {
     return new Rdv(*this);
 }
+
+
+void Rdv::toXml(QXmlStreamWriter &s) const
+{
+    s.writeStartElement("rdv");
+    s.writeTextElement("date",Evenement::getDate().toString(Qt::ISODate));
+    s.writeTextElement("horaire",Evenement::getHoraire().toString(Qt::ISODate));
+    QString str;
+    str.setNum(getDuree().getDureeEnMinutes());
+    s.writeTextElement("duree",str);
+    s.writeTextElement("sujet",EvenementTrad::getSujet());
+    s.writeTextElement("lieu",lieu);
+    s.writeStartElement("personnes");
+    for(const_personnes_iterator it = begin_personnes(); it!= end_personnes() ; ++it)
+        s.writeTextElement("personne",(*it));
+    s.writeEndElement();
+    s.writeEndElement();
+}
+
+Rdv* Rdv::getFromXml(QXmlStreamReader& xml)
+{
+    QDate date;
+    QTime horaire;
+    Duree duree;
+    QString sujet;
+    QString lieu;
+
+
+    while(!(xml.tokenType() == QXmlStreamReader::StartElement && xml.name() == "personnes")){
+        if(xml.tokenType() == QXmlStreamReader::StartElement)
+        {
+            if(xml.name() == "date") {
+                xml.readNext();
+                date = QDate::fromString(xml.text().toString(),Qt::ISODate);
+            }
+            if(xml.name() == "horaire") {
+                xml.readNext();
+                horaire = QTime::fromString(xml.text().toString(),Qt::ISODate);
+            }
+            if(xml.name() == "sujet") {
+                xml.readNext();
+                sujet=xml.text().toString();
+            }
+            if(xml.name() == "lieu") {
+                xml.readNext();
+                lieu=xml.text().toString();
+            }
+            if(xml.name() == "duree") {
+                xml.readNext();
+                duree.setDuree(xml.text().toString().toUInt());
+            }
+        }
+        xml.readNext();
+    }
+    Rdv *evt = new Rdv(date,horaire,duree,sujet,lieu);
+    xml.readNext();
+    while(!(xml.tokenType() == QXmlStreamReader::EndElement && xml.name() == "personnes")){
+        QString personne;            std::cout<<"-";
+
+        if(xml.tokenType() == QXmlStreamReader::StartElement)
+        {
+            if(xml.name() == "personne") {
+                xml.readNext();
+                personne = xml.text().toString();
+                evt->ajouterPersonne(personne);
+                std::cout << "ajout personne : ::::: "<< personne.toStdString()<<"\n";
+            }
+            std::cout<<"-";
+        }
+        xml.readNext();
+    }
+    xml.readNext();
+
+    return evt;
+}

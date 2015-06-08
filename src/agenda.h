@@ -20,6 +20,8 @@ class Agenda : public Observable
     ~Agenda();
     Agenda(const Agenda&);
     Agenda& operator=(const Agenda&);
+    QString file;
+
 
 public:
     static Agenda& getInstance() { if(!instance) instance = new Agenda; return *instance; }
@@ -29,6 +31,9 @@ public:
 
     std::vector<ProgrammationTache*> getProgrammationTache(const Tache* t);
     bool isLibre(const QDateTime &debut, const QDateTime &fin);
+
+    void save(const QString& f);
+    void load(const QString& f);
 
     class iterator{
         friend class Agenda;

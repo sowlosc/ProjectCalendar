@@ -1,4 +1,5 @@
 #include "agenda.h"
+#include "rdv.h"
 
 Agenda* Agenda::instance = 0;
 
@@ -74,3 +75,70 @@ bool Agenda::isLibre(const QDateTime& debut, const QDateTime &fin)
     }
     return true;
 }
+
+
+void Agenda::save(const QString &f)
+{
+     file=f;
+     QFile newfile( file);
+     if (!newfile.open(QIODevice::WriteOnly | QIODevice::Text))
+         throw CalendarException(QString("erreur sauvegarde tâches : ouverture fichier xml"));
+     QXmlStreamWriter stream(&newfile);
+     stream.setAutoFormatting(true);
+     stream.writeStartDocument();
+     stream.writeStartElement("evenements");
+     for(iterator it = begin() ; it!= end(); ++it)
+     {
+         (*it).toXml(stream);
+     }
+     stream.writeEndElement();
+     stream.writeEndDocument();
+     newfile.close();
+}
+
+
+void Agenda::load(const QString &f)
+{
+    file=f;
+    QFile fin(file);
+    // If we can't open it, let's show an error message.
+    if (!fin.open(QIODevice::ReadOnly | QIODevice::Text)) {
+        throw CalendarException("Erreur ouverture fichier tâches");
+    }
+    // QXmlStreamReader takes any QIODevice.
+    QXmlStreamReader xml(&fin);
+    //qDebug()<<"debut fichier\n";
+    // We'll parse the XML until we reach end of it.
+    while(!xml.atEnd() && !xml.hasError()) {
+        // Read next element.
+        QXmlStreamReader::TokenType token = xml.readNext();
+        // If token is just StartDocument, we'll go to next.
+        if(token == QXmlStreamReader::StartDocument) continue;
+        // If token is StartElement, we'll see if we can read it.
+        if(token == QXmlStreamReader::StartElement) {
+
+            if(xml.name() == "evenements")
+                continue;
+            else if(xml.name() == "evenement1j")
+                this->operator <<(*Evenement1j::getFromXml(xml));
+            else if(xml.name() == "evenementpj")
+                this->operator <<(*EvenementPj::getFromXml(xml));
+            else if(xml.name() == "rdv")
+                this->operator <<(*Rdv::getFromXml(xml));
+            else if(xml.name() == "programmationtache")
+                this->operator <<(*ProgrammationTache::getFromXml(xml));
+            else if(xml.name() == "programmationpartietache")
+                this->operator <<(*ProgrammationPartieTache::getFromXml(xml));
+           }
+        //xml.readNext();
+        }
+    // Error handling.
+    if(xml.hasError()) {
+        throw CalendarException("Erreur lecteur fichier taches, parser xml");
+    }
+    // Removes any device() or data from the reader * and resets its internal state to the initial state.
+    xml.clear();
+    //qDebug()<<"fin load\n";*/
+}
+
+
