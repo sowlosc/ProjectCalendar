@@ -27,7 +27,6 @@ SOURCES += \
     src/evenementpj.cpp \
     src/rdv.cpp \
     src/programmationpartietache.cpp \
-    src/projectcalendar.cpp \
     src/mainwindow.cpp \
     src/ajouttachedialog.cpp \
     src/observateur.cpp \
@@ -70,7 +69,6 @@ HEADERS += \
     src/evenementpj.h \
     src/rdv.h \
     src/programmationpartietache.h \
-    src/projectcalendar.h \
     src/mainwindow.h \
     src/ajouttachedialog.h \
     src/observateur.h \

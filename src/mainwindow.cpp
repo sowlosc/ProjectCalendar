@@ -450,6 +450,8 @@ void MainWindow::programmerTache()
     if(current && !current->isProjetItem())
     {
         TreeTacheItem *ta = dynamic_cast<TreeTacheItem*>(current);
+        TreeProjetItem *tp = dynamic_cast<TreeProjetItem*>(current->getParentProject());
+        Projet *projet = tp->getProjet();
         Tache *tache = ta->getTache();
         if(!tache->isComposite())
         {
@@ -467,7 +469,7 @@ void MainWindow::programmerTache()
             if(!tu->isProgrammed() || (tu->isPreemptive() && tache_non_complete) )
             {
 
-                ProgrammationTacheDialog *dial = new ProgrammationTacheDialog(tu);
+                ProgrammationTacheDialog *dial = new ProgrammationTacheDialog(tu,projet->getTitre());
                 dial->exec();
                 delete dial;
             }
@@ -547,7 +549,7 @@ void MainWindow::exporterProgrammationsSemaine()
 
 void MainWindow::loadProjets()
 {
-    ProjetManager::getInstance().load("losc.xml");
+    ProjetManager::getInstance().load("projets.xml");
     PrecedenceManager::getInstance().load("precedences.xml");
     Agenda::getInstance().load("agenda.xml");
     mise_a_jour();

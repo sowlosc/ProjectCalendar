@@ -15,8 +15,9 @@ class ProgrammationTacheDialog : public QDialog
 {
     Q_OBJECT
     TacheUnitaire* tache;
+    QString nomProjet;
 public:
-    explicit ProgrammationTacheDialog(TacheUnitaire* t,QWidget *parent = 0);
+    explicit ProgrammationTacheDialog(TacheUnitaire* t,const QString p,QWidget *parent = 0);
     ~ProgrammationTacheDialog();
 
 private:

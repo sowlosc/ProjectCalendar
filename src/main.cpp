@@ -23,7 +23,7 @@ int main(int argc, char *argv[])
 
     pm.ajouterObservateur(&w);
     prm.ajouterObservateur(&w);
-   /* for(ProjetManager::iterator it = ProjetManager::getInstance().begin(); it != ProjetManager::getInstance().end() ; ++it)
+    /*for(ProjetManager::iterator it = ProjetManager::getInstance().begin(); it != ProjetManager::getInstance().end() ; ++it)
         (*it).ajouterObservateur(&w);
 
 
@@ -188,7 +188,7 @@ int main(int argc, char *argv[])
     for(Tache::const_pred_iterator it = t3->beginPred() ; it!= t3->endPred() ; ++it)
         std::cout << "Tache pred -> " << (*it)->getTitre().toStdString() << "\n";
 
-    pm.save("losc.xml");
+    pm.save("projets.xml");
     prm.save("precedences.xml");
     ag.save("agenda.xml");*/
     //for(ProjetManager::iterator it = pm.begin() ; it != pm.end(); ++it)
