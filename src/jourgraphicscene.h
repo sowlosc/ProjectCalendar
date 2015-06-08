@@ -47,7 +47,7 @@ public:
         this->setBackgroundBrush(linearGrad);
 
     }
-    const QDate& getDate() const {return date; }
+    const QDate& getDate() const { return date; }
     void setDate(const QDate d) { date = d;}
 
     QGraphicsRectItem *ajouterEvenement(const QString titre, const QTime& deb, const Duree& dur,Evenement* e=0,

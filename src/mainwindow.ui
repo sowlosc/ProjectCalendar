@@ -872,7 +872,7 @@
      <enum>QTabWidget::Triangular</enum>
     </property>
     <property name="currentIndex">
-     <number>1</number>
+     <number>0</number>
     </property>
     <property name="usesScrollButtons">
      <bool>false</bool>
@@ -962,13 +962,13 @@
            </property>
            <property name="minimumSize">
             <size>
-             <width>240</width>
+             <width>249</width>
              <height>0</height>
             </size>
            </property>
            <property name="maximumSize">
             <size>
-             <width>200</width>
+             <width>249</width>
              <height>16777215</height>
             </size>
            </property>
@@ -983,6 +983,25 @@
            </property>
            <property name="flat">
             <bool>false</bool>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="Bouton_exporter_programmations_semaine">
+           <property name="minimumSize">
+            <size>
+             <width>249</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>249</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <property name="text">
+            <string>Exporter  programmations</string>
            </property>
           </widget>
          </item>
