@@ -81,8 +81,8 @@ public slots:
     void ajouterPrecedence();
     void supprimerPrecedence();
     void programmerTache();
-    void loadProjets();
-    void saveProjets();
+    void load();
+    void save();
     void exporterProgrammationsSemaine();
     void exporterProgrammationsProjet();
 

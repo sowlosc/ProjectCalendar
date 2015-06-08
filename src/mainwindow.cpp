@@ -29,8 +29,8 @@ MainWindow::MainWindow(QWidget *parent) :
     QObject::connect(ui->Bouton_supprimer_precedence,SIGNAL(clicked()),this,SLOT(supprimerPrecedence()));
     QObject::connect(ui->Bouton_programmer_tache,SIGNAL(clicked()),this,SLOT(programmerTache()));
 
-    QObject::connect(ui->Bouton_load,SIGNAL(clicked()),this,SLOT(loadProjets()));
-    QObject::connect(ui->Bouton_save,SIGNAL(clicked()),this,SLOT(saveProjets()));
+    QObject::connect(ui->Bouton_load,SIGNAL(clicked()),this,SLOT(load()));
+    QObject::connect(ui->Bouton_save,SIGNAL(clicked()),this,SLOT(save()));
 
     QObject::connect(ui->Bouton_exporter_programmations_semaine, SIGNAL(clicked()),this,SLOT(exporterProgrammationsSemaine()));
     QObject::connect(ui->Bouton_exporter_programmation_projet, SIGNAL(clicked()),this,SLOT(exporterProgrammationsProjet()));
@@ -547,7 +547,7 @@ void MainWindow::exporterProgrammationsSemaine()
 }
 
 
-void MainWindow::loadProjets()
+void MainWindow::load()
 {
     ProjetManager::getInstance().load("projets.xml");
     PrecedenceManager::getInstance().load("precedences.xml");
@@ -555,9 +555,11 @@ void MainWindow::loadProjets()
     mise_a_jour();
 }
 
-void MainWindow::saveProjets()
+void MainWindow::save()
 {
-    ProjetManager::getInstance().save("losc.xml");
+    ProjetManager::getInstance().save("projets.xml");
+    PrecedenceManager::getInstance().save("precedences.xml");
+    Agenda::getInstance().save("agenda.xml");
 
 }
 

@@ -12,6 +12,7 @@ QString ProgrammationTache::toString() const
     ss << "<table align=\"center\" cellpadding=\"8\" >";
     ss << "<tr><td>Date :</td><td> " << getDate().toString().toStdString()<< "</td></tr>";
     ss << "<tr><td>Durée :</td><td> " << tache->getDuree() << "</td></tr>";
+    ss << "<tr><td>Description :</td><td>" <<tache->getDescription().toStdString()<<"</td></tr>";
     ss << "</table></body></html>";
     return ss.str().c_str();
 }

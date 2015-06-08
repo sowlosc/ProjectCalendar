@@ -872,7 +872,7 @@
      <enum>QTabWidget::Rounded</enum>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>1</number>
     </property>
     <property name="elideMode">
      <enum>Qt::ElideMiddle</enum>
@@ -1513,32 +1513,6 @@
      <attribute name="title">
       <string>Projets</string>
      </attribute>
-     <widget class="QPushButton" name="Bouton_load">
-      <property name="geometry">
-       <rect>
-        <x>1110</x>
-        <y>580</y>
-        <width>99</width>
-        <height>27</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>load</string>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="Bouton_save">
-      <property name="geometry">
-       <rect>
-        <x>980</x>
-        <y>580</y>
-        <width>99</width>
-        <height>27</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>save</string>
-      </property>
-     </widget>
      <widget class="QFrame" name="frame_2">
       <property name="geometry">
        <rect>
@@ -2289,6 +2263,36 @@ p, li { white-space: pre-wrap; }
      </widget>
     </widget>
    </widget>
+   <widget class="QPushButton" name="Bouton_save">
+    <property name="geometry">
+     <rect>
+      <x>450</x>
+      <y>0</y>
+      <width>99</width>
+      <height>27</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>save</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="Bouton_load">
+    <property name="geometry">
+     <rect>
+      <x>660</x>
+      <y>0</y>
+      <width>99</width>
+      <height>27</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>load</string>
+    </property>
+   </widget>
+   <zorder>tabWidget</zorder>
+   <zorder>Bouton_save</zorder>
+   <zorder>Bouton_save</zorder>
+   <zorder>Bouton_load</zorder>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
