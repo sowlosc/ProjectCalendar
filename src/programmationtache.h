@@ -11,7 +11,10 @@ class ProgrammationTache : public Evenement
     TacheUnitaire* tache;
 public:
     ProgrammationTache(const QDate& ddeb, const QTime& tdeb, TacheUnitaire *t)
-        :Evenement(ddeb,tdeb), tache(t) {}
+        :Evenement(ddeb,tdeb), tache(t) {
+        if(ddeb < tache->getDisponibilite() || ddeb > tache->getEcheance())
+            throw CalendarException("erreur, ProgrammationTache, date non valide");
+    }
     ~ProgrammationTache(){ }
 
     TacheUnitaire* getTache() const { return tache; }

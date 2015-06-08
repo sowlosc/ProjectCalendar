@@ -20,6 +20,7 @@ class ProjetManager : public Observable
     ProjetManager(const ProjetManager&);
     ~ProjetManager() {};
     ProjetManager& operator=(const ProjetManager&);
+    QString file;
 
 
 
@@ -33,6 +34,8 @@ public:
 
     void supprimerProjet(const QString& t);
 
+    void save(const QString& f);
+    void load(const QString& f);
 
 
 

@@ -16,16 +16,18 @@ class Projet : public Observable
     friend class ProjetManager;
 
     std::set<Observateur*> obs;
-
+    QString file;
     QString titre;
     QString description;
-    //Duree duree;
     QDate disponibilite;
     QDate echeance;
     std::map<QString, Tache*> taches;
 
     Projet(const QString& t, const QString& desc, const QDate& dispo, const QDate& ech)
-        :titre(t), description(desc), disponibilite(dispo), echeance(ech) {}
+        :titre(t), description(desc), disponibilite(dispo), echeance(ech) {
+        if(disponibilite>echeance)
+            throw CalendarException("erreur, Projet, echeance < disponibilite");
+    }
     ~Projet();
 public:
     //peut-etre a enlever
@@ -57,7 +59,7 @@ public:
 
     QString toString() const;
 
-
+    void toXml(QXmlStreamWriter&) const;
 
     void ajouterObservateur(Observateur *o) { obs.insert(o); }
     void supprimerObservateur(Observateur *o) { obs.erase(o); }
@@ -67,6 +69,8 @@ public:
     }
 
 
+    void save(const QString &f);
+    void load(const QString& f);
 
 
 
@@ -102,7 +106,7 @@ public:
     public:
         const Tache& operator*() { return *(it->second); }
         const_iterator& operator++() { ++it; return *this; }
-        bool operator!=(const iterator& at) const { return it != at.it; }
+        bool operator!=(const const_iterator& at) const { return it != at.it; }
     };
 
     const_iterator begin() const { return const_iterator(taches.begin()); }

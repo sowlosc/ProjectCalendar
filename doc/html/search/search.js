@@ -9,7 +9,7 @@ var indexSectionsWithContent =
 {
   0: "acdeijlmoprt",
   1: "acdeijlmoprt",
-  2: "d"
+  2: "dl"
 };
 
 var indexSectionNames =

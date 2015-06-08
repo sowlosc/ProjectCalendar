@@ -34,10 +34,12 @@ MainWindow::MainWindow(QWidget *parent) :
     QObject::connect(ui->Bouton_ajouter_projet,SIGNAL(clicked()),this,SLOT(ajouterProjet()));
     QObject::connect(ui->Bouton_ajouter_evenement,SIGNAL(clicked()),this,SLOT(ajouterEvenementTrad()));
 
-    QObject::connect(ui->Bounton_ajout_precedence,SIGNAL(clicked()),this,SLOT(ajouterPrecedence()));
+    QObject::connect(ui->Bouton_ajout_precedence,SIGNAL(clicked()),this,SLOT(ajouterPrecedence()));
     QObject::connect(ui->Bouton_supprimer_precedence,SIGNAL(clicked()),this,SLOT(supprimerPrecedence()));
     QObject::connect(ui->Bouton_programmer_tache,SIGNAL(clicked()),this,SLOT(programmerTache()));
 
+    QObject::connect(ui->Bouton_load,SIGNAL(clicked()),this,SLOT(loadProjets()));
+    QObject::connect(ui->Bouton_save,SIGNAL(clicked()),this,SLOT(saveProjets()));
 
 
 
@@ -480,6 +482,18 @@ void MainWindow::programmerTache()
             }
         }
     }
+}
+
+void MainWindow::loadProjets()
+{
+    ProjetManager::getInstance().load("losc.xml");
+    mise_a_jour();
+}
+
+void MainWindow::saveProjets()
+{
+    ProjetManager::getInstance().save("losc.xml");
+
 }
 
 /*

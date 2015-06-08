@@ -74,6 +74,8 @@ public slots:
     void ajouterPrecedence();
     void supprimerPrecedence();
     void programmerTache();
+    void loadProjets();
+    void saveProjets();
 };
 
 

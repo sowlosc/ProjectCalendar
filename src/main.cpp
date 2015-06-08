@@ -23,7 +23,7 @@ int main(int argc, char *argv[])
 
     pm.ajouterObservateur(&w);
     prm.ajouterObservateur(&w);
-    for(ProjetManager::iterator it = ProjetManager::getInstance().begin(); it != ProjetManager::getInstance().end() ; ++it)
+    /*for(ProjetManager::iterator it = ProjetManager::getInstance().begin(); it != ProjetManager::getInstance().end() ; ++it)
         (*it).ajouterObservateur(&w);
 
 
@@ -52,8 +52,8 @@ int main(int argc, char *argv[])
      }
 
 
-    pm.ajouterProjet("projet1","mon premier projet",QDate(2015,5,30),QDate(2015,6,14));
-    pm.ajouterProjet("projet2","Mon deuxieme projet",QDate(2015,7,1),QDate(2015,8,30));
+    pm.ajouterProjet("projet1","mon premier projet",QDate(1015,5,30),QDate(3000,6,14));
+    pm.ajouterProjet("projet2","Mon deuxieme projet",QDate(1015,7,1),QDate(3000,8,30));
 
     pm.getProjet("projet1").ajouterObservateur(&w);
     pm.getProjet("projet2").ajouterObservateur(&w);
@@ -107,12 +107,12 @@ int main(int argc, char *argv[])
 
     TacheUnitaire *t1 = new TacheUnitaire("t1","tache1",QDate(2015,6,1),QDate(2015,7,7),"Initialisation",Duree(1,0),false);
     TacheUnitaire *t2 = new TacheUnitaire("t2","tache2",QDate(2015,6,1),QDate(2015,7,7),"Developpement",Duree(3,0),true);
-    TacheComposite *t3 = new TacheComposite("t3","taches3",QDate(2015,6,1),QDate(2015,7,7),"Tahce complexe");
+    TacheComposite *t3 = new TacheComposite("t3","taches3",QDate(1800,6,1),QDate(2200,7,7),"Tahce complexe");
 
     TacheUnitaire *t4 = new TacheUnitaire("t3.1","sousTache1",QDate(2015,8,1),QDate(2015,9,7),"Initialisation",Duree(1,40),false);
-    TacheUnitaire *t5 = new TacheUnitaire("t3.2","sousTache2",QDate(2015,8,1),QDate(2015,9,7),"Developpement",Duree(2,35),true);
+    TacheUnitaire *t5 = new TacheUnitaire("t3.2","sousTache2",QDate(1900,8,1),QDate(2014,9,7),"Developpement",Duree(2,35),true);
 
-    TacheComposite *t6 = new TacheComposite("t3.3","sousTache3",QDate(2015,6,1),QDate(2015,7,7),"sous Tahce complexe");
+    TacheComposite *t6 = new TacheComposite("t3.3","sousTache3",QDate(1850,6,1),QDate(2050,7,7),"sous Tahce complexe");
 
     TacheUnitaire *t7 = new TacheUnitaire("t3.3.1","sssousTache1",QDate(2015,8,1),QDate(2015,9,7),"sssoust1",Duree(1,40),false);
     TacheUnitaire *t8 = new TacheUnitaire("t3.3.2","sssousTache2",QDate(2015,8,1),QDate(2015,9,7),"sssout2",Duree(2,35),true);
@@ -139,9 +139,9 @@ int main(int argc, char *argv[])
     t6->ajouterSousTache(t7);
     t6->ajouterSousTache(t8);
 
-    TacheComposite *c1 = new TacheComposite("c1","c1",QDate(2015,6,1),QDate(2015,7,7),"Tahce complexe1");
-    TacheComposite *c2 = new TacheComposite("c2","c2",QDate(2015,6,1),QDate(2015,7,7),"Tahce complexe2");
-    TacheComposite *c3 = new TacheComposite("c3","c3",QDate(2015,6,1),QDate(2015,7,7),"Tahce complexe3");
+    TacheComposite *c1 = new TacheComposite("c1","c1",QDate(1900,6,1),QDate(2020,7,7),"Tahce complexe1");
+    TacheComposite *c2 = new TacheComposite("c2","c2",QDate(1905,6,1),QDate(2019,7,7),"Tahce complexe2");
+    TacheComposite *c3 = new TacheComposite("c3","c3",QDate(1906,6,1),QDate(2018,7,7),"Tahce complexe3");
 
     c2->ajouterObservateur(&w);
     c1->ajouterObservateur(&w);
@@ -188,6 +188,9 @@ int main(int argc, char *argv[])
     for(Tache::const_pred_iterator it = t3->beginPred() ; it!= t3->endPred() ; ++it)
         std::cout << "Tache pred -> " << (*it)->getTitre().toStdString() << "\n";
 
+    pm.save("losc.xml");*/
+    //for(ProjetManager::iterator it = pm.begin() ; it != pm.end(); ++it)
+      //  (*it).save((*it).getTitre()+".xml");
 
     w.show();
 

@@ -143,6 +143,11 @@ const <a class="el" href="class_projet.html">Projet</a> &amp;&#160;</td><td clas
 <tr class="memitem:a1b1f8e25720741cce4d930d433d2123e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1b1f8e25720741cce4d930d433d2123e"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>supprimerProjet</b> (const QString &amp;t)</td></tr>
 <tr class="separator:a1b1f8e25720741cce4d930d433d2123e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6e179fd88ac2d0ed68f0229752038f42"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6e179fd88ac2d0ed68f0229752038f42"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>save</b> (const QString &amp;f)</td></tr>
+<tr class="separator:a6e179fd88ac2d0ed68f0229752038f42"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afdfde850628d04b9e0489957a013c77e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_projet_manager.html#afdfde850628d04b9e0489957a013c77e">load</a> (const QString &amp;f)</td></tr>
+<tr class="separator:afdfde850628d04b9e0489957a013c77e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a512ff1bbbd6d47a1c8b5584084906e6e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a512ff1bbbd6d47a1c8b5584084906e6e"></a>
 <a class="el" href="class_projet_manager_1_1iterator.html">iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><b>begin</b> ()</td></tr>
 <tr class="separator:a512ff1bbbd6d47a1c8b5584084906e6e"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -183,7 +188,25 @@ static void&#160;</td><td class="memItemRight" valign="bottom"><b>libererInstanc
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Classe permettant de gerer des projets Cet unique objet (singleton) permet de creer de nouveau projets ou d'en supprimer. </p>
-</div><hr/>The documentation for this class was generated from the following files:<ul>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="afdfde850628d04b9e0489957a013c77e"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ProjetManager::load </td>
+          <td>(</td>
+          <td class="paramtype">const QString &amp;&#160;</td>
+          <td class="paramname"><em>f</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>(*it).load((*it).getTitre()+".xml"); </p>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following files:<ul>
 <li>/home/matthieu/ProjectCalendar/ProjectCalendar/src/old/<a class="el" href="old_2projet_8h_source.html">projet.h</a></li>
 <li>/home/matthieu/ProjectCalendar/ProjectCalendar/src/<a class="el" href="projetmanager_8h_source.html">projetmanager.h</a></li>
 <li>/home/matthieu/ProjectCalendar/ProjectCalendar/src/old/projet.cpp</li>
@@ -192,7 +215,7 @@ static void&#160;</td><td class="memItemRight" valign="bottom"><b>libererInstanc
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Jun 7 2015 20:49:17 for ProjectCalendar by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Jun 8 2015 02:22:05 for ProjectCalendar by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

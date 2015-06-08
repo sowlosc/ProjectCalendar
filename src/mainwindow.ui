@@ -872,7 +872,7 @@
      <enum>QTabWidget::Triangular</enum>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>1</number>
     </property>
     <property name="usesScrollButtons">
      <bool>false</bool>
@@ -1663,7 +1663,7 @@ p, li { white-space: pre-wrap; }
        </item>
       </layout>
      </widget>
-     <widget class="QPushButton" name="Bounton_ajout_precedence">
+     <widget class="QPushButton" name="Bouton_ajout_precedence">
       <property name="geometry">
        <rect>
         <x>770</x>
@@ -1710,6 +1710,32 @@ p, li { white-space: pre-wrap; }
       </property>
       <property name="text">
        <string>Programmer tâche</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="Bouton_load">
+      <property name="geometry">
+       <rect>
+        <x>320</x>
+        <y>500</y>
+        <width>99</width>
+        <height>27</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>load</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="Bouton_save">
+      <property name="geometry">
+       <rect>
+        <x>310</x>
+        <y>550</y>
+        <width>99</width>
+        <height>27</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>save</string>
       </property>
      </widget>
     </widget>

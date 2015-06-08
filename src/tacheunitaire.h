@@ -26,6 +26,10 @@ public:
     void setPreemptive(bool b) { preemptive = b; }
 
     virtual QString toString() const;
+
+    static TacheUnitaire* getFromXml(QXmlStreamReader&);
+
+    virtual void toXml(QXmlStreamWriter&) const;
     virtual bool isComposite() const { return false; }
 
     bool isProgrammed() const { return estProgramme;}

@@ -20,6 +20,8 @@ ProgrammationTacheDialog::ProgrammationTacheDialog(TacheUnitaire *t, QWidget *pa
     ui->timeEdit_duree->setVisible(0);
     ui->dateEdit_date->setDate(QDate::currentDate());
     ui->timeEdit_horaire->setTime(QTime::currentTime());
+    ui->dateEdit_date->setMaximumDate(tache->getEcheance());
+    ui->dateEdit_date->setMinimumDate(tache->getDisponibilite());
 
     QTime sum(0,0);
     std::vector<ProgrammationTache*> progs = Agenda::getInstance().getProgrammationTache(tache);

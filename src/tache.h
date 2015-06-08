@@ -7,6 +7,7 @@
 #include "observateur.h"
 #include <iostream>
 #include "precedencemanager.h"
+#include <QtXml>
 //#include "agenda.h"
 
 class Tache : public Observable
@@ -48,6 +49,7 @@ public:
     virtual bool isProgrammed() const = 0;
 
     virtual QString toString() const = 0 ;
+    virtual void toXml(QXmlStreamWriter&) const = 0;
     virtual bool isComposite() const = 0;
 
     void ajouterObservateur(Observateur *o) { obs.insert(o); }
