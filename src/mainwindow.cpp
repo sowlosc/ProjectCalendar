@@ -18,15 +18,6 @@ MainWindow::MainWindow(QWidget *parent) :
 
     ui->calendarWidget->setSelectedDate(QDate::currentDate());
 
-
-
-
-
-
-
-
-
-
     QObject::connect(ui->treeWidget,SIGNAL(clicked(QModelIndex)),this,SLOT(maj_descripteurs()));
     QObject::connect(ui->Bouton_ajouter_tache,SIGNAL(clicked()),this,SLOT(ajouterTache()));
     QObject::connect(ui->Bouton_supprimer_tache,SIGNAL(clicked()),this,SLOT(supprimerTache()));
@@ -45,13 +36,13 @@ MainWindow::MainWindow(QWidget *parent) :
     QObject::connect(ui->Bouton_exporter_programmation_projet, SIGNAL(clicked()),this,SLOT(exporterProgrammationsProjet()));
 
 
-    scenes[0] = new JourGraphicScene("Lundi",QDate(1994,3,20),0,0,100,480,960,ui->graphicsView_lundi);
-    scenes[1] = new JourGraphicScene("Mardi",QDate(1994,3,21),0,0,100,480,960,ui->graphicsView_mardi);
-    scenes[2] = new JourGraphicScene("Mercredi",QDate(1994,3,22),0,0,100,480,960,ui->graphicsView_mercredi);
-    scenes[3] = new JourGraphicScene("Jeudi",QDate(1994,3,23),0,0,100,480,960,ui->graphicsView_jeudi);
-    scenes[4] = new JourGraphicScene("Vendredi",QDate(1994,3,24),0,0,100,480,960,ui->graphicsView_vendredi);
-    scenes[5] = new JourGraphicScene("Samedi",QDate(1994,3,25),0,0,100,480,960,ui->graphicsView_samedi);
-    scenes[6] = new JourGraphicScene("Dimanche",QDate(1994,3,26),0,0,100,480,960,ui->graphicsView_dimanche);
+    scenes[0] = new JourGraphicScene("Lundi",0,0,100,480,960,ui->graphicsView_lundi);
+    scenes[1] = new JourGraphicScene("Mardi",0,0,100,480,960,ui->graphicsView_mardi);
+    scenes[2] = new JourGraphicScene("Mercredi",0,0,100,480,960,ui->graphicsView_mercredi);
+    scenes[3] = new JourGraphicScene("Jeudi",0,0,100,480,960,ui->graphicsView_jeudi);
+    scenes[4] = new JourGraphicScene("Vendredi",0,0,100,480,960,ui->graphicsView_vendredi);
+    scenes[5] = new JourGraphicScene("Samedi",0,0,100,480,960,ui->graphicsView_samedi);
+    scenes[6] = new JourGraphicScene("Dimanche",0,0,100,480,960,ui->graphicsView_dimanche);
 
     for(int i=0;i<7;i++)
         Agenda::getInstance().ajouterObservateur(scenes[i]);
@@ -439,15 +430,13 @@ void MainWindow::maj_listePrecedences()
     PrecedenceManager& prm = PrecedenceManager::getInstance();
     for(PrecedenceManager::iterator it = prm.begin() ; it != prm.end() ; ++it)
     {
-        std::cout <<"------------ ajout item \n";
-        QString pred = (*it).getPredecesseur()->getId();
-        QString succ =  (*it).getSuccesseur()->getId();
-        QString projet;
-        ProjetManager& pm = ProjetManager::getInstance();
-        for(ProjetManager::iterator at = pm.begin(); at != pm.end() ; ++at)
-            if((*at).contientTache((*it).getPredecesseur()))
-                projet = (*at).getTitre();
-        QString txt = projet + " : " +pred + " -> " +succ;
+        const Tache *t_pred = (*it).getPredecesseur();
+        const Tache *t_succ = (*it).getSuccesseur();
+        QString pred = t_pred->getId();
+        QString succ =  t_succ->getId();
+        QString projet = (*it).getProjet();
+
+        QString txt = projet + " :   " +t_pred->getTitre() + " (" +  pred + ") -> " +t_succ->getTitre()+ " ("+succ+")";
         ListPrecedenceItem* item = new ListPrecedenceItem(txt,&(*it),ui->listWidget_precedence);
         ui->listWidget_precedence->addItem(item);
     }

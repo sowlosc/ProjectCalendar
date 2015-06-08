@@ -33,22 +33,42 @@ class JourGraphicScene : public QGraphicsScene, public Observateur
     qreal largeur;
     unsigned int nb_minutes;
 public:
-    JourGraphicScene(const QString& nom,const QDate& d,qreal x, qreal y, qreal width, qreal height,unsigned int nb_m = 960, QObject* parent = 0 )
-        :  QGraphicsScene(x,y,width,height,parent),jour(nom),date(d),hauteur(height),largeur(width),nb_minutes(nb_m) {
+    JourGraphicScene(const QString& nom,qreal x, qreal y, qreal width, qreal height,unsigned int nb_m = 960, QObject* parent = 0 )
+        :  QGraphicsScene(x,y,width,height,parent),jour(nom),hauteur(height),largeur(width),nb_minutes(nb_m) {
 
 
-
-        QLinearGradient linearGrad(QPointF(50, 0), QPointF(50, 480));
-        linearGrad.setSpread(QGradient::RepeatSpread);
-        linearGrad.setColorAt(0,QColor("darkBlue"));
-        linearGrad.setColorAt(0.4, QColor("lightBlue"));
-        linearGrad.setColorAt(0.6, QColor("lightBlue"));
-        linearGrad.setColorAt(1, QColor("darkBlue"));
-        this->setBackgroundBrush(linearGrad);
+        if(date >= QDate::currentDate())
+        {
+            QLinearGradient linearGrad(QPointF(50, 0), QPointF(50, 480));
+            linearGrad.setSpread(QGradient::RepeatSpread);
+            linearGrad.setColorAt(0,QColor("darkBlue"));
+            linearGrad.setColorAt(0.4, QColor("lightBlue"));
+            linearGrad.setColorAt(0.6, QColor("lightBlue"));
+            linearGrad.setColorAt(1, QColor("darkBlue"));
+            this->setBackgroundBrush(linearGrad);
+        }else
+            this->setBackgroundBrush(QBrush("lightGray"));
 
     }
     const QDate& getDate() const { return date; }
-    void setDate(const QDate d) { date = d;}
+    void setDate(const QDate d) {
+        date = d;
+        if(date >= QDate::currentDate())
+        {
+/*            QLinearGradient linearGrad(QPointF(50, 0), QPointF(50, 480));
+            linearGrad.setSpread(QGradient::RepeatSpread);
+            linearGrad.setColorAt(0,QColor("darkBlue"));
+            linearGrad.setColorAt(0.4, QColor("lightBlue"));
+            linearGrad.setColorAt(0.6, QColor("lightBlue"));
+            linearGrad.setColorAt(1, QColor("darkBlue"));
+
+
+            this->setBackgroundBrush(linearGrad);*/
+            //#42C0F7
+            this->setBackgroundBrush(QBrush("#FFFFFF"));
+        }else
+            this->setBackgroundBrush(QBrush("lightGray"));
+     }
 
     QGraphicsRectItem *ajouterEvenement(const QString titre, const QTime& deb, const Duree& dur,Evenement* e=0,
                                         const QColor &coul_fond = QColor("blue"),const QColor &coul_contour = QColor("black"));
