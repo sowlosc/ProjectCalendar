@@ -200,9 +200,18 @@ int main(int argc, char *argv[])
     //std::cout << "resulte getSousTache = " << pm.getProjet("projet2").getTache("t3.2")->getDescription().toStdString() << "\n";
 
 
+
      return a.exec();
+
 }
 
+
+/**
+
+  try de charger
+  si fichier existe on charge
+  sinon on recommence
+  */
 /*
  * A faire
  *

@@ -37,12 +37,19 @@ private:
 public:
 
     static MainWindow& getInstance() { if(!instance) instance = new MainWindow; return *instance; }
-    static void libererInstance() { if(instance) delete instance; instance = 0; }
+    static void libererInstance() {
+        ProjetManager::libererInstance();
+        Agenda::libererInstance();
+        PrecedenceManager::libereInstace();
+        if(instance) delete instance;
+        instance = 0;
+    }
 
     void maj_treeWidget();
     void construct_recurs_tree(Tache* t,QTreeWidgetItem* root);
     void mise_a_jour();
     void maj_listePrecedences();
+    void closeEvent(QCloseEvent *);
 
 
 private:

@@ -561,6 +561,12 @@ void MainWindow::saveProjets()
 
 }
 
+void MainWindow::closeEvent(QCloseEvent * event)
+{
+    libererInstance();
+    QMainWindow::closeEvent(event);
+}
+
 /*
  * idee a continuer
  *
