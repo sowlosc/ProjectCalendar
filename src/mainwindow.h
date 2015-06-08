@@ -76,7 +76,9 @@ public slots:
     void programmerTache();
     void loadProjets();
     void saveProjets();
-    void exporterProgrammationSemaine();
+    void exporterProgrammationsSemaine();
+    void exporterProgrammationsProjet();
+
 };
 
 

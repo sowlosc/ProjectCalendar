@@ -41,7 +41,8 @@ MainWindow::MainWindow(QWidget *parent) :
     QObject::connect(ui->Bouton_load,SIGNAL(clicked()),this,SLOT(loadProjets()));
     QObject::connect(ui->Bouton_save,SIGNAL(clicked()),this,SLOT(saveProjets()));
 
-    QObject::connect(ui->Bouton_exporter_programmations_semaine, SIGNAL(clicked()),this,SLOT(exporterProgrammationSemaine()));
+    QObject::connect(ui->Bouton_exporter_programmations_semaine, SIGNAL(clicked()),this,SLOT(exporterProgrammationsSemaine()));
+    QObject::connect(ui->Bouton_exporter_programmation_projet, SIGNAL(clicked()),this,SLOT(exporterProgrammationsProjet()));
 
 
     scenes[0] = new JourGraphicScene("Lundi",QDate(1994,3,20),0,0,100,480,960,ui->graphicsView_lundi);
@@ -486,7 +487,48 @@ void MainWindow::programmerTache()
 }
 
 
-void MainWindow::exporterProgrammationSemaine()
+void MainWindow::exporterProgrammationsProjet()
+{
+    TreeItem* current = dynamic_cast<TreeItem*>(ui->treeWidget->currentItem());
+    if(current && current->isProjetItem())
+    {
+        TreeProjetItem *tp = dynamic_cast<TreeProjetItem*>(current);
+        Projet *projet = tp->getProjet();
+
+        QString fichier = QFileDialog::getSaveFileName(this, "Enregistrer Sous ",QDir::homePath(),"Fichiers XML (*.xml)");
+        if(fichier[fichier.size()-4]!='.')
+            fichier = fichier + ".xml";
+
+        QFile newfile(fichier);
+        if (!newfile.open(QIODevice::WriteOnly | QIODevice::Text))
+            throw CalendarException(QString("erreur sauvegarde tâches : ouverture fichier xml"));
+        QXmlStreamWriter stream(&newfile);
+        stream.setAutoFormatting(true);
+        stream.writeStartDocument();
+        stream.writeStartElement("programmations");
+        Agenda& ag = Agenda::getInstance();
+        for(Agenda::iterator it = ag.begin() ; it!= ag.end(); ++it)
+        {
+            if((*it).isProgrammationTache())
+            {
+                ProgrammationTache *prog = dynamic_cast<ProgrammationTache*>(&(*it));
+                if(prog->getProjet() == projet->getTitre())
+                {
+                    if((*it).isProgrammationPartieTache())
+                        dynamic_cast<ProgrammationPartieTache*>(prog)->toXml(stream);
+                    else
+                        prog->toXml(stream);
+                }
+            }
+        }
+        stream.writeEndElement();
+        stream.writeEndDocument();
+        newfile.close();
+    }
+}
+
+
+void MainWindow::exporterProgrammationsSemaine()
 {
     QString fichier = QFileDialog::getSaveFileName(this, "Enregistrer Sous ",QDir::homePath(),"Fichiers XML (*.xml)");
     if(fichier[fichier.size()-4]!='.')
@@ -511,9 +553,7 @@ void MainWindow::exporterProgrammationSemaine()
     stream.writeEndElement();
     stream.writeEndDocument();
     newfile.close();
-
 }
-
 
 
 void MainWindow::loadProjets()
