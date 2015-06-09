@@ -68,6 +68,12 @@ MainWindow::MainWindow(QWidget *parent) :
     maj_dates();
 }
 
+MainWindow::~MainWindow()
+{
+    delete ui;
+}
+
+
 
 void MainWindow::detaillerEvenement_lundi()
  {
@@ -276,17 +282,11 @@ void MainWindow::maj_treeWidget()
 
 void MainWindow::mise_a_jour()
 {
-    std::cout << "mise a jour mainwindow\n";
     maj_treeWidget();
     maj_listePrecedences();
     maj_descripteurs();
-    std::cout << "fin de la mise a jour mainwindow\n";
 }
 
-MainWindow::~MainWindow()
-{
-    delete ui;
-}
 
 void MainWindow::maj_descripteurs()
 {
@@ -295,7 +295,6 @@ void MainWindow::maj_descripteurs()
     {
         std::stringstream ss;
         ss << curr->getDescriptionHtml().toStdString();
-
         if(curr->isUnitaire())
         {
             Tache* tache = dynamic_cast<TreeTacheItem*>(curr)->getTache();
@@ -315,6 +314,7 @@ void MainWindow::maj_descripteurs()
         ui->descripteur->clear();
 }
 
+
 void MainWindow::ajouterTache()
 {
     TreeItem* current = dynamic_cast<TreeItem*>(ui->treeWidget->currentItem());
@@ -322,7 +322,6 @@ void MainWindow::ajouterTache()
     if(current && !current->isUnitaire())
     {   //projet ou tache composite qui ont une methode ajouter tache
         TreeProjetItem* projet = dynamic_cast<TreeProjetItem*>(current->getParentProject());
-
         if(current->isProjetItem())
         {
             AjoutTacheDialog *dial = new AjoutTacheDialog(this,projet->getProjet()->getTitre(),"");

@@ -14,9 +14,11 @@ Projet::~Projet()
 Projet& Projet::ajouterTache(Tache *t)
 {
     if(taches.find(t->getId()) != taches.end())
-        throw CalendarException("erreur, Projet, id deja existant");
-    if(t->getDisponibilite()<disponibilite || t->getEcheance()>echeance)
-        throw CalendarException("erreur, Projet, date dispo et echeance incompatible");
+        throw CalendarException("Identifiant déjà existant");
+    if(t->getDisponibilite()<disponibilite)
+        throw CalendarException("Disponibilité inférieure à celle du projet");
+    if(t->getEcheance()>echeance)
+        throw CalendarException("Date d'échéance dupérieure à celle du projet");
 
     taches[t->getId()] = t;
     notifier();

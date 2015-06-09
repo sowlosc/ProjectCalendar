@@ -1,4 +1,5 @@
 #include "ajouttachedialog.h"
+#include <QMessageBox>
 #include "ui_ajouttachedialog.h"
 
 AjoutTacheDialog::AjoutTacheDialog(QWidget *parent , const QString& proj, const QString& tCompo) :
@@ -10,14 +11,7 @@ AjoutTacheDialog::AjoutTacheDialog(QWidget *parent , const QString& proj, const 
     ui->dateEdit_ech->setDate(QDate::currentDate());
     QObject::connect(ui->checkBox_composite,SIGNAL(stateChanged(int)),this,SLOT(activerDuree(int)));
 }
-/*
-AjoutTacheDialog::AjoutTacheDialog(QWidget *parent,Projet *p) :
-    QDialog(parent), projet(p),tCompo(0),
-    ui(new Ui::AjoutTacheDialog)
-{
-    ui->setupUi(this);
-    QObject:connect(ui->checkBox_composite,SIGNAL(stateChanged(int)),this,SLOT(activerDuree(int)));
-}*/
+
 
 AjoutTacheDialog::~AjoutTacheDialog()
 {
@@ -41,47 +35,58 @@ void AjoutTacheDialog::accept()
     QDate dispo = ui->dateEdit_dispo->date();
     QDate ech = ui->dateEdit_ech->date();
 
-   // if(id == "" || titre == "" || desc == "")
-    //    throw CalendarException("Erreur, AjoutTacheDialog, une tache doit avoir des champs valides");
-    /*
-     * faire les verification
-     * ou faire un try
-     * */
 
-    Tache* t;
-    if(ui->checkBox_composite->isChecked())
+    if(id!="" && titre!="" && dispo<=ech)
     {
-        t = new TacheComposite(id,titre,dispo,ech,desc);
-    }else if(ui->checkBox_unitaire_non_preemptive->isChecked())
-    {
-        QTime time = ui->timeEdit_duree->time();
-        Duree duree(time.hour(),time.minute());
-        t = new TacheUnitaire(id,titre,dispo,ech,desc,duree,false);
-    }else
-    {
-        QTime time = ui->timeEdit_duree->time();
-        Duree duree(time.hour(),time.minute());
-        t = new TacheUnitaire(id,titre,dispo,ech,desc,duree,true);
+
+        Tache* t;
+        if(ui->checkBox_composite->isChecked())
+        {
+            t = new TacheComposite(id,titre,dispo,ech,desc);
+        }else if(ui->checkBox_unitaire_non_preemptive->isChecked())
+        {
+            QTime time = ui->timeEdit_duree->time();
+            Duree duree(time.hour(),time.minute());
+            t = new TacheUnitaire(id,titre,dispo,ech,desc,duree,false);
+        }else
+        {
+            QTime time = ui->timeEdit_duree->time();
+            Duree duree(time.hour(),time.minute());
+            t = new TacheUnitaire(id,titre,dispo,ech,desc,duree,true);
+        }
+
+        bool fin = true;
+        if(nomTacheComposite == "")
+        {
+            //on ajoute dans un projet
+            ProjetManager& pm = ProjetManager::getInstance();
+            Projet& proj = pm.getProjet(nomProjet);
+            try{
+                proj.ajouterTache(t);
+            }catch(CalendarException e)
+            {
+                QMessageBox::warning(this,"Avertissement",e.getInfo());
+                fin = false;
+            }
+        }else
+        {
+            //on ajoute dans une tache composite
+
+            ProjetManager& pm = ProjetManager::getInstance();
+            Projet& proj = pm.getProjet(nomProjet);
+            TacheComposite* tc = dynamic_cast<TacheComposite*>(proj.getTache(nomTacheComposite));
+            try{
+                tc->ajouterSousTache(t);
+            }catch(CalendarException e)
+            {
+                QMessageBox::warning(this,"Avertissement",e.getInfo());
+                fin = false;
+            }
+        }
+        if(fin){
+            ProjetManager::getInstance().notifier(); //on notifie l'ajout a l'observateur pour qu'il se mette a jour
+            this->done(1);
+        }
     }
-
-    if(nomTacheComposite == "")
-    {
-        //on ajoute dans un projet
-
-        ProjetManager& pm = ProjetManager::getInstance();
-        Projet& proj = pm.getProjet(nomProjet);
-        proj.ajouterTache(t);
-    }else
-    {
-        //on ajoute dans une tache composite
-
-        ProjetManager& pm = ProjetManager::getInstance();
-        Projet& proj = pm.getProjet(nomProjet);
-        TacheComposite* tc = dynamic_cast<TacheComposite*>(proj.getTache(nomTacheComposite));
-        tc->ajouterSousTache(t);
-    }
-
-    ProjetManager::getInstance().notifier(); //on notifie l'ajout a l'observateur pour qu'il se mette a jour
-    this->done(1);
 
 }
