@@ -37,6 +37,8 @@ public:
     bool isEvenementTrad() const { return false; }
     bool isEvenement1j() const { return false; }
     bool isEvenementPj() const { return false; }
+    bool isRdv() const { return false; }
+
 
 };
 

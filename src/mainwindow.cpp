@@ -32,6 +32,8 @@ MainWindow::MainWindow(QWidget *parent) :
     QObject::connect(ui->Bouton_load,SIGNAL(clicked()),this,SLOT(load()));
     QObject::connect(ui->Bouton_save,SIGNAL(clicked()),this,SLOT(save()));
 
+
+
     QObject::connect(ui->Bouton_exporter_programmations_semaine, SIGNAL(clicked()),this,SLOT(exporterProgrammationsSemaine()));
     QObject::connect(ui->Bouton_exporter_programmation_projet, SIGNAL(clicked()),this,SLOT(exporterProgrammationsProjet()));
 

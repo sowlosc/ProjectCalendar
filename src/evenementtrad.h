@@ -22,6 +22,8 @@ public:
     virtual bool isEvenementTrad() const { return true; }
     virtual bool isEvenement1j() const = 0;
     virtual bool isProgrammationPartieTache() const { return false; }
+    virtual bool isRdv() const = 0;
+
 
 };
 

@@ -5,12 +5,12 @@
 #include "precedence.h"
 #include "exception.h"
 #include "observateur.h"
-
+#include "enregistrable.h"
 /* on suppose que les precedences ne peuvent jamais être modif
  * elles seront soit suppr soit creeer
  * */
 
-class PrecedenceManager : public Observable
+class PrecedenceManager : public Observable, public Enregistrable
 {
     std::vector<Precedence*> precedences;
     static PrecedenceManager* instance;
@@ -18,7 +18,6 @@ class PrecedenceManager : public Observable
     PrecedenceManager(const PrecedenceManager&);
     PrecedenceManager& operator=(const PrecedenceManager&);
     ~PrecedenceManager() {}
-    QString file;
 public:
     static PrecedenceManager& getInstance();
     static void libereInstace();

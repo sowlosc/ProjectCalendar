@@ -24,7 +24,7 @@ int main(int argc, char *argv[])
     pm.ajouterObservateur(&w);
     prm.ajouterObservateur(&w);
 
-   /* for(ProjetManager::iterator it = ProjetManager::getInstance().begin(); it != ProjetManager::getInstance().end() ; ++it)
+    for(ProjetManager::iterator it = ProjetManager::getInstance().begin(); it != ProjetManager::getInstance().end() ; ++it)
         (*it).ajouterObservateur(&w);
 
 
@@ -85,12 +85,12 @@ int main(int argc, char *argv[])
     ag.ajouterObservateur(&w);
 
 
-    Evenement1j evt1(QDate(1994,3,20),QTime(19,50,0),Duree(3,0),"Finale CdF");
-    Rdv evt2(QDate(1994,3,20),QTime(13,0,0),Duree(3,0),"Exemanen IC06","PG");
-    Rdv evt99(QDate(1994,3,21),QTime(6,0,0),Duree(1,0),"Evenement test","PG");
+    Evenement1j evt1(QDate(2015,6,11),QTime(13,45,0),Duree(2,15),"Finale CdF");
+    Rdv evt2(QDate(2015,6,15),QTime(13,0,0),Duree(3,0),"Exemanen IC06","PG");
+    Rdv evt99(QDate(2015,6,12),QTime(6,0,0),Duree(1,0),"Evenement test","PG");
 
     evt2.ajouterPersonne("Brice Roy");
-    EvenementPj evt3(QDate(2015,6,20),QTime(0,0,0),QDate(2015,7,1),QTime(0,0,0),"Examens finaux");
+    EvenementPj evt3(QDate(2015,6,12),QTime(16,0,0),QDate(2015,6,13),QTime(10,30,0),"Examens finaux");
 
     ag << evt1 << evt2 << evt3 << evt99;
 
@@ -111,7 +111,7 @@ int main(int argc, char *argv[])
     TacheComposite *t3 = new TacheComposite("t3","taches3",QDate(1800,6,1),QDate(2200,7,7),"Tahce complexe");
 
     TacheUnitaire *t4 = new TacheUnitaire("t3.1","sousTache1",QDate(2015,8,1),QDate(2015,9,7),"Initialisation",Duree(1,40),false);
-    TacheUnitaire *t5 = new TacheUnitaire("t3.2","sousTache2",QDate(1900,8,1),QDate(2014,9,7),"Developpement",Duree(2,35),true);
+    TacheUnitaire *t5 = new TacheUnitaire("t3.2","sousTache2",QDate(1900,8,1),QDate(2015,9,7),"Developpement",Duree(2,35),true);
 
     TacheComposite *t6 = new TacheComposite("t3.3","sousTache3",QDate(1850,6,1),QDate(2050,7,7),"sous Tahce complexe");
 
@@ -159,9 +159,10 @@ int main(int argc, char *argv[])
     for(Projet::iterator it = pj.begin() ; it != pj.end() ; ++it)
         std::cout<<(*it).getDescription().toStdString()<<std::endl;
 
-    ProgrammationTache evt4(QDate(2015,6,10),QTime(12,0,0),t2,"projet2");
-    ProgrammationPartieTache evt5(QDate(1994,3,22),QTime(18,30,0),Duree(1,30),t5,"projet2");
-    EvenementPj evtP(QDate(1994,3,24),QTime(10,0),QDate(1994,3,26),QTime(17,30),"Projet LO21");
+    Projet& pr2 = pm.getProjet("projet2");
+    ProgrammationTache evt4(QDate(2015,6,10),QTime(12,0,0),t2,&pr2);
+    ProgrammationPartieTache evt5(QDate(2015,6,4),QTime(18,30,0),Duree(1,30),t5,&pr2);
+    EvenementPj evtP(QDate(2015,6,8),QTime(10,0),QDate(2015,6,9),QTime(17,30),"Projet LO21");
 
 
 
@@ -172,14 +173,14 @@ int main(int argc, char *argv[])
 
 
     std::cout<<"____________________________________\n";
-    prm.ajouterPrecedence(*t1,*t2,"projet2");
-    prm.ajouterPrecedence(*t1,*t3,"projet2");
+    prm.ajouterPrecedence(*t1,*t2,&pr2);
+    prm.ajouterPrecedence(*t1,*t3,&pr2);
 
 
-    prm.ajouterPrecedence(*t3,*t4,"projet2");
-    prm.ajouterPrecedence(*t1,*t4,"projet2");
-    prm.ajouterPrecedence(*t5,*t6,"projet2");
-    prm.ajouterPrecedence(*t7,*t1,"projet2");
+    prm.ajouterPrecedence(*t3,*t4,&pr2);
+    prm.ajouterPrecedence(*t1,*t4,&pr2);
+    prm.ajouterPrecedence(*t5,*t6,&pr2);
+    prm.ajouterPrecedence(*t7,*t1,&pr2);
 
 
     for(Tache::const_succ_iterator it = t1->beginSucc(); it != t1->endSucc(); ++it)
@@ -188,7 +189,7 @@ int main(int argc, char *argv[])
 
     for(Tache::const_pred_iterator it = t3->beginPred() ; it!= t3->endPred() ; ++it)
         std::cout << "Tache pred -> " << (*it)->getTitre().toStdString() << "\n";
-*/
+
    // pm.save("projets.xml");
     //prm.save("precedences.xml");
     //ag.save("agenda.xml");

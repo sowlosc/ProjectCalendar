@@ -9,8 +9,9 @@
 #include <QString>
 #include <QDate>
 #include "exception.h"
+#include "enregistrable.h"
 
-class ProjetManager : public Observable
+class ProjetManager : public Observable, public Enregistrable
 {
 
     std::map<QString,Projet*> projets;
@@ -20,9 +21,6 @@ class ProjetManager : public Observable
     ProjetManager(const ProjetManager&);
     ~ProjetManager() {};
     ProjetManager& operator=(const ProjetManager&);
-    QString file;
-
-
 
 public:
     static ProjetManager& getInstance();

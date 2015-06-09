@@ -21,6 +21,7 @@ public:
 
     virtual bool isEvenement1j() const { return true; }
     virtual bool isEvenementPj() const { return false; }
+    virtual bool isRdv() const { return false; }
 
     virtual void toXml(QXmlStreamWriter&s) const;
     static Evenement1j* getFromXml(QXmlStreamReader& xml);

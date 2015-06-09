@@ -35,7 +35,8 @@ SOURCES += \
     src/evenementinfodialog.cpp \
     src/ajoutevenementtraddialog.cpp \
     src/ajoutprecedencedialog.cpp \
-    src/programmationtachedialog.cpp
+    src/programmationtachedialog.cpp \
+    src/enregistrable.cpp
 
 #QT       += core
 
@@ -77,7 +78,8 @@ HEADERS += \
     src/evenementinfodialog.h \
     src/ajoutevenementtraddialog.h \
     src/ajoutprecedencedialog.h \
-    src/programmationtachedialog.h
+    src/programmationtachedialog.h \
+    src/enregistrable.h
 
 FORMS += \
     src/mainwindow.ui \

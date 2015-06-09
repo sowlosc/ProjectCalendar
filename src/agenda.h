@@ -8,19 +8,19 @@
 #include "observateur.h"
 #include "programmationpartietache.h"
 #include "evenementpj.h"
+#include "enregistrable.h"
 //#include <QDateTime>
 
 //class ProgrammationTache;
 class Tache;
-class Agenda : public Observable
+class Agenda : public Observable, public Enregistrable
 {
     std::vector<Evenement*> events;
     static Agenda* instance;
-    Agenda() {}
+    Agenda() : Observable(), Enregistrable() {}
     ~Agenda();
     Agenda(const Agenda&);
     Agenda& operator=(const Agenda&);
-    QString file;
 
 
 public:

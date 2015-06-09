@@ -24,6 +24,7 @@ public:
 
     bool isProgrammationPartieTache() const { return true; }
 
+
 };
 
 

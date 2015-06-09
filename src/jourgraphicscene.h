@@ -25,8 +25,6 @@ public:
 class JourGraphicScene : public QGraphicsScene, public Observateur
 {
 
-    static QColor couleurs[];
-    static int nb_couleurs;
     QString jour;
     QDate date;
     qreal hauteur;

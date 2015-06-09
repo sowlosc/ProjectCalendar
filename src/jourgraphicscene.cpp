@@ -1,7 +1,5 @@
 #include "jourgraphicscene.h"
 
-QColor JourGraphicScene::couleurs[] = { QColor("red"), QColor("blue"), QColor("yellow"), QColor("green"),QColor("orange") };
-int JourGraphicScene::nb_couleurs = 5;
 
 QGraphicsRectItem* JourGraphicScene::ajouterEvenement(const QString titre, const QTime &deb,
                                                       const Duree &dur,Evenement*e, const QColor& coul_fond, const QColor& coul_contour)
@@ -99,12 +97,26 @@ void JourGraphicScene::mise_a_jour()
     int i = 0;
     for(Agenda::iterator it = ag.begin() ; it != ag.end() ; ++it)
     {
-        QColor fond = couleurs[i];
-        //QColor bordure;
-        i = (i+1) % nb_couleurs;
+        QColor fond;
+
+        if((*it).isProgrammationPartieTache())
+            fond = QColor("orange") ;
+        else if((*it).isRdv())
+            fond = QColor("yellow");
+        else if((*it).isProgrammationTache())
+            fond = QColor("green");
+        else if((*it).isEvenement1j())
+            fond = QColor("red") ;
+        else if((*it).isEvenementPj())
+            fond = QColor("blue") ;
+
+
+
+
 
         if(!(*it).isEvenementPj() && (*it).getDate() == date)
         {
+
             ajouterEvenement((*it).getSujet(),(*it).getHoraire(),(*it).getDuree(),&(*it),fond);
 
         }else if((*it).isEvenementPj())

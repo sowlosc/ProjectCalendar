@@ -51,8 +51,7 @@ void ProjetManager::supprimerProjet(const QString &titre)
 }
 
 void  ProjetManager::save(const QString& f){
-    file=f;
-    QFile newfile( file);
+    QFile newfile(f);
     if (!newfile.open(QIODevice::WriteOnly | QIODevice::Text))
         throw CalendarException(QString("erreur sauvegarde tâches : ouverture fichier xml"));
     QXmlStreamWriter stream(&newfile);
@@ -71,9 +70,7 @@ void  ProjetManager::save(const QString& f){
 
 void ProjetManager::load(const QString &f)
 {
-
-   file=f;
-   QFile fin(file);
+   QFile fin(f);
    // If we can't open it, let's show an error message.
    if (!fin.open(QIODevice::ReadOnly | QIODevice::Text)) {
        throw CalendarException("Erreur ouverture fichier tâches");

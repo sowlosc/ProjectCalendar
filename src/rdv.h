@@ -31,6 +31,12 @@ public:
     void toXml(QXmlStreamWriter &) const;
     static Rdv* getFromXml(QXmlStreamReader &xml);
 
+    virtual bool isRdv() const { return true; }
+
+
+
+
+
     class personnes_iterator{
         std::vector<QString>::iterator it;
         friend class Rdv;
