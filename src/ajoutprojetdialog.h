@@ -2,7 +2,6 @@
 #define AJOUTPROJETDIALOG_H
 
 #include <QDialog>
-#include "projetmanager.h"
 
 namespace Ui {
 class AjoutProjetDialog;

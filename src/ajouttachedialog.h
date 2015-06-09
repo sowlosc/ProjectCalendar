@@ -20,7 +20,6 @@ class AjoutTacheDialog : public QDialog
     QString nomTacheComposite;
 public:
     explicit AjoutTacheDialog(QWidget *parent , const QString& proj, const QString& tCompo="");
-    //explicit AjoutTacheDialog(QWidget *parent ,Projet *p = 0);
     ~AjoutTacheDialog();
 
 private:

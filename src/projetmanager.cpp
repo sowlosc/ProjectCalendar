@@ -22,7 +22,7 @@ void ProjetManager::libererInstance()
 Projet& ProjetManager::ajouterProjet(const QString &t, const QString &desc, const QDate &dispo, const QDate &ech)
 {
     if(projets.find(t) != projets.end())
-        throw CalendarException("erreur, ProjetManager, projet deja existant");
+        throw CalendarException("Projet déjà existant");
     projets[t] = new Projet(t,desc,dispo,ech);
     notifier();
     return *projets[t];
@@ -42,7 +42,7 @@ const Projet& ProjetManager::getProjet(const QString &t) const
 void ProjetManager::supprimerProjet(const QString &titre)
 {
     if(projets.find(titre) == projets.end())
-        throw CalendarException("Erreur, ProjetManager, impossible retirer un projet qui n'existe pas");
+        throw CalendarException("Impossible de retirer un projet qui n'existe pas");
     else{
         delete projets[titre];
         projets.erase(titre);

@@ -25,6 +25,7 @@ Projet& Projet::ajouterTache(Tache *t)
     return *this;
 }
 
+//a enlever
 void Projet::retirerTache(Tache *t)
 {
     if(taches.find(t->getId()) != taches.end()){
@@ -33,6 +34,7 @@ void Projet::retirerTache(Tache *t)
         notifier();
     }
 }
+
 void Projet::retirerTache(const QString id)
 {
     std::map<QString, Tache*>* parent = getTacheMap(id);

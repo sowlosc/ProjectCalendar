@@ -1,5 +1,7 @@
 #include "ajoutprojetdialog.h"
 #include "ui_ajoutprojetdialog.h"
+#include "projetmanager.h"
+#include <QMessageBox>
 
 AjoutProjetDialog::AjoutProjetDialog(QWidget *parent) :
     QDialog(parent),
@@ -23,12 +25,18 @@ void AjoutProjetDialog::accept()
     QDate dispo = ui->dateEdit_disponibilite->date();
     QDate ech = ui->dateEdit_echeance->date();
 
-    try
+    if(titre!="")
     {
-        ProjetManager::getInstance().ajouterProjet(titre,desc,dispo,ech);
-    }catch(CalendarException e)
-    {
-        std::cerr << e.getInfo().toStdString();
+        bool fin = true;
+        try
+        {
+            ProjetManager::getInstance().ajouterProjet(titre,desc,dispo,ech);
+        }catch(CalendarException e)
+        {
+            QMessageBox::warning(this,"Avertissement",e.getInfo());
+            fin = false;
+        }
+        if(fin)
+            done(1);
     }
-    done(1);
 }

@@ -27,7 +27,10 @@ public:
           const QString& t,
           const QDate& dispo,
           const QDate& ech,
-          const QString& txt) : identificateur(id), titre(t), disponibilite(dispo),echeance(ech),description(txt) {}
+          const QString& txt) : identificateur(id), titre(t), disponibilite(dispo),echeance(ech),description(txt) {
+        if(disponibilite>echeance)
+            throw CalendarException("Disponibilité > Echéance");
+    }
     virtual ~Tache();
 
     const QString& getId() const { return identificateur; }

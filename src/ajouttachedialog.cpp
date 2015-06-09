@@ -36,51 +36,56 @@ void AjoutTacheDialog::accept()
     QDate ech = ui->dateEdit_ech->date();
 
 
-    if(id!="" && titre!="" && dispo<=ech)
+    if(id!="" && titre!="")
     {
-
-        Tache* t;
-        if(ui->checkBox_composite->isChecked())
-        {
-            t = new TacheComposite(id,titre,dispo,ech,desc);
-        }else if(ui->checkBox_unitaire_non_preemptive->isChecked())
-        {
-            QTime time = ui->timeEdit_duree->time();
-            Duree duree(time.hour(),time.minute());
-            t = new TacheUnitaire(id,titre,dispo,ech,desc,duree,false);
-        }else
-        {
-            QTime time = ui->timeEdit_duree->time();
-            Duree duree(time.hour(),time.minute());
-            t = new TacheUnitaire(id,titre,dispo,ech,desc,duree,true);
-        }
-
         bool fin = true;
-        if(nomTacheComposite == "")
-        {
-            //on ajoute dans un projet
-            ProjetManager& pm = ProjetManager::getInstance();
-            Projet& proj = pm.getProjet(nomProjet);
-            try{
-                proj.ajouterTache(t);
-            }catch(CalendarException e)
+        Tache* t;
+        try{
+            if(ui->checkBox_composite->isChecked())
             {
-                QMessageBox::warning(this,"Avertissement",e.getInfo());
-                fin = false;
+                t = new TacheComposite(id,titre,dispo,ech,desc);
+            }else if(ui->checkBox_unitaire_non_preemptive->isChecked())
+            {
+                QTime time = ui->timeEdit_duree->time();
+                Duree duree(time.hour(),time.minute());
+                t = new TacheUnitaire(id,titre,dispo,ech,desc,duree,false);
+            }else
+            {
+                QTime time = ui->timeEdit_duree->time();
+                Duree duree(time.hour(),time.minute());
+                t = new TacheUnitaire(id,titre,dispo,ech,desc,duree,true);
             }
-        }else
+        }catch(CalendarException e)
         {
-            //on ajoute dans une tache composite
-
-            ProjetManager& pm = ProjetManager::getInstance();
-            Projet& proj = pm.getProjet(nomProjet);
-            TacheComposite* tc = dynamic_cast<TacheComposite*>(proj.getTache(nomTacheComposite));
-            try{
-                tc->ajouterSousTache(t);
-            }catch(CalendarException e)
+            QMessageBox::warning(this,"Avertissement",e.getInfo());
+            fin = false;
+        }
+        if(fin){
+            if(nomTacheComposite == "")
             {
-                QMessageBox::warning(this,"Avertissement",e.getInfo());
-                fin = false;
+                //on ajoute dans un projet
+                ProjetManager& pm = ProjetManager::getInstance();
+                Projet& proj = pm.getProjet(nomProjet);
+                try{
+                    proj.ajouterTache(t);
+                }catch(CalendarException e)
+                {
+                    QMessageBox::warning(this,"Avertissement",e.getInfo());
+                    fin = false;
+                }
+            }else
+            {
+                //on ajoute dans une tache composite
+                ProjetManager& pm = ProjetManager::getInstance();
+                Projet& proj = pm.getProjet(nomProjet);
+                TacheComposite* tc = dynamic_cast<TacheComposite*>(proj.getTache(nomTacheComposite));
+                try{
+                    tc->ajouterSousTache(t);
+                }catch(CalendarException e)
+                {
+                    QMessageBox::warning(this,"Avertissement",e.getInfo());
+                    fin = false;
+                }
             }
         }
         if(fin){
