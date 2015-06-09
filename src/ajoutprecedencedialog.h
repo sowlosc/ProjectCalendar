@@ -14,11 +14,13 @@ class AjoutPrecedenceDialog;
 class AjoutPrecedenceDialog : public QDialog
 {
     Q_OBJECT
-    QString tacheId;
-    QString projet;
+    //QString tacheId;
+    //QString projet;
+    Tache* tache;
+    Projet* projet;
 
 public:
-    explicit AjoutPrecedenceDialog(const QString tacheId, const QString p, QWidget *parent = 0);
+    explicit AjoutPrecedenceDialog(Tache* t, Projet* p, QWidget *parent = 0);
     ~AjoutPrecedenceDialog();
 
 private:

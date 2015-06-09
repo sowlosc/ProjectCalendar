@@ -113,7 +113,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="keyword">static</span> <a class="code" href="class_precedence_manager.html">PrecedenceManager</a>&amp; getInstance();</div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> libereInstace();</div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    std::vector&lt;Precedence*&gt;::iterator findPrecedence(<span class="keyword">const</span> <a class="code" href="class_tache.html">Tache</a>&amp; t1, <span class="keyword">const</span> <a class="code" href="class_tache.html">Tache</a>&amp; t2);</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="keywordtype">void</span> ajouterPrecedence(<span class="keyword">const</span> <a class="code" href="class_tache.html">Tache</a> &amp;t1, <span class="keyword">const</span> <a class="code" href="class_tache.html">Tache</a> &amp;t2,<span class="keyword">const</span> QString&amp; nomProj);</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="keywordtype">void</span> ajouterPrecedence(<span class="keyword">const</span> <a class="code" href="class_tache.html">Tache</a> &amp;t1, <span class="keyword">const</span> <a class="code" href="class_tache.html">Tache</a> &amp;t2, <span class="keyword">const</span> <a class="code" href="class_projet.html">Projet</a> *proj);</div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="keywordtype">void</span> retirerPrecedence(<span class="keyword">const</span> <a class="code" href="class_tache.html">Tache</a> &amp;t1, <span class="keyword">const</span> <a class="code" href="class_tache.html">Tache</a> &amp;t2);</div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="keywordtype">void</span> save(<span class="keyword">const</span> QString&amp; f);</div>
@@ -139,12 +139,13 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="ttc" id="class_precedence_manager_html"><div class="ttname"><a href="class_precedence_manager.html">PrecedenceManager</a></div><div class="ttdef"><b>Definition:</b> precedencemanager.h:13</div></div>
 <div class="ttc" id="class_precedence_manager_1_1iterator_html"><div class="ttname"><a href="class_precedence_manager_1_1iterator.html">PrecedenceManager::iterator</a></div><div class="ttdef"><b>Definition:</b> precedencemanager.h:32</div></div>
 <div class="ttc" id="class_observable_html"><div class="ttname"><a href="class_observable.html">Observable</a></div><div class="ttdef"><b>Definition:</b> observateur.h:12</div></div>
-<div class="ttc" id="class_precedence_html"><div class="ttname"><a href="class_precedence.html">Precedence</a></div><div class="ttdef"><b>Definition:</b> precedence.h:7</div></div>
+<div class="ttc" id="class_precedence_html"><div class="ttname"><a href="class_precedence.html">Precedence</a></div><div class="ttdef"><b>Definition:</b> precedence.h:9</div></div>
 <div class="ttc" id="class_tache_html"><div class="ttname"><a href="class_tache.html">Tache</a></div><div class="ttdef"><b>Definition:</b> projet.h:15</div></div>
+<div class="ttc" id="class_projet_html"><div class="ttname"><a href="class_projet.html">Projet</a></div><div class="ttdoc">Classe permettant de manipuler des projets Les projets de cette classe contiendront des taches...</div><div class="ttdef"><b>Definition:</b> projet.h:67</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Jun 9 2015 02:08:59 for ProjectCalendar by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Jun 9 2015 18:04:19 for ProjectCalendar by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

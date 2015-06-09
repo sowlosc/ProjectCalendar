@@ -1,26 +1,26 @@
 #include "ajoutprecedencedialog.h"
 #include "ui_ajoutprecedencedialog.h"
 
-AjoutPrecedenceDialog::AjoutPrecedenceDialog(const QString t, const QString p, QWidget *parent) :
-    QDialog(parent),tacheId(t), projet(p),
+AjoutPrecedenceDialog::AjoutPrecedenceDialog(Tache* t, Projet* p, QWidget *parent) :
+    QDialog(parent),tache(t), projet(p),
     ui(new Ui::AjoutPrecedenceDialog)
 {
     ui->setupUi(this);
 
-    ui->label->setText("Tache devant être terminée avant "+tacheId+ " :");
+   // ui->label->setText("Tache devant être terminée avant "+tacheId+ " :");
 
-    Projet& proj = ProjetManager::getInstance().getProjet(projet);
+    //Projet& proj = ProjetManager::getInstance().getProjet(projet);
 
-    Tache* tache = proj.getTache(tacheId);
+    //Tache* tache = proj.getTache(tacheId);
 
-    std::map<QString, Tache*> *map = proj.getTacheMap(tacheId);
+    std::map<QString, Tache*> *map = projet->getTacheMap(tache->getId());
 
     for(std::map<QString,Tache*>::iterator it = map->begin(); it != map->end() ; ++it )
     {
-        if(it->second->getId() != tacheId ){
+        if(it->second != tache ){
             bool ok = true;
             for(Tache::const_succ_iterator succIter = it->second->beginSucc() ; succIter != it->second->endSucc() ; ++succIter)
-                if((*succIter)->getId() == tacheId)
+                if( *succIter == tache)
                     ok = false;
             if(ok){                
                 std::cout<<"affichage de "<<it->second->getTitre().toStdString()<<"\n";
@@ -41,8 +41,8 @@ void AjoutPrecedenceDialog::accept()
 {
     if(ui->selecteur_tache_pred->currentText()!="")
     {
-        Tache* pred = ProjetManager::getInstance().getProjet(projet).getTache(ui->selecteur_tache_pred->currentText());
-        Tache* succ = ProjetManager::getInstance().getProjet(projet).getTache(tacheId);
+        Tache* pred = projet->getTache(ui->selecteur_tache_pred->currentText());
+        Tache* succ = tache;
         ajouterPrecedenceRecurs(succ,pred);
     }
     done(1);

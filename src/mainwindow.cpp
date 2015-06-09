@@ -407,7 +407,7 @@ void MainWindow::ajouterPrecedence()
         TreeProjetItem *projetItem = dynamic_cast<TreeProjetItem*>(current->getParentProject());
         if(!tacheItem->getTache()->isProgrammed())
         {
-            AjoutPrecedenceDialog *dial = new AjoutPrecedenceDialog(tacheItem->getTache()->getId(),projetItem->getProjet()->getTitre());
+            AjoutPrecedenceDialog *dial = new AjoutPrecedenceDialog(tacheItem->getTache(),projetItem->getProjet());
             dial->exec();
             delete dial;
         }
@@ -437,9 +437,9 @@ void MainWindow::maj_listePrecedences()
         const Tache *t_succ = (*it).getSuccesseur();
         QString pred = t_pred->getId();
         QString succ =  t_succ->getId();
-        QString projet = (*it).getProjet();
+        const Projet *projet = (*it).getProjet();
 
-        QString txt = projet + " :   " +t_pred->getTitre() + " (" +  pred + ") -> " +t_succ->getTitre()+ " ("+succ+")";
+        QString txt = projet->getTitre() + " :   " +t_pred->getTitre() + " (" +  pred + ") -> " +t_succ->getTitre()+ " ("+succ+")";
         ListPrecedenceItem* item = new ListPrecedenceItem(txt,&(*it),ui->listWidget_precedence);
         ui->listWidget_precedence->addItem(item);
     }

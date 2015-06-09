@@ -28,7 +28,7 @@ std::vector<Precedence*>::iterator PrecedenceManager::findPrecedence(const Tache
 }
 
 
-void PrecedenceManager::ajouterPrecedence(const Tache &t1, const Tache &t2,const QString& nomProj)
+void PrecedenceManager::ajouterPrecedence(const Tache &t1, const Tache &t2,const Projet* proj)
 {
     /* il faut verifier que la precedence n'existe pas deja
      * et qu'elle ne provoque pas d'incoherence
@@ -37,7 +37,7 @@ void PrecedenceManager::ajouterPrecedence(const Tache &t1, const Tache &t2,const
     if(findPrecedence(t1,t2) != precedences.end())
             throw CalendarException("Erreur, PercedenceManager, cette precedence existe deja");
 
-    Precedence *p = new Precedence(&t1,&t2,nomProj);
+    Precedence *p = new Precedence(&t1,&t2,proj);
     precedences.push_back(p);
     notifier();
 }
@@ -139,7 +139,7 @@ void PrecedenceManager::load(const QString &f)
                Projet& p = ProjetManager::getInstance().getProjet(nomProjet);
                Tache* pred = p.getTache(idPred);
                Tache* succ = p.getTache(idSucc);
-               PrecedenceManager::getInstance().ajouterPrecedence(*pred,*succ,p.getTitre());
+               PrecedenceManager::getInstance().ajouterPrecedence(*pred,*succ,&p);
 
                 xml.readNext();
 
