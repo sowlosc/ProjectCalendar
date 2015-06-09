@@ -13,8 +13,6 @@
 class Tache : public Observable
 {
     std::set<Observateur*> obs;
-
-
     QString identificateur;
     QString titre;
     QDate disponibilite;

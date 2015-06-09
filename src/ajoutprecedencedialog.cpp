@@ -7,12 +7,6 @@ AjoutPrecedenceDialog::AjoutPrecedenceDialog(Tache* t, Projet* p, QWidget *paren
 {
     ui->setupUi(this);
 
-   // ui->label->setText("Tache devant être terminée avant "+tacheId+ " :");
-
-    //Projet& proj = ProjetManager::getInstance().getProjet(projet);
-
-    //Tache* tache = proj.getTache(tacheId);
-
     std::map<QString, Tache*> *map = projet->getTacheMap(tache->getId());
 
     for(std::map<QString,Tache*>::iterator it = map->begin(); it != map->end() ; ++it )

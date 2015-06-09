@@ -1012,25 +1012,6 @@
           </widget>
          </item>
          <item>
-          <widget class="QPushButton" name="Bouton_save">
-           <property name="minimumSize">
-            <size>
-             <width>249</width>
-             <height>0</height>
-            </size>
-           </property>
-           <property name="maximumSize">
-            <size>
-             <width>249</width>
-             <height>16777215</height>
-            </size>
-           </property>
-           <property name="text">
-            <string>save</string>
-           </property>
-          </widget>
-         </item>
-         <item>
           <widget class="QPushButton" name="Bouton_load">
            <property name="minimumSize">
             <size>
@@ -1045,7 +1026,26 @@
             </size>
            </property>
            <property name="text">
-            <string>load</string>
+            <string>Charger</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="Bouton_save">
+           <property name="minimumSize">
+            <size>
+             <width>249</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>249</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <property name="text">
+            <string>Sauvegarder</string>
            </property>
           </widget>
          </item>

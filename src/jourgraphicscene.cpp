@@ -54,7 +54,6 @@ QGraphicsRectItem* JourGraphicScene::ajouterEvenement(const QString titre, const
     //QObject::connect(this,SIGNAL(selectionChanged()),this,SLOT(JourGraphicScene::test()));
     //QObject::connect(ui->graphicsView_mardi->scene(),SIGNAL(selectionChanged()),this,SLOT(detaillerEvenement_mardi()));
 
-
     return tache;
 }
 

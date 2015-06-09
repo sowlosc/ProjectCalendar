@@ -10,11 +10,8 @@ MainWindow::MainWindow(QWidget *parent) :
     pm(ProjetManager::getInstance()), predm(PrecedenceManager::getInstance())
 {
     ui->setupUi(this);
-
     maj_treeWidget();
     maj_listePrecedences();
-
-
 
     ui->calendarWidget->setSelectedDate(QDate::currentDate());
 
@@ -24,16 +21,11 @@ MainWindow::MainWindow(QWidget *parent) :
     QObject::connect(ui->Bouton_supprimer_projet,SIGNAL(clicked()),this,SLOT(supprimerProjet()));
     QObject::connect(ui->Bouton_ajouter_projet,SIGNAL(clicked()),this,SLOT(ajouterProjet()));
     QObject::connect(ui->Bouton_ajouter_evenement,SIGNAL(clicked()),this,SLOT(ajouterEvenementTrad()));
-
     QObject::connect(ui->Bouton_ajout_precedence,SIGNAL(clicked()),this,SLOT(ajouterPrecedence()));
     QObject::connect(ui->Bouton_supprimer_precedence,SIGNAL(clicked()),this,SLOT(supprimerPrecedence()));
     QObject::connect(ui->Bouton_programmer_tache,SIGNAL(clicked()),this,SLOT(programmerTache()));
-
     QObject::connect(ui->Bouton_load,SIGNAL(clicked()),this,SLOT(load()));
     QObject::connect(ui->Bouton_save,SIGNAL(clicked()),this,SLOT(save()));
-
-
-
     QObject::connect(ui->Bouton_exporter_programmations_semaine, SIGNAL(clicked()),this,SLOT(exporterProgrammationsSemaine()));
     QObject::connect(ui->Bouton_exporter_programmation_projet, SIGNAL(clicked()),this,SLOT(exporterProgrammationsProjet()));
 
@@ -50,7 +42,6 @@ MainWindow::MainWindow(QWidget *parent) :
         Agenda::getInstance().ajouterObservateur(scenes[i]);
 
 
-
     ui->graphicsView_lundi->setScene(scenes[0]);
     ui->graphicsView_mardi->setScene(scenes[1]);
     ui->graphicsView_mercredi->setScene(scenes[2]);
@@ -59,15 +50,6 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->graphicsView_samedi->setScene(scenes[5]);
     ui->graphicsView_dimanche->setScene(scenes[6]);
 
-   /* QGraphicsScene *scene = new QGraphicsScene(this);
-    ui->graphicsView->setScene(scene);
-    QBrush redBrush(Qt::red);
-    QPen pen(Qt::black);
-*/
-   /*QGraphicsRectItem *rect = scene->addRect(0,0,100,100,pen,redBrush);
-    rect->setFlag(QGraphicsItem::ItemIsFocusable);
-
-    QGraphicsTextItem *txt = scene->addText("losc");*/
 
 
     QObject::connect(ui->graphicsView_lundi->scene(),SIGNAL(selectionChanged()),this,SLOT(detaillerEvenement_lundi()));
@@ -77,7 +59,6 @@ MainWindow::MainWindow(QWidget *parent) :
     QObject::connect(ui->graphicsView_vendredi->scene(),SIGNAL(selectionChanged()),this,SLOT(detaillerEvenement_vendredi()));
     QObject::connect(ui->graphicsView_samedi->scene(),SIGNAL(selectionChanged()),this,SLOT(detaillerEvenement_samedi()));
     QObject::connect(ui->graphicsView_dimanche->scene(),SIGNAL(selectionChanged()),this,SLOT(detaillerEvenement_dimanche()));
-
     QObject::connect(ui->calendarWidget,SIGNAL(selectionChanged()),this,SLOT(maj_dates()));
 
 
@@ -86,6 +67,7 @@ MainWindow::MainWindow(QWidget *parent) :
     maj_treeWidget();
     maj_dates();
 }
+
 
 void MainWindow::detaillerEvenement_lundi()
  {
@@ -254,7 +236,6 @@ void MainWindow::maj_dates()
 
     for(int i=0;i<7;i++)
         scenes[i]->mise_a_jour();
-
 }
 
 void MainWindow::construct_recurs_tree(Tache* t, QTreeWidgetItem *root)
@@ -264,7 +245,6 @@ void MainWindow::construct_recurs_tree(Tache* t, QTreeWidgetItem *root)
     if(t->isComposite())
     {
         TacheComposite* tc = dynamic_cast<TacheComposite*>(t);
-
         for(TacheComposite::iterator cit = tc->begin() ; cit != tc->end() ; ++cit)
         {
             construct_recurs_tree(&(*cit),nouv);
@@ -278,7 +258,6 @@ void MainWindow::construct_recurs_tree(Tache* t, QTreeWidgetItem *root)
 void MainWindow::maj_treeWidget()
 {
     ui->treeWidget->clear(); //detruit et libere memoire
-
     ui->treeWidget->setColumnCount(1);
     ui->treeWidget->setHeaderLabels(QStringList() << "Projets");
 
@@ -287,7 +266,6 @@ void MainWindow::maj_treeWidget()
     {
         TreeProjetItem *nouv = new TreeProjetItem(ui->treeWidget,&(*it));
         nouv->setText(0,(*it).getTitre());
-
         for(Projet::iterator pit = (*it).begin() ; pit != (*it).end(); ++pit)
         {
             construct_recurs_tree(&(*pit),nouv);
@@ -303,9 +281,6 @@ void MainWindow::mise_a_jour()
     maj_listePrecedences();
     maj_descripteurs();
     std::cout << "fin de la mise a jour mainwindow\n";
-
-    /*for(int i=0;i<7;i++)
-        scenes[i]->mise_a_jour();*/
 }
 
 MainWindow::~MainWindow()
@@ -596,7 +571,7 @@ void MainWindow::closeEvent(QCloseEvent * event)
  * --> adaptateur entre projet et tache composite
  * --> observateur , les precedence observent le projetmanager, les projets et les taches
  *
-*/
+ */
 
 
 
