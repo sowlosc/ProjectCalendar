@@ -339,10 +339,10 @@ void MainWindow::maj_descripteurs()
 void MainWindow::ajouterTache()
 {
     TreeItem* current = dynamic_cast<TreeItem*>(ui->treeWidget->currentItem());
-    TreeProjetItem* projet = dynamic_cast<TreeProjetItem*>(current->getParentProject());
 
     if(current && !current->isUnitaire())
     {   //projet ou tache composite qui ont une methode ajouter tache
+        TreeProjetItem* projet = dynamic_cast<TreeProjetItem*>(current->getParentProject());
 
         if(current->isProjetItem())
         {
@@ -360,11 +360,10 @@ void MainWindow::ajouterTache()
 void MainWindow::supprimerTache()
 {
     TreeItem* current = dynamic_cast<TreeItem*>(ui->treeWidget->currentItem());
-    TreeProjetItem* projet = dynamic_cast<TreeProjetItem*>(current->getParentProject());
-
 
     if(current && !current->isProjetItem())
     {
+        TreeProjetItem* projet = dynamic_cast<TreeProjetItem*>(current->getParentProject());
         TreeTacheItem* ta = dynamic_cast<TreeTacheItem*>(current);
         projet->getProjet()->retirerTache(ta->getTache()->getId());
     }
@@ -419,9 +418,13 @@ void MainWindow::ajouterPrecedence()
 
 void MainWindow::supprimerPrecedence()
 {
-    const Precedence *prec = dynamic_cast<ListPrecedenceItem*>(ui->listWidget_precedence->currentItem())->getPrecedence();
-    PrecedenceManager::getInstance().retirerPrecedence(*prec->getPredecesseur(),*prec->getSuccesseur());
-    mise_a_jour();
+    ListPrecedenceItem* liste = dynamic_cast<ListPrecedenceItem*>(ui->listWidget_precedence->currentItem());
+    if(liste)
+    {
+        const Precedence *prec = liste->getPrecedence();
+        PrecedenceManager::getInstance().retirerPrecedence(*prec->getPredecesseur(),*prec->getSuccesseur());
+        mise_a_jour();
+    }
 }
 
 void MainWindow::maj_listePrecedences()
@@ -522,28 +525,31 @@ void MainWindow::exporterProgrammationsProjet()
 void MainWindow::exporterProgrammationsSemaine()
 {
     QString fichier = QFileDialog::getSaveFileName(this, "Enregistrer Sous ",QDir::homePath(),"Fichiers XML (*.xml)");
-    if(fichier[fichier.size()-4]!='.')
-        fichier = fichier + ".xml";
-
-    QDate deb = dynamic_cast<JourGraphicScene*>(ui->graphicsView_lundi->scene())->getDate();
-    QDate fin = dynamic_cast<JourGraphicScene*>(ui->graphicsView_dimanche->scene())->getDate();
-
-    QFile newfile(fichier);
-    if (!newfile.open(QIODevice::WriteOnly | QIODevice::Text))
-        throw CalendarException(QString("erreur sauvegarde tâches : ouverture fichier xml"));
-    QXmlStreamWriter stream(&newfile);
-    stream.setAutoFormatting(true);
-    stream.writeStartDocument();
-    stream.writeStartElement("programmations");
-    Agenda& ag = Agenda::getInstance();
-    for(Agenda::iterator it = ag.begin() ; it!= ag.end(); ++it)
+    if(fichier != "")
     {
-        if((*it).getDate()>=deb && (*it).getDate()<=fin)
-            (*it).toXml(stream);
+        if(fichier[fichier.size()-4]!='.')
+            fichier = fichier + ".xml";
+
+        QDate deb = dynamic_cast<JourGraphicScene*>(ui->graphicsView_lundi->scene())->getDate();
+        QDate fin = dynamic_cast<JourGraphicScene*>(ui->graphicsView_dimanche->scene())->getDate();
+
+        QFile newfile(fichier);
+        if (!newfile.open(QIODevice::WriteOnly | QIODevice::Text))
+            throw CalendarException(QString("erreur sauvegarde tâches : ouverture fichier xml"));
+        QXmlStreamWriter stream(&newfile);
+        stream.setAutoFormatting(true);
+        stream.writeStartDocument();
+        stream.writeStartElement("programmations");
+        Agenda& ag = Agenda::getInstance();
+        for(Agenda::iterator it = ag.begin() ; it!= ag.end(); ++it)
+        {
+            if((*it).getDate()>=deb && (*it).getDate()<=fin)
+                (*it).toXml(stream);
+        }
+        stream.writeEndElement();
+        stream.writeEndDocument();
+        newfile.close();
     }
-    stream.writeEndElement();
-    stream.writeEndDocument();
-    newfile.close();
 }
 
 

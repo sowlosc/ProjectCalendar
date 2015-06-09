@@ -6,6 +6,8 @@ AjoutTacheDialog::AjoutTacheDialog(QWidget *parent , const QString& proj, const 
     ui(new Ui::AjoutTacheDialog)
 {
     ui->setupUi(this);
+    ui->dateEdit_dispo->setDate(QDate::currentDate());
+    ui->dateEdit_ech->setDate(QDate::currentDate());
     QObject::connect(ui->checkBox_composite,SIGNAL(stateChanged(int)),this,SLOT(activerDuree(int)));
 }
 /*

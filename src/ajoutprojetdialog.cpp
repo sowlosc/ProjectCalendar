@@ -6,6 +6,8 @@ AjoutProjetDialog::AjoutProjetDialog(QWidget *parent) :
     ui(new Ui::AjoutProjetDialog)
 {
     ui->setupUi(this);
+    ui->dateEdit_disponibilite->setDate(QDate::currentDate());
+    ui->dateEdit_echeance->setDate(QDate::currentDate());
 }
 
 AjoutProjetDialog::~AjoutProjetDialog()

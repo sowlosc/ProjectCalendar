@@ -23,6 +23,9 @@ ProgrammationTacheDialog::ProgrammationTacheDialog(TacheUnitaire *t, const QStri
     ui->dateEdit_date->setMaximumDate(tache->getEcheance());
     ui->dateEdit_date->setMinimumDate(tache->getDisponibilite());
 
+    ui->timeEdit_horaire->setMinimumTime(QTime(6,0));
+    ui->timeEdit_horaire->setMaximumTime(QTime(22,0));
+
     QTime sum(0,0);
     std::vector<ProgrammationTache*> progs = Agenda::getInstance().getProgrammationTache(tache);
     for(std::vector<ProgrammationTache*>::iterator it = progs.begin() ; it != progs.end() ; ++it){

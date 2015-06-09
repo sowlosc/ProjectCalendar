@@ -16,6 +16,12 @@ AjoutEvenementTradDialog::AjoutEvenementTradDialog(QWidget *parent) :
     ui->timeEdit_duree->setTime(QTime(1,0));
     ui->timeEdit_horaire->setTime(QTime::currentTime());
     ui->timeEdit_horairefin->setTime(QTime::currentTime());
+
+    ui->timeEdit_horaire->setMinimumTime(QTime(6,0));
+    ui->timeEdit_horaire->setMaximumTime(QTime(22,0));
+    ui->timeEdit_horairefin->setMinimumTime(QTime(6,0));
+    ui->timeEdit_horairefin->setMaximumTime(QTime(22,0));
+
     int x=0;
 
     ui->label_lieu->setVisible(x);

@@ -206,12 +206,6 @@ int main(int argc, char *argv[])
 }
 
 
-/**
-
-  try de charger
-  si fichier existe on charge
-  sinon on recommence
-  */
 /*
  * A faire
  *
