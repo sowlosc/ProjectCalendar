@@ -24,7 +24,7 @@ void ProgrammationTache::toXml(QXmlStreamWriter &s) const
     s.writeTextElement("date",Evenement::getDate().toString(Qt::ISODate));
     s.writeTextElement("horaire",Evenement::getHoraire().toString(Qt::ISODate));
     s.writeTextElement("tache",tache->getId());
-    s.writeTextElement("projet",nomProjet);
+    s.writeTextElement("projet",projet->getTitre());
     s.writeEndElement();
 }
 
@@ -60,6 +60,6 @@ ProgrammationTache* ProgrammationTache::getFromXml(QXmlStreamReader& xml)
     }
     Projet& pr = ProjetManager::getInstance().getProjet(nomProjet);
     TacheUnitaire* tache = dynamic_cast<TacheUnitaire*>(pr.getTache(idTache));
-    ProgrammationTache *evt = new ProgrammationTache(date,horaire,tache,nomProjet);
+    ProgrammationTache *evt = new ProgrammationTache(date,horaire,tache,&pr);
     return evt;
 }

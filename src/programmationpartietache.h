@@ -8,8 +8,8 @@ class ProgrammationPartieTache : public ProgrammationTache
 {
     Duree dureePartie;
 public:
-    ProgrammationPartieTache(const QDate& ddeb, const QTime& tdeb, const Duree& dp, TacheUnitaire *t,const QString& nomProj)
-        : ProgrammationTache(ddeb,tdeb,t,nomProj), dureePartie(dp) {}
+    ProgrammationPartieTache(const QDate& ddeb, const QTime& tdeb, const Duree& dp, TacheUnitaire *t,Projet* p)
+        : ProgrammationTache(ddeb,tdeb,t,p), dureePartie(dp) {}
     virtual ~ProgrammationPartieTache(){}
 
     const Duree& getDuree() const { return dureePartie; }

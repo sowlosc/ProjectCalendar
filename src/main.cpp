@@ -23,6 +23,7 @@ int main(int argc, char *argv[])
 
     pm.ajouterObservateur(&w);
     prm.ajouterObservateur(&w);
+
    /* for(ProjetManager::iterator it = ProjetManager::getInstance().begin(); it != ProjetManager::getInstance().end() ; ++it)
         (*it).ajouterObservateur(&w);
 

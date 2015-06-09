@@ -37,7 +37,7 @@ public:
         :  QGraphicsScene(x,y,width,height,parent),jour(nom),hauteur(height),largeur(width),nb_minutes(nb_m) {
 
 
-        if(date >= QDate::currentDate())
+       /* if(date >= QDate::currentDate())
         {
             QLinearGradient linearGrad(QPointF(50, 0), QPointF(50, 480));
             linearGrad.setSpread(QGradient::RepeatSpread);
@@ -47,13 +47,13 @@ public:
             linearGrad.setColorAt(1, QColor("darkBlue"));
             this->setBackgroundBrush(linearGrad);
         }else
-            this->setBackgroundBrush(QBrush("lightGray"));
+            this->setBackgroundBrush(QBrush("lightGray"));*/
 
     }
     const QDate& getDate() const { return date; }
     void setDate(const QDate d) {
         date = d;
-        if(date >= QDate::currentDate())
+        if(date > QDate::currentDate())
         {
 /*            QLinearGradient linearGrad(QPointF(50, 0), QPointF(50, 480));
             linearGrad.setSpread(QGradient::RepeatSpread);

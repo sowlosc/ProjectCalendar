@@ -1,8 +1,8 @@
 #include "programmationtachedialog.h"
 #include "ui_programmationtachedialog.h"
 
-ProgrammationTacheDialog::ProgrammationTacheDialog(TacheUnitaire *t, const QString p, QWidget *parent) :
-    QDialog(parent),tache(t),nomProjet(p),
+ProgrammationTacheDialog::ProgrammationTacheDialog(TacheUnitaire *t, Projet* p, QWidget *parent) :
+    QDialog(parent),tache(t),projet(p),
     ui(new Ui::ProgrammationTacheDialog)
 {
 
@@ -99,11 +99,11 @@ void ProgrammationTacheDialog::accept()
         if(ui->checkBox_partie_tache->isChecked())
         {
             QTime duree = ui->timeEdit_duree->time();
-            ProgrammationPartieTache prog(date,horaire,Duree(duree.hour(),duree.minute()),tache,nomProjet);
+            ProgrammationPartieTache prog(date,horaire,Duree(duree.hour(),duree.minute()),tache,projet);
             Agenda::getInstance() << prog;
         }else
         {
-            ProgrammationTache prog(date,horaire,tache,nomProjet);
+            ProgrammationTache prog(date,horaire,tache,projet);
             Agenda::getInstance() << prog;
         }
     }

@@ -300,6 +300,8 @@ void MainWindow::mise_a_jour()
     maj_treeWidget();
     maj_listePrecedences();
     maj_descripteurs();
+    std::cout << "fin de la mise a jour mainwindow\n";
+
     /*for(int i=0;i<7;i++)
         scenes[i]->mise_a_jour();*/
 }
@@ -472,7 +474,7 @@ void MainWindow::programmerTache()
             if(!tu->isProgrammed() || (tu->isPreemptive() && tache_non_complete) )
             {
 
-                ProgrammationTacheDialog *dial = new ProgrammationTacheDialog(tu,projet->getTitre());
+                ProgrammationTacheDialog *dial = new ProgrammationTacheDialog(tu,projet);
                 dial->exec();
                 delete dial;
             }
@@ -506,7 +508,7 @@ void MainWindow::exporterProgrammationsProjet()
             if((*it).isProgrammationTache())
             {
                 ProgrammationTache *prog = dynamic_cast<ProgrammationTache*>(&(*it));
-                if(prog->getProjet() == projet->getTitre())
+                if(prog->getProjet() == projet)
                 {
                     if((*it).isProgrammationPartieTache())
                         dynamic_cast<ProgrammationPartieTache*>(prog)->toXml(stream);

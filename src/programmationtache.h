@@ -9,17 +9,18 @@ class ProgrammationTache : public Evenement
 {
 
     TacheUnitaire* tache;
-    QString nomProjet;
+    //QString nomProjet;
+    Projet* projet;
 public:
-    ProgrammationTache(const QDate& ddeb, const QTime& tdeb, TacheUnitaire *t,const QString& nomProj)
-        :Evenement(ddeb,tdeb), tache(t), nomProjet(nomProj) {
+    ProgrammationTache(const QDate& ddeb, const QTime& tdeb, TacheUnitaire *t,Projet* p)
+        :Evenement(ddeb,tdeb), tache(t), projet(p) {
         if(ddeb < tache->getDisponibilite() || ddeb > tache->getEcheance())
             throw CalendarException("erreur, ProgrammationTache, date non valide");
     }
     ~ProgrammationTache(){ }
 
     TacheUnitaire* getTache() const { return tache; }
-    const QString& getProjet() const { return nomProjet; }
+    const Projet* getProjet() const { return projet; }
 
     virtual const Duree& getDuree() const { return tache->getDuree(); }
     virtual const QString& getSujet() const { return tache->getTitre(); }

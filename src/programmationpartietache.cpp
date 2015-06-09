@@ -24,7 +24,7 @@ void ProgrammationPartieTache::toXml(QXmlStreamWriter &s) const
     s.writeTextElement("date",Evenement::getDate().toString(Qt::ISODate));
     s.writeTextElement("horaire",Evenement::getHoraire().toString(Qt::ISODate));
     s.writeTextElement("tache",ProgrammationTache::getTache()->getId());
-    s.writeTextElement("projet",ProgrammationTache::getProjet());
+    s.writeTextElement("projet",ProgrammationTache::getProjet()->getTitre());
     QString str;
     str.setNum(getDuree().getDureeEnMinutes());
     s.writeTextElement("duree",str);
@@ -67,6 +67,6 @@ ProgrammationPartieTache* ProgrammationPartieTache::getFromXml(QXmlStreamReader&
     }
     Projet& pr = ProjetManager::getInstance().getProjet(nomProjet);
     TacheUnitaire* tache = dynamic_cast<TacheUnitaire*>(pr.getTache(idTache));
-    ProgrammationPartieTache *evt = new ProgrammationPartieTache(date,horaire,duree,tache, nomProjet);
+    ProgrammationPartieTache *evt = new ProgrammationPartieTache(date,horaire,duree,tache, &pr);
     return evt;
 }

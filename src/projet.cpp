@@ -1,6 +1,7 @@
 #include "projet.h"
 #include <QtXml>
 #include "tacheunitaire.h"
+#include "projetmanager.h"
 
 Projet::~Projet()
 {
@@ -37,7 +38,7 @@ void Projet::retirerTache(const QString id)
     {
         delete parent->at(id);
         parent->erase(id);
-        notifier();
+        ProjetManager::getInstance().notifier();
     }
 }
 
