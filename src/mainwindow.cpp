@@ -365,7 +365,6 @@ void MainWindow::ajouterProjet()
     delete dial;
 }
 
-//--------------------- fin de gestion des exceptions- -------------------
 void MainWindow::ajouterEvenementTrad()
 {
     AjoutEvenementTradDialog *dial = new AjoutEvenementTradDialog;
@@ -374,6 +373,7 @@ void MainWindow::ajouterEvenementTrad()
 }
 
 
+//--------------------- fin de gestion des exceptions- -------------------
 
 
 void MainWindow::ajouterPrecedence()

@@ -7,11 +7,11 @@ Agenda& Agenda::operator<<(Evenement& evt)
 {
     for(std::vector<Evenement*>::iterator it = events.begin() ; it != events.end() ; ++it)
         if( *it == &evt)
-            throw CalendarException("Erreur, Agenda, cet evenement existe deja");
+            throw CalendarException("Cet évènement existe déjà");
 
 
     if(!isLibre(QDateTime(evt.getDate(),evt.getHoraire()),QDateTime(evt.getDate(),evt.getHoraire()).addSecs(evt.getDuree().getDureeEnMinutes()*60)))
-        throw CalendarException("Erreur, Agenda, un evenement est deja programme a ce moment");
+        throw CalendarException("Un évènement est déjà programmé à ce moment");
 
     if(evt.isProgrammationTache())
         dynamic_cast<ProgrammationTache*>(&evt)->getTache()->setProgrammed(true);

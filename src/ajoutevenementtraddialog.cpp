@@ -1,6 +1,6 @@
 #include "ajoutevenementtraddialog.h"
 #include "ui_ajoutevenementtraddialog.h"
-
+#include <QMessageBox>
 AjoutEvenementTradDialog::AjoutEvenementTradDialog(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::AjoutEvenementTradDialog)
@@ -46,37 +46,64 @@ void AjoutEvenementTradDialog::accept()
     QTime horaire = ui->timeEdit_horaire->time();
 
     int nbsecs = QDateTime(date,horaire).secsTo(QDateTime::currentDateTime());
-    if(nbsecs > 30)
-        throw CalendarException("erreur ProgrammationTacheDialog, impossible de programmer une tache dans le passe");
-
-    if(ui->checkBox_rdv->isChecked())
-    {
-        QString lieu = ui->lineEdit_lieu->text();
-        QString pers = ui->plainTextEdit_personnes->toPlainText();
-        QTime tduree = ui->timeEdit_duree->time();
-        Duree duree(tduree.hour(),tduree.minute());
-
-        Rdv evt(date,horaire,duree,sujet,lieu);
-        QStringList liste = pers.split("\n");
-        for(QStringList::iterator it = liste.begin(); it != liste.end(); ++it)
-            evt.ajouterPersonne(*it);
-        Agenda::getInstance() << evt;
-
-    }else if(ui->checkBox_evenement1j->isChecked())
-    {
-        QTime tduree = ui->timeEdit_duree->time();
-        Duree duree(tduree.hour(),tduree.minute());
-        Evenement1j evt(date,horaire,duree,sujet);
-        Agenda::getInstance() << evt;
-    }else if(ui->checkBox_evenementPj->isChecked())
-    {
-        QDate dateFin = ui->dateEdit_datefin->date();
-        QTime horaireFin  = ui->timeEdit_horairefin->time();
-        EvenementPj evt(date,horaire,dateFin,horaireFin,sujet);
-        Agenda::getInstance() << evt;
+    bool fin = true;
+    if(nbsecs > 30){
+        QMessageBox::warning(this,"Avertissement","Impossible de programmer une tâche dans le passé");
+        fin = false;
     }
+    if(fin){
+        if(ui->checkBox_rdv->isChecked())
+        {
+            QString lieu = ui->lineEdit_lieu->text();
+            QString pers = ui->plainTextEdit_personnes->toPlainText();
+            QTime tduree = ui->timeEdit_duree->time();
+            Duree duree(tduree.hour(),tduree.minute());
 
-    done(1);
+            Rdv evt(date,horaire,duree,sujet,lieu);
+            QStringList liste = pers.split("\n");
+            for(QStringList::iterator it = liste.begin(); it != liste.end(); ++it)
+            {
+                try{
+                    evt.ajouterPersonne(*it);
+                }catch(CalendarException e){
+                    QMessageBox::warning(this,"Avertissement",e.getInfo());
+                }
+            }
+            try{
+                Agenda::getInstance() << evt;
+            }catch(CalendarException e)
+            {
+                QMessageBox::warning(this,"Avertissement",e.getInfo());
+                fin = false;
+            }
+        }else if(ui->checkBox_evenement1j->isChecked())
+        {
+            QTime tduree = ui->timeEdit_duree->time();
+            Duree duree(tduree.hour(),tduree.minute());
+            Evenement1j evt(date,horaire,duree,sujet);
+            try{
+                Agenda::getInstance() << evt;
+            }catch(CalendarException e)
+            {
+                QMessageBox::warning(this,"Avertissement",e.getInfo());
+                fin = false;
+            }
+        }else if(ui->checkBox_evenementPj->isChecked())
+        {
+            QDate dateFin = ui->dateEdit_datefin->date();
+            QTime horaireFin  = ui->timeEdit_horairefin->time();
+            EvenementPj evt(date,horaire,dateFin,horaireFin,sujet);
+            try{
+                Agenda::getInstance() << evt;
+            }catch(CalendarException e)
+            {
+                QMessageBox::warning(this,"Avertissement",e.getInfo());
+                fin = false;
+            }
+        }
+        if(fin)
+            done(1);
+    }
 }
 
 

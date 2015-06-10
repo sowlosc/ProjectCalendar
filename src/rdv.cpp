@@ -6,7 +6,7 @@ void Rdv::ajouterPersonne(const QString &nom)
 {
     for(std::vector<QString>::iterator it = personnes.begin() ; it != personnes.end() ; it++)
         if(*it == nom)
-            throw CalendarException("Erreur, Rdv, cette personne est deja enregistree");
+            throw CalendarException("Cette personne est déjà enregistrée");
     personnes.push_back(nom);
 }
 
