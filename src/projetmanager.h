@@ -40,7 +40,7 @@ public:
 
 
 
-    class iterator{
+    /*lass iterator{
         friend class ProjetManager;
         std::map<QString, Projet*>::iterator it;
         iterator(const std::map<QString, Projet*>::iterator& iter) : it(iter) {}
@@ -51,9 +51,22 @@ public:
     };
 
     iterator begin() { return iterator(projets.begin()); }
+    iterator end() { return iterator(projets.end()); }*/
+
+
+    class iterator : public std::map<QString, Projet*>::iterator
+    {
+        iterator() : std::map<QString, Projet*>::iterator() {}
+        public:
+        Projet& operator*() { return *(*this)->second; }
+        iterator(std::map<QString,Projet*>::iterator it) : std::map<QString,Projet*>::iterator(it) {}
+    };
+
+    iterator begin() { return iterator(projets.begin()); }
     iterator end() { return iterator(projets.end()); }
 
-    class const_iterator{
+
+    /*class const_iterator{
         friend class ProjetManager;
         std::map<QString, Projet*>::const_iterator it;
         const_iterator(const std::map<QString, Projet*>::const_iterator& iter) : it(iter) {}
@@ -64,8 +77,20 @@ public:
     };
 
     const_iterator begin() const  { return const_iterator(projets.begin()); }
-    const_iterator end() const { return const_iterator(projets.end()); }
+    const_iterator end() const { return const_iterator(projets.end()); }*/
 
+
+    class const_iterator : public std::map<QString, Projet*>::const_iterator
+    {
+        const_iterator() : std::map<QString, Projet*>::const_iterator() {}
+        public:
+        const_iterator(std::map<QString, Projet*>::const_iterator it):
+          std::map<QString,Projet*>::const_iterator(it) {}
+        const Projet& operator*() const { return *(*this)->second; }
+    };
+
+    const_iterator begin() const  { return const_iterator(projets.begin()); }
+    const_iterator end() const { return const_iterator(projets.end()); }
 
 };
 
