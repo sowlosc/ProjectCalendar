@@ -48,17 +48,10 @@ public:
     }
 
     virtual bool isProgrammed() const = 0;
+    virtual bool isComposite() const = 0;
 
     virtual QString toString() const = 0 ;
     virtual void toXml(QXmlStreamWriter&) const = 0;
-    virtual bool isComposite() const = 0;
-
-    void ajouterObservateur(Observateur *o) { obs.insert(o); }
-    void supprimerObservateur(Observateur *o) { obs.erase(o); }
-    void notifier() {
-        for(std::set<Observateur*>::iterator it = obs.begin() ; it != obs.end() ; ++it)
-            (*it)->mise_a_jour();
-    }
 
 
     class const_succ_iterator

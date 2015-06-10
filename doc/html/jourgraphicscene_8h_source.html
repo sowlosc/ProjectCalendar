@@ -141,9 +141,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="keyword">const</span> QDate&amp; getDate()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> date; }</div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="keywordtype">void</span> setDate(<span class="keyword">const</span> QDate d) {</div>
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        date = d;</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        <span class="keywordflow">if</span>(date &gt; QDate::currentDate())</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        <span class="keywordflow">if</span>(date &gt;= QDate::currentDate())</div>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        {</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="comment">/*            QLinearGradient linearGrad(QPointF(50, 0), QPointF(50, 480));</span></div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;            <span class="comment">/*QLinearGradient linearGrad(QPointF(50, 0), QPointF(50, 480));</span></div>
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="comment">            linearGrad.setSpread(QGradient::RepeatSpread);</span></div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="comment">            linearGrad.setColorAt(0,QColor(&quot;darkBlue&quot;));</span></div>
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="comment">            linearGrad.setColorAt(0.4, QColor(&quot;lightBlue&quot;));</span></div>
@@ -151,8 +151,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="comment">            linearGrad.setColorAt(1, QColor(&quot;darkBlue&quot;));</span></div>
 <div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="comment"></span></div>
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;<span class="comment">            this-&gt;setBackgroundBrush(linearGrad);*/</span></div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;            <span class="comment">//#42C0F7</span></div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;<span class="comment">            this-&gt;setBackgroundBrush(linearGrad);</span></div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;<span class="comment">            //#42C0F7*/</span></div>
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;            this-&gt;setBackgroundBrush(QBrush(<span class="stringliteral">&quot;#FFFFFF&quot;</span>));</div>
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        }<span class="keywordflow">else</span></div>
 <div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;            this-&gt;setBackgroundBrush(QBrush(<span class="stringliteral">&quot;lightGray&quot;</span>));</div>
@@ -183,7 +183,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Jun 10 2015 08:42:01 for ProjectCalendar by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Jun 10 2015 17:04:23 for ProjectCalendar by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

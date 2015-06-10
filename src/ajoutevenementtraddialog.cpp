@@ -12,7 +12,7 @@ AjoutEvenementTradDialog::AjoutEvenementTradDialog(QWidget *parent) :
     QObject::connect(ui->checkBox_evenementPj,SIGNAL(stateChanged(int)),this,SLOT(activerEvenementPj(int)));
 
     ui->dateEdit_date->setDate(QDate::currentDate());
-    ui->dateEdit_datefin->setDate(QDate::currentDate());
+    ui->dateEdit_datefin->setDate(QDate::currentDate().addDays(1));
     ui->timeEdit_duree->setTime(QTime(1,0));
     ui->timeEdit_horaire->setTime(QTime::currentTime());
     ui->timeEdit_horairefin->setTime(QTime::currentTime());
@@ -80,8 +80,8 @@ void AjoutEvenementTradDialog::accept()
         {
             QTime tduree = ui->timeEdit_duree->time();
             Duree duree(tduree.hour(),tduree.minute());
-            Evenement1j evt(date,horaire,duree,sujet);
             try{
+                Evenement1j evt(date,horaire,duree,sujet);
                 Agenda::getInstance() << evt;
             }catch(CalendarException e)
             {
@@ -92,8 +92,8 @@ void AjoutEvenementTradDialog::accept()
         {
             QDate dateFin = ui->dateEdit_datefin->date();
             QTime horaireFin  = ui->timeEdit_horairefin->time();
-            EvenementPj evt(date,horaire,dateFin,horaireFin,sujet);
             try{
+                EvenementPj evt(date,horaire,dateFin,horaireFin,sujet);
                 Agenda::getInstance() << evt;
             }catch(CalendarException e)
             {

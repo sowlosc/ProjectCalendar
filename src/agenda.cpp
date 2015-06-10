@@ -34,7 +34,8 @@ Agenda& Agenda::operator>>(Evenement *evt)
 
             delete evt;
             events.erase(it);
-            //Observable::notifier();
+            Observable::notifier();
+
             return *this;
         }
     throw CalendarException("Erreur, Agenda, cet evenement n'existe pas");

@@ -373,7 +373,6 @@ void MainWindow::ajouterEvenementTrad()
 }
 
 
-//--------------------- fin de gestion des exceptions- -------------------
 
 
 void MainWindow::ajouterPrecedence()
@@ -392,6 +391,7 @@ void MainWindow::ajouterPrecedence()
     }
 }
 
+//--------------------- fin de gestion des exceptions- -------------------
 
 
 void MainWindow::supprimerPrecedence()

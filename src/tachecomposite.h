@@ -27,6 +27,7 @@ public:
 
     Tache *getSousTache(const QString& id); // methode specifique aux taches composite return 0 si la tache n'existe pas    Tache *getSousTache(const QString& id); // methode specifique aux taches composite return 0 si la tache n'existe pas
     bool contientSousTache(const Tache* t);
+
     bool isProgrammed() const; //retourne si une sous tache est programmed
 
     std::map<QString, Tache*>* getTacheMap(const QString &id);

@@ -51,9 +51,9 @@ public:
     const QDate& getDate() const { return date; }
     void setDate(const QDate d) {
         date = d;
-        if(date > QDate::currentDate())
+        if(date >= QDate::currentDate())
         {
-/*            QLinearGradient linearGrad(QPointF(50, 0), QPointF(50, 480));
+            /*QLinearGradient linearGrad(QPointF(50, 0), QPointF(50, 480));
             linearGrad.setSpread(QGradient::RepeatSpread);
             linearGrad.setColorAt(0,QColor("darkBlue"));
             linearGrad.setColorAt(0.4, QColor("lightBlue"));
@@ -61,8 +61,8 @@ public:
             linearGrad.setColorAt(1, QColor("darkBlue"));
 
 
-            this->setBackgroundBrush(linearGrad);*/
-            //#42C0F7
+            this->setBackgroundBrush(linearGrad);
+            //#42C0F7*/
             this->setBackgroundBrush(QBrush("#FFFFFF"));
         }else
             this->setBackgroundBrush(QBrush("lightGray"));

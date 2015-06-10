@@ -7,19 +7,19 @@
     <x>0</x>
     <y>0</y>
     <width>1294</width>
-    <height>700</height>
+    <height>668</height>
    </rect>
   </property>
   <property name="minimumSize">
    <size>
     <width>1000</width>
-    <height>0</height>
+    <height>668</height>
    </size>
   </property>
   <property name="maximumSize">
    <size>
     <width>1500</width>
-    <height>16777215</height>
+    <height>668</height>
    </size>
   </property>
   <property name="palette">
@@ -5468,7 +5468,6 @@ p, li { white-space: pre-wrap; }
     </widget>
    </widget>
   </widget>
-  <widget class="QStatusBar" name="statusbar"/>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
     <rect>
