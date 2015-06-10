@@ -35,7 +35,7 @@ void PrecedenceManager::ajouterPrecedence(const Tache &t1, const Tache &t2,const
      * */
 
     if(findPrecedence(t1,t2) != precedences.end())
-            throw CalendarException("Erreur, PercedenceManager, cette precedence existe deja");
+            throw CalendarException("Cette contrainte de précédence existe déjà");
 
     Precedence *p = new Precedence(&t1,&t2,proj);
     precedences.push_back(p);

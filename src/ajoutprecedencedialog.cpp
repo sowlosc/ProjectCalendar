@@ -1,5 +1,6 @@
 #include "ajoutprecedencedialog.h"
 #include "ui_ajoutprecedencedialog.h"
+#include <QMessageBox>
 
 AjoutPrecedenceDialog::AjoutPrecedenceDialog(Tache* t, Projet* p, QWidget *parent) :
     QDialog(parent),tache(t), projet(p),
@@ -17,7 +18,6 @@ AjoutPrecedenceDialog::AjoutPrecedenceDialog(Tache* t, Projet* p, QWidget *paren
                 if( *succIter == tache)
                     ok = false;
             if(ok){                
-                std::cout<<"affichage de "<<it->second->getTitre().toStdString()<<"\n";
                 ui->selecteur_tache_pred->addItem(it->second->getId());
             }
         }
@@ -56,7 +56,13 @@ void AjoutPrecedenceDialog::ajouterPrecedenceRecurs(Tache* t,Tache* pred) //doub
 
 void AjoutPrecedenceDialog::ajouterPredRecurs(Tache*t, Tache*pred)
 {
-    PrecedenceManager::getInstance().ajouterPrecedence(*pred,*t,projet);
+    try{
+        PrecedenceManager::getInstance().ajouterPrecedence(*pred,*t,projet);
+    }catch(CalendarException e)
+    {
+        QMessageBox::warning(this,"Avertissement",e.getInfo());
+    }
+
     if(pred->isComposite()){
         TacheComposite *tc = dynamic_cast<TacheComposite*>(pred);
         for(TacheComposite::iterator it = tc->begin() ; it!= tc->end() ; ++it)
