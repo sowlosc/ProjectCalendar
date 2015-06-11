@@ -56,9 +56,8 @@ public:
 
     class iterator : public std::map<QString, Projet*>::iterator
     {
-        iterator() : std::map<QString, Projet*>::iterator() {}
         public:
-        Projet& operator*() { return *(*this)->second; }
+        Projet& operator*() { return *std::map<QString,Projet*>::iterator::operator *().second; }
         iterator(std::map<QString,Projet*>::iterator it) : std::map<QString,Projet*>::iterator(it) {}
     };
 
@@ -82,11 +81,10 @@ public:
 
     class const_iterator : public std::map<QString, Projet*>::const_iterator
     {
-        const_iterator() : std::map<QString, Projet*>::const_iterator() {}
         public:
         const_iterator(std::map<QString, Projet*>::const_iterator it):
           std::map<QString,Projet*>::const_iterator(it) {}
-        const Projet& operator*() const { return *(*this)->second; }
+        const Projet& operator*() const { return *std::map<QString,Projet*>::const_iterator::operator *().second; }
     };
 
     const_iterator begin() const  { return const_iterator(projets.begin()); }

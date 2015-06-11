@@ -42,7 +42,7 @@
     <item>
      <widget class="QLabel" name="label">
       <property name="text">
-       <string>TextLabel</string>
+       <string>Tâche devant être antérieure</string>
       </property>
      </widget>
     </item>

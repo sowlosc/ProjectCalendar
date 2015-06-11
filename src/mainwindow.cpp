@@ -400,7 +400,13 @@ void MainWindow::supprimerPrecedence()
     if(liste)
     {
         const Precedence *prec = liste->getPrecedence();
-        PrecedenceManager::getInstance().retirerPrecedence(*prec->getPredecesseur(),*prec->getSuccesseur());
+        try
+        {
+            PrecedenceManager::getInstance().retirerPrecedence(*prec->getPredecesseur(),*prec->getSuccesseur());
+        }catch(CalendarException e)
+        {
+            std::cerr<<e.getInfo().toStdString();
+        }
         mise_a_jour();
     }
 }
@@ -421,7 +427,6 @@ void MainWindow::maj_listePrecedences()
         ListPrecedenceItem* item = new ListPrecedenceItem(txt,&(*it),ui->listWidget_precedence);
         ui->listWidget_precedence->addItem(item);
     }
-
 }
 
 void MainWindow::programmerTache()
@@ -438,6 +443,7 @@ void MainWindow::programmerTache()
         {
             TacheUnitaire *tu = dynamic_cast<TacheUnitaire*>(tache);
 
+            // verification si la tache preemptive est deja completement programme
             bool tache_non_complete = false;
             QTime sum(0,0);
             std::vector<ProgrammationTache*> progs = Agenda::getInstance().getProgrammationTache(tache);
@@ -447,9 +453,10 @@ void MainWindow::programmerTache()
             QTime duree_t(duree_totale.getHeure(),duree_totale.getMinute());
             if(duree_t>sum)
                 tache_non_complete = true;
+            std::cout << "IS tache non complete "<<tache_non_complete<<"\n";
+
             if(!tu->isProgrammed() || (tu->isPreemptive() && tache_non_complete) )
             {
-
                 ProgrammationTacheDialog *dial = new ProgrammationTacheDialog(tu,projet);
                 dial->exec();
                 delete dial;

@@ -16,6 +16,7 @@ class ProgrammationTacheDialog : public QDialog
     Q_OBJECT
     TacheUnitaire* tache;
     Projet* projet;
+    QDateTime date_max;
 public:
     explicit ProgrammationTacheDialog(TacheUnitaire* t,Projet* p,QWidget *parent = 0);
     ~ProgrammationTacheDialog();

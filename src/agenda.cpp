@@ -66,13 +66,16 @@ std::vector<ProgrammationTache*> Agenda::getProgrammationTache(const Tache* t)
 
 bool Agenda::isLibre(const QDateTime& debut, const QDateTime &fin)
 {
+    std::cout << "isLibre "<<debut.toString().toStdString()<<" - "<<fin.toString().toStdString()<<"\n";
     for(iterator it=begin(); it!= end(); ++it)
     {
         QDateTime deb2((*it).getDate(),(*it).getHoraire());
-        QDateTime fin2((*it).getDate(),(*it).getHoraire().addSecs((*it).getDuree().getDureeEnMinutes()*60));
+        QDateTime fin2 = deb2.addSecs((*it).getDuree().getDureeEnMinutes()*60);
 
         if( !((debut<deb2 && fin<=deb2) || (debut>=fin2 && fin>fin2)))
             return false;
+        std::cout<<"return TRUE : debut2 = "<<deb2.toString().toStdString()<<" - "<<fin2.toString().toStdString()<<"\n";
+
     }
     return true;
 }
