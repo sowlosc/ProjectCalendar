@@ -111,15 +111,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ae153a99a5319564c4d21fdf08b83a211"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae153a99a5319564c4d21fdf08b83a211"></a>
 virtual const QString &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getSujet</b> () const </td></tr>
 <tr class="separator:ae153a99a5319564c4d21fdf08b83a211"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1f94eadb09881a36e96054a4a1650f17"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1f94eadb09881a36e96054a4a1650f17"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setSujet</b> (const QString &amp;suj)</td></tr>
-<tr class="separator:a1f94eadb09881a36e96054a4a1650f17"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a366e49d907fd7751f1733fa8472ad17c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a366e49d907fd7751f1733fa8472ad17c"></a>
-virtual <a class="el" href="class_evenement_trad.html">EvenementTrad</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>clone</b> () const =0</td></tr>
-<tr class="separator:a366e49d907fd7751f1733fa8472ad17c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab4c813fcba05329d1b018f92722ff52b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab4c813fcba05329d1b018f92722ff52b"></a>
-virtual QString&#160;</td><td class="memItemRight" valign="bottom"><b>toString</b> () const </td></tr>
-<tr class="separator:ab4c813fcba05329d1b018f92722ff52b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8fcac0c391f1841d560ef243f35558bf"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8fcac0c391f1841d560ef243f35558bf"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>setSujet</b> (const QString &amp;suj)</td></tr>
+<tr class="separator:a8fcac0c391f1841d560ef243f35558bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0d4ca85ee13be590da8bd13fbddda1c8"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0d4ca85ee13be590da8bd13fbddda1c8"></a>
 virtual bool&#160;</td><td class="memItemRight" valign="bottom"><b>isProgrammationTache</b> () const </td></tr>
 <tr class="separator:a0d4ca85ee13be590da8bd13fbddda1c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -139,6 +133,12 @@ virtual bool&#160;</td><td class="memItemRight" valign="bottom"><b>isRdv</b> () 
 <tr class="memitem:acc075b70a2f9d11355ad4cd49437fb84 inherit pub_methods_class_evenement"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="acc075b70a2f9d11355ad4cd49437fb84"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>Evenement</b> (const QDate &amp;d, const QTime &amp;t)</td></tr>
 <tr class="separator:acc075b70a2f9d11355ad4cd49437fb84 inherit pub_methods_class_evenement"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0c8c52c3a06590871f0c7697b1243236 inherit pub_methods_class_evenement"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0c8c52c3a06590871f0c7697b1243236"></a>
+virtual <a class="el" href="class_evenement.html">Evenement</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>clone</b> () const =0</td></tr>
+<tr class="separator:a0c8c52c3a06590871f0c7697b1243236 inherit pub_methods_class_evenement"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7182aef8d5bec46e4f553fa7eba65de0 inherit pub_methods_class_evenement"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7182aef8d5bec46e4f553fa7eba65de0"></a>
+virtual QString&#160;</td><td class="memItemRight" valign="bottom"><b>toString</b> () const =0</td></tr>
+<tr class="separator:a7182aef8d5bec46e4f553fa7eba65de0 inherit pub_methods_class_evenement"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abc75dd429182315013826eb6ee1a66ce inherit pub_methods_class_evenement"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="abc75dd429182315013826eb6ee1a66ce"></a>
 const QDate &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getDate</b> () const </td></tr>
 <tr class="separator:abc75dd429182315013826eb6ee1a66ce inherit pub_methods_class_evenement"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -161,14 +161,13 @@ virtual bool&#160;</td><td class="memItemRight" valign="bottom"><b>isEvenementPj
 virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>toXml</b> (QXmlStreamWriter &amp;) const =0</td></tr>
 <tr class="separator:a1ab5027515bc88f18d365d196a1e253f inherit pub_methods_class_evenement"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<hr/>The documentation for this class was generated from the following files:<ul>
+<hr/>The documentation for this class was generated from the following file:<ul>
 <li>/home/matthieu/ProjectCalendar/ProjectCalendar/src/<a class="el" href="evenementtrad_8h_source.html">evenementtrad.h</a></li>
-<li>/home/matthieu/ProjectCalendar/ProjectCalendar/src/evenementtrad.cpp</li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Jun 12 2015 17:52:07 for ProjectCalendar by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Jun 13 2015 01:14:04 for ProjectCalendar by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

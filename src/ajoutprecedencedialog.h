@@ -14,8 +14,6 @@ class AjoutPrecedenceDialog;
 class AjoutPrecedenceDialog : public QDialog
 {
     Q_OBJECT
-    //QString tacheId;
-    //QString projet;
     Tache* tache;
     Projet* projet;
 

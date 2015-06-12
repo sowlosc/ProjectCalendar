@@ -33,7 +33,7 @@ public:
     virtual bool isRdv() const { return false; }
 
 
-    void toXml(QXmlStreamWriter &) const;
+    virtual void toXml(QXmlStreamWriter &) const;
     static EvenementPj* getFromXml(QXmlStreamReader &);
 };
 

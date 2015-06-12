@@ -12,10 +12,10 @@ public:
     virtual ~EvenementTrad(){}
 
     virtual const QString& getSujet() const { return sujet; }
-    void setSujet(const QString& suj) { sujet = suj; }
+    virtual void setSujet(const QString& suj) { sujet = suj; }
 
-    virtual EvenementTrad* clone() const = 0;
-    virtual QString toString() const;
+    //virtual EvenementTrad* clone() const = 0;
+   // virtual QString toString() const;
 
 
     virtual bool isProgrammationTache() const { return false; }

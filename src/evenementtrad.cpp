@@ -4,7 +4,7 @@
 {
     return new EvenementTrad(*this);
 }*/
-
+/*
 QString EvenementTrad::toString() const
 {
     std::stringstream ss;
@@ -12,4 +12,4 @@ QString EvenementTrad::toString() const
     ss << "\nhoraire = " << getHoraire().toString().toStdString() << "\nsujet = " << sujet.toStdString() << "\n";
     return ss.str().c_str();
 }
-
+*/
