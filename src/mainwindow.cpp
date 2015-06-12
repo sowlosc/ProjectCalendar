@@ -12,6 +12,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->setupUi(this);
     maj_treeWidget();
     maj_listePrecedences();
+    this->setWindowTitle("Project Calendar");
 
     ui->calendarWidget->setSelectedDate(QDate::currentDate());
 
@@ -391,7 +392,6 @@ void MainWindow::ajouterPrecedence()
     }
 }
 
-//--------------------- fin de gestion des exceptions- -------------------
 
 
 void MainWindow::supprimerPrecedence()

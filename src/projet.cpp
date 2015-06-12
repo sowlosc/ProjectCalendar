@@ -18,7 +18,7 @@ Projet& Projet::ajouterTache(Tache *t)
     if(t->getDisponibilite()<disponibilite)
         throw CalendarException("Disponibilité inférieure à celle du projet");
     if(t->getEcheance()>echeance)
-        throw CalendarException("Date d'échéance dupérieure à celle du projet");
+        throw CalendarException("Date d'échéance supérieure à celle du projet");
 
     taches[t->getId()] = t;
     notifier();

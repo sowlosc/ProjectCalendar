@@ -25,7 +25,7 @@ void TacheComposite::ajouterSousTache(Tache *t)
     if(sousTaches.find(t->getId()) != sousTaches.end())
         throw CalendarException("Erreur, TacheCompisite, cette sous tache existe deja");
     if(t->getDisponibilite()<Tache::getDisponibilite() || t->getEcheance()>Tache::getEcheance())
-        throw CalendarException("erreur, TacheComposite, dispo et echeance incompatible");
+        throw CalendarException("Date de disponibilité et d'échéance incompatibles");
     sousTaches[t->getId()] = t;
     notifier();
 }

@@ -27,6 +27,8 @@ private:
 
 public slots:
     void activerDuree(int b);
+    void activerLimiteDuree(int b);
+    void desactiverLimiteDuree(int b);
     void accept();
 };
 

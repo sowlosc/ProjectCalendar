@@ -26,7 +26,7 @@ class Projet : public Observable
     Projet(const QString& t, const QString& desc, const QDate& dispo, const QDate& ech)
         :titre(t), description(desc), disponibilite(dispo), echeance(ech) {
         if(disponibilite>echeance)
-            throw CalendarException("erreur, Projet, echeance < disponibilite");
+            throw CalendarException("erreur, Projet, échéance < disponibilité");
     }
     ~Projet();
 public:

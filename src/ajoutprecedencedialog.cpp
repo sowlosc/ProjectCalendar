@@ -18,7 +18,7 @@ AjoutPrecedenceDialog::AjoutPrecedenceDialog(Tache* t, Projet* p, QWidget *paren
                 if( *succIter == tache)
                     ok = false;
             if(ok){                
-                ui->selecteur_tache_pred->addItem(it->second->getId());
+                ui->selecteur_tache_pred->addItem(it->second->getId()+" ("+it->second->getTitre()+")");
             }
         }
     }

@@ -10,6 +10,9 @@ AjoutTacheDialog::AjoutTacheDialog(QWidget *parent , const QString& proj, const 
     ui->dateEdit_dispo->setDate(QDate::currentDate());
     ui->dateEdit_ech->setDate(QDate::currentDate());
     QObject::connect(ui->checkBox_composite,SIGNAL(stateChanged(int)),this,SLOT(activerDuree(int)));
+    QObject::connect(ui->checkBox_unitaire_non_preemptive,SIGNAL(stateChanged(int)),this,SLOT(activerLimiteDuree(int)));
+    QObject::connect(ui->checkBox_unitaire_preemptive,SIGNAL(stateChanged(int)),this,SLOT(desactiverLimiteDuree(int)));
+
 }
 
 
@@ -26,6 +29,15 @@ void AjoutTacheDialog::activerDuree(int b)
     ui->timeEdit_duree->setVisible(x);
 }
 
+
+void AjoutTacheDialog::activerLimiteDuree(int b)
+{
+    ui->timeEdit_duree->setMaximumTime(QTime(12,0,0));
+}
+void AjoutTacheDialog::desactiverLimiteDuree(int b)
+{
+    ui->timeEdit_duree->setMaximumTime(QTime(23,59,59));
+}
 
 void AjoutTacheDialog::accept()
 {

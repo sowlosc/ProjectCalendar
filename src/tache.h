@@ -42,7 +42,7 @@ public:
     const QDate& getDisponibilite() const { return disponibilite; }
     const QDate& getEcheance() const { return echeance; }
     void setDateDisponibiliteEcheance(const QDate& dispo, const QDate& ech){
-        if(dispo > ech) throw CalendarException("erreur, Tache, disponibilite > echeance");
+        if(dispo > ech) throw CalendarException("erreur, Tache, disponibilité > échéance");
         disponibilite = dispo;
         echeance = ech;
     }
