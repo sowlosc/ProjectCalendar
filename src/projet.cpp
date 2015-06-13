@@ -157,7 +157,6 @@ void Projet::save(const QString &f)
 
 void Projet::load(const QString &f)
 {
-    std::cout << "======> \n debut des taches du projet\n";
     //qDebug()<<"debut load\n";
    //this->~TacheManager();
    QFile fin(f);
@@ -189,7 +188,6 @@ void Projet::load(const QString &f)
                ajouterTache(TacheComposite::getFromXml(xml));
            }
        }
-
    }
    // Error handling.
    if(xml.hasError()) {

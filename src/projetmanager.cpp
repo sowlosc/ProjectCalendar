@@ -24,18 +24,18 @@ Projet& ProjetManager::ajouterProjet(const QString &t, const QString &desc, cons
     if(projets.find(t) != projets.end())
         throw CalendarException("Projet déjà existant");
     projets[t] = new Projet(t,desc,dispo,ech);
-    notifier();
+    notifier(); //notifie les observateur
     return *projets[t];
 }
 
 Projet& ProjetManager::getProjet(const QString &t)
 {
-    return *projets.at(t); //renvoie une exception si le projet n'existe pas
+    return *projets.at(t); //leve une exception si le projet n'existe pas
 }
 
 const Projet& ProjetManager::getProjet(const QString &t) const
 {
-    return *projets.at(t); //renvoie une exception si le projet n'existe pas
+    return *projets.at(t); //leve une exception si le projet n'existe pas
 }
 
 
@@ -90,13 +90,10 @@ void ProjetManager::load(const QString &f)
            if(xml.name() == "projets") continue;
            // If it's named tache, we'll dig the information from there.
            if(xml.name() == "projet") {
-               qDebug()<<"new tache\n";
-
                QString titre;
                QDate disponibilite;
                QDate echeance;
                QString description;
-                qDebug() << "----------------------\n";
                while(!(xml.tokenType() == QXmlStreamReader::StartElement && xml.name() == "taches")) {
                    if(xml.tokenType() == QXmlStreamReader::StartElement) {
 
@@ -104,25 +101,21 @@ void ProjetManager::load(const QString &f)
                        if(xml.name() == "titre") {
                            xml.readNext();
                            titre=xml.text().toString();
-                           qDebug()<<"titre="<<titre<<"\n";
                        }
                        // We've found disponibilite
                        if(xml.name() == "disponibilite") {
                            xml.readNext();
                            disponibilite=QDate::fromString(xml.text().toString(),Qt::ISODate);
-                           qDebug()<<"disp="<<disponibilite.toString()<<"\n";
                        }
                        // We've found echeance
                        if(xml.name() == "echeance") {
                            xml.readNext();
                            echeance=QDate::fromString(xml.text().toString(),Qt::ISODate);
-                           qDebug()<<"echeance="<<echeance.toString()<<"\n";
                        }
                        // We've found description
                        if(xml.name() == "description") {
                            xml.readNext();
                            description = xml.text().toString();
-                           qDebug()<<"description="<<description<<"\n";
                        }
 
                    }
@@ -138,7 +131,6 @@ void ProjetManager::load(const QString &f)
                 while(!(xml.tokenType() == QXmlStreamReader::EndElement && xml.name() == "taches")){
                     if(xml.tokenType() == QXmlStreamReader::StartElement)
                     {
-                        std::cout << "on va lui rajouter "<<xml.name().toString().toStdString()<<"\n";
                         if(xml.name() == "tacheunitaire")
                             pr.ajouterTache(TacheUnitaire::getFromXml(xml));
                         else if(xml.name() == "tachecomposite")
@@ -147,7 +139,6 @@ void ProjetManager::load(const QString &f)
                     xml.readNext();
                 }
                 xml.readNext();
-
            }
        }
    }
@@ -157,8 +148,4 @@ void ProjetManager::load(const QString &f)
    }
    // Removes any device() or data from the reader * and resets its internal state to the initial state.
    xml.clear();
-   //qDebug()<<"fin load\n";
-
-  //  for(iterator it = begin() ; it != end(); ++it)
-    ///    (*it).load((*it).getTitre()+".xml");
 }

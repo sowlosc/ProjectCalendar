@@ -3,6 +3,7 @@
 TacheUnitaire::~TacheUnitaire()
 {
     std::vector<ProgrammationTache*> progs = Agenda::getInstance().getProgrammationTache(this);
+    //suppression de toutes ses programmations
     for(std::vector<ProgrammationTache*>::iterator it = progs.begin() ; it != progs.end() ; ++it)
         Agenda::getInstance() >> *it;
 }
@@ -22,7 +23,6 @@ QString TacheUnitaire::toString() const
     for(const_pred_iterator it = beginPred(); it != endPred() ; ++it)
         ss << (*it)->getTitre().toStdString() << "<br>";
     ss << "</td></tr>";
-
     ss << "</table></body></html>";
     return ss.str().c_str();
 }
@@ -100,6 +100,5 @@ TacheUnitaire*  TacheUnitaire::getFromXml(QXmlStreamReader& xml)
         xml.readNext();
     }
     TacheUnitaire *tache = new TacheUnitaire(id,t,dispo,ech,desc,dur,pre);
-    std::cout << "creation tache unitaire = "<<t.toStdString()<<"\n";
     return tache;
 }

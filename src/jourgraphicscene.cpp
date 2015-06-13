@@ -4,7 +4,8 @@
 QGraphicsRectItem* JourGraphicScene::ajouterEvenement(const QString &titre, const QTime &deb,
                                                       const Duree &dur, Evenement*e, const QColor& coul_fond, const QColor& coul_contour)
 {
-    std::cout << "-------------********** ajout dans la scene de EVT = "<<e->getDate().toString().toStdString()<<"\n";
+
+    // affichage du rectangle
     int mins_ecoulees = -deb.secsTo(QTime(6,0)) / 60;
     QTime fin = deb;
     fin = fin.addSecs(dur.getDureeEnMinutes() * 60);
@@ -12,22 +13,15 @@ QGraphicsRectItem* JourGraphicScene::ajouterEvenement(const QString &titre, cons
     qreal y = ( hauteur / nb_minutes ) * mins_ecoulees;
     qreal h = ( hauteur / nb_minutes ) * dur.getDureeEnHeures()*60;
 
-    //QGraphicsRectItem *rect = new QGraphicsRectItem(0,y,largeur,h,0);
-    //QGraphicsRectItem *rect =  QGraphicsScene::addRect(0-3,y,largeur+6,h,QPen(coul_contour),QBrush(coul_fond));
     EvenementGraphicItem *tache = new EvenementGraphicItem(-2,y-1,largeur+3,h+1,e);
     tache->setPen(QPen(coul_contour));
     tache->setBrush(QBrush(coul_fond));
-    //TacheGraphicItem *rect =  JourGraphicScene::addRect(tache,QPen(coul_contour),QBrush(coul_fond));
     QGraphicsScene::addItem(tache);
-
     tache->setFlag(QGraphicsItem::ItemIsSelectable);
-   // tache->setFlag(QGraphicsItem::ItemIsFocusable);
-
-    //rect->setFlag(QGraphicsItem::ItemIsFocusable);
-
     tache->setZValue(1);
 
 
+    // affichage du texte dans le rectangle
     int Xtxt = 0,Ytxt = y;
     QString s;
     if(dur.getDureeEnMinutes()<30)
@@ -42,23 +36,19 @@ QGraphicsRectItem* JourGraphicScene::ajouterEvenement(const QString &titre, cons
     else
         s = deb.toString("hh:mm") + "   -   " + fin.toString("hh:mm");
 
-
     QGraphicsTextItem *txt = QGraphicsScene::addText(s,QFont("Helvetica",8));
-
     txt->setDefaultTextColor(QColor("black"));
-
     txt->setTextWidth(95);
     txt->setX(Xtxt);
     txt->setY(Ytxt);
     txt->setZValue(2);
-    //QObject::connect(this,SIGNAL(selectionChanged()),this,SLOT(JourGraphicScene::test()));
-    //QObject::connect(ui->graphicsView_mardi->scene(),SIGNAL(selectionChanged()),this,SLOT(detaillerEvenement_mardi()));
 
     return tache;
 }
 
 void JourGraphicScene::dessinerFond()
 {
+    //dessine le quadrillages des heures sur le fond de la scene
     qreal r = (hauteur / nb_minutes) * 30;
     qreal x = r;
     int i=1;
@@ -75,7 +65,8 @@ void JourGraphicScene::dessinerFond()
 }
 
 
-void JourGraphicScene::removeAllItems(){ //fonction a utiliser a la place de clear
+void JourGraphicScene::removeAllItems(){
+    //vide la scene
     QList<QGraphicsItem*> itemsList = this->items();
     QList<QGraphicsItem*>::iterator iter = itemsList.begin();
     QList<QGraphicsItem*>::iterator end = itemsList.end();
@@ -88,16 +79,15 @@ void JourGraphicScene::removeAllItems(){ //fonction a utiliser a la place de cle
 
 void JourGraphicScene::mise_a_jour()
 {
-    std::cout << "MISE A JOUR "<<jour.toStdString()<<" \n";
 
     removeAllItems();
     dessinerFond();
     Agenda& ag = Agenda::getInstance();
     int i = 0;
+    //reconstruction entiere de la scene
     for(Agenda::iterator it = ag.begin() ; it != ag.end() ; ++it)
     {
         QColor fond;
-
         if((*it).isProgrammationPartieTache())
             fond = QColor("orange") ;
         else if((*it).isRdv())
@@ -109,17 +99,12 @@ void JourGraphicScene::mise_a_jour()
         else if((*it).isEvenementPj())
             fond = QColor("blue") ;
 
-
-
-
-
         if(!(*it).isEvenementPj() && (*it).getDate() == date)
-        {
-
+        { //ajout d'un evenement sur 1 jour
             ajouterEvenement((*it).getSujet(),(*it).getHoraire(),(*it).getDuree(),&(*it),fond);
 
         }else if((*it).isEvenementPj())
-        {
+        { // ajout d'un evnement sur plusieurs jours
             EvenementPj *evt = dynamic_cast<EvenementPj*>(&(*it));
             QDate deb = evt->getDate(), fin = evt->getDateFin();
             if(date == deb)

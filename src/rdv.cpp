@@ -72,7 +72,7 @@ Rdv* Rdv::getFromXml(QXmlStreamReader& xml)
     QString sujet;
     QString lieu;
 
-
+    //construction de l'objet a partir des donnees xml
     while(!(xml.tokenType() == QXmlStreamReader::StartElement && xml.name() == "personnes")){
         if(xml.tokenType() == QXmlStreamReader::StartElement)
         {
@@ -99,20 +99,19 @@ Rdv* Rdv::getFromXml(QXmlStreamReader& xml)
         }
         xml.readNext();
     }
+    //creation du rdv
     Rdv *evt = new Rdv(date,horaire,duree,sujet,lieu);
     xml.readNext();
+    // ajout des participants au Rdv
     while(!(xml.tokenType() == QXmlStreamReader::EndElement && xml.name() == "personnes")){
-        QString personne;            std::cout<<"-";
-
+        QString personne;
         if(xml.tokenType() == QXmlStreamReader::StartElement)
         {
             if(xml.name() == "personne") {
                 xml.readNext();
                 personne = xml.text().toString();
                 evt->ajouterPersonne(personne);
-                std::cout << "ajout personne : ::::: "<< personne.toStdString()<<"\n";
             }
-            std::cout<<"-";
         }
         xml.readNext();
     }

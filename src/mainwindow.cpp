@@ -10,12 +10,15 @@ MainWindow::MainWindow(QWidget *parent) :
     pm(ProjetManager::getInstance()), predm(PrecedenceManager::getInstance())
 {
     ui->setupUi(this);
-    maj_treeWidget();
-    maj_listePrecedences();
-    this->setWindowTitle("Project Calendar");
 
+    this->setWindowTitle("Project Calendar");
     ui->calendarWidget->setSelectedDate(QDate::currentDate());
 
+    // ajout de la fenetre en tant qu'observateur
+    pm.ajouterObservateur(this);
+    predm.ajouterObservateur(this);
+
+    //connexion des sigaux aux slots
     QObject::connect(ui->treeWidget,SIGNAL(clicked(QModelIndex)),this,SLOT(maj_descripteurs()));
     QObject::connect(ui->Bouton_ajouter_tache,SIGNAL(clicked()),this,SLOT(ajouterTache()));
     QObject::connect(ui->Bouton_supprimer_tache,SIGNAL(clicked()),this,SLOT(supprimerTache()));
@@ -30,7 +33,7 @@ MainWindow::MainWindow(QWidget *parent) :
     QObject::connect(ui->Bouton_exporter_programmations_semaine, SIGNAL(clicked()),this,SLOT(exporterProgrammationsSemaine()));
     QObject::connect(ui->Bouton_exporter_programmation_projet, SIGNAL(clicked()),this,SLOT(exporterProgrammationsProjet()));
 
-
+    // creation des jours de l'agenda
     scenes[0] = new JourGraphicScene("Lundi",0,0,100,480,960,ui->graphicsView_lundi);
     scenes[1] = new JourGraphicScene("Mardi",0,0,100,480,960,ui->graphicsView_mardi);
     scenes[2] = new JourGraphicScene("Mercredi",0,0,100,480,960,ui->graphicsView_mercredi);
@@ -39,9 +42,9 @@ MainWindow::MainWindow(QWidget *parent) :
     scenes[5] = new JourGraphicScene("Samedi",0,0,100,480,960,ui->graphicsView_samedi);
     scenes[6] = new JourGraphicScene("Dimanche",0,0,100,480,960,ui->graphicsView_dimanche);
 
+    //on ajoute les scenes comme observateur de l'agenda
     for(int i=0;i<7;i++)
         Agenda::getInstance().ajouterObservateur(scenes[i]);
-
 
     ui->graphicsView_lundi->setScene(scenes[0]);
     ui->graphicsView_mardi->setScene(scenes[1]);
@@ -51,8 +54,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->graphicsView_samedi->setScene(scenes[5]);
     ui->graphicsView_dimanche->setScene(scenes[6]);
 
-
-
+    //connexion des 7 jours aux slots
     QObject::connect(ui->graphicsView_lundi->scene(),SIGNAL(selectionChanged()),this,SLOT(detaillerEvenement_lundi()));
     QObject::connect(ui->graphicsView_mardi->scene(),SIGNAL(selectionChanged()),this,SLOT(detaillerEvenement_mardi()));
     QObject::connect(ui->graphicsView_mercredi->scene(),SIGNAL(selectionChanged()),this,SLOT(detaillerEvenement_mercredi()));
@@ -63,9 +65,11 @@ MainWindow::MainWindow(QWidget *parent) :
     QObject::connect(ui->calendarWidget,SIGNAL(selectionChanged()),this,SLOT(maj_dates()));
 
 
+    //actualisation de l'afficahge
     for(int i=0;i<7;i++)
         scenes[i]->mise_a_jour();
     maj_treeWidget();
+    maj_listePrecedences();
     maj_dates();
 }
 
@@ -78,13 +82,14 @@ MainWindow::~MainWindow()
 
 void MainWindow::detaillerEvenement_lundi()
  {
+    //recuperation de l'evenement clique
     bool mise_a_jour_necessaire = false;
     QList<QGraphicsItem*> itemsList = ui->graphicsView_lundi->scene()->selectedItems();
     QList<QGraphicsItem*>::iterator iter = itemsList.begin();
     QList<QGraphicsItem*>::iterator end = itemsList.end();
 
     while(iter!=end)
-    {
+    { // affichage du detail
         mise_a_jour_necessaire = true;
         Evenement* evt = dynamic_cast<EvenementGraphicItem*>(*iter)->getEvenement();
         EvenementInfoDialog *dial = new EvenementInfoDialog(evt);
@@ -98,13 +103,14 @@ void MainWindow::detaillerEvenement_lundi()
  }
 void MainWindow::detaillerEvenement_mardi()
 {
+    //recuperation de l'evenement clique
    bool mise_a_jour_necessaire = false;
    QList<QGraphicsItem*> itemsList = ui->graphicsView_mardi->scene()->selectedItems();
    QList<QGraphicsItem*>::iterator iter = itemsList.begin();
    QList<QGraphicsItem*>::iterator end = itemsList.end();
 
    while(iter!=end)
-   {
+   { // affichage du detail
        mise_a_jour_necessaire = true;
        Evenement* evt = dynamic_cast<EvenementGraphicItem*>(*iter)->getEvenement();
        EvenementInfoDialog *dial = new EvenementInfoDialog(evt);
@@ -118,13 +124,14 @@ void MainWindow::detaillerEvenement_mardi()
 }
 void MainWindow::detaillerEvenement_mercredi()
 {
+    //recuperation de l'evenement clique
    bool mise_a_jour_necessaire = false;
    QList<QGraphicsItem*> itemsList = ui->graphicsView_mercredi->scene()->selectedItems();
    QList<QGraphicsItem*>::iterator iter = itemsList.begin();
    QList<QGraphicsItem*>::iterator end = itemsList.end();
 
    while(iter!=end)
-   {
+   { // affichage du detail
        mise_a_jour_necessaire = true;
        Evenement* evt = dynamic_cast<EvenementGraphicItem*>(*iter)->getEvenement();
        EvenementInfoDialog *dial = new EvenementInfoDialog(evt);
@@ -138,13 +145,14 @@ void MainWindow::detaillerEvenement_mercredi()
 }
 void MainWindow::detaillerEvenement_jeudi()
 {
+    //recuperation de l'evenement clique
    bool mise_a_jour_necessaire = false;
    QList<QGraphicsItem*> itemsList = ui->graphicsView_jeudi->scene()->selectedItems();
    QList<QGraphicsItem*>::iterator iter = itemsList.begin();
    QList<QGraphicsItem*>::iterator end = itemsList.end();
 
    while(iter!=end)
-   {
+   { // affichage du detail
        mise_a_jour_necessaire = true;
        Evenement* evt = dynamic_cast<EvenementGraphicItem*>(*iter)->getEvenement();
        EvenementInfoDialog *dial = new EvenementInfoDialog(evt);
@@ -158,13 +166,14 @@ void MainWindow::detaillerEvenement_jeudi()
 }
 void MainWindow::detaillerEvenement_vendredi()
 {
+    //recuperation de l'evenement clique
    bool mise_a_jour_necessaire = false;
    QList<QGraphicsItem*> itemsList = ui->graphicsView_vendredi->scene()->selectedItems();
    QList<QGraphicsItem*>::iterator iter = itemsList.begin();
    QList<QGraphicsItem*>::iterator end = itemsList.end();
 
    while(iter!=end)
-   {
+   { // affichage du detail
        mise_a_jour_necessaire = true;
        Evenement* evt = dynamic_cast<EvenementGraphicItem*>(*iter)->getEvenement();
        EvenementInfoDialog *dial = new EvenementInfoDialog(evt);
@@ -178,13 +187,14 @@ void MainWindow::detaillerEvenement_vendredi()
 }
 void MainWindow::detaillerEvenement_samedi()
 {
+    //recuperation de l'evenement clique
    bool mise_a_jour_necessaire = false;
    QList<QGraphicsItem*> itemsList = ui->graphicsView_samedi->scene()->selectedItems();
    QList<QGraphicsItem*>::iterator iter = itemsList.begin();
    QList<QGraphicsItem*>::iterator end = itemsList.end();
 
    while(iter!=end)
-   {
+   { // affichage du detail
        mise_a_jour_necessaire = true;
        Evenement* evt = dynamic_cast<EvenementGraphicItem*>(*iter)->getEvenement();
        EvenementInfoDialog *dial = new EvenementInfoDialog(evt);
@@ -198,13 +208,14 @@ void MainWindow::detaillerEvenement_samedi()
 }
 void MainWindow::detaillerEvenement_dimanche()
 {
+    //recuperation de l'evenement clique
    bool mise_a_jour_necessaire = false;
    QList<QGraphicsItem*> itemsList = ui->graphicsView_dimanche->scene()->selectedItems();
    QList<QGraphicsItem*>::iterator iter = itemsList.begin();
    QList<QGraphicsItem*>::iterator end = itemsList.end();
 
    while(iter!=end)
-   {
+   { // affichage du detail
        mise_a_jour_necessaire = true;
        Evenement* evt = dynamic_cast<EvenementGraphicItem*>(*iter)->getEvenement();
        EvenementInfoDialog *dial = new EvenementInfoDialog(evt);
@@ -222,6 +233,7 @@ void MainWindow::detaillerEvenement_dimanche()
 
 void MainWindow::maj_dates()
 {
+    //mise a jour des dates des jours
     QDate selected = ui->calendarWidget->selectedDate();
     int num_j = selected.dayOfWeek()-1;
 
@@ -247,6 +259,7 @@ void MainWindow::maj_dates()
 
 void MainWindow::construct_recurs_tree(Tache* t, QTreeWidgetItem *root)
 {
+    //creation du treeWidget et si composite rappel recursif de la methode sur ses fils
     TreeTacheItem *nouv = new TreeTacheItem(root,t);
     nouv->setText(0,t->getTitre());
     if(t->isComposite())
@@ -291,16 +304,21 @@ void MainWindow::mise_a_jour()
 
 void MainWindow::maj_descripteurs()
 {
+
     TreeItem *curr = dynamic_cast<TreeItem*>(ui->treeWidget->currentItem());
+    //affichage de la programmation si elle est programmee
     if(curr)
     {
         std::stringstream ss;
         ss << curr->getDescriptionHtml().toStdString();
+        //verification de la selection d'une tache
         if(curr->isUnitaire())
         {
             Tache* tache = dynamic_cast<TreeTacheItem*>(curr)->getTache();
+            // verification tache unitaire
             if(!tache->isComposite()){
                std::vector<ProgrammationTache*> prog =  Agenda::getInstance().getProgrammationTache(dynamic_cast<TacheUnitaire*>(tache));
+               // parcours des programmation et affichage de chacune
                for(std::vector<ProgrammationTache*>::iterator it = prog.begin() ; it!=prog.end() ; ++it)
                {
                     QDate date = (*it)->getDate();
@@ -321,14 +339,14 @@ void MainWindow::ajouterTache()
     TreeItem* current = dynamic_cast<TreeItem*>(ui->treeWidget->currentItem());
 
     if(current && !current->isUnitaire())
-    {   //projet ou tache composite qui ont une methode ajouter tache
+    {
         TreeProjetItem* projet = dynamic_cast<TreeProjetItem*>(current->getParentProject());
         if(current->isProjetItem())
-        {
+        {   //ajout dans un projet
             AjoutTacheDialog *dial = new AjoutTacheDialog(this,projet->getProjet()->getTitre(),"");
             dial->exec();
         }else
-        {
+        {   //ajout dans un tache composite
             TreeTacheItem *curTacheItem = dynamic_cast<TreeTacheItem*>(current);
             AjoutTacheDialog *dial = new AjoutTacheDialog(this,projet->getProjet()->getTitre(),curTacheItem->getTache()->getId());
             dial->exec();
@@ -339,7 +357,6 @@ void MainWindow::ajouterTache()
 void MainWindow::supprimerTache()
 {
     TreeItem* current = dynamic_cast<TreeItem*>(ui->treeWidget->currentItem());
-
     if(current && !current->isProjetItem())
     {
         TreeProjetItem* projet = dynamic_cast<TreeProjetItem*>(current->getParentProject());
@@ -383,6 +400,7 @@ void MainWindow::ajouterPrecedence()
     {
         TreeTacheItem* tacheItem = dynamic_cast<TreeTacheItem*>(current);
         TreeProjetItem *projetItem = dynamic_cast<TreeProjetItem*>(current->getParentProject());
+        // verification que la tache n'a pas encore ete programmee
         if(!tacheItem->getTache()->isProgrammed())
         {
             AjoutPrecedenceDialog *dial = new AjoutPrecedenceDialog(tacheItem->getTache(),projetItem->getProjet());
@@ -415,6 +433,7 @@ void MainWindow::maj_listePrecedences()
 {
     ui->listWidget_precedence->clear();
     PrecedenceManager& prm = PrecedenceManager::getInstance();
+    // parcours des precedences et affichage
     for(PrecedenceManager::iterator it = prm.begin() ; it != prm.end() ; ++it)
     {
         const Tache *t_pred = (*it).getPredecesseur();
@@ -422,7 +441,6 @@ void MainWindow::maj_listePrecedences()
         QString pred = t_pred->getId();
         QString succ =  t_succ->getId();
         const Projet *projet = (*it).getProjet();
-
         QString txt = projet->getTitre() + " :   " +t_pred->getTitre() + " (" +  pred + ") -> " +t_succ->getTitre()+ " ("+succ+")";
         ListPrecedenceItem* item = new ListPrecedenceItem(txt,&(*it),ui->listWidget_precedence);
         ui->listWidget_precedence->addItem(item);
@@ -440,7 +458,7 @@ void MainWindow::programmerTache()
         Projet *projet = tp->getProjet();
         Tache *tache = ta->getTache();
         if(!tache->isComposite())
-        {
+        {   //verification tache unitairei
             TacheUnitaire *tu = dynamic_cast<TacheUnitaire*>(tache);
 
             // verification si la tache preemptive est deja completement programme
@@ -453,10 +471,9 @@ void MainWindow::programmerTache()
             QTime duree_t(duree_totale.getHeure(),duree_totale.getMinute());
             if(duree_t>sum)
                 tache_non_complete = true;
-            std::cout << "IS tache non complete "<<tache_non_complete<<"\n";
 
             if(!tu->isProgrammed() || (tu->isPreemptive() && tache_non_complete) )
-            {
+            {   // verification pas entierement programmee
                 ProgrammationTacheDialog *dial = new ProgrammationTacheDialog(tu,projet);
                 dial->exec();
                 delete dial;
@@ -487,12 +504,12 @@ void MainWindow::exporterProgrammationsProjet()
         stream.writeStartElement("programmations");
         Agenda& ag = Agenda::getInstance();
         for(Agenda::iterator it = ag.begin() ; it!= ag.end(); ++it)
-        {
+        {   //parcours de l'agenda
             if((*it).isProgrammationTache())
             {
                 ProgrammationTache *prog = dynamic_cast<ProgrammationTache*>(&(*it));
                 if(prog->getProjet() == projet)
-                {
+                { // si programmation d'une tache du projet
                     if((*it).isProgrammationPartieTache())
                         dynamic_cast<ProgrammationPartieTache*>(prog)->toXml(stream);
                     else
@@ -527,7 +544,7 @@ void MainWindow::exporterProgrammationsSemaine()
         stream.writeStartElement("programmations");
         Agenda& ag = Agenda::getInstance();
         for(Agenda::iterator it = ag.begin() ; it!= ag.end(); ++it)
-        {
+        { // parcours de l'agenda et test si dans la semaine
             if((*it).getDate()>=deb && (*it).getDate()<=fin)
                 (*it).toXml(stream);
         }
@@ -539,7 +556,7 @@ void MainWindow::exporterProgrammationsSemaine()
 
 
 void MainWindow::load()
-{
+{ //chargement des donnees du programme
     ProjetManager::getInstance().load("projets.xml");
     PrecedenceManager::getInstance().load("precedences.xml");
     Agenda::getInstance().load("agenda.xml");
@@ -547,46 +564,25 @@ void MainWindow::load()
 }
 
 void MainWindow::save()
-{
+{ //sauvergarde des donnees
     ProjetManager::getInstance().save("projets.xml");
     PrecedenceManager::getInstance().save("precedences.xml");
     Agenda::getInstance().save("agenda.xml");
-
 }
 
 void MainWindow::closeEvent(QCloseEvent * event)
 {
+    //appele quand on quitte
+    // libere la memoire
     libererInstance();
     QMainWindow::closeEvent(event);
 }
-
-/*
- * idee a continuer
- *
- * Le tree donne le titre du projet + le titre de la tache ou on va ajouter
- * AjoutTacheDialog va recherche a partir du pm
- * et c'est le pm qui va l'ajouter
- *
- * pour obtenir les description c'etait ok avec les pointeur
- * mais ici pour creer non
- *
- * 1) recherche tache dans projet rech(id)
- *
- *
- *
- * --> adaptateur entre projet et tache composite
- * --> observateur , les precedence observent le projetmanager, les projets et les taches
- *
- */
-
-
-
-
 
 
 
 TreeItem* TreeItem::getParentProject()
 {
+    //cherche le treeItem le plus haut dans la hierarchie
     QTreeWidgetItem *cur = this, *pred = this->parent();
     while(pred)
     {

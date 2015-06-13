@@ -10,6 +10,7 @@ AjoutPrecedenceDialog::AjoutPrecedenceDialog(Tache* t, Projet* p, QWidget *paren
 
     std::map<QString, Tache*> *map = projet->getTacheMap(tache->getId());
 
+    //recherche des taches pouvant respecter la contrainte  et ajout dans le selecteur
     for(std::map<QString,Tache*>::iterator it = map->begin(); it != map->end() ; ++it )
     {
         if(it->second != tache ){
@@ -22,8 +23,6 @@ AjoutPrecedenceDialog::AjoutPrecedenceDialog(Tache* t, Projet* p, QWidget *paren
             }
         }
     }
-
-
 }
 
 AjoutPrecedenceDialog::~AjoutPrecedenceDialog()
@@ -46,6 +45,7 @@ void AjoutPrecedenceDialog::accept()
 
 void AjoutPrecedenceDialog::ajouterPrecedenceRecurs(Tache* t,Tache* pred) //double recurs pour ajouter tous les preds a tous les succs
 {
+    // ajout recursive de la contrainte de precedence dans toutes les sous-taches
     ajouterPredRecurs(t,pred);
     if(t->isComposite()){
         TacheComposite *tc = dynamic_cast<TacheComposite*>(t);
@@ -56,6 +56,7 @@ void AjoutPrecedenceDialog::ajouterPrecedenceRecurs(Tache* t,Tache* pred) //doub
 
 void AjoutPrecedenceDialog::ajouterPredRecurs(Tache*t, Tache*pred)
 {
+    // ajout recursive de la contrainte de precedence dans toutes les sous-taches
     try{
         PrecedenceManager::getInstance().ajouterPrecedence(*pred,*t,projet);
     }catch(CalendarException e)

@@ -50,8 +50,6 @@ ProgrammationTacheDialog::ProgrammationTacheDialog(TacheUnitaire *t, Projet* p, 
                  ui->dateEdit_date->setMinimumDate(date_max_temp.date());
                  ui->dateEdit_date->setDate(date_max_temp.date());
                  ui->timeEdit_horaire->setTime(date_max_temp.time());
-
-
              }else
              {
                  //verification si la tache precedente a ete complement programmee
@@ -69,8 +67,6 @@ ProgrammationTacheDialog::ProgrammationTacheDialog(TacheUnitaire *t, Projet* p, 
                  }
                  Duree duree_totale = dynamic_cast<const TacheUnitaire*>(*it)->getDuree();
                  QTime duree_t(duree_totale.getHeure(),duree_totale.getMinute());
-                 std::cout << "duree_t = "<<duree_t.toString().toStdString()<<"\n";
-                 std::cout <<"sum = "<<sum.toString().toStdString()<<"\n";
                  if(duree_t>sum)
                      tache_non_complete = true;
                  if(tache_non_complete){
@@ -86,13 +82,11 @@ ProgrammationTacheDialog::ProgrammationTacheDialog(TacheUnitaire *t, Projet* p, 
         }
     }
 
-     std::cout << "<<<<<<<<<<<<<<<<<<<< date_max = "<<date_max.toString().toStdString()<<"\n";
 
-
-// fverif si > date_max
     ui->timeEdit_horaire->setMinimumTime(QTime(6,0));
     ui->timeEdit_horaire->setMaximumTime(QTime(22,0));
 
+    // calcul de la duree deja programme pour les tache preemptive
     QTime sum(0,0);
     std::vector<ProgrammationTache*> progs = Agenda::getInstance().getProgrammationTache(tache);
     for(std::vector<ProgrammationTache*>::iterator it = progs.begin() ; it != progs.end() ; ++it){
@@ -104,14 +98,11 @@ ProgrammationTacheDialog::ProgrammationTacheDialog(TacheUnitaire *t, Projet* p, 
     }
     Duree duree_totale = tache->getDuree();
     QTime duree_t(duree_totale.getHeure(),duree_totale.getMinute());
-    std::cout << "duree de la tahce = "<<duree_t.toString().toStdString()<<"\n";
     int nb_secs = sum.secsTo(duree_t);
-    std::cout << "secs to e = "<<nb_secs<<"\n";
 
     QTime max_time(0,0);
     max_time = max_time.addSecs(nb_secs);
-    std::cout << "MMMMAAAAXXXX TIME === " << max_time.toString().toStdString() << "\n";
-
+    //limite au temps restant
     ui->timeEdit_duree->setMaximumTime(max_time);
 
 }
@@ -140,25 +131,21 @@ void ProgrammationTacheDialog::accept()
         throw CalendarException("erreur ProgrammationTacheDialog, impossible de programmer une tache dans le passe");
 
     bool ok = true;
-    // verification que les predecesseurs
+    // verification que les predecesseurs coincident
     for(Tache::const_succ_iterator it = tache->beginSucc() ; it != tache->endSucc() ; ++it)
     {
         std::vector<ProgrammationTache*> progs = Agenda::getInstance().getProgrammationTache(*it);
-        std::cout <<"VERIFICATION SUCC : "<<(*it)->getId().toStdString()<<"\n";
         for(std::vector<ProgrammationTache*>::const_iterator at = progs.begin() ; at != progs.end() ; ++at){
-            std::cout << "-----------> "<<(*at)->getDate().toString().toStdString()<<"\n";
             if(QDateTime((*at)->getDate(),(*at)->getHoraire()) <= horaire_prog_fin)
                 ok = false;
         }
     }
 
+    // verification que les successeurs coincident
     for(Tache::const_pred_iterator it = tache->beginPred() ; it != tache->endPred() ; ++it)
     {
         std::vector<ProgrammationTache*> progs = Agenda::getInstance().getProgrammationTache(*it);
-        std::cout <<"VERIFICATION PRED : "<<(*it)->getId().toStdString()<<"\n";
-
         for(std::vector<ProgrammationTache*>::iterator at = progs.begin() ; at != progs.end() ; ++at){
-            std::cout << "-----------> "<<(*at)->getDate().toString().toStdString()<<"\n";
             if(QDateTime((*at)->getDate(),(*at)->getHoraire()).addSecs((*at)->getDuree().getDureeEnMinutes()) > horaire_prog_deb)
                 ok = false;
         }

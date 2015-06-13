@@ -7,18 +7,7 @@ TacheComposite::~TacheComposite()
         delete (it->second);
 }
 
-/*
-TacheComposite& TacheComposite::operator<<(Tache* t)
-{
-    /* id est gere par le logiciel
-     * 1->1.1 1.2 1.3 ...
-     * id = num tacheMere + . + nbSousTacheDeLaTacheMere+1
-     *
-    if(sousTaches[t->getId()])
-        throw CalendarException("erreur, TacheComposite, sous tache deja existante");
-    sousTaches[t->getId()] = t;
-    return *this;
-}*/
+
 
 void TacheComposite::ajouterSousTache(Tache *t)
 {
@@ -83,6 +72,7 @@ TacheComposite* TacheComposite::getFromXml(QXmlStreamReader& xml)
     QDate ech;
     QString desc;
 
+    //construction de la tache composite a partir de l' xml
     while(!(xml.tokenType() == QXmlStreamReader::StartElement && xml.name() == "soustaches")){
         if(xml.tokenType() == QXmlStreamReader::StartElement)
         {
@@ -116,13 +106,12 @@ TacheComposite* TacheComposite::getFromXml(QXmlStreamReader& xml)
         }
         xml.readNext();
     }
-    std::cout << "tache omcposite cree :::: "<<t.toStdString()<<"\n";
     xml.readNext();
     TacheComposite *tache = new TacheComposite(id,t,dispo,ech,desc);
+    // ajout des sous-taches
     while(!(xml.tokenType() == QXmlStreamReader::EndElement && xml.name() == "soustaches")){
         if(xml.tokenType() == QXmlStreamReader::StartElement)
         {
-            std::cout << "on va lui rajouter "<<xml.name().toString().toStdString()<<"\n";
             if(xml.name() == "tacheunitaire")
                 tache->ajouterSousTache(TacheUnitaire::getFromXml(xml));
             else if(xml.name() == "tachecomposite")
@@ -138,10 +127,11 @@ TacheComposite* TacheComposite::getFromXml(QXmlStreamReader& xml)
 
 Tache* TacheComposite::getSousTache(const QString &id)
 {
+    //si elle est dans les sous-taches
     if(sousTaches.find(id) != sousTaches.end())
         return sousTaches[id];
     else
-    {
+    {   // sinon recherche dans les sous-taches au niveau inferieur
         for(std::map<QString, Tache*>::iterator it = sousTaches.begin() ; it != sousTaches.end() ; ++it)
         {
             if(it->second->isComposite())
@@ -157,10 +147,11 @@ Tache* TacheComposite::getSousTache(const QString &id)
 
 bool TacheComposite::contientSousTache(const Tache *t)
 {
+    //si elle est dans les sous-taches
     if(sousTaches.find(t->getId()) != sousTaches.end() && sousTaches[t->getId()] == t)
         return true;
     else
-    {
+    {    // sinon recherche dans les sous-taches au niveau inferieur
         for(std::map<QString, Tache*>::iterator it = sousTaches.begin() ; it != sousTaches.end() ; ++it)
         {
             if(it->second->isComposite())
@@ -176,6 +167,7 @@ bool TacheComposite::contientSousTache(const Tache *t)
 
 bool TacheComposite::isProgrammed() const
 {
+    // programmee si toutes ses sous-taches ont ete programmees
     for(const_iterator it = begin() ; it!=end() ;++it)
     {
         if((*it).isProgrammed())
@@ -187,10 +179,11 @@ bool TacheComposite::isProgrammed() const
 
 std::map<QString, Tache *> *TacheComposite::getTacheMap(const QString &id)
 {
+    // si elle est dans les sosu-tache
     if(sousTaches.find(id) != sousTaches.end())
         return &sousTaches;
     else
-    {
+    {   // sinon on cherche recursivemenet a l'interieur des sous-taches
         for(TacheComposite::iterator it = begin() ; it != end() ; ++it)
         {
             if((*it).isComposite())

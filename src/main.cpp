@@ -1,6 +1,5 @@
 #include <QApplication>
 
-
 #include <iostream>
 #include "rdv.h"
 #include "projetmanager.h"
@@ -10,7 +9,6 @@
 #include "tacheunitaire.h"
 #include "programmationpartietache.h"
 #include "tachecomposite.h"
-
 #include "mainwindow.h"
 
 
@@ -21,8 +19,11 @@ int main(int argc, char *argv[])
     ProjetManager& pm = ProjetManager::getInstance();
     PrecedenceManager& prm = PrecedenceManager::getInstance();
 
-    pm.ajouterObservateur(&w);
-    prm.ajouterObservateur(&w);
+    //pm.ajouterObservateur(&w);
+   // prm.ajouterObservateur(&w);
+
+
+
 /*
     for(ProjetManager::iterator it = ProjetManager::getInstance().begin(); it != ProjetManager::getInstance().end() ; ++it)
         (*it).ajouterObservateur(&w);
@@ -196,22 +197,10 @@ int main(int argc, char *argv[])
     //for(ProjetManager::iterator it = pm.begin() ; it != pm.end(); ++it)
       //  (*it).save((*it).getTitre()+".xml");
 
-    w.show();
-
-
-    //std::cout << "resulte getSousTache = " << pm.getProjet("projet2").getTache("t3.2")->getDescription().toStdString() << "\n";
-
-
-
+     w.show();
      return a.exec();
 
 }
 
 
-/*
- * A faire
- *
- * tous les messages d'erreurs
- * quand on programme eviter tout chevauchement
- * ==> il faut getEvenement par date heure duree
-*/
+

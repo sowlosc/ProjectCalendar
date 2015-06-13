@@ -7,7 +7,7 @@ EvenementInfoDialog::EvenementInfoDialog(Evenement* e,QWidget *parent) :
 {
     ui->setupUi(this);
 
-    //recuperation des donnees de l'evenemnet et affichage
+    //recuperation des donnees de l'evenement et affichage
     ui->textBrowser->setHtml(evt->toString());
 
     QObject::connect(ui->pushButton_ok,SIGNAL(clicked()),this,SLOT(accept()));

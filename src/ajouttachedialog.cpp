@@ -47,12 +47,13 @@ void AjoutTacheDialog::accept()
     QDate dispo = ui->dateEdit_dispo->date();
     QDate ech = ui->dateEdit_ech->date();
 
-
+    //verification titre et id non vides
     if(id!="" && titre!="")
     {
         bool fin = true;
         Tache* t;
         try{
+            //creation de la tache
             if(ui->checkBox_composite->isChecked())
             {
                 t = new TacheComposite(id,titre,dispo,ech,desc);
@@ -100,8 +101,8 @@ void AjoutTacheDialog::accept()
                 }
             }
         }
-        if(fin){
-            ProjetManager::getInstance().notifier(); //on notifie l'ajout a l'observateur pour qu'il se mette a jour
+        if(fin){ //on notifie l'ajout a l'observateur pour qu'il se mette a jour
+            ProjetManager::getInstance().notifier();
             this->done(1);
         }
     }

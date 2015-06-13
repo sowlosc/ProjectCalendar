@@ -16,7 +16,6 @@ Agenda& Agenda::operator<<(Evenement& evt)
     if(evt.isProgrammationTache())
         dynamic_cast<ProgrammationTache*>(&evt)->getTache()->setProgrammed(true);
 
-
     events.push_back(evt.clone());
     Observable::notifier();
     return *this;
@@ -27,15 +26,12 @@ Agenda& Agenda::operator>>(Evenement *evt)
 {
     for(std::vector<Evenement*>::iterator it = events.begin() ; it != events.end() ; ++it)
         if( *it == evt){
-            std::cout << "Agende :::: suppression evt "<<evt->getDate().toString().toStdString()<<" - "<<evt->getHoraire().toString().toStdString() <<"\n";
-
             if(evt->isProgrammationTache())
                 dynamic_cast<ProgrammationTache*>(evt)->getTache()->setProgrammed(false);
 
             delete evt;
             events.erase(it);
             Observable::notifier();
-
             return *this;
         }
     throw CalendarException("Erreur, Agenda, cet evenement n'existe pas");
@@ -50,6 +46,7 @@ Agenda::~Agenda()
 
 std::vector<ProgrammationTache*> Agenda::getProgrammationTache(const Tache* t)
 {
+    // recupere toutes les programmation dans tab
     std::vector<ProgrammationTache*> tab;
     for(iterator it = begin() ; it != end() ; ++it)
     {
@@ -58,7 +55,6 @@ std::vector<ProgrammationTache*> Agenda::getProgrammationTache(const Tache* t)
             ProgrammationTache* prog = dynamic_cast<ProgrammationTache*>(&(*it));
             if( prog->getTache() == t)
                 tab.push_back(prog);
-
         }
     }
     return tab;
@@ -66,16 +62,12 @@ std::vector<ProgrammationTache*> Agenda::getProgrammationTache(const Tache* t)
 
 bool Agenda::isLibre(const QDateTime& debut, const QDateTime &fin)
 {
-    std::cout << "isLibre "<<debut.toString().toStdString()<<" - "<<fin.toString().toStdString()<<"\n";
     for(iterator it=begin(); it!= end(); ++it)
     {
         QDateTime deb2((*it).getDate(),(*it).getHoraire());
         QDateTime fin2 = deb2.addSecs((*it).getDuree().getDureeEnMinutes()*60);
-
         if( !((debut<deb2 && fin<=deb2) || (debut>=fin2 && fin>fin2)))
             return false;
-        std::cout<<"return TRUE : debut2 = "<<deb2.toString().toStdString()<<" - "<<fin2.toString().toStdString()<<"\n";
-
     }
     return true;
 }

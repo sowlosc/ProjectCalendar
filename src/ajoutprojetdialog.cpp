@@ -25,6 +25,7 @@ void AjoutProjetDialog::accept()
     QDate dispo = ui->dateEdit_disponibilite->date();
     QDate ech = ui->dateEdit_echeance->date();
 
+    //verification titre non vide
     if(titre!="")
     {
         bool fin = true;

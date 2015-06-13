@@ -46,7 +46,7 @@ EvenementPj* EvenementPj::getFromXml(QXmlStreamReader& xml)
     QDate dateFin;
     QTime horaireFin;
     QString sujet;
-
+    //construction de l'objet en lisant le xml
     while(!(xml.tokenType() == QXmlStreamReader::EndElement && xml.name() == "evenementpj")){
         if(xml.tokenType() == QXmlStreamReader::StartElement)
         {

@@ -28,6 +28,11 @@ public:
     virtual ProgrammationPartieTache* clone() const;
     virtual QString toString() const;
     virtual void toXml(QXmlStreamWriter &s) const;
+    /**
+     * @brief construit une programmation d'une partie a partir du stream xml
+     * @param xml
+     * @return pointeur sur l'objet cree
+     */
     static ProgrammationPartieTache* getFromXml(QXmlStreamReader& xml);
     bool isProgrammationPartieTache() const { return true; }
 };

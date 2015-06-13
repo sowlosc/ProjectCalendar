@@ -38,7 +38,7 @@ Evenement1j* Evenement1j::getFromXml(QXmlStreamReader& xml)
     QTime horaire;
     Duree duree;
     QString sujet;
-
+    //construction de l'objet en lisant le xml
     while(!(xml.tokenType() == QXmlStreamReader::EndElement && xml.name() == "evenement1j")){
         if(xml.tokenType() == QXmlStreamReader::StartElement)
         {

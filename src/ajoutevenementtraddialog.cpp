@@ -7,10 +7,12 @@ AjoutEvenementTradDialog::AjoutEvenementTradDialog(QWidget *parent) :
 {
     ui->setupUi(this);
 
+    // connection des signaux aux slots
     QObject::connect(ui->checkBox_rdv,SIGNAL(stateChanged(int)),this,SLOT(activerRdv(int)));
     QObject::connect(ui->checkBox_evenement1j,SIGNAL(stateChanged(int)),this,SLOT(activerEvenement1j(int)));
     QObject::connect(ui->checkBox_evenementPj,SIGNAL(stateChanged(int)),this,SLOT(activerEvenementPj(int)));
 
+    //limite des champs
     ui->dateEdit_date->setDate(QDate::currentDate());
     ui->dateEdit_datefin->setDate(QDate::currentDate().addDays(1));
     ui->timeEdit_duree->setTime(QTime(1,0));
@@ -23,7 +25,7 @@ AjoutEvenementTradDialog::AjoutEvenementTradDialog(QWidget *parent) :
     ui->timeEdit_horairefin->setMaximumTime(QTime(22,0));
 
     int x=0;
-
+    // affichage et masquage des champs
     ui->label_lieu->setVisible(x);
     ui->label_personnes->setVisible(x);
     ui->lineEdit_lieu->setVisible(x);
@@ -60,6 +62,7 @@ void AjoutEvenementTradDialog::accept()
             Duree duree(tduree.hour(),tduree.minute());
 
             Rdv evt(date,horaire,duree,sujet,lieu);
+            // extraction des noms des personnes
             QStringList liste = pers.split("\n");
             for(QStringList::iterator it = liste.begin(); it != liste.end(); ++it)
             {
@@ -110,6 +113,7 @@ void AjoutEvenementTradDialog::accept()
 
 void AjoutEvenementTradDialog::activerRdv(int x)
 {
+    // affiche ou cache les champs specifiques aux Rdv
     ui->label_lieu->setVisible(x);
     ui->label_personnes->setVisible(x);
     ui->lineEdit_lieu->setVisible(x);
@@ -120,12 +124,14 @@ void AjoutEvenementTradDialog::activerRdv(int x)
 
 void AjoutEvenementTradDialog::activerEvenement1j(int x)
 {
+    //affiche ou cache les champs specifiques aux activerEvenement1j
     ui->timeEdit_duree->setVisible(x);
     ui->label_duree->setVisible(x);
 
 }
 void AjoutEvenementTradDialog::activerEvenementPj(int x)
 {
+    //affiche ou cache les champs specifiques aux activerEvenementPj
     ui->timeEdit_horairefin->setVisible(x);
     ui->label_horairefin->setVisible(x);
     ui->label_datefin->setVisible(x);

@@ -21,6 +21,7 @@ void PrecedenceManager::libereInstace()
 
 std::vector<Precedence*>::iterator PrecedenceManager::findPrecedence(const Tache& t1, const Tache &t2)
 {
+    //parcours de toutes les precedences
     for(std::vector<Precedence*>::iterator it = precedences.begin() ; it != precedences.end() ; ++it)
         if((*it)->pred == &t1 && (*it)->succ == &t2)
             return it;
@@ -30,10 +31,6 @@ std::vector<Precedence*>::iterator PrecedenceManager::findPrecedence(const Tache
 
 void PrecedenceManager::ajouterPrecedence(const Tache &t1, const Tache &t2,const Projet* proj)
 {
-    /* il faut verifier que la precedence n'existe pas deja
-     * et qu'elle ne provoque pas d'incoherence
-     * */
-
     if(findPrecedence(t1,t2) != precedences.end())
             throw CalendarException("Cette contrainte de précédence existe déjà");
 
@@ -44,18 +41,13 @@ void PrecedenceManager::ajouterPrecedence(const Tache &t1, const Tache &t2,const
 
 void PrecedenceManager::retirerPrecedence(const Tache &t1, const Tache &t2)
 {
-    /* il faut verif qu'elle existe
-     * */
-
     std::vector<Precedence*>::iterator position = findPrecedence(t1,t2);
     if(position != precedences.end())
     {
-        std::cout << "------------------------suppresion precedence : \n";
         delete (*position);
         precedences.erase(position);
     }else
     {
-        std::cout <<"-------------- mauvaise precedence a suppr\n";
         throw CalendarException("Erreur, PrecedenceManager, la precedence a retirer n'existe pas");
     }
 }
@@ -101,12 +93,10 @@ void PrecedenceManager::load(const QString &f)
            if(xml.name() == "precedences") continue;
            // If it's named tache, we'll dig the information from there.
            if(xml.name() == "precedence") {
-               qDebug()<<"new tache\n";
 
                QString nomProjet;
                QString idPred;
                QString idSucc;
-              qDebug() << "----------------------\n";
                while(!(xml.tokenType() == QXmlStreamReader::EndElement && xml.name() == "precedence")) {
                    if(xml.tokenType() == QXmlStreamReader::StartElement) {
 
@@ -130,16 +120,12 @@ void PrecedenceManager::load(const QString &f)
                    // ...and next...
                    xml.readNext();
                }
-               //qDebug()<<"ajout tache "<<identificateur<<"\n";
-
 
                Projet& p = ProjetManager::getInstance().getProjet(nomProjet);
                Tache* pred = p.getTache(idPred);
                Tache* succ = p.getTache(idSucc);
                PrecedenceManager::getInstance().ajouterPrecedence(*pred,*succ,&p);
-
                 xml.readNext();
-
           }
        }
    }
@@ -149,7 +135,6 @@ void PrecedenceManager::load(const QString &f)
    }
    // Removes any device() or data from the reader * and resets its internal state to the initial state.
    xml.clear();
-   //qDebug()<<"fin load\n";
 }
 
 

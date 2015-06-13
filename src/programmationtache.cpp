@@ -35,7 +35,7 @@ ProgrammationTache* ProgrammationTache::getFromXml(QXmlStreamReader& xml)
     QTime horaire;
     QString idTache;
     QString nomProjet;
-
+    //construction de l'ogbjet a partir des donnees du fichier xml
     while(!(xml.tokenType() == QXmlStreamReader::EndElement && xml.name() == "programmationtache")){
         if(xml.tokenType() == QXmlStreamReader::StartElement)
         {
