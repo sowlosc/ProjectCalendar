@@ -11,7 +11,7 @@ Projet::~Projet()
     }
 }
 
-Projet& Projet::ajouterTache(Tache *t)
+void Projet::ajouterTache(Tache *t)
 {
     if(taches.find(t->getId()) != taches.end())
         throw CalendarException("Identifiant déjà existant");
@@ -22,10 +22,10 @@ Projet& Projet::ajouterTache(Tache *t)
 
     taches[t->getId()] = t;
     notifier();
-    return *this;
 }
 
-//a enlever
+//a enleve
+/*
 void Projet::retirerTache(Tache *t)
 {
     if(taches.find(t->getId()) != taches.end()){
@@ -33,9 +33,9 @@ void Projet::retirerTache(Tache *t)
         taches.erase(t->getId());
         notifier();
     }
-}
+}*/
 
-void Projet::retirerTache(const QString id)
+void Projet::retirerTache(const QString &id)
 {
     std::map<QString, Tache*>* parent = getTacheMap(id);
     if(parent)
@@ -108,33 +108,6 @@ std::map<QString, Tache*>* Projet::getTacheMap(const QString &id)
 
 
 
-// ---------------------------------- fonction d'affichage des projet en console -------------------
-void Projet::affTache(Tache* t)
-{
-    if(t->isComposite())
-    {
-        std::cout << "tache composite : " << t->getDescription().toStdString() <<"\n";
-        TacheComposite *tc = dynamic_cast<TacheComposite*>(t);
-        for(TacheComposite::iterator it = tc->begin()  ;it != tc->end() ; ++it)
-            affTache(&(*it));
-    }else
-        std::cout<<"tache : "<<t->getDescription().toStdString()<<"\n";
-}
-
-
-void Projet::describe()
-{
-    std::cout << "\n\n======= Description projet "<<getTitre().toStdString()<<" =======\n";
-    for(Projet::iterator it = this->begin() ; it != this->end() ; ++it)
-    {
-        std::cout<<"----->\n";
-        affTache(&(*it));
-    }
-    std::cout<<"\n\n";
-}
-
-//------------------------------------------------------------------------------------------
-
 
 QString Projet::toString() const
 {
@@ -166,8 +139,7 @@ void Projet::toXml(QXmlStreamWriter& s) const
 
 void Projet::save(const QString &f)
 {
-    file=f;
-    QFile newfile(file);
+    QFile newfile(f);
     if (!newfile.open(QIODevice::WriteOnly | QIODevice::Text))
         throw CalendarException(QString("erreur sauvegarde tâches : ouverture fichier xml"));
     QXmlStreamWriter stream(&newfile);
@@ -188,8 +160,7 @@ void Projet::load(const QString &f)
     std::cout << "======> \n debut des taches du projet\n";
     //qDebug()<<"debut load\n";
    //this->~TacheManager();
-   file=f;
-   QFile fin(file);
+   QFile fin(f);
    // If we can't open it, let's show an error message.
    if (!fin.open(QIODevice::ReadOnly | QIODevice::Text)) {
        throw CalendarException("Erreur ouverture fichier tâches");

@@ -12,6 +12,10 @@ namespace Ui {
 class AjoutTacheDialog;
 }
 
+
+/*! \class AjoutTacheDialog
+        \brief Fenetre de dialogue pour l'ajout d'une tache a un projet
+*/
 class AjoutTacheDialog : public QDialog
 {
     Q_OBJECT

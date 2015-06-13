@@ -72,7 +72,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Variables</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -92,74 +92,326 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">PrecedenceManager Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Classe permettant de gerer les contraintes de precedence (singleton)  
+ <a href="class_precedence_manager.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="precedencemanager_8h_source.html">precedencemanager.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for PrecedenceManager:</div>
 <div class="dyncontent">
  <div class="center">
   <img src="class_precedence_manager.png" usemap="#PrecedenceManager_map" alt=""/>
   <map id="PrecedenceManager_map" name="PrecedenceManager_map">
-<area href="class_observable.html" alt="Observable" shape="rect" coords="0,0,132,24"/>
-<area href="class_enregistrable.html" alt="Enregistrable" shape="rect" coords="142,0,274,24"/>
+<area href="class_observable.html" title="Classe d&#39;objets Observable. " alt="Observable" shape="rect" coords="0,0,132,24"/>
+<area href="class_enregistrable.html" title="Classe definissant l&#39;interface d&#39;objets qui peuvent etre enregistres et charges à partir de fichier x..." alt="Enregistrable" shape="rect" coords="142,0,274,24"/>
 </map>
  </div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_precedence_manager_1_1iterator.html">iterator</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Classe permettant d'iterer sur les contraintes de precedence.  <a href="class_precedence_manager_1_1iterator.html#details">More...</a><br/></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:accbd28e8ba44df1a12512e65220def00"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="accbd28e8ba44df1a12512e65220def00"></a>
-std::vector&lt; <a class="el" href="class_precedence.html">Precedence</a> * &gt;<br class="typebreak"/>
-::<a class="el" href="class_precedence_manager_1_1iterator.html">iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><b>findPrecedence</b> (const <a class="el" href="class_tache.html">Tache</a> &amp;t1, const <a class="el" href="class_tache.html">Tache</a> &amp;t2)</td></tr>
+<tr class="memitem:accbd28e8ba44df1a12512e65220def00"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="class_precedence.html">Precedence</a> * &gt;<br class="typebreak"/>
+::<a class="el" href="class_precedence_manager_1_1iterator.html">iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_precedence_manager.html#accbd28e8ba44df1a12512e65220def00">findPrecedence</a> (const <a class="el" href="class_tache.html">Tache</a> &amp;t1, const <a class="el" href="class_tache.html">Tache</a> &amp;t2)</td></tr>
+<tr class="memdesc:accbd28e8ba44df1a12512e65220def00"><td class="mdescLeft">&#160;</td><td class="mdescRight">Recherche une precedence.  <a href="#accbd28e8ba44df1a12512e65220def00">More...</a><br/></td></tr>
 <tr class="separator:accbd28e8ba44df1a12512e65220def00"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a925235dbd6d011acc72fab6cde2eceed"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a925235dbd6d011acc72fab6cde2eceed"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>ajouterPrecedence</b> (const <a class="el" href="class_tache.html">Tache</a> &amp;t1, const <a class="el" href="class_tache.html">Tache</a> &amp;t2, const <a class="el" href="class_projet.html">Projet</a> *proj)</td></tr>
+<tr class="memitem:a925235dbd6d011acc72fab6cde2eceed"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_precedence_manager.html#a925235dbd6d011acc72fab6cde2eceed">ajouterPrecedence</a> (const <a class="el" href="class_tache.html">Tache</a> &amp;t1, const <a class="el" href="class_tache.html">Tache</a> &amp;t2, const <a class="el" href="class_projet.html">Projet</a> *proj)</td></tr>
+<tr class="memdesc:a925235dbd6d011acc72fab6cde2eceed"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ajoute une precedence.  <a href="#a925235dbd6d011acc72fab6cde2eceed">More...</a><br/></td></tr>
 <tr class="separator:a925235dbd6d011acc72fab6cde2eceed"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abbf3d400a9f6d7be97d1c40561129253"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="abbf3d400a9f6d7be97d1c40561129253"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>retirerPrecedence</b> (const <a class="el" href="class_tache.html">Tache</a> &amp;t1, const <a class="el" href="class_tache.html">Tache</a> &amp;t2)</td></tr>
+<tr class="memitem:abbf3d400a9f6d7be97d1c40561129253"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_precedence_manager.html#abbf3d400a9f6d7be97d1c40561129253">retirerPrecedence</a> (const <a class="el" href="class_tache.html">Tache</a> &amp;t1, const <a class="el" href="class_tache.html">Tache</a> &amp;t2)</td></tr>
+<tr class="memdesc:abbf3d400a9f6d7be97d1c40561129253"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retire une precedence.  <a href="#abbf3d400a9f6d7be97d1c40561129253">More...</a><br/></td></tr>
 <tr class="separator:abbf3d400a9f6d7be97d1c40561129253"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a47982153006087f905abb6922427c4ed"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a47982153006087f905abb6922427c4ed"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>save</b> (const QString &amp;f)</td></tr>
+<tr class="memitem:a47982153006087f905abb6922427c4ed"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_precedence_manager.html#a47982153006087f905abb6922427c4ed">save</a> (const QString &amp;f)</td></tr>
+<tr class="memdesc:a47982153006087f905abb6922427c4ed"><td class="mdescLeft">&#160;</td><td class="mdescRight">Permet d'enregistrer dans un fichier xml.  <a href="#a47982153006087f905abb6922427c4ed">More...</a><br/></td></tr>
 <tr class="separator:a47982153006087f905abb6922427c4ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab54ecd23aa9f320dc8cd94732989dc83"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab54ecd23aa9f320dc8cd94732989dc83"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>load</b> (const QString &amp;f)</td></tr>
+<tr class="memitem:ab54ecd23aa9f320dc8cd94732989dc83"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_precedence_manager.html#ab54ecd23aa9f320dc8cd94732989dc83">load</a> (const QString &amp;f)</td></tr>
+<tr class="memdesc:ab54ecd23aa9f320dc8cd94732989dc83"><td class="mdescLeft">&#160;</td><td class="mdescRight">Permet de charger a partir d'un fichier xml.  <a href="#ab54ecd23aa9f320dc8cd94732989dc83">More...</a><br/></td></tr>
 <tr class="separator:ab54ecd23aa9f320dc8cd94732989dc83"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adb5baf22278740912ed62e468a9d523f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="adb5baf22278740912ed62e468a9d523f"></a>
-<a class="el" href="class_precedence_manager_1_1iterator.html">iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><b>begin</b> ()</td></tr>
+<a class="el" href="class_precedence_manager_1_1iterator.html">iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_precedence_manager.html#adb5baf22278740912ed62e468a9d523f">begin</a> ()</td></tr>
+<tr class="memdesc:adb5baf22278740912ed62e468a9d523f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retourne un iterateur sur la premiere precedence. <br/></td></tr>
 <tr class="separator:adb5baf22278740912ed62e468a9d523f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa2b7e75bcad3eb09975db7794afeb453"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa2b7e75bcad3eb09975db7794afeb453"></a>
-<a class="el" href="class_precedence_manager_1_1iterator.html">iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><b>end</b> ()</td></tr>
+<a class="el" href="class_precedence_manager_1_1iterator.html">iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_precedence_manager.html#aa2b7e75bcad3eb09975db7794afeb453">end</a> ()</td></tr>
+<tr class="memdesc:aa2b7e75bcad3eb09975db7794afeb453"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retourne un iterateur apres la derniere precedence. <br/></td></tr>
 <tr class="separator:aa2b7e75bcad3eb09975db7794afeb453"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_class_observable"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_observable')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_observable.html">Observable</a></td></tr>
-<tr class="memitem:a86402eba3063e0fb2ed9a96fce7cef81 inherit pub_methods_class_observable"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a86402eba3063e0fb2ed9a96fce7cef81"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>ajouterObservateur</b> (<a class="el" href="class_observateur.html">Observateur</a> *o)</td></tr>
+<tr class="memitem:a86402eba3063e0fb2ed9a96fce7cef81 inherit pub_methods_class_observable"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_observable.html#a86402eba3063e0fb2ed9a96fce7cef81">ajouterObservateur</a> (<a class="el" href="class_observateur.html">Observateur</a> *o)</td></tr>
+<tr class="memdesc:a86402eba3063e0fb2ed9a96fce7cef81 inherit pub_methods_class_observable"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ajoute un observateur.  <a href="#a86402eba3063e0fb2ed9a96fce7cef81">More...</a><br/></td></tr>
 <tr class="separator:a86402eba3063e0fb2ed9a96fce7cef81 inherit pub_methods_class_observable"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6cbb5cbed62d665e9dfcbe99be8aec01 inherit pub_methods_class_observable"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6cbb5cbed62d665e9dfcbe99be8aec01"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>supprimerObservateur</b> (<a class="el" href="class_observateur.html">Observateur</a> *o)</td></tr>
+<tr class="memitem:a6cbb5cbed62d665e9dfcbe99be8aec01 inherit pub_methods_class_observable"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_observable.html#a6cbb5cbed62d665e9dfcbe99be8aec01">supprimerObservateur</a> (<a class="el" href="class_observateur.html">Observateur</a> *o)</td></tr>
+<tr class="memdesc:a6cbb5cbed62d665e9dfcbe99be8aec01 inherit pub_methods_class_observable"><td class="mdescLeft">&#160;</td><td class="mdescRight">Supprime un observateur.  <a href="#a6cbb5cbed62d665e9dfcbe99be8aec01">More...</a><br/></td></tr>
 <tr class="separator:a6cbb5cbed62d665e9dfcbe99be8aec01 inherit pub_methods_class_observable"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab0916bedda82a820099366269e323b22 inherit pub_methods_class_observable"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab0916bedda82a820099366269e323b22"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>notifier</b> ()</td></tr>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_observable.html#ab0916bedda82a820099366269e323b22">notifier</a> ()</td></tr>
+<tr class="memdesc:ab0916bedda82a820099366269e323b22 inherit pub_methods_class_observable"><td class="mdescLeft">&#160;</td><td class="mdescRight">Notifie tous les observateurs. <br/></td></tr>
 <tr class="separator:ab0916bedda82a820099366269e323b22 inherit pub_methods_class_observable"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_class_enregistrable"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_enregistrable')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_enregistrable.html">Enregistrable</a></td></tr>
+<tr class="memitem:a414e81c97c25a7788fc9f0599528672c inherit pub_methods_class_enregistrable"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a414e81c97c25a7788fc9f0599528672c"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_enregistrable.html#a414e81c97c25a7788fc9f0599528672c">Enregistrable</a> ()</td></tr>
+<tr class="memdesc:a414e81c97c25a7788fc9f0599528672c inherit pub_methods_class_enregistrable"><td class="mdescLeft">&#160;</td><td class="mdescRight">constructeur <br/></td></tr>
+<tr class="separator:a414e81c97c25a7788fc9f0599528672c inherit pub_methods_class_enregistrable"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:a3e67fc484a4194b767ea8e3102527920"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3e67fc484a4194b767ea8e3102527920"></a>
-static <a class="el" href="class_precedence_manager.html">PrecedenceManager</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getInstance</b> ()</td></tr>
+<tr class="memitem:a3e67fc484a4194b767ea8e3102527920"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_precedence_manager.html">PrecedenceManager</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_precedence_manager.html#a3e67fc484a4194b767ea8e3102527920">getInstance</a> ()</td></tr>
 <tr class="separator:a3e67fc484a4194b767ea8e3102527920"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad4dcde60fdcc164b07b220b05732b6f9"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad4dcde60fdcc164b07b220b05732b6f9"></a>
-static void&#160;</td><td class="memItemRight" valign="bottom"><b>libereInstace</b> ()</td></tr>
+<tr class="memitem:ad4dcde60fdcc164b07b220b05732b6f9"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_precedence_manager.html#ad4dcde60fdcc164b07b220b05732b6f9">libereInstace</a> ()</td></tr>
 <tr class="separator:ad4dcde60fdcc164b07b220b05732b6f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
+Additional Inherited Members</h2></td></tr>
+<tr class="inherit_header pro_attribs_class_observable"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_class_observable')"><img src="closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="class_observable.html">Observable</a></td></tr>
+<tr class="memitem:a8cc5d47c4f2a5829bdfb998c7e93c84d inherit pro_attribs_class_observable"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8cc5d47c4f2a5829bdfb998c7e93c84d"></a>
+std::set&lt; <a class="el" href="class_observateur.html">Observateur</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_observable.html#a8cc5d47c4f2a5829bdfb998c7e93c84d">obs</a></td></tr>
+<tr class="memdesc:a8cc5d47c4f2a5829bdfb998c7e93c84d inherit pro_attribs_class_observable"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ensemble des observateurs. <br/></td></tr>
+<tr class="separator:a8cc5d47c4f2a5829bdfb998c7e93c84d inherit pro_attribs_class_observable"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Classe permettant de gerer les contraintes de precedence (singleton) </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="a925235dbd6d011acc72fab6cde2eceed"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void PrecedenceManager::ajouterPrecedence </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_tache.html">Tache</a> &amp;&#160;</td>
+          <td class="paramname"><em>t1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="class_tache.html">Tache</a> &amp;&#160;</td>
+          <td class="paramname"><em>t2</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="class_projet.html">Projet</a> *&#160;</td>
+          <td class="paramname"><em>proj</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Ajoute une precedence. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">t1</td><td>tache qui precede </td></tr>
+    <tr><td class="paramname">t2</td><td>tache qui succede </td></tr>
+    <tr><td class="paramname">proj</td><td>projet au quel appartiennent les deux taches </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="accbd28e8ba44df1a12512e65220def00"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; <a class="el" href="class_precedence.html">Precedence</a> * &gt;::<a class="el" href="class_precedence_manager_1_1iterator.html">iterator</a> PrecedenceManager::findPrecedence </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_tache.html">Tache</a> &amp;&#160;</td>
+          <td class="paramname"><em>t1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="class_tache.html">Tache</a> &amp;&#160;</td>
+          <td class="paramname"><em>t2</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Recherche une precedence. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">t1</td><td>tache qui precede </td></tr>
+    <tr><td class="paramname">t2</td><td>tache qui succede </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Iterateur sur la precedence trouvee ou sur end </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a3e67fc484a4194b767ea8e3102527920"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_precedence_manager.html">PrecedenceManager</a> &amp; PrecedenceManager::getInstance </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Methode statique permettant de recupere ou creer l'unique instance </p>
+
+</div>
+</div>
+<a class="anchor" id="ad4dcde60fdcc164b07b220b05732b6f9"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void PrecedenceManager::libereInstace </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Methode statique permettant de liberer l'unique instance </p>
+
+</div>
+</div>
+<a class="anchor" id="ab54ecd23aa9f320dc8cd94732989dc83"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void PrecedenceManager::load </td>
+          <td>(</td>
+          <td class="paramtype">const QString &amp;&#160;</td>
+          <td class="paramname"><em>f</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Permet de charger a partir d'un fichier xml. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">f</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Implements <a class="el" href="class_enregistrable.html#a27f2cc3599552ecfc80723dfb651f126">Enregistrable</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="abbf3d400a9f6d7be97d1c40561129253"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void PrecedenceManager::retirerPrecedence </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_tache.html">Tache</a> &amp;&#160;</td>
+          <td class="paramname"><em>t1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="class_tache.html">Tache</a> &amp;&#160;</td>
+          <td class="paramname"><em>t2</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Retire une precedence. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">t1</td><td>tache qui precede </td></tr>
+    <tr><td class="paramname">t2</td><td>tache qui succede </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a47982153006087f905abb6922427c4ed"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void PrecedenceManager::save </td>
+          <td>(</td>
+          <td class="paramtype">const QString &amp;&#160;</td>
+          <td class="paramname"><em>f</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Permet d'enregistrer dans un fichier xml. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">f</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Implements <a class="el" href="class_enregistrable.html#a8dc400ae35a8ff048a4d3036097e3855">Enregistrable</a>.</p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>/home/matthieu/ProjectCalendar/ProjectCalendar/src/<a class="el" href="precedencemanager_8h_source.html">precedencemanager.h</a></li>
-<li>/home/matthieu/ProjectCalendar/ProjectCalendar/src/precedencemanager.cpp</li>
+<li>src/<a class="el" href="precedencemanager_8h_source.html">precedencemanager.h</a></li>
+<li>src/precedencemanager.cpp</li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Jun 13 2015 01:14:04 for ProjectCalendar by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Jun 14 2015 00:58:09 for ProjectCalendar by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

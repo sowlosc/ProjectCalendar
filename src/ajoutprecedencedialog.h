@@ -10,7 +10,9 @@
 namespace Ui {
 class AjoutPrecedenceDialog;
 }
-
+/*! \class AjoutPrecedenceDialog
+        \brief Fenetre de dialogue pour l'ajout de contraintes de precedence
+*/
 class AjoutPrecedenceDialog : public QDialog
 {
     Q_OBJECT

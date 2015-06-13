@@ -72,7 +72,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Variables</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -90,20 +90,25 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">TreeTacheItem Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Item representant une tache et qui compose l'arbre de gestion des projets.  
+ <a href="class_tree_tache_item.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="mainwindow_8h_source.html">mainwindow.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for TreeTacheItem:</div>
 <div class="dyncontent">
  <div class="center">
   <img src="class_tree_tache_item.png" usemap="#TreeTacheItem_map" alt=""/>
   <map id="TreeTacheItem_map" name="TreeTacheItem_map">
-<area href="class_tree_item.html" alt="TreeItem" shape="rect" coords="0,56,108,80"/>
+<area href="class_tree_item.html" title="Item qui compose l&#39;arbre de gestion des projets. " alt="TreeItem" shape="rect" coords="0,56,108,80"/>
 </map>
  </div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a5984768dd82da814f039b74cb2d268af"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5984768dd82da814f039b74cb2d268af"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>TreeTacheItem</b> (QTreeWidgetItem *parent, <a class="el" href="class_tache.html">Tache</a> *pt=0)</td></tr>
+<tr class="memitem:a5984768dd82da814f039b74cb2d268af"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_tree_tache_item.html#a5984768dd82da814f039b74cb2d268af">TreeTacheItem</a> (QTreeWidgetItem *parent, <a class="el" href="class_tache.html">Tache</a> *pt=0)</td></tr>
+<tr class="memdesc:a5984768dd82da814f039b74cb2d268af"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructeur.  <a href="#a5984768dd82da814f039b74cb2d268af">More...</a><br/></td></tr>
 <tr class="separator:a5984768dd82da814f039b74cb2d268af"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae07aa82a7a7fabd69fdcb043b1230ab9"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae07aa82a7a7fabd69fdcb043b1230ab9"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>TreeTacheItem</b> (QTreeWidget *parent, <a class="el" href="class_tache.html">Tache</a> *pt=0)</td></tr>
@@ -111,8 +116,8 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a7b089049d5b9a14eb068bef6a15aa11b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7b089049d5b9a14eb068bef6a15aa11b"></a>
 <a class="el" href="class_tache.html">Tache</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>getTache</b> () const </td></tr>
 <tr class="separator:a7b089049d5b9a14eb068bef6a15aa11b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a51fe425b66023df6094f2aca536749b5"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a51fe425b66023df6094f2aca536749b5"></a>
-virtual QString&#160;</td><td class="memItemRight" valign="bottom"><b>getDescriptionHtml</b> () const </td></tr>
+<tr class="memitem:a51fe425b66023df6094f2aca536749b5"><td class="memItemLeft" align="right" valign="top">virtual QString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_tree_tache_item.html#a51fe425b66023df6094f2aca536749b5">getDescriptionHtml</a> () const </td></tr>
+<tr class="memdesc:a51fe425b66023df6094f2aca536749b5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retourne la description html d'une tache.  <a href="#a51fe425b66023df6094f2aca536749b5">More...</a><br/></td></tr>
 <tr class="separator:a51fe425b66023df6094f2aca536749b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8510fb70db3a4642867f9874bc135ab3"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8510fb70db3a4642867f9874bc135ab3"></a>
 virtual bool&#160;</td><td class="memItemRight" valign="bottom"><b>isUnitaire</b> () const </td></tr>
@@ -121,24 +126,100 @@ virtual bool&#160;</td><td class="memItemRight" valign="bottom"><b>isUnitaire</b
 virtual bool&#160;</td><td class="memItemRight" valign="bottom"><b>isProjetItem</b> () const </td></tr>
 <tr class="separator:aa3e185daba829873f86499d0572d32ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_class_tree_item"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_tree_item')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_tree_item.html">TreeItem</a></td></tr>
-<tr class="memitem:a9abb399a19b585c409f6443584740ec1 inherit pub_methods_class_tree_item"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9abb399a19b585c409f6443584740ec1"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>TreeItem</b> (QTreeWidgetItem *parent)</td></tr>
+<tr class="memitem:a9abb399a19b585c409f6443584740ec1 inherit pub_methods_class_tree_item"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_tree_item.html#a9abb399a19b585c409f6443584740ec1">TreeItem</a> (QTreeWidgetItem *parent)</td></tr>
+<tr class="memdesc:a9abb399a19b585c409f6443584740ec1 inherit pub_methods_class_tree_item"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructeur.  <a href="#a9abb399a19b585c409f6443584740ec1">More...</a><br/></td></tr>
 <tr class="separator:a9abb399a19b585c409f6443584740ec1 inherit pub_methods_class_tree_item"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9e782f094e083c5018eaedb004a7876c inherit pub_methods_class_tree_item"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9e782f094e083c5018eaedb004a7876c"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>TreeItem</b> (QTreeWidget *parent)</td></tr>
 <tr class="separator:a9e782f094e083c5018eaedb004a7876c inherit pub_methods_class_tree_item"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af69102d042aa022bca0e50644104b193 inherit pub_methods_class_tree_item"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af69102d042aa022bca0e50644104b193"></a>
-<a class="el" href="class_tree_item.html">TreeItem</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>getParentProject</b> ()</td></tr>
+<a class="el" href="class_tree_item.html">TreeItem</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_tree_item.html#af69102d042aa022bca0e50644104b193">getParentProject</a> ()</td></tr>
+<tr class="memdesc:af69102d042aa022bca0e50644104b193 inherit pub_methods_class_tree_item"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retourne l'item du projet. <br/></td></tr>
 <tr class="separator:af69102d042aa022bca0e50644104b193 inherit pub_methods_class_tree_item"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Item representant une tache et qui compose l'arbre de gestion des projets. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="a5984768dd82da814f039b74cb2d268af"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">TreeTacheItem::TreeTacheItem </td>
+          <td>(</td>
+          <td class="paramtype">QTreeWidgetItem *&#160;</td>
+          <td class="paramname"><em>parent</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_tache.html">Tache</a> *&#160;</td>
+          <td class="paramname"><em>pt</em> = <code>0</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Constructeur. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">parent</td><td></td></tr>
+    <tr><td class="paramname">pt</td><td>pointeur sur la tache correspondante </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="a51fe425b66023df6094f2aca536749b5"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">QString TreeTacheItem::getDescriptionHtml </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Retourne la description html d'une tache. </p>
+<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+
+<p>Implements <a class="el" href="class_tree_item.html#a060b632d24459759a1fc26e1855b36aa">TreeItem</a>.</p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>/home/matthieu/ProjectCalendar/ProjectCalendar/src/<a class="el" href="mainwindow_8h_source.html">mainwindow.h</a></li>
-<li>/home/matthieu/ProjectCalendar/ProjectCalendar/src/mainwindow.cpp</li>
+<li>src/<a class="el" href="mainwindow_8h_source.html">mainwindow.h</a></li>
+<li>src/mainwindow.cpp</li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Jun 13 2015 01:14:04 for ProjectCalendar by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Jun 14 2015 00:58:10 for ProjectCalendar by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

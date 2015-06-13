@@ -72,7 +72,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Variables</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -85,46 +85,127 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pro-attribs">Protected Attributes</a> &#124;
 <a href="class_observable-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">Observable Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Classe d'objets <a class="el" href="class_observable.html" title="Classe d&#39;objets Observable. ">Observable</a>.  
+ <a href="class_observable.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="observateur_8h_source.html">observateur.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for Observable:</div>
 <div class="dyncontent">
  <div class="center">
   <img src="class_observable.png" usemap="#Observable_map" alt=""/>
   <map id="Observable_map" name="Observable_map">
-<area href="class_agenda.html" alt="Agenda" shape="rect" coords="0,56,132,80"/>
-<area href="class_precedence_manager.html" alt="PrecedenceManager" shape="rect" coords="142,56,274,80"/>
-<area href="class_projet.html" title="Classe permettant de manipuler des projets Les projets de cette classe contiendront des taches..." alt="Projet" shape="rect" coords="284,56,416,80"/>
-<area href="class_projet_manager.html" title="Classe permettant de gerer des projets Cet unique objet (singleton) permet de creer de nouveau projet..." alt="ProjetManager" shape="rect" coords="426,56,558,80"/>
-<area href="class_tache.html" alt="Tache" shape="rect" coords="568,56,700,80"/>
-<area href="class_tache_composite.html" alt="TacheComposite" shape="rect" coords="497,112,629,136"/>
-<area href="class_tache_unitaire.html" alt="TacheUnitaire" shape="rect" coords="639,112,771,136"/>
+<area href="class_agenda.html" title="Classe permettant de gerer des evenements. Cette classe est un singleton. " alt="Agenda" shape="rect" coords="0,56,132,80"/>
+<area href="class_precedence_manager.html" title="Classe permettant de gerer les contraintes de precedence (singleton) " alt="PrecedenceManager" shape="rect" coords="142,56,274,80"/>
+<area href="class_projet.html" title="Classe representant projet. " alt="Projet" shape="rect" coords="284,56,416,80"/>
+<area href="class_projet_manager.html" title="Classe permettant de gerer les projets (singleton) " alt="ProjetManager" shape="rect" coords="426,56,558,80"/>
+<area href="class_tache.html" title="Classe abstraite representant une tache. " alt="Tache" shape="rect" coords="568,56,700,80"/>
+<area href="class_tache_composite.html" title="Classe representant une tache composite. " alt="TacheComposite" shape="rect" coords="497,112,629,136"/>
+<area href="class_tache_unitaire.html" title="Classe representant une tache unitaire. " alt="TacheUnitaire" shape="rect" coords="639,112,771,136"/>
 </map>
  </div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a86402eba3063e0fb2ed9a96fce7cef81"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a86402eba3063e0fb2ed9a96fce7cef81"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>ajouterObservateur</b> (<a class="el" href="class_observateur.html">Observateur</a> *o)</td></tr>
+<tr class="memitem:a86402eba3063e0fb2ed9a96fce7cef81"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_observable.html#a86402eba3063e0fb2ed9a96fce7cef81">ajouterObservateur</a> (<a class="el" href="class_observateur.html">Observateur</a> *o)</td></tr>
+<tr class="memdesc:a86402eba3063e0fb2ed9a96fce7cef81"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ajoute un observateur.  <a href="#a86402eba3063e0fb2ed9a96fce7cef81">More...</a><br/></td></tr>
 <tr class="separator:a86402eba3063e0fb2ed9a96fce7cef81"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6cbb5cbed62d665e9dfcbe99be8aec01"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6cbb5cbed62d665e9dfcbe99be8aec01"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>supprimerObservateur</b> (<a class="el" href="class_observateur.html">Observateur</a> *o)</td></tr>
+<tr class="memitem:a6cbb5cbed62d665e9dfcbe99be8aec01"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_observable.html#a6cbb5cbed62d665e9dfcbe99be8aec01">supprimerObservateur</a> (<a class="el" href="class_observateur.html">Observateur</a> *o)</td></tr>
+<tr class="memdesc:a6cbb5cbed62d665e9dfcbe99be8aec01"><td class="mdescLeft">&#160;</td><td class="mdescRight">Supprime un observateur.  <a href="#a6cbb5cbed62d665e9dfcbe99be8aec01">More...</a><br/></td></tr>
 <tr class="separator:a6cbb5cbed62d665e9dfcbe99be8aec01"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab0916bedda82a820099366269e323b22"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab0916bedda82a820099366269e323b22"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>notifier</b> ()</td></tr>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_observable.html#ab0916bedda82a820099366269e323b22">notifier</a> ()</td></tr>
+<tr class="memdesc:ab0916bedda82a820099366269e323b22"><td class="mdescLeft">&#160;</td><td class="mdescRight">Notifie tous les observateurs. <br/></td></tr>
 <tr class="separator:ab0916bedda82a820099366269e323b22"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
+Protected Attributes</h2></td></tr>
+<tr class="memitem:a8cc5d47c4f2a5829bdfb998c7e93c84d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8cc5d47c4f2a5829bdfb998c7e93c84d"></a>
+std::set&lt; <a class="el" href="class_observateur.html">Observateur</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_observable.html#a8cc5d47c4f2a5829bdfb998c7e93c84d">obs</a></td></tr>
+<tr class="memdesc:a8cc5d47c4f2a5829bdfb998c7e93c84d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ensemble des observateurs. <br/></td></tr>
+<tr class="separator:a8cc5d47c4f2a5829bdfb998c7e93c84d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Classe d'objets <a class="el" href="class_observable.html" title="Classe d&#39;objets Observable. ">Observable</a>. </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="a86402eba3063e0fb2ed9a96fce7cef81"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Observable::ajouterObservateur </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_observateur.html">Observateur</a> *&#160;</td>
+          <td class="paramname"><em>o</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Ajoute un observateur. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">o</td><td>observateur </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a6cbb5cbed62d665e9dfcbe99be8aec01"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Observable::supprimerObservateur </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_observateur.html">Observateur</a> *&#160;</td>
+          <td class="paramname"><em>o</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Supprime un observateur. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">o</td><td>observateur </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>/home/matthieu/ProjectCalendar/ProjectCalendar/src/<a class="el" href="observateur_8h_source.html">observateur.h</a></li>
+<li>src/<a class="el" href="observateur_8h_source.html">observateur.h</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Jun 13 2015 01:14:04 for ProjectCalendar by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Jun 14 2015 00:58:09 for ProjectCalendar by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

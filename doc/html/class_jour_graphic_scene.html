@@ -72,7 +72,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Variables</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -90,48 +90,201 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">JourGraphicScene Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Classe permettant d'afficher les evenements sur l'agenda.  
+ <a href="class_jour_graphic_scene.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="jourgraphicscene_8h_source.html">jourgraphicscene.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for JourGraphicScene:</div>
 <div class="dyncontent">
  <div class="center">
   <img src="class_jour_graphic_scene.png" usemap="#JourGraphicScene_map" alt=""/>
   <map id="JourGraphicScene_map" name="JourGraphicScene_map">
-<area href="class_observateur.html" alt="Observateur" shape="rect" coords="129,0,248,24"/>
+<area href="class_observateur.html" title="Classe d&#39;objets observateurs. " alt="Observateur" shape="rect" coords="129,0,248,24"/>
 </map>
  </div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a5855e984cb8b38a3e3d455855f8befab"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5855e984cb8b38a3e3d455855f8befab"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>JourGraphicScene</b> (const QString &amp;nom, qreal x, qreal y, qreal width, qreal height, unsigned int nb_m=960, QObject *parent=0)</td></tr>
+<tr class="memitem:a5855e984cb8b38a3e3d455855f8befab"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_jour_graphic_scene.html#a5855e984cb8b38a3e3d455855f8befab">JourGraphicScene</a> (const QString &amp;nom, qreal x, qreal y, qreal width, qreal height, unsigned int nb_m=960, QObject *parent=0)</td></tr>
+<tr class="memdesc:a5855e984cb8b38a3e3d455855f8befab"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructeur a partir d'un nom, de coordonnees x et y, d'une largeur, d'une hauteur, d'un nombre total de minutes et d'un widget parent.  <a href="#a5855e984cb8b38a3e3d455855f8befab">More...</a><br/></td></tr>
 <tr class="separator:a5855e984cb8b38a3e3d455855f8befab"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af5cc0ca072d19307d55240b4a7bd3b90"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af5cc0ca072d19307d55240b4a7bd3b90"></a>
 const QDate &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getDate</b> () const </td></tr>
 <tr class="separator:af5cc0ca072d19307d55240b4a7bd3b90"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac0a8a03744a3d7dd37750ac659f52505"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac0a8a03744a3d7dd37750ac659f52505"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setDate</b> (const QDate d)</td></tr>
-<tr class="separator:ac0a8a03744a3d7dd37750ac659f52505"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aff9bf74a93751c5eea0692acb5f305d3"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aff9bf74a93751c5eea0692acb5f305d3"></a>
-QGraphicsRectItem *&#160;</td><td class="memItemRight" valign="bottom"><b>ajouterEvenement</b> (const QString titre, const QTime &amp;deb, const <a class="el" href="class_duree.html">Duree</a> &amp;dur, <a class="el" href="class_evenement.html">Evenement</a> *e=0, const QColor &amp;coul_fond=QColor(&quot;blue&quot;), const QColor &amp;coul_contour=QColor(&quot;black&quot;))</td></tr>
-<tr class="separator:aff9bf74a93751c5eea0692acb5f305d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0169961974fa2de85fef0eabc1556d4b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0169961974fa2de85fef0eabc1556d4b"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setDate</b> (const QDate &amp;d)</td></tr>
+<tr class="separator:a0169961974fa2de85fef0eabc1556d4b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afa8e7c23fd29c19016b6408e40f991f1"><td class="memItemLeft" align="right" valign="top">QGraphicsRectItem *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_jour_graphic_scene.html#afa8e7c23fd29c19016b6408e40f991f1">ajouterEvenement</a> (const QString &amp;titre, const QTime &amp;deb, const <a class="el" href="class_duree.html">Duree</a> &amp;dur, <a class="el" href="class_evenement.html">Evenement</a> *e=0, const QColor &amp;coul_fond=QColor(&quot;blue&quot;), const QColor &amp;coul_contour=QColor(&quot;black&quot;))</td></tr>
+<tr class="memdesc:afa8e7c23fd29c19016b6408e40f991f1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ajoute un evenement dans l'agenda graphique.  <a href="#afa8e7c23fd29c19016b6408e40f991f1">More...</a><br/></td></tr>
+<tr class="separator:afa8e7c23fd29c19016b6408e40f991f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afb6716b929100601da8ff9c6ba8d2e07"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="afb6716b929100601da8ff9c6ba8d2e07"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>dessinerFond</b> ()</td></tr>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_jour_graphic_scene.html#afb6716b929100601da8ff9c6ba8d2e07">dessinerFond</a> ()</td></tr>
+<tr class="memdesc:afb6716b929100601da8ff9c6ba8d2e07"><td class="mdescLeft">&#160;</td><td class="mdescRight">Desssine le fond de l'agenda. <br/></td></tr>
 <tr class="separator:afb6716b929100601da8ff9c6ba8d2e07"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa1d4f0802af2379722c516052527b92c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa1d4f0802af2379722c516052527b92c"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>mise_a_jour</b> ()</td></tr>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_jour_graphic_scene.html#aa1d4f0802af2379722c516052527b92c">mise_a_jour</a> ()</td></tr>
+<tr class="memdesc:aa1d4f0802af2379722c516052527b92c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Actualise l'agenda. <br/></td></tr>
 <tr class="separator:aa1d4f0802af2379722c516052527b92c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aadc76c8edda2bdaf9eabdbbedc51794f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aadc76c8edda2bdaf9eabdbbedc51794f"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>removeAllItems</b> ()</td></tr>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_jour_graphic_scene.html#aadc76c8edda2bdaf9eabdbbedc51794f">removeAllItems</a> ()</td></tr>
+<tr class="memdesc:aadc76c8edda2bdaf9eabdbbedc51794f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Vide l'agenda. <br/></td></tr>
 <tr class="separator:aadc76c8edda2bdaf9eabdbbedc51794f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Classe permettant d'afficher les evenements sur l'agenda. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="a5855e984cb8b38a3e3d455855f8befab"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">JourGraphicScene::JourGraphicScene </td>
+          <td>(</td>
+          <td class="paramtype">const QString &amp;&#160;</td>
+          <td class="paramname"><em>nom</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">qreal&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">qreal&#160;</td>
+          <td class="paramname"><em>y</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">qreal&#160;</td>
+          <td class="paramname"><em>width</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">qreal&#160;</td>
+          <td class="paramname"><em>height</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>nb_m</em> = <code>960</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">QObject *&#160;</td>
+          <td class="paramname"><em>parent</em> = <code>0</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Constructeur a partir d'un nom, de coordonnees x et y, d'une largeur, d'une hauteur, d'un nombre total de minutes et d'un widget parent. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">nom</td><td>string </td></tr>
+    <tr><td class="paramname">x</td><td>axe horizontal </td></tr>
+    <tr><td class="paramname">y</td><td>axe vertical </td></tr>
+    <tr><td class="paramname">width</td><td>largeur </td></tr>
+    <tr><td class="paramname">height</td><td>hauteur </td></tr>
+    <tr><td class="paramname">nb_min</td><td>nombre de minutes </td></tr>
+    <tr><td class="paramname">parent</td><td>widget parent </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="afa8e7c23fd29c19016b6408e40f991f1"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QGraphicsRectItem * JourGraphicScene::ajouterEvenement </td>
+          <td>(</td>
+          <td class="paramtype">const QString &amp;&#160;</td>
+          <td class="paramname"><em>titre</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const QTime &amp;&#160;</td>
+          <td class="paramname"><em>deb</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="class_duree.html">Duree</a> &amp;&#160;</td>
+          <td class="paramname"><em>dur</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_evenement.html">Evenement</a> *&#160;</td>
+          <td class="paramname"><em>e</em> = <code>0</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const QColor &amp;&#160;</td>
+          <td class="paramname"><em>coul_fond</em> = <code>QColor(&quot;blue&quot;)</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const QColor &amp;&#160;</td>
+          <td class="paramname"><em>coul_contour</em> = <code>QColor(&quot;black&quot;)</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Ajoute un evenement dans l'agenda graphique. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">titre</td><td></td></tr>
+    <tr><td class="paramname">deb</td><td>horaire de debut </td></tr>
+    <tr><td class="paramname">dur</td><td>duree </td></tr>
+    <tr><td class="paramname">e</td><td>evenement </td></tr>
+    <tr><td class="paramname">coul_fond</td><td>couleur du fond </td></tr>
+    <tr><td class="paramname">coul_contour</td><td>couleur du texte </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>/home/matthieu/ProjectCalendar/ProjectCalendar/src/<a class="el" href="jourgraphicscene_8h_source.html">jourgraphicscene.h</a></li>
-<li>/home/matthieu/ProjectCalendar/ProjectCalendar/src/jourgraphicscene.cpp</li>
+<li>src/<a class="el" href="jourgraphicscene_8h_source.html">jourgraphicscene.h</a></li>
+<li>src/jourgraphicscene.cpp</li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Jun 13 2015 01:14:04 for ProjectCalendar by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Jun 14 2015 00:58:09 for ProjectCalendar by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

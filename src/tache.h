@@ -8,21 +8,38 @@
 #include <iostream>
 #include "precedencemanager.h"
 #include <QtXml>
-//#include "agenda.h"
 
+/*! \class Tache
+        \brief Classe abstraite representant une tache
+*/
 class Tache : public Observable
 {
-    std::set<Observateur*> obs;
     QString identificateur;
     QString titre;
     QDate disponibilite;
     QDate echeance;
     QString description;
 
+    /**
+     * @brief Constructeur de recopie prive
+     * @param t
+     */
     Tache(const Tache& t);
+    /**
+     * @brief Operateur d'ffactation prive
+     * @return
+     */
     Tache& operator=(const Tache&);
 
 public:
+    /**
+     * @brief constructeur
+     * @param id identificateur
+     * @param t titre
+     * @param dispo date de disponbilite
+     * @param ech date d'echeance
+     * @param txt description
+     */
     Tache(const QString& id,
           const QString& t,
           const QDate& dispo,
@@ -47,6 +64,7 @@ public:
         echeance = ech;
     }
 
+
     virtual bool isProgrammed() const = 0;
     virtual bool isComposite() const = 0;
 
@@ -54,6 +72,9 @@ public:
     virtual void toXml(QXmlStreamWriter&) const = 0;
 
 
+    /*! \class const_succ_iterator
+            \brief Classe permettant d'iterer sur les successeurs d'une tache
+    */
     class const_succ_iterator
     {
         friend class Tache;
@@ -72,6 +93,10 @@ public:
         bool operator!=(const const_succ_iterator& at) const { return it != at.it; }
     };
 
+    /**
+     * @brief Retourne un iterateur const sur la premiere tache successeure
+     * @return
+     */
     const_succ_iterator beginSucc() const {
         PrecedenceManager::iterator iter = PrecedenceManager::getInstance().begin();
         PrecedenceManager::iterator end = PrecedenceManager::getInstance().end();
@@ -80,9 +105,17 @@ public:
             ++iter;
         return const_succ_iterator(iter,this);}
 
+    /**
+     * @brief Retourne un iterateur const apres la derniere tache successeure
+     * @return
+     */
     const_succ_iterator endSucc() const { return const_succ_iterator(PrecedenceManager::getInstance().end(),this); }
 
-    class const_pred_iterator //const
+
+    /*! \class const_pred_iterator
+            \brief Classe permettant d'iterer sur les predecesseurs d'une tache
+    */
+    class const_pred_iterator
     {
         friend class Tache;
         PrecedenceManager::iterator it;
@@ -100,6 +133,10 @@ public:
         bool operator!=(const const_pred_iterator& at) const { return it != at.it; }
     };
 
+    /**
+     * @brief Retourne un iterateur const sur la premiere tache predecesseure
+     * @return
+     */
     const_pred_iterator beginPred() const {
         PrecedenceManager::iterator iter = PrecedenceManager::getInstance().begin();
         PrecedenceManager::iterator end = PrecedenceManager::getInstance().end();
@@ -108,11 +145,11 @@ public:
             ++iter;
         return const_pred_iterator(iter,this);}
 
+    /**
+     * @brief Retourne un iterateur const apres la derniere tache predecesseure
+     * @return
+     */
     const_pred_iterator endPred() const { return const_pred_iterator(PrecedenceManager::getInstance().end(),this); }
-
-
-
-
 
 
 };

@@ -72,7 +72,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Variables</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -95,18 +95,14 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">Projet::iterator Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Classe permettant d'iterer sur les taches du projet.  
+ <a href="class_projet_1_1iterator.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="projet_8h_source.html">projet.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a8d880ce5a3164ffbce3e507aef476b55"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8d880ce5a3164ffbce3e507aef476b55"></a>
-<a class="el" href="class_tache.html">Tache</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getCurrent</b> ()</td></tr>
-<tr class="separator:a8d880ce5a3164ffbce3e507aef476b55"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a50062d1954c34113b8b514f9517c8d9e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a50062d1954c34113b8b514f9517c8d9e"></a>
-<a class="el" href="class_projet_1_1iterator.html">iterator</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator++</b> ()</td></tr>
-<tr class="separator:a50062d1954c34113b8b514f9517c8d9e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3be61e4958a0b3b4d68b3d2bf59f793d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3be61e4958a0b3b4d68b3d2bf59f793d"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator!=</b> (const <a class="el" href="class_projet_1_1iterator.html">iterator</a> &amp;at) const </td></tr>
-<tr class="separator:a3be61e4958a0b3b4d68b3d2bf59f793d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9fb543ee9ec9d6dedb0137cd0d0eeabc"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9fb543ee9ec9d6dedb0137cd0d0eeabc"></a>
 <a class="el" href="class_tache.html">Tache</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator*</b> ()</td></tr>
 <tr class="separator:a9fb543ee9ec9d6dedb0137cd0d0eeabc"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -119,17 +115,19 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator!=</b> (const
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="friends"></a>
 Friends</h2></td></tr>
-<tr class="memitem:a4b1cff9b69c90c66b04eb812c569caa8"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4b1cff9b69c90c66b04eb812c569caa8"></a>
+<tr class="memitem:ab87b41c3faa36955cc370972f5cce344"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab87b41c3faa36955cc370972f5cce344"></a>
 class&#160;</td><td class="memItemRight" valign="bottom"><b>Projet</b></td></tr>
-<tr class="separator:a4b1cff9b69c90c66b04eb812c569caa8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="separator:ab87b41c3faa36955cc370972f5cce344"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<hr/>The documentation for this class was generated from the following file:<ul>
-<li>/home/matthieu/ProjectCalendar/ProjectCalendar/src/old/<a class="el" href="old_2projet_8h_source.html">projet.h</a></li>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Classe permettant d'iterer sur les taches du projet. </p>
+</div><hr/>The documentation for this class was generated from the following file:<ul>
+<li>src/<a class="el" href="projet_8h_source.html">projet.h</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Jun 13 2015 01:14:04 for ProjectCalendar by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Jun 14 2015 00:58:09 for ProjectCalendar by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

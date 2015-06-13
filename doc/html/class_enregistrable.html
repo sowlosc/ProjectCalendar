@@ -72,7 +72,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Variables</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -90,34 +90,114 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">Enregistrable Class Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Classe definissant l'interface d'objets qui peuvent etre enregistres et charges à partir de fichier xml.  
+ <a href="class_enregistrable.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="enregistrable_8h_source.html">enregistrable.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for Enregistrable:</div>
 <div class="dyncontent">
  <div class="center">
   <img src="class_enregistrable.png" usemap="#Enregistrable_map" alt=""/>
   <map id="Enregistrable_map" name="Enregistrable_map">
-<area href="class_agenda.html" alt="Agenda" shape="rect" coords="0,56,132,80"/>
-<area href="class_precedence_manager.html" alt="PrecedenceManager" shape="rect" coords="142,56,274,80"/>
-<area href="class_projet_manager.html" title="Classe permettant de gerer des projets Cet unique objet (singleton) permet de creer de nouveau projet..." alt="ProjetManager" shape="rect" coords="284,56,416,80"/>
+<area href="class_agenda.html" title="Classe permettant de gerer des evenements. Cette classe est un singleton. " alt="Agenda" shape="rect" coords="0,56,132,80"/>
+<area href="class_precedence_manager.html" title="Classe permettant de gerer les contraintes de precedence (singleton) " alt="PrecedenceManager" shape="rect" coords="142,56,274,80"/>
+<area href="class_projet_manager.html" title="Classe permettant de gerer les projets (singleton) " alt="ProjetManager" shape="rect" coords="284,56,416,80"/>
 </map>
  </div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a8dc400ae35a8ff048a4d3036097e3855"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8dc400ae35a8ff048a4d3036097e3855"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>save</b> (const QString &amp;f)=0</td></tr>
+<tr class="memitem:a414e81c97c25a7788fc9f0599528672c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a414e81c97c25a7788fc9f0599528672c"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_enregistrable.html#a414e81c97c25a7788fc9f0599528672c">Enregistrable</a> ()</td></tr>
+<tr class="memdesc:a414e81c97c25a7788fc9f0599528672c"><td class="mdescLeft">&#160;</td><td class="mdescRight">constructeur <br/></td></tr>
+<tr class="separator:a414e81c97c25a7788fc9f0599528672c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8dc400ae35a8ff048a4d3036097e3855"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_enregistrable.html#a8dc400ae35a8ff048a4d3036097e3855">save</a> (const QString &amp;f)=0</td></tr>
+<tr class="memdesc:a8dc400ae35a8ff048a4d3036097e3855"><td class="mdescLeft">&#160;</td><td class="mdescRight">Permet d'enregistrer dans un fichier xml.  <a href="#a8dc400ae35a8ff048a4d3036097e3855">More...</a><br/></td></tr>
 <tr class="separator:a8dc400ae35a8ff048a4d3036097e3855"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a27f2cc3599552ecfc80723dfb651f126"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a27f2cc3599552ecfc80723dfb651f126"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>load</b> (const QString &amp;f)=0</td></tr>
+<tr class="memitem:a27f2cc3599552ecfc80723dfb651f126"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_enregistrable.html#a27f2cc3599552ecfc80723dfb651f126">load</a> (const QString &amp;f)=0</td></tr>
+<tr class="memdesc:a27f2cc3599552ecfc80723dfb651f126"><td class="mdescLeft">&#160;</td><td class="mdescRight">Permet de charger a partir d'un fichier xml.  <a href="#a27f2cc3599552ecfc80723dfb651f126">More...</a><br/></td></tr>
 <tr class="separator:a27f2cc3599552ecfc80723dfb651f126"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Classe definissant l'interface d'objets qui peuvent etre enregistres et charges à partir de fichier xml. </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="a27f2cc3599552ecfc80723dfb651f126"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void Enregistrable::load </td>
+          <td>(</td>
+          <td class="paramtype">const QString &amp;&#160;</td>
+          <td class="paramname"><em>f</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Permet de charger a partir d'un fichier xml. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">f</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Implemented in <a class="el" href="class_agenda.html#a4fc2ebcc8126f0cf8729b3dedf31e763">Agenda</a>, <a class="el" href="class_projet_manager.html#afdfde850628d04b9e0489957a013c77e">ProjetManager</a>, and <a class="el" href="class_precedence_manager.html#ab54ecd23aa9f320dc8cd94732989dc83">PrecedenceManager</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a8dc400ae35a8ff048a4d3036097e3855"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void Enregistrable::save </td>
+          <td>(</td>
+          <td class="paramtype">const QString &amp;&#160;</td>
+          <td class="paramname"><em>f</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Permet d'enregistrer dans un fichier xml. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">f</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Implemented in <a class="el" href="class_agenda.html#af472b65cff8dda210831992cbe917767">Agenda</a>, <a class="el" href="class_projet_manager.html#a6e179fd88ac2d0ed68f0229752038f42">ProjetManager</a>, and <a class="el" href="class_precedence_manager.html#a47982153006087f905abb6922427c4ed">PrecedenceManager</a>.</p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>/home/matthieu/ProjectCalendar/ProjectCalendar/src/<a class="el" href="enregistrable_8h_source.html">enregistrable.h</a></li>
+<li>src/<a class="el" href="enregistrable_8h_source.html">enregistrable.h</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Jun 13 2015 01:14:04 for ProjectCalendar by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Jun 14 2015 00:58:09 for ProjectCalendar by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

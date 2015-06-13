@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>ProjectCalendar: /home/matthieu/ProjectCalendar/ProjectCalendar/src/rdv.h Source File</title>
+<title>ProjectCalendar: src/rdv.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -69,7 +69,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Variables</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -80,7 +80,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="dir_7de683677cd71300827af04a3a878570.html">ProjectCalendar</a></li><li class="navelem"><a class="el" href="dir_b99f7241e67ef20c1e7fc723ea482209.html">src</a></li>  </ul>
+<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -94,77 +94,89 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;evenement1j.h&quot;</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;QtXml&gt;</span></div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;</div>
-<div class="line"><a name="l00007"></a><span class="lineno"><a class="line" href="class_rdv.html">    7</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_rdv.html">Rdv</a> : <span class="keyword">public</span> <a class="code" href="class_evenement1j.html">Evenement1j</a></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;{</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;    QString lieu;</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    std::vector&lt;QString&gt; personnes;</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <a class="code" href="class_rdv.html">Rdv</a>( <span class="keyword">const</span> QDate&amp; ddeb,</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;         <span class="keyword">const</span> QTime&amp; tdeb,</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;         <span class="keyword">const</span> <a class="code" href="class_duree.html">Duree</a>&amp; dur,</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;         <span class="keyword">const</span> QString&amp; suj,</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;         <span class="keyword">const</span> QString&amp; l)</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;            : <a class="code" href="class_evenement1j.html">Evenement1j</a>(ddeb,tdeb,dur,suj), lieu(l) {}</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <span class="keyword">virtual</span> ~<a class="code" href="class_rdv.html">Rdv</a>(){}</div>
+<div class="line"><a name="l00010"></a><span class="lineno"><a class="line" href="class_rdv.html">   10</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_rdv.html">Rdv</a> : <span class="keyword">public</span> <a class="code" href="class_evenement1j.html">Evenement1j</a></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;{</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    QString lieu;</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    std::vector&lt;QString&gt; personnes;</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;</div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="keyword">const</span> QString&amp; getLieu()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> lieu; }</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="keywordtype">void</span> setLieu(<span class="keyword">const</span> QString&amp; l) { lieu = l; }</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="keyword">const</span> std::vector&lt;QString&gt;&amp; getPersonnes()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> personnes; }</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="keywordtype">void</span> ajouterPersonne(<span class="keyword">const</span> QString&amp; nom);</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="keywordtype">void</span> retirerPersonne(<span class="keyword">const</span> QString&amp; nom);</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="keyword">virtual</span> QString toString() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="keyword">virtual</span> <a class="code" href="class_rdv.html">Rdv</a>* clone() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keywordtype">void</span> toXml(QXmlStreamWriter &amp;) <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keyword">static</span> <a class="code" href="class_rdv.html">Rdv</a>* getFromXml(QXmlStreamReader &amp;xml);</div>
+<div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="class_rdv.html#a0ed8f6047948f89ac86df7835600c343">   26</a></span>&#160;    <a class="code" href="class_rdv.html#a0ed8f6047948f89ac86df7835600c343">Rdv</a>( <span class="keyword">const</span> QDate&amp; ddeb,</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;         <span class="keyword">const</span> QTime&amp; tdeb,</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;         <span class="keyword">const</span> <a class="code" href="class_duree.html">Duree</a>&amp; dur,</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;         <span class="keyword">const</span> QString&amp; suj,</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;         <span class="keyword">const</span> QString&amp; l)</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;            : <a class="code" href="class_evenement1j.html">Evenement1j</a>(ddeb,tdeb,dur,suj), lieu(l) {}</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keyword">virtual</span> ~<a class="code" href="class_rdv.html">Rdv</a>(){}</div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">bool</span> isRdv()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <span class="keyword">true</span>; }</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keyword">const</span> QString&amp; getLieu()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> lieu; }</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keywordtype">void</span> setLieu(<span class="keyword">const</span> QString&amp; l) { lieu = l; }</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keyword">const</span> std::vector&lt;QString&gt;&amp; getPersonnes()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> personnes; }</div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;</div>
-<div class="line"><a name="l00040"></a><span class="lineno"><a class="line" href="class_rdv_1_1personnes__iterator.html">   40</a></span>&#160;    <span class="keyword">class </span><a class="code" href="class_rdv_1_1personnes__iterator.html">personnes_iterator</a>{</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        std::vector&lt;QString&gt;::iterator it;</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="class_rdv.html">Rdv</a>;</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        <a class="code" href="class_rdv_1_1personnes__iterator.html">personnes_iterator</a>(<span class="keyword">const</span> std::vector&lt;QString&gt;::iterator iter) : it(iter) {}</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        QString&amp; operator*() { <span class="keywordflow">return</span> *it; }</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        <a class="code" href="class_rdv_1_1personnes__iterator.html">personnes_iterator</a>&amp; operator++() { ++it; <span class="keywordflow">return</span> *<span class="keyword">this</span>; }</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        <span class="keywordtype">bool</span> operator!=(<span class="keyword">const</span> <a class="code" href="class_rdv_1_1personnes__iterator.html">personnes_iterator</a>&amp; at) { <span class="keywordflow">return</span> it != at.it; }</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    };</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <a class="code" href="class_rdv_1_1personnes__iterator.html">personnes_iterator</a> begin_personnes() { <span class="keywordflow">return</span> <a class="code" href="class_rdv_1_1personnes__iterator.html">personnes_iterator</a>(personnes.begin()); }</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    personnes_iterator end_personnes() { <span class="keywordflow">return</span> personnes_iterator(personnes.end()); }</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;</div>
-<div class="line"><a name="l00053"></a><span class="lineno"><a class="line" href="class_rdv_1_1const__personnes__iterator.html">   53</a></span>&#160;    <span class="keyword">class </span><a class="code" href="class_rdv_1_1const__personnes__iterator.html">const_personnes_iterator</a>{</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        std::vector&lt;QString&gt;::const_iterator it;</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="class_rdv.html">Rdv</a>;</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        <a class="code" href="class_rdv_1_1const__personnes__iterator.html">const_personnes_iterator</a>(<span class="keyword">const</span> std::vector&lt;QString&gt;::const_iterator iter) : it(iter) {}</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        <span class="keyword">const</span> QString&amp; operator*() { <span class="keywordflow">return</span> *it; }</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        <a class="code" href="class_rdv_1_1const__personnes__iterator.html">const_personnes_iterator</a>&amp; operator++() { ++it; <span class="keywordflow">return</span> *<span class="keyword">this</span>; }</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        <span class="keywordtype">bool</span> operator!=(<span class="keyword">const</span> <a class="code" href="class_rdv_1_1const__personnes__iterator.html">const_personnes_iterator</a>&amp; at) { <span class="keywordflow">return</span> it != at.it; }</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    };</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    <a class="code" href="class_rdv_1_1const__personnes__iterator.html">const_personnes_iterator</a> begin_personnes()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code" href="class_rdv_1_1const__personnes__iterator.html">const_personnes_iterator</a>(personnes.begin()); }</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    const_personnes_iterator end_personnes()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> const_personnes_iterator(personnes.end()); }</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;};</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;<span class="preprocessor">#endif // RDV_H</span></div>
-<div class="ttc" id="class_rdv_html"><div class="ttname"><a href="class_rdv.html">Rdv</a></div><div class="ttdef"><b>Definition:</b> rdv.h:7</div></div>
-<div class="ttc" id="class_evenement1j_html"><div class="ttname"><a href="class_evenement1j.html">Evenement1j</a></div><div class="ttdef"><b>Definition:</b> evenement1j.h:7</div></div>
-<div class="ttc" id="class_rdv_1_1const__personnes__iterator_html"><div class="ttname"><a href="class_rdv_1_1const__personnes__iterator.html">Rdv::const_personnes_iterator</a></div><div class="ttdef"><b>Definition:</b> rdv.h:53</div></div>
-<div class="ttc" id="class_rdv_1_1personnes__iterator_html"><div class="ttname"><a href="class_rdv_1_1personnes__iterator.html">Rdv::personnes_iterator</a></div><div class="ttdef"><b>Definition:</b> rdv.h:40</div></div>
-<div class="ttc" id="class_duree_html"><div class="ttname"><a href="class_duree.html">Duree</a></div><div class="ttdoc">Classe permettant de manipuler des durees L&#39;utilisation de cette classe n?cessite des dates valides a...</div><div class="ttdef"><b>Definition:</b> duree.h:14</div></div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_rdv.html#a87f9a40b80c71e01085460d1c1e29e1a">ajouterPersonne</a>(<span class="keyword">const</span> QString&amp; nom);</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_rdv.html#a5d8a6aa677ab4a26859f5be69c1ba83a">retirerPersonne</a>(<span class="keyword">const</span> QString&amp; nom);</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keyword">virtual</span> QString <a class="code" href="class_rdv.html#aa7a74f7eb37ca6670ab4eadf08a1b440">toString</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="keyword">virtual</span> <a class="code" href="class_rdv.html">Rdv</a>* <a class="code" href="class_rdv.html#a2d00fc055a1aa8feef03223b1e7d0320">clone</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_rdv.html#a76c93ec91306eda4ea2a69a5423d58bd">toXml</a>(QXmlStreamWriter &amp;) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="keyword">static</span> <a class="code" href="class_rdv.html">Rdv</a>* getFromXml(QXmlStreamReader &amp;xml);</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">bool</span> isRdv()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <span class="keyword">true</span>; }</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;</div>
+<div class="line"><a name="l00062"></a><span class="lineno"><a class="line" href="class_rdv_1_1personnes__iterator.html">   62</a></span>&#160;    <span class="keyword">class </span><a class="code" href="class_rdv_1_1personnes__iterator.html">personnes_iterator</a>{</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        std::vector&lt;QString&gt;::iterator it;</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="class_rdv.html">Rdv</a>;</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        <a class="code" href="class_rdv_1_1personnes__iterator.html">personnes_iterator</a>(<span class="keyword">const</span> std::vector&lt;QString&gt;::iterator iter) : it(iter) {}</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        QString&amp; operator*() { <span class="keywordflow">return</span> *it; }</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        <a class="code" href="class_rdv_1_1personnes__iterator.html">personnes_iterator</a>&amp; operator++() { ++it; <span class="keywordflow">return</span> *<span class="keyword">this</span>; }</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        <span class="keywordtype">bool</span> operator!=(<span class="keyword">const</span> <a class="code" href="class_rdv_1_1personnes__iterator.html">personnes_iterator</a>&amp; at) { <span class="keywordflow">return</span> it != at.it; }</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    };</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;</div>
+<div class="line"><a name="l00076"></a><span class="lineno"><a class="line" href="class_rdv.html#ac91d781d7920b17233a77cdb490582cb">   76</a></span>&#160;    <a class="code" href="class_rdv_1_1personnes__iterator.html">personnes_iterator</a> <a class="code" href="class_rdv.html#ac91d781d7920b17233a77cdb490582cb">begin_personnes</a>() { <span class="keywordflow">return</span> <a class="code" href="class_rdv_1_1personnes__iterator.html">personnes_iterator</a>(personnes.begin()); }</div>
+<div class="line"><a name="l00081"></a><span class="lineno"><a class="line" href="class_rdv.html#a6a332b508913687607060317ebc0cfc9">   81</a></span>&#160;    <a class="code" href="class_rdv_1_1personnes__iterator.html">personnes_iterator</a> <a class="code" href="class_rdv.html#a6a332b508913687607060317ebc0cfc9">end_personnes</a>() { <span class="keywordflow">return</span> <a class="code" href="class_rdv_1_1personnes__iterator.html">personnes_iterator</a>(personnes.end()); }</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;</div>
+<div class="line"><a name="l00087"></a><span class="lineno"><a class="line" href="class_rdv_1_1const__personnes__iterator.html">   87</a></span>&#160;    <span class="keyword">class </span><a class="code" href="class_rdv_1_1const__personnes__iterator.html">const_personnes_iterator</a>{</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;        std::vector&lt;QString&gt;::const_iterator it;</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;        <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="class_rdv.html">Rdv</a>;</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;        <a class="code" href="class_rdv_1_1const__personnes__iterator.html">const_personnes_iterator</a>(<span class="keyword">const</span> std::vector&lt;QString&gt;::const_iterator iter) : it(iter) {}</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;        <span class="keyword">const</span> QString&amp; operator*() { <span class="keywordflow">return</span> *it; }</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;        <a class="code" href="class_rdv_1_1const__personnes__iterator.html">const_personnes_iterator</a>&amp; operator++() { ++it; <span class="keywordflow">return</span> *<span class="keyword">this</span>; }</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;        <span class="keywordtype">bool</span> operator!=(<span class="keyword">const</span> <a class="code" href="class_rdv_1_1const__personnes__iterator.html">const_personnes_iterator</a>&amp; at) { <span class="keywordflow">return</span> it != at.it; }</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    };</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;</div>
+<div class="line"><a name="l00101"></a><span class="lineno"><a class="line" href="class_rdv.html#abfc8d22b814b9c09432ae3d50f25a802">  101</a></span>&#160;    <a class="code" href="class_rdv_1_1const__personnes__iterator.html">const_personnes_iterator</a> <a class="code" href="class_rdv.html#abfc8d22b814b9c09432ae3d50f25a802">begin_personnes</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code" href="class_rdv_1_1const__personnes__iterator.html">const_personnes_iterator</a>(personnes.begin()); }</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;</div>
+<div class="line"><a name="l00107"></a><span class="lineno"><a class="line" href="class_rdv.html#a4419c46f8270bea2f86000ef2ee3b0c5">  107</a></span>&#160;    <a class="code" href="class_rdv_1_1const__personnes__iterator.html">const_personnes_iterator</a> <a class="code" href="class_rdv.html#a4419c46f8270bea2f86000ef2ee3b0c5">end_personnes</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code" href="class_rdv_1_1const__personnes__iterator.html">const_personnes_iterator</a>(personnes.end()); }</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;};</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;<span class="preprocessor">#endif // RDV_H</span></div>
+<div class="ttc" id="class_rdv_html_abfc8d22b814b9c09432ae3d50f25a802"><div class="ttname"><a href="class_rdv.html#abfc8d22b814b9c09432ae3d50f25a802">Rdv::begin_personnes</a></div><div class="ttdeci">const_personnes_iterator begin_personnes() const </div><div class="ttdoc">Retourne un iterateur const sur la premier personne. </div><div class="ttdef"><b>Definition:</b> rdv.h:101</div></div>
+<div class="ttc" id="class_rdv_html"><div class="ttname"><a href="class_rdv.html">Rdv</a></div><div class="ttdoc">Classe representant un rendez-vous. </div><div class="ttdef"><b>Definition:</b> rdv.h:10</div></div>
+<div class="ttc" id="class_rdv_html_a6a332b508913687607060317ebc0cfc9"><div class="ttname"><a href="class_rdv.html#a6a332b508913687607060317ebc0cfc9">Rdv::end_personnes</a></div><div class="ttdeci">personnes_iterator end_personnes()</div><div class="ttdoc">Retourne un iterateur apres la derniere personne. </div><div class="ttdef"><b>Definition:</b> rdv.h:81</div></div>
+<div class="ttc" id="class_evenement1j_html"><div class="ttname"><a href="class_evenement1j.html">Evenement1j</a></div><div class="ttdoc">Classe representant un evenement sur un jour. </div><div class="ttdef"><b>Definition:</b> evenement1j.h:10</div></div>
+<div class="ttc" id="class_rdv_html_aa7a74f7eb37ca6670ab4eadf08a1b440"><div class="ttname"><a href="class_rdv.html#aa7a74f7eb37ca6670ab4eadf08a1b440">Rdv::toString</a></div><div class="ttdeci">virtual QString toString() const </div><div class="ttdoc">Retourne une description de l&#39;objet en chaine de caracteres. </div><div class="ttdef"><b>Definition:</b> rdv.cpp:26</div></div>
+<div class="ttc" id="class_rdv_1_1const__personnes__iterator_html"><div class="ttname"><a href="class_rdv_1_1const__personnes__iterator.html">Rdv::const_personnes_iterator</a></div><div class="ttdoc">Classe permettant d&#39;iterer sur les personnes participants a un rendez-vous. </div><div class="ttdef"><b>Definition:</b> rdv.h:87</div></div>
+<div class="ttc" id="class_rdv_html_a4419c46f8270bea2f86000ef2ee3b0c5"><div class="ttname"><a href="class_rdv.html#a4419c46f8270bea2f86000ef2ee3b0c5">Rdv::end_personnes</a></div><div class="ttdeci">const_personnes_iterator end_personnes() const </div><div class="ttdoc">Retourne un iterateur const apres la derniere personne. </div><div class="ttdef"><b>Definition:</b> rdv.h:107</div></div>
+<div class="ttc" id="class_rdv_1_1personnes__iterator_html"><div class="ttname"><a href="class_rdv_1_1personnes__iterator.html">Rdv::personnes_iterator</a></div><div class="ttdoc">Classe permettant d&#39;iterer sur les personnes participants a un rendez-vous. </div><div class="ttdef"><b>Definition:</b> rdv.h:62</div></div>
+<div class="ttc" id="class_rdv_html_ac91d781d7920b17233a77cdb490582cb"><div class="ttname"><a href="class_rdv.html#ac91d781d7920b17233a77cdb490582cb">Rdv::begin_personnes</a></div><div class="ttdeci">personnes_iterator begin_personnes()</div><div class="ttdoc">Retourne un iterateur sur la premiere personne. </div><div class="ttdef"><b>Definition:</b> rdv.h:76</div></div>
+<div class="ttc" id="class_rdv_html_a87f9a40b80c71e01085460d1c1e29e1a"><div class="ttname"><a href="class_rdv.html#a87f9a40b80c71e01085460d1c1e29e1a">Rdv::ajouterPersonne</a></div><div class="ttdeci">void ajouterPersonne(const QString &amp;nom)</div><div class="ttdoc">Ajoute un participant. </div><div class="ttdef"><b>Definition:</b> rdv.cpp:5</div></div>
+<div class="ttc" id="class_rdv_html_a2d00fc055a1aa8feef03223b1e7d0320"><div class="ttname"><a href="class_rdv.html#a2d00fc055a1aa8feef03223b1e7d0320">Rdv::clone</a></div><div class="ttdeci">virtual Rdv * clone() const </div><div class="ttdoc">Clone un evenement sur 1 jour. </div><div class="ttdef"><b>Definition:</b> rdv.cpp:44</div></div>
+<div class="ttc" id="class_rdv_html_a5d8a6aa677ab4a26859f5be69c1ba83a"><div class="ttname"><a href="class_rdv.html#a5d8a6aa677ab4a26859f5be69c1ba83a">Rdv::retirerPersonne</a></div><div class="ttdeci">void retirerPersonne(const QString &amp;nom)</div><div class="ttdoc">Retire un participant. </div><div class="ttdef"><b>Definition:</b> rdv.cpp:14</div></div>
+<div class="ttc" id="class_duree_html"><div class="ttname"><a href="class_duree.html">Duree</a></div><div class="ttdoc">Classe permettant de manipuler des durees L&#39;utilisation de cette classe necessite des dates valides a...</div><div class="ttdef"><b>Definition:</b> duree.h:14</div></div>
+<div class="ttc" id="class_rdv_html_a0ed8f6047948f89ac86df7835600c343"><div class="ttname"><a href="class_rdv.html#a0ed8f6047948f89ac86df7835600c343">Rdv::Rdv</a></div><div class="ttdeci">Rdv(const QDate &amp;ddeb, const QTime &amp;tdeb, const Duree &amp;dur, const QString &amp;suj, const QString &amp;l)</div><div class="ttdoc">Constructeur a partir d&#39;une date, d&#39;une heure,d&#39;une duree,d&#39;un sujet et d&#39;un lieu. </div><div class="ttdef"><b>Definition:</b> rdv.h:26</div></div>
+<div class="ttc" id="class_rdv_html_a76c93ec91306eda4ea2a69a5423d58bd"><div class="ttname"><a href="class_rdv.html#a76c93ec91306eda4ea2a69a5423d58bd">Rdv::toXml</a></div><div class="ttdeci">void toXml(QXmlStreamWriter &amp;) const </div><div class="ttdoc">Ecrit le contenu du fichier dans le stream xml passe en parametre. </div><div class="ttdef"><b>Definition:</b> rdv.cpp:50</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Jun 13 2015 01:14:04 for ProjectCalendar by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Jun 14 2015 00:58:09 for ProjectCalendar by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

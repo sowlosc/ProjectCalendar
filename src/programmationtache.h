@@ -3,21 +3,30 @@
 
 #include "evenement.h"
 #include "tacheunitaire.h"
-//#include "duree.h"
-//class TacheUnitaire{ public: const Duree& getDuree();}; // const; const QString& getTitre() const; };
+
+/*! \class ProgrammationTache
+        \brief Classe representant la programmation complete d'une tache
+*/
 class ProgrammationTache : public Evenement
 {
 
     TacheUnitaire* tache;
-    //QString nomProjet;
     Projet* projet;
+
 public:
+
+    //! Constructeur a partir d'une date, d'une heure, d'une tache et d'une projet
+    /*! \param ddeb date
+        \param tdeb horaire
+        \param t pointeur sur la tache programmee
+        \param p pointeur sur le projet
+        */
     ProgrammationTache(const QDate& ddeb, const QTime& tdeb, TacheUnitaire *t,Projet* p)
         :Evenement(ddeb,tdeb), tache(t), projet(p) {
         if(ddeb < tache->getDisponibilite() || ddeb > tache->getEcheance())
             throw CalendarException("erreur, ProgrammationTache, date non valide");
     }
-    ~ProgrammationTache(){ }
+    virtual ~ProgrammationTache(){ }
 
     TacheUnitaire* getTache() const { return tache; }
     const Projet* getProjet() const { return projet; }
@@ -28,16 +37,19 @@ public:
     virtual ProgrammationTache* clone() const;
     virtual QString toString() const;
     virtual void toXml(QXmlStreamWriter&) const;
+    /**
+     * @brief construit une programmation d'une tache a partir du stream xml
+     * @param xml
+     * @return pointeur sur l'objet cree
+     */
     static ProgrammationTache* getFromXml(QXmlStreamReader& xml);
 
-
-    bool isProgrammationTache() const { return true; }
+    virtual bool isProgrammationTache() const { return true; }
     virtual bool isProgrammationPartieTache() const { return false; }
-
-    bool isEvenementTrad() const { return false; }
-    bool isEvenement1j() const { return false; }
-    bool isEvenementPj() const { return false; }
-    bool isRdv() const { return false; }
+    virtual bool isEvenementTrad() const { return false; }
+    virtual bool isEvenement1j() const { return false; }
+    virtual bool isEvenementPj() const { return false; }
+    virtual bool isRdv() const { return false; }
 
 
 };

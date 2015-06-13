@@ -1,8 +1,8 @@
 #include "jourgraphicscene.h"
 
 
-QGraphicsRectItem* JourGraphicScene::ajouterEvenement(const QString titre, const QTime &deb,
-                                                      const Duree &dur,Evenement*e, const QColor& coul_fond, const QColor& coul_contour)
+QGraphicsRectItem* JourGraphicScene::ajouterEvenement(const QString &titre, const QTime &deb,
+                                                      const Duree &dur, Evenement*e, const QColor& coul_fond, const QColor& coul_contour)
 {
     std::cout << "-------------********** ajout dans la scene de EVT = "<<e->getDate().toString().toStdString()<<"\n";
     int mins_ecoulees = -deb.secsTo(QTime(6,0)) / 60;

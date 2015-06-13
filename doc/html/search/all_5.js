@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['jourgraphicscene',['JourGraphicScene',['../class_jour_graphic_scene.html',1,'']]]
+  ['findprecedence',['findPrecedence',['../class_precedence_manager.html#accbd28e8ba44df1a12512e65220def00',1,'PrecedenceManager']]]
 ];

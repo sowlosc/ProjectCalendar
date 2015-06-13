@@ -7,6 +7,9 @@ namespace Ui {
 class AjoutProjetDialog;
 }
 
+/*! \class AjoutProjetDialog
+        \brief Fenetre de dialogue pour la creation d'un projet
+*/
 class AjoutProjetDialog : public QDialog
 {
     Q_OBJECT

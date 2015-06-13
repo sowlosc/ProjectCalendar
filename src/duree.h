@@ -8,17 +8,17 @@
 
 /*! \class Duree
         \brief Classe permettant de manipuler des durees
-        L'utilisation de cette classe n?cessite des dates valides au sens commun du terme.
-        D?clenchement d'exception dans le cas contraire
+        L'utilisation de cette classe necessite des dates valides au sens commun du terme.
+        Declenchement d'exception dans le cas contraire
 */
 class Duree{
 public:
-    //! Constructeur ? partir de heure et minute
+    //! Constructeur a partir de heure et minute
     /*! \param h heure avec h>=0
         \param m minute avec 0<=m<=59
         */
     Duree(unsigned int h, unsigned int m):nb_minutes(h*60+m) {if (m>59) throw CalendarException("erreur: initialisation duree invalide");}
-    //! Constructeur ? partir de minute
+    //! Constructeur a partir de minute
     /*! \param m minute avec m>=0
         */
     Duree(unsigned int m=0):nb_minutes(m) {}

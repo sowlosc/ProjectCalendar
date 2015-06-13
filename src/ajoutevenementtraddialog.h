@@ -11,6 +11,9 @@ namespace Ui {
 class AjoutEvenementTradDialog;
 }
 
+/*! \class AjoutEvenementTradDialog
+        \brief Fenetre de dialogue pour la creation et l'ajout d'un evenement traditionnel
+*/
 class AjoutEvenementTradDialog : public QDialog
 {
     Q_OBJECT

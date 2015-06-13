@@ -72,7 +72,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Variables</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -89,12 +89,16 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#friends">Friends</a> &#124;
 <a href="class_projet_manager_1_1iterator-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">ProjetManager::iterator Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Classe permettant d'iterer sur les projets.  
+ <a href="class_projet_manager_1_1iterator.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="projetmanager_8h_source.html">projetmanager.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for ProjetManager::iterator:</div>
 <div class="dyncontent">
@@ -106,36 +110,22 @@ Inheritance diagram for ProjetManager::iterator:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a3b5f6dd58ec342581b8e8066160567db"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3b5f6dd58ec342581b8e8066160567db"></a>
-<a class="el" href="class_projet.html">Projet</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getCurrent</b> ()</td></tr>
-<tr class="separator:a3b5f6dd58ec342581b8e8066160567db"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4d82a882a7e3baa7cd7ea36c934498eb"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4d82a882a7e3baa7cd7ea36c934498eb"></a>
-<a class="el" href="class_projet_manager_1_1iterator.html">iterator</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator++</b> ()</td></tr>
-<tr class="separator:a4d82a882a7e3baa7cd7ea36c934498eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad9439d26cfc09e66d2defca5eb86cd7b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad9439d26cfc09e66d2defca5eb86cd7b"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator!=</b> (const <a class="el" href="class_projet_manager_1_1iterator.html">iterator</a> &amp;at) const </td></tr>
-<tr class="separator:ad9439d26cfc09e66d2defca5eb86cd7b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af25ed72e71574a8731ce3347bdc3a481"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af25ed72e71574a8731ce3347bdc3a481"></a>
 <a class="el" href="class_projet.html">Projet</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator*</b> ()</td></tr>
 <tr class="separator:af25ed72e71574a8731ce3347bdc3a481"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4bfa0fdb99d6a8f26412edef36271875"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4bfa0fdb99d6a8f26412edef36271875"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>iterator</b> (std::map&lt; QString, <a class="el" href="class_projet.html">Projet</a> * &gt;::<a class="el" href="class_projet_manager_1_1iterator.html">iterator</a> it)</td></tr>
 <tr class="separator:a4bfa0fdb99d6a8f26412edef36271875"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="friends"></a>
-Friends</h2></td></tr>
-<tr class="memitem:aaaed9857b3481233fa7c581b5c86151d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aaaed9857b3481233fa7c581b5c86151d"></a>
-class&#160;</td><td class="memItemRight" valign="bottom"><b>ProjetManager</b></td></tr>
-<tr class="separator:aaaed9857b3481233fa7c581b5c86151d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<hr/>The documentation for this class was generated from the following files:<ul>
-<li>/home/matthieu/ProjectCalendar/ProjectCalendar/src/old/<a class="el" href="old_2projet_8h_source.html">projet.h</a></li>
-<li>/home/matthieu/ProjectCalendar/ProjectCalendar/src/<a class="el" href="projetmanager_8h_source.html">projetmanager.h</a></li>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Classe permettant d'iterer sur les projets. </p>
+</div><hr/>The documentation for this class was generated from the following file:<ul>
+<li>src/<a class="el" href="projetmanager_8h_source.html">projetmanager.h</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Jun 13 2015 01:14:04 for ProjectCalendar by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Jun 14 2015 00:58:10 for ProjectCalendar by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

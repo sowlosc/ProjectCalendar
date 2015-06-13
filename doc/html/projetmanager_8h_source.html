@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>ProjectCalendar: /home/matthieu/ProjectCalendar/ProjectCalendar/src/projetmanager.h Source File</title>
+<title>ProjectCalendar: src/projetmanager.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -69,7 +69,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Variables</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -80,7 +80,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="dir_7de683677cd71300827af04a3a878570.html">ProjectCalendar</a></li><li class="navelem"><a class="el" href="dir_b99f7241e67ef20c1e7fc723ea482209.html">src</a></li>  </ul>
+<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -101,98 +101,81 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &quot;exception.h&quot;</span></div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &quot;enregistrable.h&quot;</span></div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="keyword">class </span><a class="code" href="class_projet_manager.html">ProjetManager</a> : <span class="keyword">public</span> <a class="code" href="class_observable.html">Observable</a>, <span class="keyword">public</span> <a class="code" href="class_enregistrable.html">Enregistrable</a></div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;{</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    std::map&lt;QString,Projet*&gt; projets;</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <span class="keyword">static</span> <a class="code" href="class_projet_manager.html">ProjetManager</a>* instance;</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <a class="code" href="class_projet_manager.html">ProjetManager</a>() {};</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <a class="code" href="class_projet_manager.html">ProjetManager</a>(<span class="keyword">const</span> <a class="code" href="class_projet_manager.html">ProjetManager</a>&amp;);</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    ~<a class="code" href="class_projet_manager.html">ProjetManager</a>() {};</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <a class="code" href="class_projet_manager.html">ProjetManager</a>&amp; operator=(<span class="keyword">const</span> <a class="code" href="class_projet_manager.html">ProjetManager</a>&amp;);</div>
+<div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="class_projet_manager.html">   17</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_projet_manager.html">ProjetManager</a> : <span class="keyword">public</span> <a class="code" href="class_observable.html">Observable</a>, <span class="keyword">public</span> <a class="code" href="class_enregistrable.html">Enregistrable</a></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;{</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    std::map&lt;QString,Projet*&gt; projets;</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="keyword">static</span> <a class="code" href="class_projet_manager.html">ProjetManager</a>* instance;</div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="keyword">static</span> <a class="code" href="class_projet_manager.html">ProjetManager</a>&amp; getInstance();</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> libererInstance();</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <a class="code" href="class_projet.html">Projet</a>&amp; ajouterProjet(<span class="keyword">const</span> QString&amp; t, <span class="keyword">const</span> QString&amp; desc, <span class="keyword">const</span> QDate&amp; dispo, <span class="keyword">const</span> QDate&amp; ech);</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <a class="code" href="class_projet.html">Projet</a>&amp; getProjet(<span class="keyword">const</span> QString&amp; t);</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keyword">const</span> <a class="code" href="class_projet.html">Projet</a>&amp; getProjet(<span class="keyword">const</span> QString &amp;t) <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="keywordtype">void</span> supprimerProjet(<span class="keyword">const</span> QString&amp; t);</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keywordtype">void</span> save(<span class="keyword">const</span> QString&amp; f);</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_projet_manager.html#afdfde850628d04b9e0489957a013c77e">load</a>(<span class="keyword">const</span> QString&amp; f);</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <a class="code" href="class_projet_manager.html">ProjetManager</a>() {}</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <a class="code" href="class_projet_manager.html">ProjetManager</a>(<span class="keyword">const</span> <a class="code" href="class_projet_manager.html">ProjetManager</a>&amp;);</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    ~<a class="code" href="class_projet_manager.html">ProjetManager</a>() {}</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <a class="code" href="class_projet_manager.html">ProjetManager</a>&amp; operator=(<span class="keyword">const</span> <a class="code" href="class_projet_manager.html">ProjetManager</a>&amp;);</div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="comment">/*lass iterator{</span></div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="comment">        friend class ProjetManager;</span></div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="comment">        std::map&lt;QString, Projet*&gt;::iterator it;</span></div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="comment">        iterator(const std::map&lt;QString, Projet*&gt;::iterator&amp; iter) : it(iter) {}</span></div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="comment">    public:</span></div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="comment">        Projet&amp; operator*() { return *(it-&gt;second); }</span></div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="comment">        iterator&amp; operator++() { ++it; return *this; }</span></div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="comment">        bool operator!=(const iterator&amp; at) const { return it != at.it; }</span></div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="comment">    };</span></div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="comment">    iterator begin() { return iterator(projets.begin()); }</span></div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="comment">    iterator end() { return iterator(projets.end()); }*/</span></div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="keyword">class </span>iterator : <span class="keyword">public</span> std::map&lt;QString, Projet*&gt;::iterator</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    {</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        <a class="code" href="class_projet.html">Projet</a>&amp; operator*() { <span class="keywordflow">return</span> *std::map&lt;QString,Projet*&gt;::iterator::operator *().second; }</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        iterator(std::map&lt;QString,Projet*&gt;::iterator it) : std::map&lt;QString,<a class="code" href="class_projet.html">Projet</a>*&gt;::iterator(it) {}</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    };</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="keyword">static</span> <a class="code" href="class_projet_manager.html">ProjetManager</a>&amp; <a class="code" href="class_projet_manager.html#af0b8d536c3d208289033d6a3b757fac9">getInstance</a>();</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="class_projet_manager.html#ab1b9396cdda866051d03ac5eae7f7e9d">libererInstance</a>();</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <a class="code" href="class_projet.html">Projet</a>&amp; <a class="code" href="class_projet_manager.html#a57368dc583ba4a29eb278e595589eb69">ajouterProjet</a>(<span class="keyword">const</span> QString&amp; t, <span class="keyword">const</span> QString&amp; desc, <span class="keyword">const</span> QDate&amp; dispo, <span class="keyword">const</span> QDate&amp; ech);</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_projet_manager.html#a1b1f8e25720741cce4d930d433d2123e">supprimerProjet</a>(<span class="keyword">const</span> QString&amp; t);</div>
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    iterator begin() { <span class="keywordflow">return</span> iterator(projets.begin()); }</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    iterator end() { <span class="keywordflow">return</span> iterator(projets.end()); }</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <a class="code" href="class_projet.html">Projet</a>&amp; getProjet(<span class="keyword">const</span> QString&amp; t);</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <span class="keyword">const</span> <a class="code" href="class_projet.html">Projet</a>&amp; getProjet(<span class="keyword">const</span> QString &amp;t) <span class="keyword">const</span>;</div>
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    <span class="comment">/*class const_iterator{</span></div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;<span class="comment">        friend class ProjetManager;</span></div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;<span class="comment">        std::map&lt;QString, Projet*&gt;::const_iterator it;</span></div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;<span class="comment">        const_iterator(const std::map&lt;QString, Projet*&gt;::const_iterator&amp; iter) : it(iter) {}</span></div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;<span class="comment">    public:</span></div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;<span class="comment">        const Projet&amp; operator*() { return *(it-&gt;second); }</span></div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;<span class="comment">        const_iterator&amp; operator++() { ++it; return *this; }</span></div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;<span class="comment">        bool operator!=(const const_iterator&amp; at) const { return it != at.it; }</span></div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;<span class="comment">    };</span></div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;<span class="comment">    const_iterator begin() const  { return const_iterator(projets.begin()); }</span></div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;<span class="comment">    const_iterator end() const { return const_iterator(projets.end()); }*/</span></div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;</div>
-<div class="line"><a name="l00082"></a><span class="lineno"><a class="line" href="class_projet_manager_1_1const__iterator.html">   82</a></span>&#160;    <span class="keyword">class </span><a class="code" href="class_projet_manager_1_1const__iterator.html">const_iterator</a> : <span class="keyword">public</span> std::map&lt;QString, Projet*&gt;<a class="code" href="class_projet_manager_1_1const__iterator.html">::const_iterator</a></div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    {</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;        <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;        <a class="code" href="class_projet_manager_1_1const__iterator.html">const_iterator</a>(std::map&lt;QString, Projet*&gt;::const_iterator it):</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;          std::map&lt;QString,Projet*&gt;::const_iterator(it) {}</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;        <span class="keyword">const</span> <a class="code" href="class_projet.html">Projet</a>&amp; operator*()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> *std::map&lt;QString,Projet*&gt;::const_iterator::operator *().second; }</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    };</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    <a class="code" href="class_projet_manager_1_1const__iterator.html">const_iterator</a> begin()<span class="keyword"> const  </span>{ <span class="keywordflow">return</span> <a class="code" href="class_projet_manager_1_1const__iterator.html">const_iterator</a>(projets.begin()); }</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    const_iterator end()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> const_iterator(projets.end()); }</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;};</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;<span class="preprocessor">#endif // PROJETMANAGER_H</span></div>
-<div class="ttc" id="class_enregistrable_html"><div class="ttname"><a href="class_enregistrable.html">Enregistrable</a></div><div class="ttdef"><b>Definition:</b> enregistrable.h:5</div></div>
-<div class="ttc" id="class_projet_manager_html"><div class="ttname"><a href="class_projet_manager.html">ProjetManager</a></div><div class="ttdoc">Classe permettant de gerer des projets Cet unique objet (singleton) permet de creer de nouveau projet...</div><div class="ttdef"><b>Definition:</b> projet.h:127</div></div>
-<div class="ttc" id="class_projet_manager_html_afdfde850628d04b9e0489957a013c77e"><div class="ttname"><a href="class_projet_manager.html#afdfde850628d04b9e0489957a013c77e">ProjetManager::load</a></div><div class="ttdeci">void load(const QString &amp;f)</div><div class="ttdef"><b>Definition:</b> projetmanager.cpp:71</div></div>
-<div class="ttc" id="class_observable_html"><div class="ttname"><a href="class_observable.html">Observable</a></div><div class="ttdef"><b>Definition:</b> observateur.h:12</div></div>
-<div class="ttc" id="class_projet_manager_1_1const__iterator_html"><div class="ttname"><a href="class_projet_manager_1_1const__iterator.html">ProjetManager::const_iterator</a></div><div class="ttdef"><b>Definition:</b> projetmanager.h:82</div></div>
-<div class="ttc" id="class_projet_html"><div class="ttname"><a href="class_projet.html">Projet</a></div><div class="ttdoc">Classe permettant de manipuler des projets Les projets de cette classe contiendront des taches...</div><div class="ttdef"><b>Definition:</b> projet.h:67</div></div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_projet_manager.html#a6e179fd88ac2d0ed68f0229752038f42">save</a>(<span class="keyword">const</span> QString&amp; f);</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_projet_manager.html#afdfde850628d04b9e0489957a013c77e">load</a>(<span class="keyword">const</span> QString&amp; f);</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;</div>
+<div class="line"><a name="l00078"></a><span class="lineno"><a class="line" href="class_projet_manager_1_1iterator.html">   78</a></span>&#160;    <span class="keyword">class </span><a class="code" href="class_projet_manager_1_1iterator.html">iterator</a> : <span class="keyword">public</span> std::map&lt;QString, Projet*&gt;<a class="code" href="class_projet_manager_1_1iterator.html">::iterator</a></div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    {</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;        <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;        <a class="code" href="class_projet.html">Projet</a>&amp; operator*() { <span class="keywordflow">return</span> *std::map&lt;QString,Projet*&gt;::iterator::operator *().second; }</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;        <a class="code" href="class_projet_manager_1_1iterator.html">iterator</a>(std::map&lt;QString,Projet*&gt;::iterator it) : std::map&lt;QString,Projet*&gt;::iterator(it) {}</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    };</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;</div>
+<div class="line"><a name="l00089"></a><span class="lineno"><a class="line" href="class_projet_manager.html#a512ff1bbbd6d47a1c8b5584084906e6e">   89</a></span>&#160;    <a class="code" href="class_projet_manager_1_1iterator.html">iterator</a> <a class="code" href="class_projet_manager.html#a512ff1bbbd6d47a1c8b5584084906e6e">begin</a>() { <span class="keywordflow">return</span> <a class="code" href="class_projet_manager_1_1iterator.html">iterator</a>(projets.begin()); }</div>
+<div class="line"><a name="l00094"></a><span class="lineno"><a class="line" href="class_projet_manager.html#a6150743f51317539a8b036ffb4067c87">   94</a></span>&#160;    <a class="code" href="class_projet_manager_1_1iterator.html">iterator</a> <a class="code" href="class_projet_manager.html#a6150743f51317539a8b036ffb4067c87">end</a>() { <span class="keywordflow">return</span> <a class="code" href="class_projet_manager_1_1iterator.html">iterator</a>(projets.end()); }</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;</div>
+<div class="line"><a name="l00101"></a><span class="lineno"><a class="line" href="class_projet_manager_1_1const__iterator.html">  101</a></span>&#160;    <span class="keyword">class </span><a class="code" href="class_projet_manager_1_1const__iterator.html">const_iterator</a> : <span class="keyword">public</span> std::map&lt;QString, Projet*&gt;<a class="code" href="class_projet_manager_1_1const__iterator.html">::const_iterator</a></div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;    {</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;        <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;        <a class="code" href="class_projet_manager_1_1const__iterator.html">const_iterator</a>(std::map&lt;QString, Projet*&gt;::const_iterator it):</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;          std::map&lt;QString,Projet*&gt;::const_iterator(it) {}</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;        <span class="keyword">const</span> <a class="code" href="class_projet.html">Projet</a>&amp; operator*()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> *std::map&lt;QString,Projet*&gt;::const_iterator::operator *().second; }</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    };</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;</div>
+<div class="line"><a name="l00113"></a><span class="lineno"><a class="line" href="class_projet_manager.html#aa99fba46a71f74ead0a9268ceac973e1">  113</a></span>&#160;    <a class="code" href="class_projet_manager_1_1const__iterator.html">const_iterator</a> <a class="code" href="class_projet_manager.html#aa99fba46a71f74ead0a9268ceac973e1">begin</a>()<span class="keyword"> const  </span>{ <span class="keywordflow">return</span> <a class="code" href="class_projet_manager_1_1const__iterator.html">const_iterator</a>(projets.begin()); }</div>
+<div class="line"><a name="l00118"></a><span class="lineno"><a class="line" href="class_projet_manager.html#a38708003c13629f910351ffca416d723">  118</a></span>&#160;    <a class="code" href="class_projet_manager_1_1const__iterator.html">const_iterator</a> <a class="code" href="class_projet_manager.html#a38708003c13629f910351ffca416d723">end</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code" href="class_projet_manager_1_1const__iterator.html">const_iterator</a>(projets.end()); }</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;};</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;<span class="preprocessor">#endif // PROJETMANAGER_H</span></div>
+<div class="ttc" id="class_projet_manager_html_a512ff1bbbd6d47a1c8b5584084906e6e"><div class="ttname"><a href="class_projet_manager.html#a512ff1bbbd6d47a1c8b5584084906e6e">ProjetManager::begin</a></div><div class="ttdeci">iterator begin()</div><div class="ttdoc">Retourne un iterateur sur le premier projet. </div><div class="ttdef"><b>Definition:</b> projetmanager.h:89</div></div>
+<div class="ttc" id="class_projet_manager_html_a6150743f51317539a8b036ffb4067c87"><div class="ttname"><a href="class_projet_manager.html#a6150743f51317539a8b036ffb4067c87">ProjetManager::end</a></div><div class="ttdeci">iterator end()</div><div class="ttdoc">Retourne un iterateur apres le dernier projet. </div><div class="ttdef"><b>Definition:</b> projetmanager.h:94</div></div>
+<div class="ttc" id="class_enregistrable_html"><div class="ttname"><a href="class_enregistrable.html">Enregistrable</a></div><div class="ttdoc">Classe definissant l&#39;interface d&#39;objets qui peuvent etre enregistres et charges à partir de fichier x...</div><div class="ttdef"><b>Definition:</b> enregistrable.h:8</div></div>
+<div class="ttc" id="class_projet_manager_html_a57368dc583ba4a29eb278e595589eb69"><div class="ttname"><a href="class_projet_manager.html#a57368dc583ba4a29eb278e595589eb69">ProjetManager::ajouterProjet</a></div><div class="ttdeci">Projet &amp; ajouterProjet(const QString &amp;t, const QString &amp;desc, const QDate &amp;dispo, const QDate &amp;ech)</div><div class="ttdoc">Ajoute un projet. </div><div class="ttdef"><b>Definition:</b> projetmanager.cpp:22</div></div>
+<div class="ttc" id="class_projet_manager_html"><div class="ttname"><a href="class_projet_manager.html">ProjetManager</a></div><div class="ttdoc">Classe permettant de gerer les projets (singleton) </div><div class="ttdef"><b>Definition:</b> projetmanager.h:17</div></div>
+<div class="ttc" id="class_projet_manager_html_a1b1f8e25720741cce4d930d433d2123e"><div class="ttname"><a href="class_projet_manager.html#a1b1f8e25720741cce4d930d433d2123e">ProjetManager::supprimerProjet</a></div><div class="ttdeci">void supprimerProjet(const QString &amp;t)</div><div class="ttdoc">Supprime un projet. </div><div class="ttdef"><b>Definition:</b> projetmanager.cpp:42</div></div>
+<div class="ttc" id="class_projet_manager_html_ab1b9396cdda866051d03ac5eae7f7e9d"><div class="ttname"><a href="class_projet_manager.html#ab1b9396cdda866051d03ac5eae7f7e9d">ProjetManager::libererInstance</a></div><div class="ttdeci">static void libererInstance()</div><div class="ttdef"><b>Definition:</b> projetmanager.cpp:15</div></div>
+<div class="ttc" id="class_projet_manager_1_1iterator_html"><div class="ttname"><a href="class_projet_manager_1_1iterator.html">ProjetManager::iterator</a></div><div class="ttdoc">Classe permettant d&#39;iterer sur les projets. </div><div class="ttdef"><b>Definition:</b> projetmanager.h:78</div></div>
+<div class="ttc" id="class_projet_manager_html_aa99fba46a71f74ead0a9268ceac973e1"><div class="ttname"><a href="class_projet_manager.html#aa99fba46a71f74ead0a9268ceac973e1">ProjetManager::begin</a></div><div class="ttdeci">const_iterator begin() const </div><div class="ttdoc">Retourne un iterateur const sur le premier projet. </div><div class="ttdef"><b>Definition:</b> projetmanager.h:113</div></div>
+<div class="ttc" id="class_projet_manager_html_afdfde850628d04b9e0489957a013c77e"><div class="ttname"><a href="class_projet_manager.html#afdfde850628d04b9e0489957a013c77e">ProjetManager::load</a></div><div class="ttdeci">void load(const QString &amp;f)</div><div class="ttdoc">Permet de charger a partir d&#39;un fichier xml. </div><div class="ttdef"><b>Definition:</b> projetmanager.cpp:71</div></div>
+<div class="ttc" id="class_projet_manager_html_a6e179fd88ac2d0ed68f0229752038f42"><div class="ttname"><a href="class_projet_manager.html#a6e179fd88ac2d0ed68f0229752038f42">ProjetManager::save</a></div><div class="ttdeci">void save(const QString &amp;f)</div><div class="ttdoc">Permet d&#39;enregistrer dans un fichier xml. </div><div class="ttdef"><b>Definition:</b> projetmanager.cpp:53</div></div>
+<div class="ttc" id="class_observable_html"><div class="ttname"><a href="class_observable.html">Observable</a></div><div class="ttdoc">Classe d&#39;objets Observable. </div><div class="ttdef"><b>Definition:</b> observateur.h:18</div></div>
+<div class="ttc" id="class_projet_manager_1_1const__iterator_html"><div class="ttname"><a href="class_projet_manager_1_1const__iterator.html">ProjetManager::const_iterator</a></div><div class="ttdoc">Classe permettant d&#39;iterer sur les projets. </div><div class="ttdef"><b>Definition:</b> projetmanager.h:101</div></div>
+<div class="ttc" id="class_projet_html"><div class="ttname"><a href="class_projet.html">Projet</a></div><div class="ttdoc">Classe representant projet. </div><div class="ttdef"><b>Definition:</b> projet.h:17</div></div>
+<div class="ttc" id="class_projet_manager_html_af0b8d536c3d208289033d6a3b757fac9"><div class="ttname"><a href="class_projet_manager.html#af0b8d536c3d208289033d6a3b757fac9">ProjetManager::getInstance</a></div><div class="ttdeci">static ProjetManager &amp; getInstance()</div><div class="ttdef"><b>Definition:</b> projetmanager.cpp:9</div></div>
+<div class="ttc" id="class_projet_manager_html_a38708003c13629f910351ffca416d723"><div class="ttname"><a href="class_projet_manager.html#a38708003c13629f910351ffca416d723">ProjetManager::end</a></div><div class="ttdeci">const_iterator end() const </div><div class="ttdoc">Retourne un iterateur const apres le dernier projet. </div><div class="ttdef"><b>Definition:</b> projetmanager.h:118</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Jun 13 2015 01:14:04 for ProjectCalendar by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Jun 14 2015 00:58:09 for ProjectCalendar by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

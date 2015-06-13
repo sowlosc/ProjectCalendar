@@ -11,6 +11,9 @@ namespace Ui {
 class ProgrammationTacheDialog;
 }
 
+/*! \class ProgrammationTacheDialog
+        \brief Fenetre de dialogue pour la programmation de taches
+*/
 class ProgrammationTacheDialog : public QDialog
 {
     Q_OBJECT

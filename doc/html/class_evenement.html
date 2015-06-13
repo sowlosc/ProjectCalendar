@@ -72,7 +72,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Variables</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -90,31 +90,38 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">Evenement Class Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Classe abstraite representant un evenement.  
+ <a href="class_evenement.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="evenement_8h_source.html">evenement.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for Evenement:</div>
 <div class="dyncontent">
  <div class="center">
   <img src="class_evenement.png" usemap="#Evenement_map" alt=""/>
   <map id="Evenement_map" name="Evenement_map">
-<area href="class_evenement_trad.html" alt="EvenementTrad" shape="rect" coords="87,56,251,80"/>
-<area href="class_programmation_tache.html" alt="ProgrammationTache" shape="rect" coords="348,56,512,80"/>
-<area href="class_evenement1j.html" alt="Evenement1j" shape="rect" coords="0,112,164,136"/>
-<area href="class_evenement_pj.html" alt="EvenementPj" shape="rect" coords="174,112,338,136"/>
-<area href="class_programmation_partie_tache.html" alt="ProgrammationPartieTache" shape="rect" coords="348,112,512,136"/>
-<area href="class_rdv.html" alt="Rdv" shape="rect" coords="0,168,164,192"/>
+<area href="class_evenement_trad.html" title="Classe abstraite representant un evenement traditionnel. " alt="EvenementTrad" shape="rect" coords="87,56,251,80"/>
+<area href="class_programmation_tache.html" title="Classe representant la programmation complete d&#39;une tache. " alt="ProgrammationTache" shape="rect" coords="348,56,512,80"/>
+<area href="class_evenement1j.html" title="Classe representant un evenement sur un jour. " alt="Evenement1j" shape="rect" coords="0,112,164,136"/>
+<area href="class_evenement_pj.html" title="Classe representant un evenement qui dure plusieurs jours. " alt="EvenementPj" shape="rect" coords="174,112,338,136"/>
+<area href="class_programmation_partie_tache.html" title="Classe representant la programmation d&#39;une partie d&#39;une tache. " alt="ProgrammationPartieTache" shape="rect" coords="348,112,512,136"/>
+<area href="class_rdv.html" title="Classe representant un rendez-vous. " alt="Rdv" shape="rect" coords="0,168,164,192"/>
 </map>
  </div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:acc075b70a2f9d11355ad4cd49437fb84"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="acc075b70a2f9d11355ad4cd49437fb84"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>Evenement</b> (const QDate &amp;d, const QTime &amp;t)</td></tr>
+<tr class="memitem:acc075b70a2f9d11355ad4cd49437fb84"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_evenement.html#acc075b70a2f9d11355ad4cd49437fb84">Evenement</a> (const QDate &amp;d, const QTime &amp;t)</td></tr>
+<tr class="memdesc:acc075b70a2f9d11355ad4cd49437fb84"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructeur a partir d'une date et d'une heure.  <a href="#acc075b70a2f9d11355ad4cd49437fb84">More...</a><br/></td></tr>
 <tr class="separator:acc075b70a2f9d11355ad4cd49437fb84"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0c8c52c3a06590871f0c7697b1243236"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0c8c52c3a06590871f0c7697b1243236"></a>
-virtual <a class="el" href="class_evenement.html">Evenement</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>clone</b> () const =0</td></tr>
+virtual <a class="el" href="class_evenement.html">Evenement</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_evenement.html#a0c8c52c3a06590871f0c7697b1243236">clone</a> () const =0</td></tr>
+<tr class="memdesc:a0c8c52c3a06590871f0c7697b1243236"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clone un evenement. <br/></td></tr>
 <tr class="separator:a0c8c52c3a06590871f0c7697b1243236"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7182aef8d5bec46e4f553fa7eba65de0"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7182aef8d5bec46e4f553fa7eba65de0"></a>
-virtual QString&#160;</td><td class="memItemRight" valign="bottom"><b>toString</b> () const =0</td></tr>
+virtual QString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_evenement.html#a7182aef8d5bec46e4f553fa7eba65de0">toString</a> () const =0</td></tr>
+<tr class="memdesc:a7182aef8d5bec46e4f553fa7eba65de0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retourne une description de l'objet en chaine de caracteres. <br/></td></tr>
 <tr class="separator:a7182aef8d5bec46e4f553fa7eba65de0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abc75dd429182315013826eb6ee1a66ce"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="abc75dd429182315013826eb6ee1a66ce"></a>
 const QDate &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getDate</b> () const </td></tr>
@@ -153,17 +160,64 @@ virtual bool&#160;</td><td class="memItemRight" valign="bottom"><b>isProgrammati
 virtual bool&#160;</td><td class="memItemRight" valign="bottom"><b>isRdv</b> () const =0</td></tr>
 <tr class="separator:a1640e377ed1521fecf9f3e451b3cece8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1ab5027515bc88f18d365d196a1e253f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1ab5027515bc88f18d365d196a1e253f"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>toXml</b> (QXmlStreamWriter &amp;) const =0</td></tr>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_evenement.html#a1ab5027515bc88f18d365d196a1e253f">toXml</a> (QXmlStreamWriter &amp;) const =0</td></tr>
+<tr class="memdesc:a1ab5027515bc88f18d365d196a1e253f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ecrit le contenu du fichier dans le stream xml passe en parametre. <br/></td></tr>
 <tr class="separator:a1ab5027515bc88f18d365d196a1e253f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Classe abstraite representant un evenement. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="acc075b70a2f9d11355ad4cd49437fb84"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Evenement::Evenement </td>
+          <td>(</td>
+          <td class="paramtype">const QDate &amp;&#160;</td>
+          <td class="paramname"><em>d</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const QTime &amp;&#160;</td>
+          <td class="paramname"><em>t</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Constructeur a partir d'une date et d'une heure. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">d</td><td>date </td></tr>
+    <tr><td class="paramname">t</td><td>horaire </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>/home/matthieu/ProjectCalendar/ProjectCalendar/src/<a class="el" href="evenement_8h_source.html">evenement.h</a></li>
-<li>/home/matthieu/ProjectCalendar/ProjectCalendar/src/evenement.cpp</li>
+<li>src/<a class="el" href="evenement_8h_source.html">evenement.h</a></li>
+<li>src/evenement.cpp</li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Jun 13 2015 01:14:04 for ProjectCalendar by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Jun 14 2015 00:58:09 for ProjectCalendar by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

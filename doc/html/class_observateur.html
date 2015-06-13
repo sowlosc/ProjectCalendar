@@ -72,7 +72,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Variables</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -90,14 +90,19 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">Observateur Class Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Classe d'objets observateurs.  
+ <a href="class_observateur.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="observateur_8h_source.html">observateur.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for Observateur:</div>
 <div class="dyncontent">
  <div class="center">
   <img src="class_observateur.png" usemap="#Observateur_map" alt=""/>
   <map id="Observateur_map" name="Observateur_map">
-<area href="class_jour_graphic_scene.html" alt="JourGraphicScene" shape="rect" coords="0,56,119,80"/>
-<area href="class_main_window.html" alt="MainWindow" shape="rect" coords="129,56,248,80"/>
+<area href="class_jour_graphic_scene.html" title="Classe permettant d&#39;afficher les evenements sur l&#39;agenda. " alt="JourGraphicScene" shape="rect" coords="0,56,119,80"/>
+<area href="class_main_window.html" title="Classe de la fenetre principale (singleton) " alt="MainWindow" shape="rect" coords="129,56,248,80"/>
 </map>
  </div></div>
 <table class="memberdecls">
@@ -107,13 +112,15 @@ Public Member Functions</h2></td></tr>
 virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>mise_a_jour</b> ()=0</td></tr>
 <tr class="separator:a641e727790db704f572814d5c0e7ca1b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<hr/>The documentation for this class was generated from the following file:<ul>
-<li>/home/matthieu/ProjectCalendar/ProjectCalendar/src/<a class="el" href="observateur_8h_source.html">observateur.h</a></li>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Classe d'objets observateurs. </p>
+</div><hr/>The documentation for this class was generated from the following file:<ul>
+<li>src/<a class="el" href="observateur_8h_source.html">observateur.h</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Jun 13 2015 01:14:04 for ProjectCalendar by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Jun 14 2015 00:58:09 for ProjectCalendar by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

@@ -72,7 +72,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Variables</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -92,28 +92,35 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">TacheComposite Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Classe representant une tache composite.  
+ <a href="class_tache_composite.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="tachecomposite_8h_source.html">tachecomposite.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for TacheComposite:</div>
 <div class="dyncontent">
  <div class="center">
   <img src="class_tache_composite.png" usemap="#TacheComposite_map" alt=""/>
   <map id="TacheComposite_map" name="TacheComposite_map">
-<area href="class_tache.html" alt="Tache" shape="rect" coords="0,56,105,80"/>
-<area href="class_observable.html" alt="Observable" shape="rect" coords="0,0,105,24"/>
+<area href="class_tache.html" title="Classe abstraite representant une tache. " alt="Tache" shape="rect" coords="0,56,105,80"/>
+<area href="class_observable.html" title="Classe d&#39;objets Observable. " alt="Observable" shape="rect" coords="0,0,105,24"/>
 </map>
  </div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_tache_composite_1_1const__iterator.html">const_iterator</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Classe permettant d'iterer sur les sous-taches d'une tache composite.  <a href="class_tache_composite_1_1const__iterator.html#details">More...</a><br/></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_tache_composite_1_1iterator.html">iterator</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Classe permettant d'iterer sur les sous-taches d'une tache composite.  <a href="class_tache_composite_1_1iterator.html#details">More...</a><br/></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a0814be2990285f704d30c66dfac86f4e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0814be2990285f704d30c66dfac86f4e"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>TacheComposite</b> (const QString &amp;id, const QString &amp;t, const QDate &amp;dispo, const QDate &amp;ech, const QString &amp;txt)</td></tr>
+<tr class="memitem:a0814be2990285f704d30c66dfac86f4e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_tache_composite.html#a0814be2990285f704d30c66dfac86f4e">TacheComposite</a> (const QString &amp;id, const QString &amp;t, const QDate &amp;dispo, const QDate &amp;ech, const QString &amp;txt)</td></tr>
+<tr class="memdesc:a0814be2990285f704d30c66dfac86f4e"><td class="mdescLeft">&#160;</td><td class="mdescRight">constructeur  <a href="#a0814be2990285f704d30c66dfac86f4e">More...</a><br/></td></tr>
 <tr class="separator:a0814be2990285f704d30c66dfac86f4e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1623b2365f038c262e612136c75c5ace"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1623b2365f038c262e612136c75c5ace"></a>
 virtual QString&#160;</td><td class="memItemRight" valign="bottom"><b>toString</b> () const </td></tr>
@@ -124,78 +131,43 @@ virtual bool&#160;</td><td class="memItemRight" valign="bottom"><b>isComposite</
 <tr class="memitem:a4914e671226ea97a6a55b1cfb1f70c79"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4914e671226ea97a6a55b1cfb1f70c79"></a>
 virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>toXml</b> (QXmlStreamWriter &amp;) const </td></tr>
 <tr class="separator:a4914e671226ea97a6a55b1cfb1f70c79"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9a252235f2fb7b5568c666fc20bc4cca"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9a252235f2fb7b5568c666fc20bc4cca"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>ajouterSousTache</b> (<a class="el" href="class_tache.html">Tache</a> *t)</td></tr>
+<tr class="memitem:a9a252235f2fb7b5568c666fc20bc4cca"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_tache_composite.html#a9a252235f2fb7b5568c666fc20bc4cca">ajouterSousTache</a> (<a class="el" href="class_tache.html">Tache</a> *t)</td></tr>
+<tr class="memdesc:a9a252235f2fb7b5568c666fc20bc4cca"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ajoute une sous-taches.  <a href="#a9a252235f2fb7b5568c666fc20bc4cca">More...</a><br/></td></tr>
 <tr class="separator:a9a252235f2fb7b5568c666fc20bc4cca"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2e23262b20e178923c17ab00e1e9a012"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2e23262b20e178923c17ab00e1e9a012"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>retirerSousTache</b> (<a class="el" href="class_tache.html">Tache</a> *t)</td></tr>
+<tr class="memitem:a2e23262b20e178923c17ab00e1e9a012"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_tache_composite.html#a2e23262b20e178923c17ab00e1e9a012">retirerSousTache</a> (<a class="el" href="class_tache.html">Tache</a> *t)</td></tr>
+<tr class="memdesc:a2e23262b20e178923c17ab00e1e9a012"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retire une sous-tache.  <a href="#a2e23262b20e178923c17ab00e1e9a012">More...</a><br/></td></tr>
 <tr class="separator:a2e23262b20e178923c17ab00e1e9a012"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3dd578a3b140f2cd99323a506a0d9afc"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3dd578a3b140f2cd99323a506a0d9afc"></a>
-<a class="el" href="class_tache.html">Tache</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>getSousTache</b> (const QString &amp;id)</td></tr>
+<tr class="memitem:a3dd578a3b140f2cd99323a506a0d9afc"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_tache.html">Tache</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_tache_composite.html#a3dd578a3b140f2cd99323a506a0d9afc">getSousTache</a> (const QString &amp;id)</td></tr>
+<tr class="memdesc:a3dd578a3b140f2cd99323a506a0d9afc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retourne un pointeur sur la sous-tache.  <a href="#a3dd578a3b140f2cd99323a506a0d9afc">More...</a><br/></td></tr>
 <tr class="separator:a3dd578a3b140f2cd99323a506a0d9afc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0858bbad9b371fa5abe312c1cb26a76f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0858bbad9b371fa5abe312c1cb26a76f"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>contientSousTache</b> (const <a class="el" href="class_tache.html">Tache</a> *t)</td></tr>
+<tr class="memitem:a0858bbad9b371fa5abe312c1cb26a76f"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_tache_composite.html#a0858bbad9b371fa5abe312c1cb26a76f">contientSousTache</a> (const <a class="el" href="class_tache.html">Tache</a> *t)</td></tr>
+<tr class="memdesc:a0858bbad9b371fa5abe312c1cb26a76f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Verifie si la tache contient la sous-tache.  <a href="#a0858bbad9b371fa5abe312c1cb26a76f">More...</a><br/></td></tr>
 <tr class="separator:a0858bbad9b371fa5abe312c1cb26a76f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aedf3f1c8401f4e209e6b392fa7da66ac"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aedf3f1c8401f4e209e6b392fa7da66ac"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>isProgrammed</b> () const </td></tr>
-<tr class="separator:aedf3f1c8401f4e209e6b392fa7da66ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9b74619248ec97da89482df6bef7ac07"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9b74619248ec97da89482df6bef7ac07"></a>
-std::map&lt; QString, <a class="el" href="class_tache.html">Tache</a> * &gt; *&#160;</td><td class="memItemRight" valign="bottom"><b>getTacheMap</b> (const QString &amp;id)</td></tr>
+<tr class="memitem:a699d1bcf6a7b3240bdc07b90e4e1a72e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a699d1bcf6a7b3240bdc07b90e4e1a72e"></a>
+virtual bool&#160;</td><td class="memItemRight" valign="bottom"><b>isProgrammed</b> () const </td></tr>
+<tr class="separator:a699d1bcf6a7b3240bdc07b90e4e1a72e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9b74619248ec97da89482df6bef7ac07"><td class="memItemLeft" align="right" valign="top">std::map&lt; QString, <a class="el" href="class_tache.html">Tache</a> * &gt; *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_tache_composite.html#a9b74619248ec97da89482df6bef7ac07">getTacheMap</a> (const QString &amp;id)</td></tr>
+<tr class="memdesc:a9b74619248ec97da89482df6bef7ac07"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retourne le map des sous-taches si elle contient la tache sinon cherche dans les sous-taches.  <a href="#a9b74619248ec97da89482df6bef7ac07">More...</a><br/></td></tr>
 <tr class="separator:a9b74619248ec97da89482df6bef7ac07"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0ddf3aa66c03324530c1edae9e51d97b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0ddf3aa66c03324530c1edae9e51d97b"></a>
-<a class="el" href="class_tache_composite_1_1iterator.html">iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><b>begin</b> ()</td></tr>
+<a class="el" href="class_tache_composite_1_1iterator.html">iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_tache_composite.html#a0ddf3aa66c03324530c1edae9e51d97b">begin</a> ()</td></tr>
+<tr class="memdesc:a0ddf3aa66c03324530c1edae9e51d97b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retourne un iterateur sur la premiere sous-tache. <br/></td></tr>
 <tr class="separator:a0ddf3aa66c03324530c1edae9e51d97b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a19085d7f01e368efab4ec40f63a04117"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a19085d7f01e368efab4ec40f63a04117"></a>
-<a class="el" href="class_tache_composite_1_1iterator.html">iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><b>end</b> ()</td></tr>
+<a class="el" href="class_tache_composite_1_1iterator.html">iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_tache_composite.html#a19085d7f01e368efab4ec40f63a04117">end</a> ()</td></tr>
+<tr class="memdesc:a19085d7f01e368efab4ec40f63a04117"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retourne un iterateur apres la derniere sous-tache. <br/></td></tr>
 <tr class="separator:a19085d7f01e368efab4ec40f63a04117"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a08938304455ed31cc3219677787d376e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a08938304455ed31cc3219677787d376e"></a>
-<a class="el" href="class_tache_composite_1_1const__iterator.html">const_iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><b>begin</b> () const </td></tr>
+<a class="el" href="class_tache_composite_1_1const__iterator.html">const_iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_tache_composite.html#a08938304455ed31cc3219677787d376e">begin</a> () const </td></tr>
+<tr class="memdesc:a08938304455ed31cc3219677787d376e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retourne un iterateur const sur la premiere sous-tache. <br/></td></tr>
 <tr class="separator:a08938304455ed31cc3219677787d376e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adc3b95cd5e0da1d570535356a7e18ecb"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="adc3b95cd5e0da1d570535356a7e18ecb"></a>
-<a class="el" href="class_tache_composite_1_1const__iterator.html">const_iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><b>end</b> () const </td></tr>
+<a class="el" href="class_tache_composite_1_1const__iterator.html">const_iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_tache_composite.html#adc3b95cd5e0da1d570535356a7e18ecb">end</a> () const </td></tr>
+<tr class="memdesc:adc3b95cd5e0da1d570535356a7e18ecb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retourne un iterateur const apres la derniere sous-tache. <br/></td></tr>
 <tr class="separator:adc3b95cd5e0da1d570535356a7e18ecb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_class_tache"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_tache')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_tache.html">Tache</a></td></tr>
-<tr class="memitem:a29b8a9d32a5541f837bd3df5482dcb9f inherit pub_methods_class_tache"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a29b8a9d32a5541f837bd3df5482dcb9f"></a>
-QString&#160;</td><td class="memItemRight" valign="bottom"><b>getId</b> () const </td></tr>
-<tr class="separator:a29b8a9d32a5541f837bd3df5482dcb9f inherit pub_methods_class_tache"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6d2ff9c442fef12cb29ff55e3272fd1b inherit pub_methods_class_tache"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6d2ff9c442fef12cb29ff55e3272fd1b"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setId</b> (const QString &amp;str)</td></tr>
-<tr class="separator:a6d2ff9c442fef12cb29ff55e3272fd1b inherit pub_methods_class_tache"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab9e56c6eaaa23d2c66148ff5a89724e6 inherit pub_methods_class_tache"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab9e56c6eaaa23d2c66148ff5a89724e6"></a>
-QString&#160;</td><td class="memItemRight" valign="bottom"><b>getTitre</b> () const </td></tr>
-<tr class="separator:ab9e56c6eaaa23d2c66148ff5a89724e6 inherit pub_methods_class_tache"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a323c2848e8c181508677803bece8f529 inherit pub_methods_class_tache"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a323c2848e8c181508677803bece8f529"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setTitre</b> (const QString &amp;str)</td></tr>
-<tr class="separator:a323c2848e8c181508677803bece8f529 inherit pub_methods_class_tache"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a757d2f61db913871784472bd36d87201 inherit pub_methods_class_tache"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a757d2f61db913871784472bd36d87201"></a>
-<a class="el" href="class_duree.html">Duree</a>&#160;</td><td class="memItemRight" valign="bottom"><b>getDuree</b> () const </td></tr>
-<tr class="separator:a757d2f61db913871784472bd36d87201 inherit pub_methods_class_tache"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab439376b6ee16b77ad89178eadec024d inherit pub_methods_class_tache"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab439376b6ee16b77ad89178eadec024d"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setDuree</b> (const <a class="el" href="class_duree.html">Duree</a> &amp;d)</td></tr>
-<tr class="separator:ab439376b6ee16b77ad89178eadec024d inherit pub_methods_class_tache"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a542a506e7315001adc9f423e613a6d7b inherit pub_methods_class_tache"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a542a506e7315001adc9f423e613a6d7b"></a>
-QDate&#160;</td><td class="memItemRight" valign="bottom"><b>getDateDisponibilite</b> () const </td></tr>
-<tr class="separator:a542a506e7315001adc9f423e613a6d7b inherit pub_methods_class_tache"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad44bf074be085367c3a58b81be680d70 inherit pub_methods_class_tache"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad44bf074be085367c3a58b81be680d70"></a>
-QDate&#160;</td><td class="memItemRight" valign="bottom"><b>getDateEcheance</b> () const </td></tr>
-<tr class="separator:ad44bf074be085367c3a58b81be680d70 inherit pub_methods_class_tache"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad0c6c50f8be48298fb175dd6bf2a98b6 inherit pub_methods_class_tache"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad0c6c50f8be48298fb175dd6bf2a98b6"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setDatesDisponibiliteEcheance</b> (const QDate &amp;disp, const QDate &amp;e)</td></tr>
-<tr class="separator:ad0c6c50f8be48298fb175dd6bf2a98b6 inherit pub_methods_class_tache"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acce15b5e0f17bb9e4a559fe3e090c042 inherit pub_methods_class_tache"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="acce15b5e0f17bb9e4a559fe3e090c042"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>isPreemptive</b> () const </td></tr>
-<tr class="separator:acce15b5e0f17bb9e4a559fe3e090c042 inherit pub_methods_class_tache"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a144b32f57834d2b0b9d667ce40fde30a inherit pub_methods_class_tache"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a144b32f57834d2b0b9d667ce40fde30a"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setPreemptive</b> ()</td></tr>
-<tr class="separator:a144b32f57834d2b0b9d667ce40fde30a inherit pub_methods_class_tache"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6c3c1e58de694f2355a8c93dd01a276d inherit pub_methods_class_tache"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6c3c1e58de694f2355a8c93dd01a276d"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setNonPreemptive</b> ()</td></tr>
-<tr class="separator:a6c3c1e58de694f2355a8c93dd01a276d inherit pub_methods_class_tache"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa56e1690299f9b6892d21e10df7768b0 inherit pub_methods_class_tache"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa56e1690299f9b6892d21e10df7768b0"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>afficher</b> () const </td></tr>
-<tr class="separator:aa56e1690299f9b6892d21e10df7768b0 inherit pub_methods_class_tache"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7c8cd250f00b94c7416a340165fe95f4 inherit pub_methods_class_tache"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7c8cd250f00b94c7416a340165fe95f4"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>Tache</b> (const QString &amp;id, const QString &amp;t, const QDate &amp;dispo, const QDate &amp;ech, const QString &amp;txt)</td></tr>
+<tr class="memitem:a7c8cd250f00b94c7416a340165fe95f4 inherit pub_methods_class_tache"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_tache.html#a7c8cd250f00b94c7416a340165fe95f4">Tache</a> (const QString &amp;id, const QString &amp;t, const QDate &amp;dispo, const QDate &amp;ech, const QString &amp;txt)</td></tr>
+<tr class="memdesc:a7c8cd250f00b94c7416a340165fe95f4 inherit pub_methods_class_tache"><td class="mdescLeft">&#160;</td><td class="mdescRight">constructeur  <a href="#a7c8cd250f00b94c7416a340165fe95f4">More...</a><br/></td></tr>
 <tr class="separator:a7c8cd250f00b94c7416a340165fe95f4 inherit pub_methods_class_tache"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab8354f8832fb8f1ed8e911c53f9ecb51 inherit pub_methods_class_tache"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab8354f8832fb8f1ed8e911c53f9ecb51"></a>
 const QString &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getId</b> () const </td></tr>
@@ -224,27 +196,28 @@ const QDate &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getEchea
 <tr class="memitem:a3b76271f62077b6e0759069fae44e158 inherit pub_methods_class_tache"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3b76271f62077b6e0759069fae44e158"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>setDateDisponibiliteEcheance</b> (const QDate &amp;dispo, const QDate &amp;ech)</td></tr>
 <tr class="separator:a3b76271f62077b6e0759069fae44e158 inherit pub_methods_class_tache"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6d3c77e890ad25e7735f64939a6cdf8d inherit pub_methods_class_tache"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6d3c77e890ad25e7735f64939a6cdf8d"></a>
-<a class="el" href="class_tache_1_1const__succ__iterator.html">const_succ_iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><b>beginSucc</b> () const </td></tr>
+<tr class="memitem:a6d3c77e890ad25e7735f64939a6cdf8d inherit pub_methods_class_tache"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_tache_1_1const__succ__iterator.html">const_succ_iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_tache.html#a6d3c77e890ad25e7735f64939a6cdf8d">beginSucc</a> () const </td></tr>
+<tr class="memdesc:a6d3c77e890ad25e7735f64939a6cdf8d inherit pub_methods_class_tache"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retourne un iterateur const sur la premiere tache successeure.  <a href="#a6d3c77e890ad25e7735f64939a6cdf8d">More...</a><br/></td></tr>
 <tr class="separator:a6d3c77e890ad25e7735f64939a6cdf8d inherit pub_methods_class_tache"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a55d4be04447d26ca5358c5a1bc9a18fe inherit pub_methods_class_tache"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a55d4be04447d26ca5358c5a1bc9a18fe"></a>
-<a class="el" href="class_tache_1_1const__succ__iterator.html">const_succ_iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><b>endSucc</b> () const </td></tr>
+<tr class="memitem:a55d4be04447d26ca5358c5a1bc9a18fe inherit pub_methods_class_tache"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_tache_1_1const__succ__iterator.html">const_succ_iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_tache.html#a55d4be04447d26ca5358c5a1bc9a18fe">endSucc</a> () const </td></tr>
+<tr class="memdesc:a55d4be04447d26ca5358c5a1bc9a18fe inherit pub_methods_class_tache"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retourne un iterateur const apres la derniere tache successeure.  <a href="#a55d4be04447d26ca5358c5a1bc9a18fe">More...</a><br/></td></tr>
 <tr class="separator:a55d4be04447d26ca5358c5a1bc9a18fe inherit pub_methods_class_tache"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a833e80faf6dc4ea44d0fbdb078366a46 inherit pub_methods_class_tache"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a833e80faf6dc4ea44d0fbdb078366a46"></a>
-<a class="el" href="class_tache_1_1const__pred__iterator.html">const_pred_iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><b>beginPred</b> () const </td></tr>
+<tr class="memitem:a833e80faf6dc4ea44d0fbdb078366a46 inherit pub_methods_class_tache"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_tache_1_1const__pred__iterator.html">const_pred_iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_tache.html#a833e80faf6dc4ea44d0fbdb078366a46">beginPred</a> () const </td></tr>
+<tr class="memdesc:a833e80faf6dc4ea44d0fbdb078366a46 inherit pub_methods_class_tache"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retourne un iterateur const sur la premiere tache predecesseure.  <a href="#a833e80faf6dc4ea44d0fbdb078366a46">More...</a><br/></td></tr>
 <tr class="separator:a833e80faf6dc4ea44d0fbdb078366a46 inherit pub_methods_class_tache"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad293a2e75198f7aab20c1a6b132cfdac inherit pub_methods_class_tache"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad293a2e75198f7aab20c1a6b132cfdac"></a>
-<a class="el" href="class_tache_1_1const__pred__iterator.html">const_pred_iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><b>endPred</b> () const </td></tr>
+<tr class="memitem:ad293a2e75198f7aab20c1a6b132cfdac inherit pub_methods_class_tache"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_tache_1_1const__pred__iterator.html">const_pred_iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_tache.html#ad293a2e75198f7aab20c1a6b132cfdac">endPred</a> () const </td></tr>
+<tr class="memdesc:ad293a2e75198f7aab20c1a6b132cfdac inherit pub_methods_class_tache"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retourne un iterateur const apres la derniere tache predecesseure.  <a href="#ad293a2e75198f7aab20c1a6b132cfdac">More...</a><br/></td></tr>
 <tr class="separator:ad293a2e75198f7aab20c1a6b132cfdac inherit pub_methods_class_tache"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_class_observable"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_observable')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_observable.html">Observable</a></td></tr>
-<tr class="memitem:a86402eba3063e0fb2ed9a96fce7cef81 inherit pub_methods_class_observable"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a86402eba3063e0fb2ed9a96fce7cef81"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>ajouterObservateur</b> (<a class="el" href="class_observateur.html">Observateur</a> *o)</td></tr>
+<tr class="memitem:a86402eba3063e0fb2ed9a96fce7cef81 inherit pub_methods_class_observable"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_observable.html#a86402eba3063e0fb2ed9a96fce7cef81">ajouterObservateur</a> (<a class="el" href="class_observateur.html">Observateur</a> *o)</td></tr>
+<tr class="memdesc:a86402eba3063e0fb2ed9a96fce7cef81 inherit pub_methods_class_observable"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ajoute un observateur.  <a href="#a86402eba3063e0fb2ed9a96fce7cef81">More...</a><br/></td></tr>
 <tr class="separator:a86402eba3063e0fb2ed9a96fce7cef81 inherit pub_methods_class_observable"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6cbb5cbed62d665e9dfcbe99be8aec01 inherit pub_methods_class_observable"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6cbb5cbed62d665e9dfcbe99be8aec01"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>supprimerObservateur</b> (<a class="el" href="class_observateur.html">Observateur</a> *o)</td></tr>
+<tr class="memitem:a6cbb5cbed62d665e9dfcbe99be8aec01 inherit pub_methods_class_observable"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_observable.html#a6cbb5cbed62d665e9dfcbe99be8aec01">supprimerObservateur</a> (<a class="el" href="class_observateur.html">Observateur</a> *o)</td></tr>
+<tr class="memdesc:a6cbb5cbed62d665e9dfcbe99be8aec01 inherit pub_methods_class_observable"><td class="mdescLeft">&#160;</td><td class="mdescRight">Supprime un observateur.  <a href="#a6cbb5cbed62d665e9dfcbe99be8aec01">More...</a><br/></td></tr>
 <tr class="separator:a6cbb5cbed62d665e9dfcbe99be8aec01 inherit pub_methods_class_observable"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab0916bedda82a820099366269e323b22 inherit pub_methods_class_observable"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab0916bedda82a820099366269e323b22"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>notifier</b> ()</td></tr>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_observable.html#ab0916bedda82a820099366269e323b22">notifier</a> ()</td></tr>
+<tr class="memdesc:ab0916bedda82a820099366269e323b22 inherit pub_methods_class_observable"><td class="mdescLeft">&#160;</td><td class="mdescRight">Notifie tous les observateurs. <br/></td></tr>
 <tr class="separator:ab0916bedda82a820099366269e323b22 inherit pub_methods_class_observable"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
@@ -252,15 +225,213 @@ Static Public Member Functions</h2></td></tr>
 <tr class="memitem:a210b93aa50e9ced57a64ad2c9db6e8ba"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a210b93aa50e9ced57a64ad2c9db6e8ba"></a>
 static <a class="el" href="class_tache_composite.html">TacheComposite</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>getFromXml</b> (QXmlStreamReader &amp;)</td></tr>
 <tr class="separator:a210b93aa50e9ced57a64ad2c9db6e8ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
+Additional Inherited Members</h2></td></tr>
+<tr class="inherit_header pro_attribs_class_observable"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_class_observable')"><img src="closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="class_observable.html">Observable</a></td></tr>
+<tr class="memitem:a8cc5d47c4f2a5829bdfb998c7e93c84d inherit pro_attribs_class_observable"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8cc5d47c4f2a5829bdfb998c7e93c84d"></a>
+std::set&lt; <a class="el" href="class_observateur.html">Observateur</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_observable.html#a8cc5d47c4f2a5829bdfb998c7e93c84d">obs</a></td></tr>
+<tr class="memdesc:a8cc5d47c4f2a5829bdfb998c7e93c84d inherit pro_attribs_class_observable"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ensemble des observateurs. <br/></td></tr>
+<tr class="separator:a8cc5d47c4f2a5829bdfb998c7e93c84d inherit pro_attribs_class_observable"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Classe representant une tache composite. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="a0814be2990285f704d30c66dfac86f4e"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">TacheComposite::TacheComposite </td>
+          <td>(</td>
+          <td class="paramtype">const QString &amp;&#160;</td>
+          <td class="paramname"><em>id</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const QString &amp;&#160;</td>
+          <td class="paramname"><em>t</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const QDate &amp;&#160;</td>
+          <td class="paramname"><em>dispo</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const QDate &amp;&#160;</td>
+          <td class="paramname"><em>ech</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const QString &amp;&#160;</td>
+          <td class="paramname"><em>txt</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>constructeur </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">id</td><td>identificateur </td></tr>
+    <tr><td class="paramname">t</td><td>titre </td></tr>
+    <tr><td class="paramname">dispo</td><td>date de disponibilite </td></tr>
+    <tr><td class="paramname">ech</td><td>date d'echeance </td></tr>
+    <tr><td class="paramname">txt</td><td>description </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="a9a252235f2fb7b5568c666fc20bc4cca"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void TacheComposite::ajouterSousTache </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_tache.html">Tache</a> *&#160;</td>
+          <td class="paramname"><em>t</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Ajoute une sous-taches. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">t</td><td>pointeur sur la tache a ajouter </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a0858bbad9b371fa5abe312c1cb26a76f"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool TacheComposite::contientSousTache </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_tache.html">Tache</a> *&#160;</td>
+          <td class="paramname"><em>t</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Verifie si la tache contient la sous-tache. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">t</td><td>titre de la sous-tache </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true ou false </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a3dd578a3b140f2cd99323a506a0d9afc"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_tache.html">Tache</a>* TacheComposite::getSousTache </td>
+          <td>(</td>
+          <td class="paramtype">const QString &amp;&#160;</td>
+          <td class="paramname"><em>id</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Retourne un pointeur sur la sous-tache. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">id</td><td>identificateur </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>pointeur sur la sous-tache ou 0 </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a9b74619248ec97da89482df6bef7ac07"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::map&lt;QString, <a class="el" href="class_tache.html">Tache</a>*&gt;* TacheComposite::getTacheMap </td>
+          <td>(</td>
+          <td class="paramtype">const QString &amp;&#160;</td>
+          <td class="paramname"><em>id</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Retourne le map des sous-taches si elle contient la tache sinon cherche dans les sous-taches. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">id</td><td>identificateur de la tache recherchee </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a2e23262b20e178923c17ab00e1e9a012"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void TacheComposite::retirerSousTache </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_tache.html">Tache</a> *&#160;</td>
+          <td class="paramname"><em>t</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Retire une sous-tache. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">t</td><td>pointeur sur la sous-tache </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>/home/matthieu/ProjectCalendar/ProjectCalendar/src/<a class="el" href="tachecomposite_8h_source.html">tachecomposite.h</a></li>
-<li>/home/matthieu/ProjectCalendar/ProjectCalendar/src/tachecomposite.cpp</li>
+<li>src/<a class="el" href="tachecomposite_8h_source.html">tachecomposite.h</a></li>
+<li>src/tachecomposite.cpp</li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Jun 13 2015 01:14:04 for ProjectCalendar by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Jun 14 2015 00:58:10 for ProjectCalendar by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

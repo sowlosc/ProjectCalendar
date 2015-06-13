@@ -72,7 +72,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Variables</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -92,29 +92,36 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">Rdv Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Classe representant un rendez-vous.  
+ <a href="class_rdv.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="rdv_8h_source.html">rdv.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for Rdv:</div>
 <div class="dyncontent">
  <div class="center">
   <img src="class_rdv.png" usemap="#Rdv_map" alt=""/>
   <map id="Rdv_map" name="Rdv_map">
-<area href="class_evenement1j.html" alt="Evenement1j" shape="rect" coords="0,112,100,136"/>
-<area href="class_evenement_trad.html" alt="EvenementTrad" shape="rect" coords="0,56,100,80"/>
-<area href="class_evenement.html" alt="Evenement" shape="rect" coords="0,0,100,24"/>
+<area href="class_evenement1j.html" title="Classe representant un evenement sur un jour. " alt="Evenement1j" shape="rect" coords="0,112,100,136"/>
+<area href="class_evenement_trad.html" title="Classe abstraite representant un evenement traditionnel. " alt="EvenementTrad" shape="rect" coords="0,56,100,80"/>
+<area href="class_evenement.html" title="Classe abstraite representant un evenement. " alt="Evenement" shape="rect" coords="0,0,100,24"/>
 </map>
  </div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_rdv_1_1const__personnes__iterator.html">const_personnes_iterator</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Classe permettant d'iterer sur les personnes participants a un rendez-vous.  <a href="class_rdv_1_1const__personnes__iterator.html#details">More...</a><br/></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_rdv_1_1personnes__iterator.html">personnes_iterator</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Classe permettant d'iterer sur les personnes participants a un rendez-vous.  <a href="class_rdv_1_1personnes__iterator.html#details">More...</a><br/></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a0ed8f6047948f89ac86df7835600c343"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0ed8f6047948f89ac86df7835600c343"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>Rdv</b> (const QDate &amp;ddeb, const QTime &amp;tdeb, const <a class="el" href="class_duree.html">Duree</a> &amp;dur, const QString &amp;suj, const QString &amp;l)</td></tr>
+<tr class="memitem:a0ed8f6047948f89ac86df7835600c343"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_rdv.html#a0ed8f6047948f89ac86df7835600c343">Rdv</a> (const QDate &amp;ddeb, const QTime &amp;tdeb, const <a class="el" href="class_duree.html">Duree</a> &amp;dur, const QString &amp;suj, const QString &amp;l)</td></tr>
+<tr class="memdesc:a0ed8f6047948f89ac86df7835600c343"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructeur a partir d'une date, d'une heure,d'une duree,d'un sujet et d'un lieu.  <a href="#a0ed8f6047948f89ac86df7835600c343">More...</a><br/></td></tr>
 <tr class="separator:a0ed8f6047948f89ac86df7835600c343"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aae63fae53d2f08c431ec3cb22fabefd9"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aae63fae53d2f08c431ec3cb22fabefd9"></a>
 const QString &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getLieu</b> () const </td></tr>
@@ -125,39 +132,42 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>setLieu</b> (const QS
 <tr class="memitem:aec6b89e870688027b380625f7a4024b4"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aec6b89e870688027b380625f7a4024b4"></a>
 const std::vector&lt; QString &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getPersonnes</b> () const </td></tr>
 <tr class="separator:aec6b89e870688027b380625f7a4024b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a87f9a40b80c71e01085460d1c1e29e1a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a87f9a40b80c71e01085460d1c1e29e1a"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>ajouterPersonne</b> (const QString &amp;nom)</td></tr>
+<tr class="memitem:a87f9a40b80c71e01085460d1c1e29e1a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_rdv.html#a87f9a40b80c71e01085460d1c1e29e1a">ajouterPersonne</a> (const QString &amp;nom)</td></tr>
+<tr class="memdesc:a87f9a40b80c71e01085460d1c1e29e1a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ajoute un participant.  <a href="#a87f9a40b80c71e01085460d1c1e29e1a">More...</a><br/></td></tr>
 <tr class="separator:a87f9a40b80c71e01085460d1c1e29e1a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5d8a6aa677ab4a26859f5be69c1ba83a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5d8a6aa677ab4a26859f5be69c1ba83a"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>retirerPersonne</b> (const QString &amp;nom)</td></tr>
+<tr class="memitem:a5d8a6aa677ab4a26859f5be69c1ba83a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_rdv.html#a5d8a6aa677ab4a26859f5be69c1ba83a">retirerPersonne</a> (const QString &amp;nom)</td></tr>
+<tr class="memdesc:a5d8a6aa677ab4a26859f5be69c1ba83a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retire un participant.  <a href="#a5d8a6aa677ab4a26859f5be69c1ba83a">More...</a><br/></td></tr>
 <tr class="separator:a5d8a6aa677ab4a26859f5be69c1ba83a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa7a74f7eb37ca6670ab4eadf08a1b440"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa7a74f7eb37ca6670ab4eadf08a1b440"></a>
-virtual QString&#160;</td><td class="memItemRight" valign="bottom"><b>toString</b> () const </td></tr>
+virtual QString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_rdv.html#aa7a74f7eb37ca6670ab4eadf08a1b440">toString</a> () const </td></tr>
+<tr class="memdesc:aa7a74f7eb37ca6670ab4eadf08a1b440"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retourne une description de l'objet en chaine de caracteres. <br/></td></tr>
 <tr class="separator:aa7a74f7eb37ca6670ab4eadf08a1b440"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2d00fc055a1aa8feef03223b1e7d0320"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2d00fc055a1aa8feef03223b1e7d0320"></a>
-virtual <a class="el" href="class_rdv.html">Rdv</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>clone</b> () const </td></tr>
+virtual <a class="el" href="class_rdv.html">Rdv</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_rdv.html#a2d00fc055a1aa8feef03223b1e7d0320">clone</a> () const </td></tr>
+<tr class="memdesc:a2d00fc055a1aa8feef03223b1e7d0320"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clone un evenement sur 1 jour. <br/></td></tr>
 <tr class="separator:a2d00fc055a1aa8feef03223b1e7d0320"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a76c93ec91306eda4ea2a69a5423d58bd"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a76c93ec91306eda4ea2a69a5423d58bd"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>toXml</b> (QXmlStreamWriter &amp;) const </td></tr>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_rdv.html#a76c93ec91306eda4ea2a69a5423d58bd">toXml</a> (QXmlStreamWriter &amp;) const </td></tr>
+<tr class="memdesc:a76c93ec91306eda4ea2a69a5423d58bd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ecrit le contenu du fichier dans le stream xml passe en parametre. <br/></td></tr>
 <tr class="separator:a76c93ec91306eda4ea2a69a5423d58bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3cd84a0d41a0f916b3f057abee74ff74"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3cd84a0d41a0f916b3f057abee74ff74"></a>
 virtual bool&#160;</td><td class="memItemRight" valign="bottom"><b>isRdv</b> () const </td></tr>
 <tr class="separator:a3cd84a0d41a0f916b3f057abee74ff74"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac91d781d7920b17233a77cdb490582cb"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac91d781d7920b17233a77cdb490582cb"></a>
-<a class="el" href="class_rdv_1_1personnes__iterator.html">personnes_iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><b>begin_personnes</b> ()</td></tr>
+<tr class="memitem:ac91d781d7920b17233a77cdb490582cb"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_rdv_1_1personnes__iterator.html">personnes_iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_rdv.html#ac91d781d7920b17233a77cdb490582cb">begin_personnes</a> ()</td></tr>
+<tr class="memdesc:ac91d781d7920b17233a77cdb490582cb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retourne un iterateur sur la premiere personne.  <a href="#ac91d781d7920b17233a77cdb490582cb">More...</a><br/></td></tr>
 <tr class="separator:ac91d781d7920b17233a77cdb490582cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6a332b508913687607060317ebc0cfc9"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6a332b508913687607060317ebc0cfc9"></a>
-<a class="el" href="class_rdv_1_1personnes__iterator.html">personnes_iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><b>end_personnes</b> ()</td></tr>
+<tr class="memitem:a6a332b508913687607060317ebc0cfc9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_rdv_1_1personnes__iterator.html">personnes_iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_rdv.html#a6a332b508913687607060317ebc0cfc9">end_personnes</a> ()</td></tr>
+<tr class="memdesc:a6a332b508913687607060317ebc0cfc9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retourne un iterateur apres la derniere personne.  <a href="#a6a332b508913687607060317ebc0cfc9">More...</a><br/></td></tr>
 <tr class="separator:a6a332b508913687607060317ebc0cfc9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abfc8d22b814b9c09432ae3d50f25a802"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="abfc8d22b814b9c09432ae3d50f25a802"></a>
-<a class="el" href="class_rdv_1_1const__personnes__iterator.html">const_personnes_iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><b>begin_personnes</b> () const </td></tr>
+<tr class="memitem:abfc8d22b814b9c09432ae3d50f25a802"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_rdv_1_1const__personnes__iterator.html">const_personnes_iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_rdv.html#abfc8d22b814b9c09432ae3d50f25a802">begin_personnes</a> () const </td></tr>
+<tr class="memdesc:abfc8d22b814b9c09432ae3d50f25a802"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retourne un iterateur const sur la premier personne.  <a href="#abfc8d22b814b9c09432ae3d50f25a802">More...</a><br/></td></tr>
 <tr class="separator:abfc8d22b814b9c09432ae3d50f25a802"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4419c46f8270bea2f86000ef2ee3b0c5"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4419c46f8270bea2f86000ef2ee3b0c5"></a>
-<a class="el" href="class_rdv_1_1const__personnes__iterator.html">const_personnes_iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><b>end_personnes</b> () const </td></tr>
+<tr class="memitem:a4419c46f8270bea2f86000ef2ee3b0c5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_rdv_1_1const__personnes__iterator.html">const_personnes_iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_rdv.html#a4419c46f8270bea2f86000ef2ee3b0c5">end_personnes</a> () const </td></tr>
+<tr class="memdesc:a4419c46f8270bea2f86000ef2ee3b0c5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retourne un iterateur const apres la derniere personne.  <a href="#a4419c46f8270bea2f86000ef2ee3b0c5">More...</a><br/></td></tr>
 <tr class="separator:a4419c46f8270bea2f86000ef2ee3b0c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_class_evenement1j"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_evenement1j')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_evenement1j.html">Evenement1j</a></td></tr>
-<tr class="memitem:a93b736c23185483417cacf19b1b83b83 inherit pub_methods_class_evenement1j"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a93b736c23185483417cacf19b1b83b83"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>Evenement1j</b> (const QDate &amp;ddeb, const QTime &amp;tdeb, const <a class="el" href="class_duree.html">Duree</a> &amp;dur, const QString &amp;suj)</td></tr>
+<tr class="memitem:a93b736c23185483417cacf19b1b83b83 inherit pub_methods_class_evenement1j"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_evenement1j.html#a93b736c23185483417cacf19b1b83b83">Evenement1j</a> (const QDate &amp;ddeb, const QTime &amp;tdeb, const <a class="el" href="class_duree.html">Duree</a> &amp;dur, const QString &amp;suj)</td></tr>
+<tr class="memdesc:a93b736c23185483417cacf19b1b83b83 inherit pub_methods_class_evenement1j"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructeur a partir d'une date, d'un horaire,d'une duree et d'un sujet.  <a href="#a93b736c23185483417cacf19b1b83b83">More...</a><br/></td></tr>
 <tr class="separator:a93b736c23185483417cacf19b1b83b83 inherit pub_methods_class_evenement1j"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0193e540d410b34018612498dc8a3cca inherit pub_methods_class_evenement1j"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0193e540d410b34018612498dc8a3cca"></a>
 const <a class="el" href="class_duree.html">Duree</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getDuree</b> () const </td></tr>
@@ -172,8 +182,8 @@ virtual bool&#160;</td><td class="memItemRight" valign="bottom"><b>isEvenement1j
 virtual bool&#160;</td><td class="memItemRight" valign="bottom"><b>isEvenementPj</b> () const </td></tr>
 <tr class="separator:ac285c31a320653952f6b6e2d78253554 inherit pub_methods_class_evenement1j"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_class_evenement_trad"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_evenement_trad')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_evenement_trad.html">EvenementTrad</a></td></tr>
-<tr class="memitem:a8fdd98fb714a39ea12541a2fc9e1e9fd inherit pub_methods_class_evenement_trad"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8fdd98fb714a39ea12541a2fc9e1e9fd"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>EvenementTrad</b> (const QDate &amp;ddeb, const QTime &amp;tdeb, const QString &amp;suj)</td></tr>
+<tr class="memitem:a8fdd98fb714a39ea12541a2fc9e1e9fd inherit pub_methods_class_evenement_trad"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_evenement_trad.html#a8fdd98fb714a39ea12541a2fc9e1e9fd">EvenementTrad</a> (const QDate &amp;ddeb, const QTime &amp;tdeb, const QString &amp;suj)</td></tr>
+<tr class="memdesc:a8fdd98fb714a39ea12541a2fc9e1e9fd inherit pub_methods_class_evenement_trad"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructeur a partir d'une date et d'un horaire et d'un sujet.  <a href="#a8fdd98fb714a39ea12541a2fc9e1e9fd">More...</a><br/></td></tr>
 <tr class="separator:a8fdd98fb714a39ea12541a2fc9e1e9fd inherit pub_methods_class_evenement_trad"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae153a99a5319564c4d21fdf08b83a211 inherit pub_methods_class_evenement_trad"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae153a99a5319564c4d21fdf08b83a211"></a>
 virtual const QString &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getSujet</b> () const </td></tr>
@@ -191,8 +201,8 @@ virtual bool&#160;</td><td class="memItemRight" valign="bottom"><b>isEvenementTr
 virtual bool&#160;</td><td class="memItemRight" valign="bottom"><b>isProgrammationPartieTache</b> () const </td></tr>
 <tr class="separator:a25fd93a6b5326c25ee18266556ad8d45 inherit pub_methods_class_evenement_trad"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_class_evenement"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_evenement')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_evenement.html">Evenement</a></td></tr>
-<tr class="memitem:acc075b70a2f9d11355ad4cd49437fb84 inherit pub_methods_class_evenement"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="acc075b70a2f9d11355ad4cd49437fb84"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>Evenement</b> (const QDate &amp;d, const QTime &amp;t)</td></tr>
+<tr class="memitem:acc075b70a2f9d11355ad4cd49437fb84 inherit pub_methods_class_evenement"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_evenement.html#acc075b70a2f9d11355ad4cd49437fb84">Evenement</a> (const QDate &amp;d, const QTime &amp;t)</td></tr>
+<tr class="memdesc:acc075b70a2f9d11355ad4cd49437fb84 inherit pub_methods_class_evenement"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructeur a partir d'une date et d'une heure.  <a href="#acc075b70a2f9d11355ad4cd49437fb84">More...</a><br/></td></tr>
 <tr class="separator:acc075b70a2f9d11355ad4cd49437fb84 inherit pub_methods_class_evenement"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abc75dd429182315013826eb6ee1a66ce inherit pub_methods_class_evenement"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="abc75dd429182315013826eb6ee1a66ce"></a>
 const QDate &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getDate</b> () const </td></tr>
@@ -213,18 +223,237 @@ Static Public Member Functions</h2></td></tr>
 static <a class="el" href="class_rdv.html">Rdv</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>getFromXml</b> (QXmlStreamReader &amp;xml)</td></tr>
 <tr class="separator:a061d7fabd9294d83b6dca3be5fbc8ee5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_static_methods_class_evenement1j"><td colspan="2" onclick="javascript:toggleInherit('pub_static_methods_class_evenement1j')"><img src="closed.png" alt="-"/>&#160;Static Public Member Functions inherited from <a class="el" href="class_evenement1j.html">Evenement1j</a></td></tr>
-<tr class="memitem:a28e7efb9d05e4eec2fd60e8a7f0fc21d inherit pub_static_methods_class_evenement1j"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a28e7efb9d05e4eec2fd60e8a7f0fc21d"></a>
-static <a class="el" href="class_evenement1j.html">Evenement1j</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>getFromXml</b> (QXmlStreamReader &amp;xml)</td></tr>
+<tr class="memitem:a28e7efb9d05e4eec2fd60e8a7f0fc21d inherit pub_static_methods_class_evenement1j"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_evenement1j.html">Evenement1j</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_evenement1j.html#a28e7efb9d05e4eec2fd60e8a7f0fc21d">getFromXml</a> (QXmlStreamReader &amp;xml)</td></tr>
+<tr class="memdesc:a28e7efb9d05e4eec2fd60e8a7f0fc21d inherit pub_static_methods_class_evenement1j"><td class="mdescLeft">&#160;</td><td class="mdescRight">construit un evenement sur 1 jour a partir du stream xml  <a href="#a28e7efb9d05e4eec2fd60e8a7f0fc21d">More...</a><br/></td></tr>
 <tr class="separator:a28e7efb9d05e4eec2fd60e8a7f0fc21d inherit pub_static_methods_class_evenement1j"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Classe representant un rendez-vous. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="a0ed8f6047948f89ac86df7835600c343"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Rdv::Rdv </td>
+          <td>(</td>
+          <td class="paramtype">const QDate &amp;&#160;</td>
+          <td class="paramname"><em>ddeb</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const QTime &amp;&#160;</td>
+          <td class="paramname"><em>tdeb</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="class_duree.html">Duree</a> &amp;&#160;</td>
+          <td class="paramname"><em>dur</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const QString &amp;&#160;</td>
+          <td class="paramname"><em>suj</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const QString &amp;&#160;</td>
+          <td class="paramname"><em>l</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Constructeur a partir d'une date, d'une heure,d'une duree,d'un sujet et d'un lieu. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ddeb</td><td>date </td></tr>
+    <tr><td class="paramname">tdeb</td><td>horaire </td></tr>
+    <tr><td class="paramname">dur</td><td>duree </td></tr>
+    <tr><td class="paramname">l</td><td>lieu </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="a87f9a40b80c71e01085460d1c1e29e1a"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Rdv::ajouterPersonne </td>
+          <td>(</td>
+          <td class="paramtype">const QString &amp;&#160;</td>
+          <td class="paramname"><em>nom</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Ajoute un participant. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">nom</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="ac91d781d7920b17233a77cdb490582cb"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_rdv_1_1personnes__iterator.html">personnes_iterator</a> Rdv::begin_personnes </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Retourne un iterateur sur la premiere personne. </p>
+<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="abfc8d22b814b9c09432ae3d50f25a802"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_rdv_1_1const__personnes__iterator.html">const_personnes_iterator</a> Rdv::begin_personnes </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Retourne un iterateur const sur la premier personne. </p>
+<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a6a332b508913687607060317ebc0cfc9"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_rdv_1_1personnes__iterator.html">personnes_iterator</a> Rdv::end_personnes </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Retourne un iterateur apres la derniere personne. </p>
+<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a4419c46f8270bea2f86000ef2ee3b0c5"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_rdv_1_1const__personnes__iterator.html">const_personnes_iterator</a> Rdv::end_personnes </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Retourne un iterateur const apres la derniere personne. </p>
+<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a5d8a6aa677ab4a26859f5be69c1ba83a"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Rdv::retirerPersonne </td>
+          <td>(</td>
+          <td class="paramtype">const QString &amp;&#160;</td>
+          <td class="paramname"><em>nom</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Retire un participant. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">nom</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>/home/matthieu/ProjectCalendar/ProjectCalendar/src/<a class="el" href="rdv_8h_source.html">rdv.h</a></li>
-<li>/home/matthieu/ProjectCalendar/ProjectCalendar/src/rdv.cpp</li>
+<li>src/<a class="el" href="rdv_8h_source.html">rdv.h</a></li>
+<li>src/rdv.cpp</li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Jun 13 2015 01:14:04 for ProjectCalendar by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Jun 14 2015 00:58:10 for ProjectCalendar by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

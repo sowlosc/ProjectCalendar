@@ -8,6 +8,9 @@ namespace Ui {
 class EvenementInfoDialog;
 }
 
+/*! \class EvenementInfoDialog
+        \brief Fenetre d'affichage des details d'un evenement
+*/
 class EvenementInfoDialog : public QDialog
 {
     Q_OBJECT

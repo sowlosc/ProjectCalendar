@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>ProjectCalendar: /home/matthieu/ProjectCalendar/ProjectCalendar/src/programmationtache.h Source File</title>
+<title>ProjectCalendar: src/programmationtache.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -69,7 +69,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Variables</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -80,7 +80,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="dir_7de683677cd71300827af04a3a878570.html">ProjectCalendar</a></li><li class="navelem"><a class="el" href="dir_b99f7241e67ef20c1e7fc723ea482209.html">src</a></li>  </ul>
+<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -93,56 +93,60 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor"></span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;evenement.h&quot;</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;tacheunitaire.h&quot;</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment">//#include &quot;duree.h&quot;</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment">//class TacheUnitaire{ public: const Duree&amp; getDuree();}; // const; const QString&amp; getTitre() const; };</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno"><a class="line" href="class_programmation_tache.html">    8</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_programmation_tache.html">ProgrammationTache</a> : <span class="keyword">public</span> <a class="code" href="class_evenement.html">Evenement</a></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;{</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    <a class="code" href="class_tache_unitaire.html">TacheUnitaire</a>* tache;</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    <span class="comment">//QString nomProjet;</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    <a class="code" href="class_projet.html">Projet</a>* projet;</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <a class="code" href="class_programmation_tache.html">ProgrammationTache</a>(<span class="keyword">const</span> QDate&amp; ddeb, <span class="keyword">const</span> QTime&amp; tdeb, <a class="code" href="class_tache_unitaire.html">TacheUnitaire</a> *t,<a class="code" href="class_projet.html">Projet</a>* p)</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;        :<a class="code" href="class_evenement.html">Evenement</a>(ddeb,tdeb), tache(t), projet(p) {</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;        <span class="keywordflow">if</span>(ddeb &lt; tache-&gt;getDisponibilite() || ddeb &gt; tache-&gt;getEcheance())</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;            <span class="keywordflow">throw</span> <a class="code" href="class_calendar_exception.html">CalendarException</a>(<span class="stringliteral">&quot;erreur, ProgrammationTache, date non valide&quot;</span>);</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    }</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    ~<a class="code" href="class_programmation_tache.html">ProgrammationTache</a>(){ }</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <a class="code" href="class_tache_unitaire.html">TacheUnitaire</a>* getTache()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> tache; }</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="keyword">const</span> <a class="code" href="class_projet.html">Projet</a>* getProjet()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> projet; }</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="keyword">virtual</span> <span class="keyword">const</span> <a class="code" href="class_duree.html">Duree</a>&amp; getDuree()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> tache-&gt;getDuree(); }</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="keyword">virtual</span> <span class="keyword">const</span> QString&amp; getSujet()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> tache-&gt;getTitre(); }</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="keyword">virtual</span> <a class="code" href="class_programmation_tache.html">ProgrammationTache</a>* clone() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="keyword">virtual</span> QString toString() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> toXml(QXmlStreamWriter&amp;) <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keyword">static</span> <a class="code" href="class_programmation_tache.html">ProgrammationTache</a>* getFromXml(QXmlStreamReader&amp; xml);</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;</div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;</div>
+<div class="line"><a name="l00010"></a><span class="lineno"><a class="line" href="class_programmation_tache.html">   10</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_programmation_tache.html">ProgrammationTache</a> : <span class="keyword">public</span> <a class="code" href="class_evenement.html">Evenement</a></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;{</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    <a class="code" href="class_tache_unitaire.html">TacheUnitaire</a>* tache;</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <a class="code" href="class_projet.html">Projet</a>* projet;</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;</div>
+<div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="class_programmation_tache.html#affac981e915fcb3ec6a2b6eb1b945d34">   24</a></span>&#160;    <a class="code" href="class_programmation_tache.html#affac981e915fcb3ec6a2b6eb1b945d34">ProgrammationTache</a>(<span class="keyword">const</span> QDate&amp; ddeb, <span class="keyword">const</span> QTime&amp; tdeb, <a class="code" href="class_tache_unitaire.html">TacheUnitaire</a> *t,<a class="code" href="class_projet.html">Projet</a>* p)</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        :<a class="code" href="class_evenement.html">Evenement</a>(ddeb,tdeb), tache(t), projet(p) {</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        <span class="keywordflow">if</span>(ddeb &lt; tache-&gt;getDisponibilite() || ddeb &gt; tache-&gt;getEcheance())</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;            <span class="keywordflow">throw</span> <a class="code" href="class_calendar_exception.html">CalendarException</a>(<span class="stringliteral">&quot;erreur, ProgrammationTache, date non valide&quot;</span>);</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    }</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="keyword">virtual</span> ~<a class="code" href="class_programmation_tache.html">ProgrammationTache</a>(){ }</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <a class="code" href="class_tache_unitaire.html">TacheUnitaire</a>* getTache()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> tache; }</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keyword">const</span> <a class="code" href="class_projet.html">Projet</a>* getProjet()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> projet; }</div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keywordtype">bool</span> isProgrammationTache()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <span class="keyword">true</span>; }</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">bool</span> isProgrammationPartieTache()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <span class="keyword">false</span>; }</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keyword">virtual</span> <span class="keyword">const</span> <a class="code" href="class_duree.html">Duree</a>&amp; getDuree()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> tache-&gt;getDuree(); }</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keyword">virtual</span> <span class="keyword">const</span> QString&amp; getSujet()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> tache-&gt;getTitre(); }</div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="keywordtype">bool</span> isEvenementTrad()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <span class="keyword">false</span>; }</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keywordtype">bool</span> isEvenement1j()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <span class="keyword">false</span>; }</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keywordtype">bool</span> isEvenementPj()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <span class="keyword">false</span>; }</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="keywordtype">bool</span> isRdv()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <span class="keyword">false</span>; }</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;};</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="preprocessor">#endif // PROGRAMMATIONTACHE_H</span></div>
-<div class="ttc" id="class_tache_unitaire_html"><div class="ttname"><a href="class_tache_unitaire.html">TacheUnitaire</a></div><div class="ttdef"><b>Definition:</b> tacheunitaire.h:8</div></div>
-<div class="ttc" id="class_evenement_html"><div class="ttname"><a href="class_evenement.html">Evenement</a></div><div class="ttdef"><b>Definition:</b> evenement.h:10</div></div>
-<div class="ttc" id="class_programmation_tache_html"><div class="ttname"><a href="class_programmation_tache.html">ProgrammationTache</a></div><div class="ttdef"><b>Definition:</b> programmationtache.h:8</div></div>
-<div class="ttc" id="class_calendar_exception_html"><div class="ttname"><a href="class_calendar_exception.html">CalendarException</a></div><div class="ttdef"><b>Definition:</b> exception.h:6</div></div>
-<div class="ttc" id="class_projet_html"><div class="ttname"><a href="class_projet.html">Projet</a></div><div class="ttdoc">Classe permettant de manipuler des projets Les projets de cette classe contiendront des taches...</div><div class="ttdef"><b>Definition:</b> projet.h:67</div></div>
-<div class="ttc" id="class_duree_html"><div class="ttname"><a href="class_duree.html">Duree</a></div><div class="ttdoc">Classe permettant de manipuler des durees L&#39;utilisation de cette classe n?cessite des dates valides a...</div><div class="ttdef"><b>Definition:</b> duree.h:14</div></div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="keyword">virtual</span> <a class="code" href="class_programmation_tache.html">ProgrammationTache</a>* <a class="code" href="class_programmation_tache.html#aaa58478bb51c07c8aa03243714c8ebb2">clone</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keyword">virtual</span> QString <a class="code" href="class_programmation_tache.html#a5cfc73cd8ddc7592c8113789717ec494">toString</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_programmation_tache.html#af924ae0129de43b7fd062e26447cb965">toXml</a>(QXmlStreamWriter&amp;) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keyword">static</span> <a class="code" href="class_programmation_tache.html">ProgrammationTache</a>* <a class="code" href="class_programmation_tache.html#afd9b110e318cbe66ad74fa248b888e6a">getFromXml</a>(QXmlStreamReader&amp; xml);</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">bool</span> isProgrammationTache()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <span class="keyword">true</span>; }</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">bool</span> isProgrammationPartieTache()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <span class="keyword">false</span>; }</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">bool</span> isEvenementTrad()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <span class="keyword">false</span>; }</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">bool</span> isEvenement1j()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <span class="keyword">false</span>; }</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">bool</span> isEvenementPj()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <span class="keyword">false</span>; }</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">bool</span> isRdv()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <span class="keyword">false</span>; }</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;};</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="preprocessor">#endif // PROGRAMMATIONTACHE_H</span></div>
+<div class="ttc" id="class_programmation_tache_html_af924ae0129de43b7fd062e26447cb965"><div class="ttname"><a href="class_programmation_tache.html#af924ae0129de43b7fd062e26447cb965">ProgrammationTache::toXml</a></div><div class="ttdeci">virtual void toXml(QXmlStreamWriter &amp;) const </div><div class="ttdoc">Ecrit le contenu du fichier dans le stream xml passe en parametre. </div><div class="ttdef"><b>Definition:</b> programmationtache.cpp:20</div></div>
+<div class="ttc" id="class_programmation_tache_html_afd9b110e318cbe66ad74fa248b888e6a"><div class="ttname"><a href="class_programmation_tache.html#afd9b110e318cbe66ad74fa248b888e6a">ProgrammationTache::getFromXml</a></div><div class="ttdeci">static ProgrammationTache * getFromXml(QXmlStreamReader &amp;xml)</div><div class="ttdoc">construit une programmation d&#39;une tache a partir du stream xml </div><div class="ttdef"><b>Definition:</b> programmationtache.cpp:32</div></div>
+<div class="ttc" id="class_programmation_tache_html_aaa58478bb51c07c8aa03243714c8ebb2"><div class="ttname"><a href="class_programmation_tache.html#aaa58478bb51c07c8aa03243714c8ebb2">ProgrammationTache::clone</a></div><div class="ttdeci">virtual ProgrammationTache * clone() const </div><div class="ttdoc">Clone un evenement. </div><div class="ttdef"><b>Definition:</b> programmationtache.cpp:3</div></div>
+<div class="ttc" id="class_tache_unitaire_html"><div class="ttname"><a href="class_tache_unitaire.html">TacheUnitaire</a></div><div class="ttdoc">Classe representant une tache unitaire. </div><div class="ttdef"><b>Definition:</b> tacheunitaire.h:12</div></div>
+<div class="ttc" id="class_evenement_html"><div class="ttname"><a href="class_evenement.html">Evenement</a></div><div class="ttdoc">Classe abstraite representant un evenement. </div><div class="ttdef"><b>Definition:</b> evenement.h:13</div></div>
+<div class="ttc" id="class_programmation_tache_html"><div class="ttname"><a href="class_programmation_tache.html">ProgrammationTache</a></div><div class="ttdoc">Classe representant la programmation complete d&#39;une tache. </div><div class="ttdef"><b>Definition:</b> programmationtache.h:10</div></div>
+<div class="ttc" id="class_calendar_exception_html"><div class="ttname"><a href="class_calendar_exception.html">CalendarException</a></div><div class="ttdoc">Classe permettant de gerer les exceptions. </div><div class="ttdef"><b>Definition:</b> exception.h:8</div></div>
+<div class="ttc" id="class_programmation_tache_html_affac981e915fcb3ec6a2b6eb1b945d34"><div class="ttname"><a href="class_programmation_tache.html#affac981e915fcb3ec6a2b6eb1b945d34">ProgrammationTache::ProgrammationTache</a></div><div class="ttdeci">ProgrammationTache(const QDate &amp;ddeb, const QTime &amp;tdeb, TacheUnitaire *t, Projet *p)</div><div class="ttdoc">Constructeur a partir d&#39;une date, d&#39;une heure, d&#39;une tache et d&#39;une projet. </div><div class="ttdef"><b>Definition:</b> programmationtache.h:24</div></div>
+<div class="ttc" id="class_projet_html"><div class="ttname"><a href="class_projet.html">Projet</a></div><div class="ttdoc">Classe representant projet. </div><div class="ttdef"><b>Definition:</b> projet.h:17</div></div>
+<div class="ttc" id="class_programmation_tache_html_a5cfc73cd8ddc7592c8113789717ec494"><div class="ttname"><a href="class_programmation_tache.html#a5cfc73cd8ddc7592c8113789717ec494">ProgrammationTache::toString</a></div><div class="ttdeci">virtual QString toString() const </div><div class="ttdoc">Retourne une description de l&#39;objet en chaine de caracteres. </div><div class="ttdef"><b>Definition:</b> programmationtache.cpp:8</div></div>
+<div class="ttc" id="class_duree_html"><div class="ttname"><a href="class_duree.html">Duree</a></div><div class="ttdoc">Classe permettant de manipuler des durees L&#39;utilisation de cette classe necessite des dates valides a...</div><div class="ttdef"><b>Definition:</b> duree.h:14</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Jun 13 2015 01:14:04 for ProjectCalendar by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Jun 14 2015 00:58:09 for ProjectCalendar by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

@@ -11,41 +11,65 @@
 #include "observateur.h"
 
 
+/*! \class Projet
+        \brief Classe representant projet
+*/
 class Projet : public Observable
 {
     friend class ProjetManager;
 
-    std::set<Observateur*> obs;
-    QString file;
     QString titre;
     QString description;
     QDate disponibilite;
     QDate echeance;
+    /**
+     * @brief Ensemble des taches du projet
+     */
     std::map<QString, Tache*> taches;
 
+
+
+    //! Constructeur prive a partir d'un titre, d'une description, d'une date de disponibilite et d'une date d'echeance
+    /*! \param t titre
+        \param desc description
+        \param dispo disponibilite
+        \param ech echeance
+        */
     Projet(const QString& t, const QString& desc, const QDate& dispo, const QDate& ech)
         :titre(t), description(desc), disponibilite(dispo), echeance(ech) {
         if(disponibilite>echeance)
             throw CalendarException("erreur, Projet, échéance < disponibilité");
     }
     ~Projet();
+
 public:
-    //peut-etre a enlever
-    Tache& ajouterTache(const QString& id, const QString& t, const Duree& dur, const QDate& dispo, const QDate& ech, bool preempt = false);
-    Projet& ajouterTache(Tache* t);
-    void retirerTache(Tache* t);
-    void retirerTache(const QString id);
+    /**
+     * @brief Atjoue une tache au projet
+     * @param t tache
+     */
+    void ajouterTache(Tache* t);
+    /**
+     * @brief Retire une tache du projet
+     * @param id identificateur de la tache
+     */
+    void retirerTache(const QString& id);
+
+
 
     Tache *getTache(const QString& id);
+    /**
+     * @brief Verifie si le projet contient une certaine tache
+     * @param t tache a rechercher
+     * @return 0 ou 1
+     */
     bool contientTache(const Tache *t);
 
-    std::map<QString, Tache *> *getTacheMap(const QString &id); //renvoie le map de tache parent
-
-
-
-    void describe(); // A SUPPRIMER
-    void affTache(Tache* t); // A SUPPRIMER
-
+    /**
+     * @brief Retourne un pointeur sur le map de la tache parente de celle passe en parametre
+     * @param id identificateur de la tache
+     *
+     */
+    std::map<QString, Tache *> *getTacheMap(const QString &id);
 
     const QString& getTitre() const { return titre; }
     const QString& getDescription() const { return description; }
@@ -61,26 +85,13 @@ public:
 
     void toXml(QXmlStreamWriter&) const;
 
-    void ajouterObservateur(Observateur *o) { obs.insert(o); }
-    void supprimerObservateur(Observateur *o) { obs.erase(o); }
-    void notifier() {
-        for(std::set<Observateur*>::iterator it = obs.begin() ; it != obs.end() ; ++it)
-            (*it)->mise_a_jour();
-    }
-
-
     void save(const QString &f);
     void load(const QString& f);
 
 
-
-
-
-
-
-
-
-
+    /*! \class iterator
+            \brief Classe permettant d'iterer sur les taches du projet
+    */
     class iterator
     {
         friend class Projet;
@@ -93,10 +104,21 @@ public:
         bool operator!=(const iterator& at) const { return it != at.it; }
     };
 
+    /**
+     * @brief Retourne un iterateur sur la premiere tache
+     *
+     */
     iterator begin() { return iterator(taches.begin()); }
+
+    /**
+     * @brief Retourne un iterateur apres la derniere tache
+     *
+     */
     iterator end() { return iterator(taches.end()); }
 
-
+    /*! \class const_iterator
+            \brief Classe permettant d'iterer sur les taches du projet
+    */
     class const_iterator
     {
         friend class Projet;
@@ -108,25 +130,16 @@ public:
         const_iterator& operator++() { ++it; return *this; }
         bool operator!=(const const_iterator& at) const { return it != at.it; }
     };
-
+    /**
+     * @brief Retourne un iterateur const sur la premier tache
+     *
+     */
     const_iterator begin() const { return const_iterator(taches.begin()); }
+    /**
+     * @brief Retourne un iterateur const apres la derniere tache
+     *
+     */
     const_iterator end() const { return const_iterator(taches.end()); }
-
-
-    /*class programmation_iterator{
-        friend class Agenda;
-        std::vector<Evenement*>::iterator it;
-        programmation_iterator(const std::vector<Evenement*>::iterator iter) : it(iter) {}
-    public:
-        Evenement& operator&() { return *it; }
-        programmation_iterator& operator++() {
-            while(it !=  !dynamic_cast<ProgrammationUnitaire*>(&(*it)) && dynamic_cast<ProgrammationUnitaire*>(&(*it))->tache != t)
-                ++it;
-            ++it ; return *this; }
-        bool operator!=(const programmation_iterator& at) const { return it != at.it; }
-
-    };*/
-
 
 };
 

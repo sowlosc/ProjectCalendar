@@ -72,7 +72,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Variables</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -92,13 +92,18 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">MainWindow Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Classe de la fenetre principale (singleton)  
+ <a href="class_main_window.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="mainwindow_8h_source.html">mainwindow.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for MainWindow:</div>
 <div class="dyncontent">
  <div class="center">
   <img src="class_main_window.png" usemap="#MainWindow_map" alt=""/>
   <map id="MainWindow_map" name="MainWindow_map">
-<area href="class_observateur.html" alt="Observateur" shape="rect" coords="104,0,198,24"/>
+<area href="class_observateur.html" title="Classe d&#39;objets observateurs. " alt="Observateur" shape="rect" coords="104,0,198,24"/>
 </map>
  </div></div>
 <table class="memberdecls">
@@ -171,16 +176,18 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>exporterProgrammation
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:aa97ffae5eb93445d0e13d84de20f3180"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa97ffae5eb93445d0e13d84de20f3180"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>maj_treeWidget</b> ()</td></tr>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_main_window.html#aa97ffae5eb93445d0e13d84de20f3180">maj_treeWidget</a> ()</td></tr>
+<tr class="memdesc:aa97ffae5eb93445d0e13d84de20f3180"><td class="mdescLeft">&#160;</td><td class="mdescRight">Actualise l'arbre des projets. <br/></td></tr>
 <tr class="separator:aa97ffae5eb93445d0e13d84de20f3180"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a34fbfe65524dfd52e033eefff95277f8"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a34fbfe65524dfd52e033eefff95277f8"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>construct_recurs_tree</b> (<a class="el" href="class_tache.html">Tache</a> *t, QTreeWidgetItem *root)</td></tr>
+<tr class="memitem:a34fbfe65524dfd52e033eefff95277f8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_main_window.html#a34fbfe65524dfd52e033eefff95277f8">construct_recurs_tree</a> (<a class="el" href="class_tache.html">Tache</a> *t, QTreeWidgetItem *root)</td></tr>
+<tr class="memdesc:a34fbfe65524dfd52e033eefff95277f8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construit recursivement l'arbre des projets.  <a href="#a34fbfe65524dfd52e033eefff95277f8">More...</a><br/></td></tr>
 <tr class="separator:a34fbfe65524dfd52e033eefff95277f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a26e717addfa1fc65556de7ce59aa0108"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a26e717addfa1fc65556de7ce59aa0108"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>mise_a_jour</b> ()</td></tr>
 <tr class="separator:a26e717addfa1fc65556de7ce59aa0108"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a765ee861cfe06f39a006013db8248908"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a765ee861cfe06f39a006013db8248908"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>maj_listePrecedences</b> ()</td></tr>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_main_window.html#a765ee861cfe06f39a006013db8248908">maj_listePrecedences</a> ()</td></tr>
+<tr class="memdesc:a765ee861cfe06f39a006013db8248908"><td class="mdescLeft">&#160;</td><td class="mdescRight">Actualise la liste des precedences. <br/></td></tr>
 <tr class="separator:a765ee861cfe06f39a006013db8248908"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a38edb88d43e844aca9d2e762c8706565"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a38edb88d43e844aca9d2e762c8706565"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>closeEvent</b> (QCloseEvent *)</td></tr>
@@ -195,14 +202,52 @@ static <a class="el" href="class_main_window.html">MainWindow</a> &amp;&#160;</t
 static void&#160;</td><td class="memItemRight" valign="bottom"><b>libererInstance</b> ()</td></tr>
 <tr class="separator:a13ddb94d7b19c1aa5890f13eef549cac"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Classe de la fenetre principale (singleton) </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="a34fbfe65524dfd52e033eefff95277f8"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void MainWindow::construct_recurs_tree </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_tache.html">Tache</a> *&#160;</td>
+          <td class="paramname"><em>t</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">QTreeWidgetItem *&#160;</td>
+          <td class="paramname"><em>root</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Construit recursivement l'arbre des projets. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">t</td><td></td></tr>
+    <tr><td class="paramname">root</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>/home/matthieu/ProjectCalendar/ProjectCalendar/src/<a class="el" href="mainwindow_8h_source.html">mainwindow.h</a></li>
-<li>/home/matthieu/ProjectCalendar/ProjectCalendar/src/mainwindow.cpp</li>
+<li>src/<a class="el" href="mainwindow_8h_source.html">mainwindow.h</a></li>
+<li>src/mainwindow.cpp</li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Jun 13 2015 01:14:04 for ProjectCalendar by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Jun 14 2015 00:58:09 for ProjectCalendar by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

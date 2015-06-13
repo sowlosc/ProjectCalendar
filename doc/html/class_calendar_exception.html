@@ -72,7 +72,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Variables</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -90,23 +90,64 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">CalendarException Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Classe permettant de gerer les exceptions.  
+ <a href="class_calendar_exception.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="exception_8h_source.html">exception.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:afd73d3ab38bc56bb09dfd7674f71d0c3"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="afd73d3ab38bc56bb09dfd7674f71d0c3"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>CalendarException</b> (const QString &amp;message)</td></tr>
+<tr class="memitem:afd73d3ab38bc56bb09dfd7674f71d0c3"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_calendar_exception.html#afd73d3ab38bc56bb09dfd7674f71d0c3">CalendarException</a> (const QString &amp;message)</td></tr>
+<tr class="memdesc:afd73d3ab38bc56bb09dfd7674f71d0c3"><td class="mdescLeft">&#160;</td><td class="mdescRight">constructeur  <a href="#afd73d3ab38bc56bb09dfd7674f71d0c3">More...</a><br/></td></tr>
 <tr class="separator:afd73d3ab38bc56bb09dfd7674f71d0c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a614e184f0f0862a26a8bfb2ebbf2f161"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a614e184f0f0862a26a8bfb2ebbf2f161"></a>
-const QString &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getInfo</b> () const </td></tr>
+const QString &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_calendar_exception.html#a614e184f0f0862a26a8bfb2ebbf2f161">getInfo</a> () const </td></tr>
+<tr class="memdesc:a614e184f0f0862a26a8bfb2ebbf2f161"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retourne l'info. <br/></td></tr>
 <tr class="separator:a614e184f0f0862a26a8bfb2ebbf2f161"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Classe permettant de gerer les exceptions. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="afd73d3ab38bc56bb09dfd7674f71d0c3"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">CalendarException::CalendarException </td>
+          <td>(</td>
+          <td class="paramtype">const QString &amp;&#160;</td>
+          <td class="paramname"><em>message</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>constructeur </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">message</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>/home/matthieu/ProjectCalendar/ProjectCalendar/src/<a class="el" href="exception_8h_source.html">exception.h</a></li>
+<li>src/<a class="el" href="exception_8h_source.html">exception.h</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Jun 13 2015 01:14:04 for ProjectCalendar by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Jun 14 2015 00:58:09 for ProjectCalendar by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>
