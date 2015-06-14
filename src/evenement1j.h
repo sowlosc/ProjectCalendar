@@ -36,6 +36,7 @@ public:
     virtual bool isEvenementPj() const { return false; }
     virtual bool isRdv() const { return false; }
 
+
     virtual void toXml(QXmlStreamWriter&s) const;
     /**
      * @brief construit un evenement sur 1 jour a partir du stream xml
