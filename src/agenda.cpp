@@ -1,5 +1,7 @@
 #include "agenda.h"
 #include "rdv.h"
+#include "evenementpj.h"
+
 
 Agenda* Agenda::instance = 0;
 

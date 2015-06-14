@@ -92,40 +92,39 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define EVENEMENT1J_H</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor"></span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;evenementtrad.h&quot;</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;duree.h&quot;</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;</div>
-<div class="line"><a name="l00010"></a><span class="lineno"><a class="line" href="class_evenement1j.html">   10</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_evenement1j.html">Evenement1j</a> : <span class="keyword">public</span> <a class="code" href="class_evenement_trad.html">EvenementTrad</a></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;{</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    <a class="code" href="class_duree.html">Duree</a> duree;</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;</div>
-<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="class_evenement1j.html#a93b736c23185483417cacf19b1b83b83">   20</a></span>&#160;    <a class="code" href="class_evenement1j.html#a93b736c23185483417cacf19b1b83b83">Evenement1j</a>(<span class="keyword">const</span> QDate&amp; ddeb, <span class="keyword">const</span> QTime&amp; tdeb,<span class="keyword">const</span> <a class="code" href="class_duree.html">Duree</a>&amp; dur, <span class="keyword">const</span> QString&amp; suj)</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;        : <a class="code" href="class_evenement_trad.html">EvenementTrad</a>(ddeb,tdeb,suj), duree(dur) {}</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="keyword">virtual</span> ~<a class="code" href="class_evenement1j.html">Evenement1j</a>(){}</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="keyword">const</span> <a class="code" href="class_duree.html">Duree</a>&amp; getDuree()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> duree; }</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="keywordtype">void</span> setDuree(<span class="keyword">const</span> <a class="code" href="class_duree.html">Duree</a>&amp; dur) { duree = dur; }</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keyword">virtual</span> <a class="code" href="class_evenement1j.html">Evenement1j</a>* <a class="code" href="class_evenement1j.html#a7c5b27a0a61cc7b8a616e87b8ac12837">clone</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keyword">virtual</span> QString <a class="code" href="class_evenement1j.html#a6c42816ac6744cfd437052f569b78fe6">toString</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;</div>
+<div class="line"><a name="l00009"></a><span class="lineno"><a class="line" href="class_evenement1j.html">    9</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_evenement1j.html">Evenement1j</a> : <span class="keyword">public</span> <a class="code" href="class_evenement_trad.html">EvenementTrad</a></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;{</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    <a class="code" href="class_duree.html">Duree</a> duree;</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;</div>
+<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="class_evenement1j.html#a93b736c23185483417cacf19b1b83b83">   19</a></span>&#160;    <a class="code" href="class_evenement1j.html#a93b736c23185483417cacf19b1b83b83">Evenement1j</a>(<span class="keyword">const</span> QDate&amp; ddeb, <span class="keyword">const</span> QTime&amp; tdeb,<span class="keyword">const</span> <a class="code" href="class_duree.html">Duree</a>&amp; dur, <span class="keyword">const</span> QString&amp; suj)</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;        : <a class="code" href="class_evenement_trad.html">EvenementTrad</a>(ddeb,tdeb,suj), duree(dur) {}</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <span class="keyword">virtual</span> ~<a class="code" href="class_evenement1j.html">Evenement1j</a>(){}</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="keyword">const</span> <a class="code" href="class_duree.html">Duree</a>&amp; getDuree()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> duree; }</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="keywordtype">void</span> setDuree(<span class="keyword">const</span> <a class="code" href="class_duree.html">Duree</a>&amp; dur) { duree = dur; }</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keyword">virtual</span> <a class="code" href="class_evenement1j.html">Evenement1j</a>* <a class="code" href="class_evenement1j.html#a7c5b27a0a61cc7b8a616e87b8ac12837">clone</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keyword">virtual</span> QString <a class="code" href="class_evenement1j.html#a6c42816ac6744cfd437052f569b78fe6">toString</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;</div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">bool</span> isEvenement1j()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <span class="keyword">true</span>; }</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">bool</span> isEvenementPj()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <span class="keyword">false</span>; }</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">bool</span> isRdv()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <span class="keyword">false</span>; }</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">bool</span> isEvenement1j()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <span class="keyword">true</span>; }</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">bool</span> isEvenementPj()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <span class="keyword">false</span>; }</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">bool</span> isRdv()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <span class="keyword">false</span>; }</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;</div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_evenement1j.html#a3ad5261d7c096c7147003f25197fb882">toXml</a>(QXmlStreamWriter&amp;s) <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="keyword">static</span> <a class="code" href="class_evenement1j.html">Evenement1j</a>* <a class="code" href="class_evenement1j.html#a28e7efb9d05e4eec2fd60e8a7f0fc21d">getFromXml</a>(QXmlStreamReader&amp; xml);</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_evenement1j.html#a3ad5261d7c096c7147003f25197fb882">toXml</a>(QXmlStreamWriter&amp;s) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keyword">static</span> <a class="code" href="class_evenement1j.html">Evenement1j</a>* <a class="code" href="class_evenement1j.html#a28e7efb9d05e4eec2fd60e8a7f0fc21d">getFromXml</a>(QXmlStreamReader&amp; xml);</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;</div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;};</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="preprocessor">#endif // EVENEMENT1J_H</span></div>
-<div class="ttc" id="class_evenement1j_html_a93b736c23185483417cacf19b1b83b83"><div class="ttname"><a href="class_evenement1j.html#a93b736c23185483417cacf19b1b83b83">Evenement1j::Evenement1j</a></div><div class="ttdeci">Evenement1j(const QDate &amp;ddeb, const QTime &amp;tdeb, const Duree &amp;dur, const QString &amp;suj)</div><div class="ttdoc">Constructeur a partir d&#39;une date, d&#39;un horaire,d&#39;une duree et d&#39;un sujet. </div><div class="ttdef"><b>Definition:</b> evenement1j.h:20</div></div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;};</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="preprocessor">#endif // EVENEMENT1J_H</span></div>
+<div class="ttc" id="class_evenement1j_html_a93b736c23185483417cacf19b1b83b83"><div class="ttname"><a href="class_evenement1j.html#a93b736c23185483417cacf19b1b83b83">Evenement1j::Evenement1j</a></div><div class="ttdeci">Evenement1j(const QDate &amp;ddeb, const QTime &amp;tdeb, const Duree &amp;dur, const QString &amp;suj)</div><div class="ttdoc">Constructeur a partir d&#39;une date, d&#39;un horaire,d&#39;une duree et d&#39;un sujet. </div><div class="ttdef"><b>Definition:</b> evenement1j.h:19</div></div>
 <div class="ttc" id="class_evenement1j_html_a3ad5261d7c096c7147003f25197fb882"><div class="ttname"><a href="class_evenement1j.html#a3ad5261d7c096c7147003f25197fb882">Evenement1j::toXml</a></div><div class="ttdeci">virtual void toXml(QXmlStreamWriter &amp;s) const </div><div class="ttdoc">Ecrit le contenu du fichier dans le stream xml passe en parametre. </div><div class="ttdef"><b>Definition:</b> evenement1j.cpp:22</div></div>
 <div class="ttc" id="class_evenement_trad_html"><div class="ttname"><a href="class_evenement_trad.html">EvenementTrad</a></div><div class="ttdoc">Classe abstraite representant un evenement traditionnel. </div><div class="ttdef"><b>Definition:</b> evenementtrad.h:10</div></div>
-<div class="ttc" id="class_evenement1j_html"><div class="ttname"><a href="class_evenement1j.html">Evenement1j</a></div><div class="ttdoc">Classe representant un evenement sur un jour. </div><div class="ttdef"><b>Definition:</b> evenement1j.h:10</div></div>
+<div class="ttc" id="class_evenement1j_html"><div class="ttname"><a href="class_evenement1j.html">Evenement1j</a></div><div class="ttdoc">Classe representant un evenement sur un jour. </div><div class="ttdef"><b>Definition:</b> evenement1j.h:9</div></div>
 <div class="ttc" id="class_evenement1j_html_a28e7efb9d05e4eec2fd60e8a7f0fc21d"><div class="ttname"><a href="class_evenement1j.html#a28e7efb9d05e4eec2fd60e8a7f0fc21d">Evenement1j::getFromXml</a></div><div class="ttdeci">static Evenement1j * getFromXml(QXmlStreamReader &amp;xml)</div><div class="ttdoc">construit un evenement sur 1 jour a partir du stream xml </div><div class="ttdef"><b>Definition:</b> evenement1j.cpp:35</div></div>
 <div class="ttc" id="class_evenement1j_html_a6c42816ac6744cfd437052f569b78fe6"><div class="ttname"><a href="class_evenement1j.html#a6c42816ac6744cfd437052f569b78fe6">Evenement1j::toString</a></div><div class="ttdeci">virtual QString toString() const </div><div class="ttdoc">Retourne une description de l&#39;objet en chaine de caracteres. </div><div class="ttdef"><b>Definition:</b> evenement1j.cpp:9</div></div>
 <div class="ttc" id="class_evenement1j_html_a7c5b27a0a61cc7b8a616e87b8ac12837"><div class="ttname"><a href="class_evenement1j.html#a7c5b27a0a61cc7b8a616e87b8ac12837">Evenement1j::clone</a></div><div class="ttdeci">virtual Evenement1j * clone() const </div><div class="ttdoc">Clone un evenement sur 1 jour. </div><div class="ttdef"><b>Definition:</b> evenement1j.cpp:4</div></div>
@@ -133,7 +132,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Jun 14 2015 14:36:06 for ProjectCalendar by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Jun 14 2015 14:46:43 for ProjectCalendar by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

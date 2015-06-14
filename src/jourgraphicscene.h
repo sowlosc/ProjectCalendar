@@ -1,16 +1,15 @@
 #ifndef JOURGRAPHICSCENE_H
 #define JOURGRAPHICSCENE_H
+
 #include <QGraphicsScene>
-#include <iostream>
 #include <QString>
-#include "duree.h"
+//#include "duree.h"
 #include <QTime>
 #include <QPen>
 #include <QBrush>
 #include <QGraphicsRectItem>
 #include <QGraphicsTextItem>
 #include <QRect>
-//#include "evenement.h"
 #include "evenement1j.h"
 #include "evenementpj.h"
 #include "agenda.h"

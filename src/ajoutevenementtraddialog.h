@@ -2,7 +2,6 @@
 #define AJOUTEVENEMENTTRADDIALOG_H
 
 #include <QDialog>
-//#include "evenement1j.h"
 #include "evenementpj.h"
 #include "rdv.h"
 #include "agenda.h"

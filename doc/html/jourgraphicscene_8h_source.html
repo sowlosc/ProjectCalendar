@@ -90,83 +90,82 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="contents">
 <div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef JOURGRAPHICSCENE_H</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define JOURGRAPHICSCENE_H</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#include &lt;QGraphicsScene&gt;</span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;iostream&gt;</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;QGraphicsScene&gt;</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;QString&gt;</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;duree.h&quot;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment">//#include &quot;duree.h&quot;</span></div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &lt;QTime&gt;</span></div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &lt;QPen&gt;</span></div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &lt;QBrush&gt;</span></div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &lt;QGraphicsRectItem&gt;</span></div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &lt;QGraphicsTextItem&gt;</span></div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &lt;QRect&gt;</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment">//#include &quot;evenement.h&quot;</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &quot;evenement1j.h&quot;</span></div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &quot;evenementpj.h&quot;</span></div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#include &quot;agenda.h&quot;</span></div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;</div>
-<div class="line"><a name="l00021"></a><span class="lineno"><a class="line" href="class_evenement_graphic_item.html">   21</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_evenement_graphic_item.html">EvenementGraphicItem</a> : <span class="keyword">public</span> QGraphicsRectItem</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;{</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <a class="code" href="class_evenement.html">Evenement</a>* evt;</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;</div>
-<div class="line"><a name="l00032"></a><span class="lineno"><a class="line" href="class_evenement_graphic_item.html#a35d08626e6709ee2d960355954bbbd73">   32</a></span>&#160;    <a class="code" href="class_evenement_graphic_item.html#a35d08626e6709ee2d960355954bbbd73">EvenementGraphicItem</a>(<span class="keywordtype">int</span> x,<span class="keywordtype">int</span> y,<span class="keywordtype">int</span> width,<span class="keywordtype">int</span> height,<a class="code" href="class_evenement.html">Evenement</a>* e) : QGraphicsRectItem(x,y,width,height,0),evt(e) {}</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <a class="code" href="class_evenement.html">Evenement</a>* getEvenement()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> evt; }</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;};</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;</div>
-<div class="line"><a name="l00040"></a><span class="lineno"><a class="line" href="class_jour_graphic_scene.html">   40</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_jour_graphic_scene.html">JourGraphicScene</a> : <span class="keyword">public</span> QGraphicsScene, <span class="keyword">public</span> <a class="code" href="class_observateur.html">Observateur</a></div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;{</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    QString jour;</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    QDate date;</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    qreal hauteur;</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    qreal largeur;</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> nb_minutes;</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;</div>
-<div class="line"><a name="l00058"></a><span class="lineno"><a class="line" href="class_jour_graphic_scene.html#a5855e984cb8b38a3e3d455855f8befab">   58</a></span>&#160;    <a class="code" href="class_jour_graphic_scene.html#a5855e984cb8b38a3e3d455855f8befab">JourGraphicScene</a>(<span class="keyword">const</span> QString&amp; nom,qreal x, qreal y, qreal width, qreal height,<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> nb_m = 960, QObject* parent = 0 )</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        :  QGraphicsScene(x,y,width,height,parent),jour(nom),hauteur(height),largeur(width),nb_minutes(nb_m) {}</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <span class="keyword">const</span> QDate&amp; getDate()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> date; }</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <span class="keywordtype">void</span> setDate(<span class="keyword">const</span> QDate&amp; d) {</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        date = d;</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        <span class="keywordflow">if</span>(date &gt;= QDate::currentDate())</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        {</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;            this-&gt;setBackgroundBrush(QBrush(<span class="stringliteral">&quot;#FFFFFF&quot;</span>));</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        }<span class="keywordflow">else</span></div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;            this-&gt;setBackgroundBrush(QBrush(<span class="stringliteral">&quot;lightGray&quot;</span>));</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;     }</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    QGraphicsRectItem *<a class="code" href="class_jour_graphic_scene.html#afa8e7c23fd29c19016b6408e40f991f1">ajouterEvenement</a>(<span class="keyword">const</span> QString&amp; titre, <span class="keyword">const</span> QTime&amp; deb, <span class="keyword">const</span> <a class="code" href="class_duree.html">Duree</a>&amp; dur,<a class="code" href="class_evenement.html">Evenement</a>* e=0,</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;                                        <span class="keyword">const</span> QColor &amp;coul_fond = QColor(<span class="stringliteral">&quot;blue&quot;</span>),<span class="keyword">const</span> QColor &amp;coul_contour = QColor(<span class="stringliteral">&quot;black&quot;</span>));</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_jour_graphic_scene.html#afb6716b929100601da8ff9c6ba8d2e07">dessinerFond</a>();</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    ~<a class="code" href="class_jour_graphic_scene.html">JourGraphicScene</a>() {}</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_jour_graphic_scene.html#aa1d4f0802af2379722c516052527b92c">mise_a_jour</a>();</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_jour_graphic_scene.html#aadc76c8edda2bdaf9eabdbbedc51794f">removeAllItems</a>();</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &quot;evenement1j.h&quot;</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &quot;evenementpj.h&quot;</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &quot;agenda.h&quot;</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div>
+<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="class_evenement_graphic_item.html">   20</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_evenement_graphic_item.html">EvenementGraphicItem</a> : <span class="keyword">public</span> QGraphicsRectItem</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;{</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <a class="code" href="class_evenement.html">Evenement</a>* evt;</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div>
+<div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="class_evenement_graphic_item.html#a35d08626e6709ee2d960355954bbbd73">   31</a></span>&#160;    <a class="code" href="class_evenement_graphic_item.html#a35d08626e6709ee2d960355954bbbd73">EvenementGraphicItem</a>(<span class="keywordtype">int</span> x,<span class="keywordtype">int</span> y,<span class="keywordtype">int</span> width,<span class="keywordtype">int</span> height,<a class="code" href="class_evenement.html">Evenement</a>* e) : QGraphicsRectItem(x,y,width,height,0),evt(e) {}</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <a class="code" href="class_evenement.html">Evenement</a>* getEvenement()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> evt; }</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;};</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;</div>
+<div class="line"><a name="l00039"></a><span class="lineno"><a class="line" href="class_jour_graphic_scene.html">   39</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_jour_graphic_scene.html">JourGraphicScene</a> : <span class="keyword">public</span> QGraphicsScene, <span class="keyword">public</span> <a class="code" href="class_observateur.html">Observateur</a></div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;{</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    QString jour;</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    QDate date;</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    qreal hauteur;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    qreal largeur;</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> nb_minutes;</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;</div>
+<div class="line"><a name="l00057"></a><span class="lineno"><a class="line" href="class_jour_graphic_scene.html#a5855e984cb8b38a3e3d455855f8befab">   57</a></span>&#160;    <a class="code" href="class_jour_graphic_scene.html#a5855e984cb8b38a3e3d455855f8befab">JourGraphicScene</a>(<span class="keyword">const</span> QString&amp; nom,qreal x, qreal y, qreal width, qreal height,<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> nb_m = 960, QObject* parent = 0 )</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        :  QGraphicsScene(x,y,width,height,parent),jour(nom),hauteur(height),largeur(width),nb_minutes(nb_m) {}</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="keyword">const</span> QDate&amp; getDate()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> date; }</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <span class="keywordtype">void</span> setDate(<span class="keyword">const</span> QDate&amp; d) {</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        date = d;</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        <span class="keywordflow">if</span>(date &gt;= QDate::currentDate())</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        {</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;            this-&gt;setBackgroundBrush(QBrush(<span class="stringliteral">&quot;#FFFFFF&quot;</span>));</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        }<span class="keywordflow">else</span></div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;            this-&gt;setBackgroundBrush(QBrush(<span class="stringliteral">&quot;lightGray&quot;</span>));</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;     }</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    QGraphicsRectItem *<a class="code" href="class_jour_graphic_scene.html#afa8e7c23fd29c19016b6408e40f991f1">ajouterEvenement</a>(<span class="keyword">const</span> QString&amp; titre, <span class="keyword">const</span> QTime&amp; deb, <span class="keyword">const</span> <a class="code" href="class_duree.html">Duree</a>&amp; dur,<a class="code" href="class_evenement.html">Evenement</a>* e=0,</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;                                        <span class="keyword">const</span> QColor &amp;coul_fond = QColor(<span class="stringliteral">&quot;blue&quot;</span>),<span class="keyword">const</span> QColor &amp;coul_contour = QColor(<span class="stringliteral">&quot;black&quot;</span>));</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_jour_graphic_scene.html#afb6716b929100601da8ff9c6ba8d2e07">dessinerFond</a>();</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    ~<a class="code" href="class_jour_graphic_scene.html">JourGraphicScene</a>() {}</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_jour_graphic_scene.html#aa1d4f0802af2379722c516052527b92c">mise_a_jour</a>();</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_jour_graphic_scene.html#aadc76c8edda2bdaf9eabdbbedc51794f">removeAllItems</a>();</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;</div>
 <div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;};</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;};</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;</div>
 <div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;</div>
 <div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;<span class="preprocessor">#endif // JOURGRAPHICSCENE_H</span></div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;<span class="preprocessor">#endif // JOURGRAPHICSCENE_H</span></div>
 <div class="ttc" id="class_jour_graphic_scene_html_aa1d4f0802af2379722c516052527b92c"><div class="ttname"><a href="class_jour_graphic_scene.html#aa1d4f0802af2379722c516052527b92c">JourGraphicScene::mise_a_jour</a></div><div class="ttdeci">void mise_a_jour()</div><div class="ttdoc">Actualise l&#39;agenda. </div><div class="ttdef"><b>Definition:</b> jourgraphicscene.cpp:80</div></div>
 <div class="ttc" id="class_evenement_html"><div class="ttname"><a href="class_evenement.html">Evenement</a></div><div class="ttdoc">Classe abstraite representant un evenement. </div><div class="ttdef"><b>Definition:</b> evenement.h:13</div></div>
-<div class="ttc" id="class_evenement_graphic_item_html_a35d08626e6709ee2d960355954bbbd73"><div class="ttname"><a href="class_evenement_graphic_item.html#a35d08626e6709ee2d960355954bbbd73">EvenementGraphicItem::EvenementGraphicItem</a></div><div class="ttdeci">EvenementGraphicItem(int x, int y, int width, int height, Evenement *e)</div><div class="ttdoc">Constructeur a partir des coordonnees x et y, d&#39;une largeur, d&#39;une hauteur et d&#39;un pointeur sur un ev...</div><div class="ttdef"><b>Definition:</b> jourgraphicscene.h:32</div></div>
-<div class="ttc" id="class_evenement_graphic_item_html"><div class="ttname"><a href="class_evenement_graphic_item.html">EvenementGraphicItem</a></div><div class="ttdoc">Classe representant un evenements sur l&#39;agenda. </div><div class="ttdef"><b>Definition:</b> jourgraphicscene.h:21</div></div>
+<div class="ttc" id="class_evenement_graphic_item_html_a35d08626e6709ee2d960355954bbbd73"><div class="ttname"><a href="class_evenement_graphic_item.html#a35d08626e6709ee2d960355954bbbd73">EvenementGraphicItem::EvenementGraphicItem</a></div><div class="ttdeci">EvenementGraphicItem(int x, int y, int width, int height, Evenement *e)</div><div class="ttdoc">Constructeur a partir des coordonnees x et y, d&#39;une largeur, d&#39;une hauteur et d&#39;un pointeur sur un ev...</div><div class="ttdef"><b>Definition:</b> jourgraphicscene.h:31</div></div>
+<div class="ttc" id="class_evenement_graphic_item_html"><div class="ttname"><a href="class_evenement_graphic_item.html">EvenementGraphicItem</a></div><div class="ttdoc">Classe representant un evenements sur l&#39;agenda. </div><div class="ttdef"><b>Definition:</b> jourgraphicscene.h:20</div></div>
 <div class="ttc" id="class_observateur_html"><div class="ttname"><a href="class_observateur.html">Observateur</a></div><div class="ttdoc">Classe d&#39;objets observateurs. </div><div class="ttdef"><b>Definition:</b> observateur.h:9</div></div>
 <div class="ttc" id="class_jour_graphic_scene_html_aadc76c8edda2bdaf9eabdbbedc51794f"><div class="ttname"><a href="class_jour_graphic_scene.html#aadc76c8edda2bdaf9eabdbbedc51794f">JourGraphicScene::removeAllItems</a></div><div class="ttdeci">void removeAllItems()</div><div class="ttdoc">Vide l&#39;agenda. </div><div class="ttdef"><b>Definition:</b> jourgraphicscene.cpp:68</div></div>
 <div class="ttc" id="class_jour_graphic_scene_html_afa8e7c23fd29c19016b6408e40f991f1"><div class="ttname"><a href="class_jour_graphic_scene.html#afa8e7c23fd29c19016b6408e40f991f1">JourGraphicScene::ajouterEvenement</a></div><div class="ttdeci">QGraphicsRectItem * ajouterEvenement(const QString &amp;titre, const QTime &amp;deb, const Duree &amp;dur, Evenement *e=0, const QColor &amp;coul_fond=QColor(&quot;blue&quot;), const QColor &amp;coul_contour=QColor(&quot;black&quot;))</div><div class="ttdoc">Ajoute un evenement dans l&#39;agenda graphique. </div><div class="ttdef"><b>Definition:</b> jourgraphicscene.cpp:4</div></div>
 <div class="ttc" id="class_jour_graphic_scene_html_afb6716b929100601da8ff9c6ba8d2e07"><div class="ttname"><a href="class_jour_graphic_scene.html#afb6716b929100601da8ff9c6ba8d2e07">JourGraphicScene::dessinerFond</a></div><div class="ttdeci">void dessinerFond()</div><div class="ttdoc">Desssine le fond de l&#39;agenda. </div><div class="ttdef"><b>Definition:</b> jourgraphicscene.cpp:49</div></div>
 <div class="ttc" id="class_duree_html"><div class="ttname"><a href="class_duree.html">Duree</a></div><div class="ttdoc">Classe permettant de manipuler des durees L&#39;utilisation de cette classe necessite des dates valides a...</div><div class="ttdef"><b>Definition:</b> duree.h:14</div></div>
-<div class="ttc" id="class_jour_graphic_scene_html"><div class="ttname"><a href="class_jour_graphic_scene.html">JourGraphicScene</a></div><div class="ttdoc">Classe permettant d&#39;afficher les evenements sur l&#39;agenda. </div><div class="ttdef"><b>Definition:</b> jourgraphicscene.h:40</div></div>
-<div class="ttc" id="class_jour_graphic_scene_html_a5855e984cb8b38a3e3d455855f8befab"><div class="ttname"><a href="class_jour_graphic_scene.html#a5855e984cb8b38a3e3d455855f8befab">JourGraphicScene::JourGraphicScene</a></div><div class="ttdeci">JourGraphicScene(const QString &amp;nom, qreal x, qreal y, qreal width, qreal height, unsigned int nb_m=960, QObject *parent=0)</div><div class="ttdoc">Constructeur a partir d&#39;un nom, de coordonnees x et y, d&#39;une largeur, d&#39;une hauteur, d&#39;un nombre total de minutes et d&#39;un widget parent. </div><div class="ttdef"><b>Definition:</b> jourgraphicscene.h:58</div></div>
+<div class="ttc" id="class_jour_graphic_scene_html"><div class="ttname"><a href="class_jour_graphic_scene.html">JourGraphicScene</a></div><div class="ttdoc">Classe permettant d&#39;afficher les evenements sur l&#39;agenda. </div><div class="ttdef"><b>Definition:</b> jourgraphicscene.h:39</div></div>
+<div class="ttc" id="class_jour_graphic_scene_html_a5855e984cb8b38a3e3d455855f8befab"><div class="ttname"><a href="class_jour_graphic_scene.html#a5855e984cb8b38a3e3d455855f8befab">JourGraphicScene::JourGraphicScene</a></div><div class="ttdeci">JourGraphicScene(const QString &amp;nom, qreal x, qreal y, qreal width, qreal height, unsigned int nb_m=960, QObject *parent=0)</div><div class="ttdoc">Constructeur a partir d&#39;un nom, de coordonnees x et y, d&#39;une largeur, d&#39;une hauteur, d&#39;un nombre total de minutes et d&#39;un widget parent. </div><div class="ttdef"><b>Definition:</b> jourgraphicscene.h:57</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Jun 14 2015 14:36:06 for ProjectCalendar by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Jun 14 2015 14:46:43 for ProjectCalendar by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

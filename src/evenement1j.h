@@ -2,7 +2,6 @@
 #define EVENEMENT1J_H
 
 #include "evenementtrad.h"
-#include "duree.h"
 
 /*! \class Evenement1j
         \brief Classe representant un evenement sur un jour

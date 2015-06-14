@@ -3,26 +3,21 @@
 
 #include <QMainWindow>
 #include "projetmanager.h"
-//#include "precedencemanager.h"
 #include "tachecomposite.h"
 #include "ui_mainwindow.h"
 #include "ajouttachedialog.h"
 #include "ajoutprojetdialog.h"
-#include <iostream>
-//#include "observateur.h"
 #include "evenementtrad.h"
-
 #include <QGraphicsView>
 #include <QGraphicsScene>
 #include <QGraphicsRectItem>
-#include <QBrush>
-#include <QPen>
 #include <QGraphicsTextItem>
 #include "jourgraphicscene.h"
 #include "evenementinfodialog.h"
 #include "ajoutevenementtraddialog.h"
 #include "ajoutprecedencedialog.h"
 #include "programmationtachedialog.h"
+
 namespace Ui {
 class MainWindow;
 }

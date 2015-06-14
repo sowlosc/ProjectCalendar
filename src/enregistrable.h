@@ -1,6 +1,7 @@
 #ifndef ENREGISTRABLE_H
 #define ENREGISTRABLE_H
 #include <QString>
+
 /*! \class Enregistrable
         \brief Classe definissant l'interface d'objets qui peuvent etre
         enregistres et charges à partir de fichier xml

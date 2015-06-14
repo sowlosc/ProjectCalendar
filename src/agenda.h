@@ -3,10 +3,8 @@
 
 #include <vector>
 #include "exception.h"
-#include <iostream>
 #include "observateur.h"
 #include "programmationpartietache.h"
-#include "evenementpj.h"
 #include "enregistrable.h"
 
 class Tache;

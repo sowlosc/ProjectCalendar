@@ -2,12 +2,7 @@
 #define PROJETMANAGER_H
 
 #include "projet.h"
-//#include "mainwindow.h"
 #include "observateur.h"
-#include <set>
-#include <map>
-#include <QString>
-#include <QDate>
 #include "exception.h"
 #include "enregistrable.h"
 
