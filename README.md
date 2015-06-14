@@ -1,4 +1,4 @@
 # ProjectCalendar
 
 
-Outils servant à la fois de calendrier et des gestionnaire de projet
+Outils servant à la fois de calendrier et de gestionnaire de projet
